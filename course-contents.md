@@ -38,7 +38,7 @@
    - Reading data from existing sources
    - Creating data
    - Viewing data
-   - Basic knowledge about dataset (data types)
+   - Basic knowledge about dataset (overall stats, data types)
 
 2.2. Data Cleaning **(Stu)**
    - Dealing with missing (e.g. NA) data 
