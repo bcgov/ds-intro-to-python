@@ -28,16 +28,16 @@
 
 *Goals:*
 1.	Participants can read data into pandas dataframes from standard sources (csv, excel)
-2.	Participants can remove/replace NA data
-3.	Participants can summarize a dataset at a variety of levels of aggregation
-4.	Participants can describe the difference in different styles of augmenting datasets (left/inner joins, concatentations, etc) 
+2.	Particpants can view a dataset and provide basic information about it 
+3.	Participants can remove/replace NA data
 
 *Content:*
 1. Getting data **(Lindsay)**
-   - Using numpy and pandas 
+   - Using pandas 
    - Reading data from existing sources
    - Creating data
    - Viewing data
+   - Basic knowledge about dataset (overall stats, data types)
 
 2. Data Cleaning **(Stu)**
    - Dealing with missing (e.g. NA) data 
@@ -48,20 +48,22 @@
 ## Part 3: Understanding and Analyzing Data
 *Goals:*
 1.	Participants can explore data in their datasets to enable understanding contents.
-2.	Participants can produce report summary and statistics (and statistical tests) for different types of data
-3.	Participants can produce charts to display statistics, including bar, line, scatter
+2.	Participants can summarize a dataset at a variety of levels of aggregation
+3.	Participants can describe the difference in different styles of augmenting datasets (left/inner joins, concatentations, etc) 
+4.	Participants can produce report summary and statistics (and statistical tests) for different types of data
+5.	Participants can produce charts to display statistics, including bar, line, scatter
 
 *Content:*
 
 1. Exploring data structures **(Stu)**
     -	Same stuff they cover in the dplyr section of the R course:
-    - Data overview (df.info / df.describe)
     - Selecting columns
     - Filtering
     - Grouping/summarizing -> .agg
     - Counts -> value_counts
     - Mutating (assign)
     - ‘Piping’ into a single go to avoid temporary dataframes
+    - Joins 
 
 2. Summary stats / Statistical tests 
 
