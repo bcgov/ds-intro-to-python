@@ -53,7 +53,7 @@
 
 *Content:*
 
-1. Exploring data structures 
+1. Exploring data structures **(Stu)**
     -	Same stuff they cover in the dplyr section of the R course:
     - Data overview (df.info / df.describe)
     - Selecting columns
