@@ -24,7 +24,7 @@
    - Variables, datatypes, lists, dicts, tuples etc. 
    - Methods/functions and how they work with data
 
-## Part 2: Gettingand Cleaning Data
+## Part 2: Getting and Cleaning Data
 
 *Goals:*
 1.	Participants can read data into pandas dataframes from standard sources (csv, excel)
