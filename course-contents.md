@@ -65,7 +65,7 @@
     - ‘Piping’ into a single go to avoid temporary dataframes
     - Joins 
 
-2. Summary stats / Statistical tests 
+2. Summary stats / Statistical tests **(Lindsay)**
 
 3. Graphical depictions of data **(Stu)**
    -	e.g. Matplotlib and/or Seaborn 
@@ -80,7 +80,7 @@
 
 *Content:*
 
-1. Publishing/Reporting 
+1. Publishing/Reporting **(Lindsay)**
 
 2. Fetching data from bcdata **(Lindsay)**
 
