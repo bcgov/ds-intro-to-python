@@ -7,20 +7,20 @@
 3.	Participants can produce code for simple python tasks: math, looping, functions, logical statements 
 
 *Content:*
-1. Introduction - What is Python and Why it Matters **(TBD)**
+1.1. Introduction - What is Python and Why it Matters **(TBD)**
 
-2. How to Python – Anaconda, Conda, Jupyter, IDEs **(Lindsay)**
+1.2. How to Python – Anaconda, Conda, Jupyter, IDEs **(Lindsay)**
      - Installing Python/Jupyter etc. 
      -	Make this ideally pre-work so they will have at least attempted to install the basics onto their computer before the workshop
      -	Overview of working within given workspace (will choose either VSCode or PyCharm)
 
-3. Python Fundamentals **(Stu)**
+1.3. Python Fundamentals **(Stu)**
    -	Writing code
    -	Python syntax and practice
    -	Troubleshooting and help
    -	Documenting/organizing work
    
-4. Core data structure concepts **(Lindsay)**
+1.4. Core data structure concepts **(Lindsay)**
    - Variables, datatypes, lists, dicts, tuples etc. 
    - Methods/functions and how they work with data
 
@@ -32,14 +32,14 @@
 3.	Participants can remove/replace NA data
 
 *Content:*
-1. Getting data **(Lindsay)**
+2.1. Getting data **(Lindsay)**
    - Using pandas 
    - Reading data from existing sources
    - Creating data
    - Viewing data
    - Basic knowledge about dataset (overall stats, data types)
 
-2. Data Cleaning **(Stu)**
+2.2. Data Cleaning **(Stu)**
    - Dealing with missing (e.g. NA) data 
    - Changing data types
    - Changing values
@@ -55,7 +55,7 @@
 
 *Content:*
 
-1. Exploring data structures **(Stu)**
+3.1. Exploring data structures **(Stu)**
     -	Same stuff they cover in the dplyr section of the R course:
     - Selecting columns
     - Filtering
@@ -65,9 +65,9 @@
     - ‘Piping’ into a single go to avoid temporary dataframes
     - Joins 
 
-2. Summary stats / Statistical tests **(Lindsay)**
+3.2. Summary stats / Statistical tests **(Lindsay)**
 
-3. Graphical depictions of data **(Stu)**
+3.3. Graphical depictions of data **(Stu)**
    -	e.g. Matplotlib and/or Seaborn 
 
 
@@ -80,10 +80,10 @@
 
 *Content:*
 
-1. Publishing/Reporting **(Lindsay)**
+4.1. Publishing/Reporting **(Lindsay)**
 
-2. Fetching data from bcdata **(Lindsay)**
+4.2. Fetching data from bcdata **(Lindsay)**
 
-3. Machine Learning use cases – Scikit-learn **(Stu)**
+4.3. Machine Learning use cases – Scikit-learn **(Stu)**
 
 
