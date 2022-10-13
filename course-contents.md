@@ -57,12 +57,13 @@
 *Content:*
 
 3.1. Exploring data structures with pandas **(Stu)**
-    - Selecting rows and columns
-    - Grouping rows and columns
-    - Sorting data
-    - Creating columns (transform)
-    - Joining datasets
-    - Descriptive stats methods (e.g. value_counts, sum(), agg(), etc.)
+
+   - Selecting rows and columns
+   - Grouping rows and columns
+   - Sorting data
+   - Creating columns (transform)
+   - Joining datasets
+   - Descriptive stats methods (e.g. value_counts, sum(), agg(), etc.)
 
 3.2. Graphical depictions of data (Visualizations) **(TBD)**
    -	Distributions (e.g. line and bar histograms)
