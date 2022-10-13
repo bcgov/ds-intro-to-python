@@ -55,6 +55,7 @@
 5.	Participants can produce charts to display statistics, including bar, line, scatter
 
 *Content:*
+
 3.1. Exploring data structures with pandas **(Stu)**
     - Selecting rows and columns
     - Grouping rows and columns
