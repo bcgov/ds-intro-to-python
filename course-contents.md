@@ -7,12 +7,13 @@
 3.	Participants can produce code for simple python tasks: math, looping, functions, logical statements 
 
 *Content:*
+
 1.1. Introduction - What is Python and Why it Matters **(TBD)**
 
 1.2. How to Python – Anaconda, Conda, Jupyter, IDEs **(Lindsay)**
-     - Installing Python/Jupyter etc. 
-     -	Make this ideally pre-work so they will have at least attempted to install the basics onto their computer before the workshop
-     -	Overview of working within given workspace (will choose either VSCode or PyCharm)
+   - Installing Python/Jupyter etc. 
+   - Make this ideally pre-work so they will have at least attempted to install the basics onto their computer before the workshop
+   - Overview of working within given workspace (will choose either VSCode or PyCharm)
 
 1.3. Python Fundamentals **(Stu)**
    -	Writing code
@@ -28,7 +29,7 @@
 
 *Goals:*
 1.	Participants can read data into pandas dataframes from standard sources (csv, excel)
-2.	Particpants can view a dataset and provide basic information about it 
+2.	Participants can view a dataset and provide basic information about it 
 3.	Participants can remove/replace NA data
 
 *Content:*
@@ -54,21 +55,18 @@
 5.	Participants can produce charts to display statistics, including bar, line, scatter
 
 *Content:*
+3.1. Exploring data structures with pandas **(Stu)**
+    - Selecting rows and columns
+    - Grouping rows and columns
+    - Sorting data
+    - Creating columns (transform)
+    - Joining datasets
+    - Descriptive stats methods (e.g. value_counts, sum(), agg(), etc.)
 
-3.1. Exploring data structures **(Stu)**
-    -	Same stuff they cover in the dplyr section of the R course:
-    - Selecting columns
-    - Filtering
-    - Grouping/summarizing -> .agg
-    - Counts -> value_counts
-    - Mutating (assign)
-    - ‘Piping’ into a single go to avoid temporary dataframes
-    - Joins 
-
-3.2. Summary stats / Statistical tests **(Lindsay)**
-
-3.3. Graphical depictions of data **(Stu)**
-   -	e.g. Matplotlib and/or Seaborn 
+3.2. Graphical depictions of data (Visualizations) **(TBD)**
+   -	Distributions (e.g. line and bar histograms)
+   -	Comparisons (e.g. barcharts and line charts)
+   -	Relationships (e.g. Scatter and bubble plots)
 
 
 ## Part 4: Other Topics
