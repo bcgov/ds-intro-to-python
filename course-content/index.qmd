@@ -1,0 +1,14 @@
+# Preface {.unnumbered}
+
+This is a Quarto book.
+
+To learn more about Quarto books visit <https://quarto.org/docs/books>.
+
+![The Messy Side of Data](images/introduction-to-python/reproducible.jpeg){width=300}
+
+<center>
+    <img src="images/introduction-to-python/reproducible.jpeg" height=300 style="margin:auto"/>
+    <p style="text-align: center">
+        The Messy Side of Data
+    </p>
+</center>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Lindsay Forestell">
+
+<title>Introduction to Data Science using Python - 1&nbsp; Introduction to Python</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./00_introduction_to_python.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introduction to Data Science using Python</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction-to-python.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="toc-section-number">1.1</span>  Motivation</a></li>
+  <li><a href="#before-starting-the-workshop" id="toc-before-starting-the-workshop" class="nav-link" data-scroll-target="#before-starting-the-workshop"><span class="toc-section-number">1.2</span>  BEFORE STARTING THE WORKSHOP!!</a>
+  <ul class="collapse">
+  <li><a href="#install-our-python-tools" id="toc-install-our-python-tools" class="nav-link" data-scroll-target="#install-our-python-tools"><span class="toc-section-number">1.2.1</span>  Install our Python Tools</a></li>
+  <li><a href="#install-some-python-packages" id="toc-install-some-python-packages" class="nav-link" data-scroll-target="#install-some-python-packages"><span class="toc-section-number">1.2.2</span>  Install some Python Packages</a></li>
+  <li><a href="#setup-our-vscode-environment" id="toc-setup-our-vscode-environment" class="nav-link" data-scroll-target="#setup-our-vscode-environment"><span class="toc-section-number">1.2.3</span>  Setup our VSCode Environment</a></li>
+  </ul></li>
+  <li><a href="#introduction-to-python" id="toc-introduction-to-python" class="nav-link" data-scroll-target="#introduction-to-python"><span class="toc-section-number">1.3</span>  Introduction to Python</a>
+  <ul class="collapse">
+  <li><a href="#step-0" id="toc-step-0" class="nav-link" data-scroll-target="#step-0"><span class="toc-section-number">1.3.1</span>  Step 0</a></li>
+  <li><a href="#from-the-command-lineterminal" id="toc-from-the-command-lineterminal" class="nav-link" data-scroll-target="#from-the-command-lineterminal"><span class="toc-section-number">1.3.2</span>  From the command line/terminal</a></li>
+  <li><a href="#from-a-file-in-vscode" id="toc-from-a-file-in-vscode" class="nav-link" data-scroll-target="#from-a-file-in-vscode"><span class="toc-section-number">1.3.3</span>  From a file (in VSCode)</a></li>
+  <li><a href="#from-a-notebook" id="toc-from-a-notebook" class="nav-link" data-scroll-target="#from-a-notebook"><span class="toc-section-number">1.3.4</span>  From a notebook</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Lindsay Forestell </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="motivation" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">1.1</span> Motivation</h2>
+<p>Data has become interwined with the inner workings of nearly every facet of working within the BC Public Service. Whether you have to read an excel spreadsheet, prepare a report based on a survey, comb through csv files to find a specific data source, it is likely that you have worked with a dataset at some point in your career. However, the process of looking at and dealing with data can be messy, error-prone and hard to duplicate. Questions such as <em>‘wait, how did I get that number again?’</em> are all too common.</p>
+<center>
+<img src="images/introduction-to-python/reproducible.jpeg" height="300" style="margin:auto">
+<p style="text-align: center">
+The Messy Side of Data
+</p>
+</center>
+<p>These lessons will teach you how to interact with data in a systematic way using the python ecosystem. By accessing and interpreting data through a set of prescribed methods (developed through the code written), our work with data becomes more accessible, repeatable, and ultimately insightful.</p>
+<p>During the course of these lessons, we hope to cover:</p>
+<ul>
+<li>Python preliminaries</li>
+<li>Exploring and cleaning raw data</li>
+<li>Using statistical methods</li>
+<li>Plotting results graphically</li>
+</ul>
+<p>If we have time, we may touch on some more advanced python lessons, such as:</p>
+<ul>
+<li>Publishing reports</li>
+<li>Accessing the <a href="https://catalogue.data.gov.bc.ca/">B.C. Data Catalog</a></li>
+<li>Machine learning in python</li>
+</ul>
+</section>
+<section id="before-starting-the-workshop" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="before-starting-the-workshop"><span class="header-section-number">1.2</span> BEFORE STARTING THE WORKSHOP!!</h2>
+<p>So that we can hit the ground running with this workshop, we are asking that everyone get some basic python tools downloaded and installed <strong>before</strong> the workshop starts. Tools that we will use include Anaconda (or Miniconda) as well as VSCode. A basic knowledge of the command line/powershell interface will be useful as well, but we will try to keep our use of this to a minimum.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are having issues installing anything we have requested prior to the start of the workshop, please let us know so we can work with you so that we can hit the ground running!</p>
+</div>
+</div>
+<ul>
+<li>Anaconda/Miniconda is used to download, install, and organize both python and any packages/libraries we use within python. The actual program doing the organizing is <code>conda</code>, while we will use an <code>anaconda powershell</code> to do the installs and interface with python.</li>
+<li>VSCode is a tool used to write, edit and test code. It is available for more languages than just python, and its versatility has made it a widespread tool within the BCPS.</li>
+</ul>
+<section id="install-our-python-tools" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="install-our-python-tools"><span class="header-section-number">1.2.1</span> Install our Python Tools</h3>
+<p><strong>If you do not have administrative rights on your computer:</strong></p>
+<p>Download Anaconda and VSCode from the B.C. Government Software Centre:</p>
+<ul>
+<li>Install Anaconda (Anaconda3X64 2022.05 Gen P0)</li>
+<li>Install VSCode (VSCodeX64 1.55.2 Gen P0)</li>
+</ul>
+<p><strong>If you do have administrative rights on your computer:</strong></p>
+<ul>
+<li>If you have administrative rights on your computer, we suggest downloading the lightweight version of Anaconda called Miniconda.
+<ul>
+<li><a href="https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/windows.html">Link to instructions here!</a></li>
+</ul></li>
+<li><a href="https://code.visualstudio.com/download">Find the latest version of VSCode here.</a></li>
+</ul>
+</section>
+<section id="install-some-python-packages" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="install-some-python-packages"><span class="header-section-number">1.2.2</span> Install some Python Packages</h3>
+<p>Most of the time, when using python we are not using it by itself, but in conjunction with powerful libraries that have already been built to make our data analysis easier. In order to use these tools, we have to install them as well. Using a package manager such as <code>conda</code> makes our life much easier, as we can safely install tools into local environments where every library installed is checked for compatability with every other library. By utilizing the local conda environments, we maintain clean working spaces that can be easily reproduced between workstations.</p>
+<p>Let’s run through the basic steps of setting up a conda environment, installing python and some packages, and testing that it worked!</p>
+<ol type="1">
+<li>Open an <code>anaconda powershell prompt</code> from your search bar.</li>
+</ol>
+<center>
+<img src="images/introduction-to-python/anaconda_powershell_prompt.png" style="margin:auto">
+<p style="text-align: center">
+Powershell Prompt
+</p>
+</center>
+<ol start="2" type="1">
+<li>Inside the <code>anaconda powershell prompt</code>, create a new local conda environment named <code>ds-env</code> using the following commands (hit <kbd>Enter</kbd> or type <kbd>y</kbd> and hit <kbd>Enter</kbd> when asked to proceed):</li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Anaconda Powershell Prompt</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" color="purple"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="ex">create</span> <span class="at">--name</span> ds-env</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="ex">activate</span> ds-env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<center>
+<img src="images/introduction-to-python/create_env.png" width="700" style="margin:auto">
+<p style="text-align: center">
+Creating a Conda Environment
+</p>
+<br>
+</center>
+<p>You should notice that running this second command switches the name in brackets at the beginning of your prompt from <code>(base)</code> to <code>(ds-env)</code>. This means we have successfully created a new, empty environment to work in.</p>
+<ol start="3" type="1">
+<li><p>Install <code>python</code> and some useful datascience packages by typing the following commands into the same powershell prompt window:</p>
+<ul>
+<li><code>conda install python=3.9</code></li>
+<li><code>conda install notebook jupyterlab ipywidgets matplotlib seaborn numpy scikit-learn pandas openpyxl</code></li>
+</ul></li>
+<li><p>Make sure that <code>python</code> installed successfully. From the same <code>anaconda powershell prompt</code>, simply type <code>python</code>. If this causes no error, success! Try typing this command in the python environment that started to make sure the packages installed as well:</p>
+<ul>
+<li><code>import pandas</code></li>
+<li><code>pandas.__version__</code></li>
+</ul></li>
+</ol>
+<center>
+<img src="images/introduction-to-python/check_python.png" width="700" style="margin:auto">
+<p style="text-align: center">
+Testing the python installation
+</p>
+<br>
+</center>
+<p>If this all works with no errors, python was successfully installed.</p>
+</section>
+<section id="setup-our-vscode-environment" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="setup-our-vscode-environment"><span class="header-section-number">1.2.3</span> Setup our VSCode Environment</h3>
+<p>Still with me? Great. Here’s a cute otter as congratulations for making it this far.</p>
+<center>
+<img src="images/introduction-to-python/cute_otter.jpg" height="350" style="margin:auto">
+<p style="text-align: center">
+The cutest.
+</p>
+<br>
+</center>
+<p>We have just a few more steps to go.</p>
+<ol type="1">
+<li>Open the VSCode program.</li>
+<li>On the left toolbar, find the <code>extensions</code> tab (It looks like 4 squares). Search for the <code>python</code> extension and install this extension.</li>
+<li>For those using Windows computers, change your default terminal to the <code>command prompt</code>:
+<ul>
+<li>From anywhere inside VSCode, hit <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. This will open up the command pallette.</li>
+<li>Start typing <code>Terminal: Select Default Profile</code> until this option pops up.</li>
+<li>Choose this option, and then click on <code>Command Prompt</code></li>
+</ul></li>
+</ol>
+<p>That’s it. We are ready to go!</p>
+</section>
+</section>
+<section id="introduction-to-python" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="introduction-to-python"><span class="header-section-number">1.3</span> Introduction to Python</h2>
+<p>i.e.&nbsp;the <em>how many different ways can we print <strong>Hello World!</strong> to our screen?</em> section</p>
+<center>
+<img src="images/introduction-to-python/helloworld.png" height="350" style="margin:auto">
+<p style="text-align: center">
+Hello World!
+</p>
+<br>
+</center>
+<p>There are many different ways in which we can interact with python. These include:</p>
+<ul>
+<li>From the command line</li>
+<li>Inside a jupyter notebook</li>
+<li>From a file (inside VSCode)</li>
+</ul>
+<p>In this next section, we are going to have a brief introduction to all of these methods of interaction.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip: Using the command line
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It’s worth pointing out that the methods that we will focus on in this course will rely on using VSCode and all of its inner workings. However, if you are comfortable with the command line, we can also access any of these methods directly from there as well, you just need to be able to move to directories before typing commands. If you use the command line, I recommend using an anaconda powershell prompt, as this allows for the easiest use and access to conda commands and only the smallest of headaches.</p>
+</div>
+</div>
+<section id="step-0" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="step-0"><span class="header-section-number">1.3.1</span> Step 0</h3>
+<p>In all cases, we will want to have a folder from which we wish to work out of. Take some time to set up a folder somewhere you won’t lose it. For me, I’ve simply made a folder called <code>Intro to Python</code> on my C: drive that will hold any course materials we use/create here.</p>
+<p>Next, to make any interactions with python, we will want to open VSCode and work from here. When we first open VSCode, you should be prompted to open a folder. We are going to work out of that <code>Intro to Python</code> folder, so open it here. After doing this, we should now have a VSCode screen open that will look something like this:</p>
+<center>
+<img src="images/introduction-to-python/vscode.png" width="700" style="margin:auto">
+<p style="text-align: center">
+VS Code
+</p>
+<br>
+</center>
+<p>We have 3 main areas that we can utilize:</p>
+<ul>
+<li>To the left (area A): is the current folder and subfolder directory list. We can make new files directly from here.</li>
+<li>To the right (area B): this is where files we are working on will live. For some file types, preview windows will be available as well.</li>
+<li>To the bottom (area C): this is where we can open and run commands from the command line (or terminal).</li>
+</ul>
+<p>Now remember, we set up a special environment that contains python and our data science packages. We want to make sure we are always using this environment, so in the open terminal, re-type <code>conda activate ds-env</code> and this terminal will now be open in this environment.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip: Conda Environments
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Although it does add an extra level of set-up whenever we start a python project, having these conda environments ends up being incredibly important for not only reproducibility, but making sure that packages work well together. When in doubt as to if you are using the correct environment, double check that the terminal you are using has (ds-env) in brackets at the start of a line. When building python files directly in VSCode, there is another step we can take to make sure that the correct environment is being used, but we will get to that later…</p>
+</div>
+</div>
+</section>
+<section id="from-the-command-lineterminal" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="from-the-command-lineterminal"><span class="header-section-number">1.3.2</span> From the command line/terminal</h3>
+<p>Let’s start with an easy one. To start a python session from a terminal, simply type <code>python</code> at the command line, and the terminal will automatically open a python interface. You will know you are inside the python interface if your command lines now start with <code>&gt;&gt;&gt;</code>. Now, let’s do the classic <code>Hello World</code> command for python:</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello World!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello World!</code></pre>
+</div>
+</div>
+<p>To exit the python interface and return to the regular terminal, you can type <code>exit()</code> and return to the terminal.</p>
+</section>
+<section id="from-a-file-in-vscode" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="from-a-file-in-vscode"><span class="header-section-number">1.3.3</span> From a file (in VSCode)</h3>
+<ul>
+<li>run entire file, run single lines</li>
+</ul>
+<p>Next up, let’s run an entire python file to tell us hello.</p>
+</section>
+<section id="from-a-notebook" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="from-a-notebook"><span class="header-section-number">1.3.4</span> From a notebook</h3>
+<ul>
+<li>how to open, show you can run the notebooks in vscode too</li>
+<li>do last and explain that we will be using notebooks throughout the course for the most part</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./00_introduction_to_python.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to Python</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
