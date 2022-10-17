@@ -209,8 +209,6 @@ To exit the python interface and return to the regular terminal, you can type `e
 
 ### From a file (in VSCode)
 
-- run entire file, run single lines 
-
 Next up, let's run an entire python file to tell us hello. Inside our directory, create a new file called `hello_world.py`. Note that `.py` extension - this signifies that the content inside will be python code. Inside this file, let's have two lines of code:
 
 ```{.python filename='hello_world.py'}
