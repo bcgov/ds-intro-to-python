@@ -1,0 +1,32 @@
+project:
+  type: book
+
+book:
+  title: "Introduction to Data Science using Python"
+  author: 
+    - "Lindsay Forestell" 
+    - "Stuart Hemerling"
+  date: "2022-10-12"
+  chapters:
+    - index.qmd
+    - 00_introduction_to_python.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+toc: true
+number-sections: true
+number-depth: 2
+toc-depth: 4
+
+code-fold: false
+code-overflow: scroll
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+
