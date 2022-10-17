@@ -1,0 +1,12 @@
+---
+title: "Core Data Structure and Python Concepts"
+teaching: 45
+exercises: 10
+questions:
+- "Fill this in!"
+objectives:
+- "Fill this in too!"
+keypoints:
+- "Same verse!"
+---
+
