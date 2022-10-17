@@ -194,7 +194,7 @@ Now remember, we set up a special environment that contains python and our data 
 :::{.callout-note}
 ## Conda Environments
 
-Although it does add an extra level of set-up whenever we start a python project, having these conda environments ends up being incredibly important for not only reproducibility, but making sure that packages work well together. When in doubt as to if you are using the correct environment, double check that the terminal you are using has `(ds-env)` in brackets at the start of a line. When building python files directly in VSCode, there is another step we can take to make sure that the correct environment is being used, but we will get to that later...
+Although it does add an extra level of set-up whenever we start a python project, having these conda environments ends up being incredibly important for not only reproducibility, but making sure that packages work well together. When in doubt as to if you are using the correct environment, double check that the terminal you are using has `(ds-env)` in brackets at the start of a line. 
 :::
 
 ### From the command line/terminal
