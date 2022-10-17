@@ -1,0 +1,69 @@
+
+---
+title: "Exploring Data Structures"
+author: Stuart Hemerling
+format: 
+  html:
+    code-fold: true
+jupyter: python3
+enabled: true
+---
+
+
+## Introduction
+
+Looking at the data you are given is pretty basic stuff. But to generate actual insights, you are going to need to be exploring the data, diving into it.  In the world of python, this usually means working with a library or package you have already been introduced to called pandas. 
+
+After this tutorial, you should be able to:
+  - understand and use some basic tools to manipulate dataframes
+  - understand and use tools to create a subset of data based on logical filtering
+  - reinforce your knowledge of use of summarizing methods with the data
+
+Manipulation of data is a key component of data analysis. In the python world, the pandas library is used extensively to select rows and columns of dataframes, to group and sort data, and of course to summarize.
+
+
+
+## Let's get going!!
+
+First things first. Let's get some data to look at. Fortunately this data is nice and clean and complete and ready to be explored! It is historical data that shows population figures for countries around the world
+
+```{python}
+#| output: false    import pandas as pd
+URL = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/gapfinder.csv"
+df = pd.read_csv(URL)
+```
+
+As a first step when you are looking at data, it is a good idea to get a quick overview. There are some good summarizing methods like .describe() and .info().  Let's take a peek with these:
+
+```{python}
+df.info()
+df.describe()
+```
+
+But we are curious and have some questions that these data can answer. Such as .... fortunately there are a number of basic functions that pandas offers. Here are a couple of the most basic ones:
+
+ - filter() #used to select columns
+ - query() #used to select rows
+
+
+
+
+
+
+
+
+#### Challenge 1
+> Select just columns that will show us what year the data are from and for just the countries from Oceana..
+>
+> <details>
+>
+> <summary>
+> Solution to Challenge 1
+> </summary>
+> <br>
+> On either the tab to the top, or the filename that popped up on the left panel, right click the file `Untitled.ipynb` and click `Rename notebook...`. Enter your new name here. 
+>
+> <br>
+> </details>
+
+
