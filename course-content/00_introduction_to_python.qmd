@@ -78,7 +78,7 @@ Let's run through the basic steps of setting up a conda environment, installing 
     </p>
 </center>
 
-2. Inside the `anaconda powershell prompt`, create a new local conda environment named `ds-env` using the following commands (hit <kbd>Enter</kbd> or type <kbd>y</kbd> and hit <kbd>Enter</kbd> when asked to proceed):
+2. Inside the `anaconda powershell prompt`, create a new local conda environment named `ds-env` using the following commands (hit <kbd>Enter</kbd> or type <kbd>Y</kbd> and hit <kbd>Enter</kbd> when asked to proceed):
 
 ```{.bash filename='Anaconda Powershell Prompt'}
 > conda create --name ds-env
