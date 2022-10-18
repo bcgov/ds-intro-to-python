@@ -63,7 +63,6 @@
    - Sorting data
    - Creating columns (transform)
    - Joining datasets
-   - Descriptive stats methods (e.g. value_counts, sum(), agg(), etc.)
 
 3.2. Graphical depictions of data (Visualizations) **(TBD)**
    -	Distributions (e.g. line and bar histograms)
