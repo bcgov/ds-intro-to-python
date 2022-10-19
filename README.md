@@ -26,3 +26,10 @@ xmlns:dct="http://purl.org/dc/terms/" property="dct:title">ds-intro-to-python</s
 xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">the Province of British Columbia
 </span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
 Creative Commons Attribution 4.0 International License</a>.
+
+```
+Original Work Copyright © Software Carpentry, content modified by the Province of British Columbia.
+
+This work is licensed under the Creative Commons Attribution 4.0 International License.
+To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+```
