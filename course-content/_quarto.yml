@@ -10,6 +10,7 @@ book:
   chapters:
     - index.qmd
     - 00_introduction_to_python.qmd
+    - 02_core_data_structure_concepts.qmd
     - references.qmd
 
 bibliography: references.bib

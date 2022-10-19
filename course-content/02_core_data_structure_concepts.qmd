@@ -1,5 +1,5 @@
 ---
-title: "Core Data Structure and Python Concepts"
+title: "Core Concepts"
 teaching: 45
 exercises: 10
 questions:
@@ -10,3 +10,700 @@ keypoints:
 - "Same verse!"
 ---
 
+In order to effectively use Python to interact with various datasets, we need to build out our fundamental knowledge about how Python works. 
+
+<center>
+    <img src="images/core-concepts/toolkit-wide.jpg" width=450 style="margin:auto"/>
+    <p style="text-align: center">
+        Adding tools to our Python toolkit
+    </p>
+</center>
+
+## Variables & Assignment
+
+We can assign values to **variables** in Python that we can use over and over. Variables are always assigned using the format:
+
+```{python}
+variable_name = 'variable_value'
+first_name = 'Loki'
+age = 1054
+```
+
+Where the name of the variable is always to the left, and whatever value we wish to assign being on the right of `=`. 
+
+Some rules regarding naming variables:
+
+ * Names may only contain letters, digits, and underscores
+ * Are case sensitive
+ * Must not start with a digit
+    * Typically, variables starting with `_` or `__` have special meaning, so we will try to stick to starting variables with letters only 
+
+To display the value we have previously assigned to a variable, we can use the `print` function:
+
+```{python}
+print(first_name, 'is', age, 'Earth years old.')
+```
+
+
+:::{.callout-warning icon="false"}
+## Challenge 1
+
+In the next cell, run the following command:
+```python
+print(last_name)
+```
+
+What happens? Why? How can we fix it?
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 1
+
+Variables cannot be referenced before they are assigned, so we will run into an error:
+
+```{python}
+#| error: true
+print(last_name)
+```
+
+To fix this, we simply need to create another cell that assigns this variable, then we can go back and run the `print` command. 
+
+```{python}
+last_name = 'Odinson'
+```
+
+```{python}
+print(last_name)
+```
+:::
+
+
+:::{.callout-warning icon="false"}
+## Challenge 2
+
+Fill the table below showing the values of the variables in this program *after* each statement is executed. 
+
+|Command    |Value of x   | Value of y   | Value of swap |
+|---|---|---|---|
+|x = 1.0    |             |                             
+|y = 3.0    |             |                              
+|swap = x   |             |                             
+|x = y      |             |                              
+|y = swap   |             |                              
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 2
+
+|Command    |Value of x   | Value of y   | Value of swap |
+|---|---|---|---|
+|x = 1.0    | 1.0         | not defined  | not defined |                                         
+|y = 3.0    | 1.0         | 3.0          | not defined |                                         
+|swap = x   | 1.0         | 3.0          | 1.0         |                                         
+|x = y      | 3.0         | 3.0          | 1.0         |                                          
+|y = swap   | 3.0         | 1.0          | 1.0         |              
+:::
+
+:::{.callout-tip}
+## Jupyter Notebooks: Order of Execution
+
+If you noticed in the last challenge, you could go back to a previous cell *above* where you assigned a variable, and the `print` command would work. This is because, in a Jupyter notebook, it is the order of *execution* of cells that is important, not the order in which they appear. Python will remember *all* the code that was run previously, including any variables you have defined, irrespective of cell order.
+
+After a long day of work and to prevent confusion, it can be helpful to use the `Kernel` &rarr; `Restart & Run All` option which clears the interpreter and runs everything from a clean slate going top to bottom.
+:::
+
+## Lists & Indexing
+
+<center>
+    <img src="images/core-concepts/zero_index.png" height=300 style="margin:auto"/>
+    <p style="text-align: center">
+        Sorry not sorry R
+    </p>
+</center>
+
+An important aspect of Pythonic programming is the use of indicies to allow us to slice and dice our datasets. We will learn a bit more about indexing here through the introduction of `lists`. A list is an ordered list of items in Python, where the items can take on any datatype (even another list!). We create a list by putting values inside square brackets and separate items with commas: 
+
+```{python}
+my_list = [1, 'two', 3.0, True]
+print(my_list)
+```
+
+To access the elements of a list we use indices, the numbered positions of elements in the list. These positions are numbered starting at 0, so the first element has an index of 0. Python has made it easy to count backwards as well: the last index can be accessed using index `-1`, the second last with `-2` and so on. 
+
+:::{.callout-tip}
+## 0-Based Indexing!
+
+If you have used other coding languages, such as R, you may notice that different programming languages start counting from different numbers. In R, you start your indexing from 1, but in Python it is 0. It's important to keep this in mind!
+:::
+
+```{python}
+print('First element:', my_list[0])
+print('Last element:', my_list[-1])
+print('Second last element:', my_list[2])
+print('Also second last element:', my_list[-2])
+```
+
+Strings also have indices, pointing to the character in each string. These work in the same way as lists. 
+```{python}
+print(first_name)
+print(first_name[0])
+```
+
+However, there is one important difference between lists and strings: we can change values in a list, but we cannot change individual characters in a string. For example:
+```{python}
+print(my_list)
+my_list[0] = 'changing the first element!'
+print(my_list)
+```
+
+will work. However:
+
+```{python}
+#| error: true
+print(first_name)
+first_name[0] = 'N'
+```
+
+Will throw an error. 
+
+:::{.callout-tip}
+## Mutable vs Immutable
+
+Data which can be modified in place is called mutable, while data which cannot be modified is called immutable. Strings and numbers are immutable. This does not mean that variables with string or number values are constants, but when we want to change the value of a string or number variable, we can only replace the old value with a completely new value.
+
+Lists and arrays, on the other hand, are mutable: we can modify them after they have been created. We can change individual elements, append new elements, or reorder the whole list. For some operations, like sorting, we can choose whether to use a function that modifies the data in-place or a function that returns a modified copy and leaves the original unchanged.
+
+Be careful when modifying data in-place. If two variables refer to the same list, and you modify the list value, it will change for both variables!
+:::
+
+We can use indicies for more than just accessing single elements from an ordered object such as a list or a string. We can also **slice** our dataset to give us different portions of the list. We do this using the slice notation `[start:stop]`, where `start` is the integer index of the first element we want and `stop` is the integer index of the element *just after* the last element we want. If either of `start` or `stop` is left out, it is assumed that you want to default with either starting from the beginning of the list or ending at the end. 
+
+```{python}
+number_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print('0:5  --> ', number_list[0:5])
+print('_:5  --> ', number_list[:5])
+print('3:7  --> ', number_list[3:5])
+print('3:_  --> ', number_list[3:])
+print('3:-1 --> ', number_list[3:-1])
+```
+
+We can also use a step-size to indicate how often we want to pick up an element of the list. By altering the slice notation to `[start:stop:step]` we will be telling the code to only include those elements at each step after start, ending at the final step that occurs just before running into stop. This allows us to reverse lists as well:
+
+```{python}
+print('All evens:', number_list[0::2])
+print('All odds: ', number_list[1::2])
+print('Just 1 and 4:', number_list[1:5:3])
+print('Reversed: ', number_list[-1::-1])
+```
+
+:::{.callout-warning icon="false"}
+## Challenge 3
+
+Given the following string:
+
+```{python}
+#| output: false
+full_name = 'Peregrin Fool of a Took Pippin'
+```
+
+What would these expressions return?
+
+1. `full_name[2:8]`
+2. `full_name[11:]` (without a value after the colon)
+3. `full_name[:4]` (without a value before the colon)
+4. `full_name[:]` (just a colon)
+5. `full_name[11:-3]`
+6. `full_name[-5:-3]`
+7. What happens when you choose a stop value which is out of range? (i.e., try `full_name[0:42]` or `full_name[:103]`)
+                          
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 3
+
+1. `'regrin '`
+2. `'ol of a Took Pippin'`
+3. `'Pere'`
+4. `'Peregrin Fool of a Took Pippin'`
+5. `'ol of a Took Pip'`
+6. `'ip'`
+7. If a part of the slice is out of range, the operation does not fail. `full_name[:]` gives the same result as `full_name[0:42]`, and the same result as `full_name[:103]`.
+:::
+
+## Data Types & Operations
+
+Every value in a program has a specific type. In this course, you will run across four basic types in Python:
+
+1. Integer (`int`): positive or negative whole numbers like 42 or 90210
+2. Floating point numbers (`float`): real fractional numbers like 3.14159 or -87.6
+3. Character strings (`str`): text written either in single or double quotes.
+4. Boolean (`bool`): the logical values of `True` and `False`
+
+If you are unsure what type anything is, we can use the built in function `type`. Note that this works on variables as well. 
+
+```{python}
+print(type(42))
+print(type(3.14))
+print(type('Otter'))
+print(type(True))
+```
+
+:::{.callout-tip}
+## Messy Numbers
+
+When you start to have really long integers, it starts to look really messy (how many thousands are in `1982137092` at a glance?) Luckily, Python allows us to use `_` inside our integers to space out our digits. Thus we could write that instead as `1_902_137_092`. Isn't that nicer!
+:::
+
+### Basic Arithmetic
+
+The type of a variable controls what operations can be performed on it. For example, we can subtract floats and ints, but we cannot subtract strings: 
+
+```{python}
+#| error: true
+print(42-12)
+print(3.14-15)
+print('hello' - 'h')
+```
+
+However, we can add strings together:
+```{python}
+my_sentence = 'Adding' + ' ' + 'strings' + ' ' + 'concatenates them.'
+print(my_sentence)
+```
+
+As well as multipling a string by an integer to get a repeated string:
+```{python}
+repeated_string = '=+'*10
+print(repeated_string)
+```
+
+As we saw above, we can mix and match both of the numerical types, however we will get an error if we try to mix a string with a number:
+
+```{python}
+#| error: true
+print(1 + '2')
+```
+
+In order to have a sensical operation, we need to convert variables to a common type before doing our operation. We can convert variables using the type name as a function.
+
+```{python}
+print(1 + int('2'))
+print(str(1) + '2')
+```
+
+:::{.callout-tip}
+## Int of a Float?
+
+Note that when converting floats to integers, it will *always* round down! That is, `int(3.6)` = `int(3.1)` = `3`!
+:::
+
+One last bit of math you might come across are the various types of division:
+
+ * `/` performs regular floating-point division
+ * `//` performs integer floor division
+ * `%` returns the remainder of integer division
+
+```{python}
+print('5 / 3 :', 5 / 3)
+print('5 // 3:', 5 // 3)
+print('5 % 3 :', 5 % 3)
+```
+
+### Built in Functions
+
+Python has multiple pre-built functions that come in handy. We have already made use of the `print()` command frequently, and learned how to use `type()` to tell us what type of data our variables are. Here are some other frequently used functions:
+
+ * `len()`  : Tells us the length of a list, string, or other ordered object. Does not work on numbers!
+ * `help()` : Gives help for other functions
+ * `min()`  : Gives the mininum value in a list of options.
+ * `max()`  : Gives the maximum value in a list of options.
+ * `round()`: Rounds a value to a given decimal length.
+
+Note that, similar to the arithmetic operations above, these built in functions must operate on logically consistent datatypes. We can find the min of 2 strings, or 4 numbers, but we cannot compare a string to a float. 
+
+Every function in python will take 0 or more *arguments* that are passed to a function. For example, `len()` takes exactly one argument, and returns the length of that argument:
+
+```{python}
+ print(len('this string is how long?'))
+```
+
+Some functions, such as `min()` and `max()` take a variable number of arguments:
+```{python}
+ print(min(1,2,3,4))
+ print(max('a', 'b', 'c'))
+```
+
+While others have default values that do not need to be provided at all. 
+
+:::{.callout-warning icon="false"}
+## Challenge 4
+
+Use the `help()` and `round()` functions to print out the value of 2.71828182845904523536 to 0 and 2 decimal places.                       
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 4
+
+The result of `help()` tells us that `round()` has a default option:
+
+```{python}
+help(round)
+```
+
+Thus, we can use the `round()` function with and without the default ndigits to get our answer:
+```{python}
+eulers_number = 2.71828182845904523536
+print(round(eulers_number))
+print(round(eulers_number, 2))
+```
+:::
+
+:::{.callout-tip}
+## Help in Jupyter Lab!
+
+In Jupyter notebooks, we can also get help by starting a line with `?`. For example, `?round` will display the help information about the `round()` function. 
+:::
+
+### A Quick Intro to Boolean Logic
+
+We can ask Python to take different actions, depending on a condition, with the `if` statement:
+
+```{python}
+num = 37
+if num > 100:
+    print('greater')
+else:
+    print('not greater')
+print('done')
+```
+
+The `if` keyword tells Python we want to make a choice. We then use `:` to end the conditional we would like to consider, and indentation to specify our `if` block of code that should execute if the condition is met. If the condition is not met, the body of the `else` block gets executed instead. 
+
+In either case, 'done' will always print as it is in neither indented block. 
+
+<center>
+    <img src="images/core-concepts/python-flowchart-conditional.png" height=300 style="margin:auto"/>
+    <p style="text-align: center">
+        Following a Logical Flow
+    </p>
+</center>
+
+Conditional statements do not need to include an `else` block. If there is no block and the condition is `False`, Python simply does nothing:
+```{python}
+num = 37
+if num > 100:
+    print('greater')
+print('done')
+```
+
+We can also chain several tests together using `elif`. Python will go through the code line by line, looking for a condition that is met. If no condition is met, it will execute the `else` block (or nothing if there is no `else`). 
+
+```{python}
+num = 45
+if num < 42:
+    print('This is not the answer.')
+elif num > 42:
+    print('This is also not the answer.')
+else:
+    print('This is the answer to life, the universe, and everything.')
+```
+
+There are multiple different comparisons we can make in Python:
+
+ * `>`: greater than
+ * `<`: less than
+ * `==`: equal to (note the double '=' here!)
+ * `!=`: does not equal
+ * `>=`: greater than or equal to
+ * `<=`: less than or equal to
+
+And these can be used in conjunction with each other using the special keywords `and`, `or`, and `not`. `and` will evaluate to `True` if both parts are `True`, while `or` will evaluate to `True` if either side is. `not` will evaluate the condition, and then return the opposite result. 
+
+```{python}
+condition_1 =  1 > 0  # True
+condition_2 = -1 > 0  # False
+
+print('Testing and: ')
+if condition_1 and condition_2:
+    print('both parts are true')
+else:
+    print('at least one part is false')
+
+print()
+print('Testing or: ')
+if condition_1 or condition_2:
+    print('at least one part is true')
+else:
+    print('both parts are false')
+
+print()
+print('Testing not: ')
+if not condition_1:
+    print('condition_1 was false')
+else:
+    print('condition_1 was true')
+```
+
+:::{.callout-tip}
+Multiple Conditions Cause Confusion
+
+Just like with arithmetic, you can and should use parentheses whenever there is possible ambiguity. A good general rule is to always use parentheses when mixing `and` and `or` in the same condition.
+:::
+
+:::{.callout-warning icon="false"}
+## Challenge 5
+
+What will be the output of the following block of code?
+
+```python
+num = 42 
+animal = 'otter'
+
+if num==42 and animal=='mouse':
+    print('Correct, that is the animal that found the answer')
+elif num==42 and animal!='mouse':
+    print('Almost, the number is correct but not the animal.')
+    animal = 'dolphin'
+elif num!=42 or animal=='mouse':
+    print('Almost, the animal is correct but not the number.')
+    num = 5
+elif (1>3) or (4>3):
+    print('This has nothing to do with it, we just needed an or statement')
+else:
+    print('Not even close, those pesky mice need to work harder.')
+    num = 19
+    animal = 'kangaroo'
+
+print('The end result is the number', number, 'and animal', animal)
+```
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 5
+```{python}
+#| echo: false
+num = 42 
+animal = 'otter'
+
+if num==42 and animal=='mouse':
+    print('Correct, that is the animal that found the answer')
+elif num==42 and animal!='mouse':
+    print('Almost, the number is correct but not the animal.')
+    animal = 'dolphin'
+elif num!=42 and animal=='mouse':
+    print('Almost, the animal is correct but not the number.')
+    num = 5
+elif (1>3) or (4>3):
+    print('This has nothing to do with it, we just needed an or statement')
+else:
+    print('Not even close, those pesky mice need to work harder.')
+    num = 19
+    animal = 'kangaroo'
+
+print('The end result is the number', num, 'and animal', animal)
+```
+:::
+
+## Methods & Chaining
+
+<center>
+    <img src="images/core-concepts/pokemon_class.jpg" height=250 style="margin:auto"/>
+    <p style="text-align: center">
+        Object Oriented Programming
+    </p>
+</center>
+
+So far we have seen built in functions that can be applied to a variety of different datatypes (as long as the datatype makes sense for that particular function). However, there are some functions that we apply specifically to a particular class of objects - we call these functions **methods**. Methods have parentheses, just like functions, but they come *after* the variable to denote that the method belongs to this particular object. 
+
+We have met classes already: all of our basic datatypes (strings, integers, floats, booleans) are different *classes* of objects in Python. An individual instance of a class is considered an object of that class. Understanding how to use methods will become useful when we reach the `pandas` portion of the course, which is our main tool when looking at, cleaning, and summarizing data. 
+
+Let's consider the `string` class. Here are a few common methods associated with it:
+
+ * `lower()`: coverts all characters in the string to lowercase
+ * `upper()`: converts all characters in the string to uppercase
+ * `index()`: returns the position of the first occurrence of a substring in a string
+ * `rjust()`: right aligns the string according to the width specified 
+ * `isnumeric()`: returns `True` if all characters are numeric
+ * `replace()`: replaces all occurrences of a substring with another substring
+
+:::{.callout-tip}
+## Getting Help For Methods
+
+You will notice that trying to find help on a method will not work if you only specify the method. Because these are not built in functions, and only belong to instances of a class, you need to specify the object together with the method to use help.
+
+For example, `help(lower)` will result in an error, whereas `help("any string".lower)` will give you the help you were looking for.
+:::
+
+Let's see some of these in action. You'll notice that when being used, methods don't always have an argument supplied to them. That is because the first argument is always the object is being applied to. If a method requires secondary arguments, these are subsequently included in the parentheses.
+
+<center>
+
+`object.method(a, b, c, ...)` &harr; `method(object, a, b, c, ...)`
+
+</center>
+
+```{python}
+my_string = 'Peter Piper Picked a Peck of Pickled Peppers'
+print(my_string.lower())
+print(my_string.isnumeric())
+```
+
+We can also chain methods together. Each subsequent method (reading from left to right) acts on the output of the previous method. Chaining can be done in a single line, or over multiple lines (which helps for readability). 
+
+```{python}
+print(my_string.upper().replace('P', 'M'))
+
+# Chaining over multiple lines can be done in 2 ways:
+# 1. Enclose the entire operation in brackets
+chain_1 = (my_string
+    .upper()
+    .replace('P', 'M')
+)
+
+# 2. Use the character "\" to denote an operation is continuing on the next line
+chain_2 = my_string \
+    .upper() \
+    .replace('P', 'M')
+
+print(chain_1)
+print(chain_2)
+```
+
+:::{.callout-warning icon="false"}
+## Challenge 6
+
+What happens if we try to run the block of code:
+```python
+print(my_string.isnumeric().upper())
+```
+
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 6
+
+We will get an error:
+```{python}
+#| error: true
+print(my_string.isnumeric().upper())
+```
+
+This is because the code is read from left to right. In this case, the output of `isnumeric()` is a boolean object, which does not have the method `upper()` anymore:
+
+```{python}
+print(my_string.isnumeric())
+print(type(my_string.isnumeric()))
+```
+:::
+
+
+:::{.callout-warning icon="false"}
+## Challenge 7
+
+A common data string you see across government are various personal IDs. One example is the *Personal Education Number* (PEN), which is a nine-digit number assigned to you when you enter the K-12 School System. Oftentimes when looking at such an ID, any leading zeros that are an actual part of the PEN get stripped away, leading to unevenly sized strings of IDs across the dataset. 
+
+Write a piece of code for PEN IDs that does the following:
+
+ * Checks to make sure that the ID is entirely numeric. If it is not, print out a warning that this is an invalid PEN.
+ * If the PEN is numeric, make sure that it is less than or equal to 9 digits long. If it is longer, print out a warning that this is an invalid PEN.
+ * If the PEN is too short, make sure to pad it with the appropriate number of 0's to the left. Print out the correct PEN. 
+
+Try your code out with the following PENs:
+```python
+pen_1 = '12345678x'
+pen_2 = '123456789'
+pen_3 = '1234567890'
+pen_4 = 123456789
+pen_5 = '123456'
+```
+
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 7
+
+```{python}
+pen_1 = '123456'
+
+# first! make sure we are looking at strings so we can use the string method!
+pen = str(pen_1)
+
+# first check for numerical:
+if not pen.isnumeric():
+    print('Warning! This PEN has non-numeric characters.')
+
+# second, check that it isn't too long
+elif len(pen)>9:
+    print('Warning! This PEN is longer than 9 digits.')
+
+# third: make sure that we pad it to the correct length
+else:
+    pen = pen.rjust(9, '0')
+    print('This PEN is valid:', pen)
+```
+:::
+
+
+## Accessing Other Packages
+
+<center>
+    <img src="images/core-concepts/python_import.png" height=400 style="margin:auto"/>
+    <p style="text-align: center">
+        Import Packages
+    </p>
+</center>
+
+Most of the power of Python lies in its ability to use libraries, or external packages that are not part of the base Python programming language. These libraries have been written and maintained by other members of the Python community, and will make data cleaning, manipulation, visualization and any other data project much simpler. Throughout this course we will use packages such as:
+
+ * `pandas`: this is the go-to package for all things data-table. 
+ * `matplotlib`: this is the most frequently used plotting package in Python
+ * `seaborn`: this is a plotting package built with pandas and data in mind 
+
+When we set up our Python environment, we already installed many of the packages we will need directly into the conda environment we produced. If you ever need another package, it is simple enough to install again using conda:
+
+```{.bash filename='Anaconda Powershell Prompt'}
+> conda activate ds-env
+> conda install <package>
+```
+
+:::{.callout-tip}
+## To Pip or not to Pip?
+
+If you are ever searching for a package you think will aid you in your work, you might come across the `pip` command. This is a different (yet related) method of installing packages. While it is possible to use `pip` in tandem with `conda` commands, it is recommended that you stick to only `conda` wherever possible. 
+
+As a rule of thumb, try to `conda install package` as a first try. If this does not work, search the website for the package for installation instructions. Sometimes it will recommend using a different `conda` channel (and will provide the code to do so). Sometimes, it is only possible to get the package from `pip`, in which case using `pip` inside the `conda` environment is the only way to go. Just use this as a last resort! 
+:::
+
+Okay great, we have all these awesome libraries that have been built out by others. How do we actually use them? In Python, it is actually fairly simple! 
+
+Option 1: Use `import` to load an entire library module into a program's memory. Refer to things from the module as `module_name.thing_name`
+
+```{python}
+ import math
+
+ print('pi is', math.pi)
+ print('cos(pi) is', math.cos(math.pi))
+```
+
+Option 2: If we only need a specific function or tool from the library, use `from module import thing`
+
+```{python}
+from math import cos, pi
+
+print('cos(pi) is', cos(pi))
+```
+
+Option 3: If we really do need the entire library, but we do not want to type the entire long name over and over, create an alias
+
+```{python}
+import math as m
+
+print('cos(pi) is', m.cos(m.pi))
+```
+
+Some common alias for common libraries include:
+
+ * `pandas` &rarr; `pd`
+ * `matplotlib.pyplot` &rarr; `plt`
+ * `seaborn` &rarr; `sns`
+ * `numpy` &rarr; `np`
