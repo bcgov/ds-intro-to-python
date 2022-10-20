@@ -7,20 +7,21 @@
 3.	Participants can produce code for simple python tasks: math, looping, functions, logical statements 
 
 *Content:*
-1. Introduction - What is Python and Why it Matters **(TBD)**
 
-2. How to Python – Anaconda, Conda, Jupyter, IDEs **(Lindsay)**
-     - Installing Python/Jupyter etc. 
-     -	Make this ideally pre-work so they will have at least attempted to install the basics onto their computer before the workshop
-     -	Overview of working within given workspace (will choose either VSCode or PyCharm)
+1.1. Introduction - What is Python and Why it Matters **(TBD)**
 
-3. Python Fundamentals **(Stu)**
+1.2. How to Python – Anaconda, Conda, Jupyter, IDEs **(Lindsay)**
+   - Installing Python/Jupyter etc. 
+   - Make this ideally pre-work so they will have at least attempted to install the basics onto their computer before the workshop
+   - Overview of working within given workspace (will choose either VSCode or PyCharm)
+
+1.3. Python Fundamentals **(Stu)**
    -	Writing code
    -	Python syntax and practice
    -	Troubleshooting and help
    -	Documenting/organizing work
    
-4. Core data structure concepts **(Lindsay)**
+1.4. Core data structure concepts **(Lindsay)**
    - Variables, datatypes, lists, dicts, tuples etc. 
    - Methods/functions and how they work with data
 
@@ -28,18 +29,18 @@
 
 *Goals:*
 1.	Participants can read data into pandas dataframes from standard sources (csv, excel)
-2.	Particpants can view a dataset and provide basic information about it 
+2.	Participants can view a dataset and provide basic information about it 
 3.	Participants can remove/replace NA data
 
 *Content:*
-1. Getting data **(Lindsay)**
+2.1. Getting data **(Lindsay)**
    - Using pandas 
    - Reading data from existing sources
    - Creating data
    - Viewing data
    - Basic knowledge about dataset (overall stats, data types)
 
-2. Data Cleaning **(Stu)**
+2.2. Data Cleaning **(Stu)**
    - Dealing with missing (e.g. NA) data 
    - Changing data types
    - Changing values
@@ -55,20 +56,18 @@
 
 *Content:*
 
-1. Exploring data structures **(Stu)**
-    -	Same stuff they cover in the dplyr section of the R course:
-    - Selecting columns
-    - Filtering
-    - Grouping/summarizing -> .agg
-    - Counts -> value_counts
-    - Mutating (assign)
-    - ‘Piping’ into a single go to avoid temporary dataframes
-    - Joins 
+3.1. Exploring data structures with pandas **(Stu)**
 
-2. Summary stats / Statistical tests **(Lindsay)**
+   - Selecting rows and columns
+   - Grouping rows and columns
+   - Sorting data
+   - Creating columns (transform)
+   - Joining datasets
 
-3. Graphical depictions of data **(Stu)**
-   -	e.g. Matplotlib and/or Seaborn 
+3.2. Graphical depictions of data (Visualizations) **(TBD)**
+   -	Distributions (e.g. line and bar histograms)
+   -	Comparisons (e.g. barcharts and line charts)
+   -	Relationships (e.g. Scatter and bubble plots)
 
 
 ## Part 4: Other Topics
@@ -80,10 +79,10 @@
 
 *Content:*
 
-1. Publishing/Reporting **(Lindsay)**
+4.1. Publishing/Reporting **(Lindsay)**
 
-2. Fetching data from bcdata **(Lindsay)**
+4.2. Fetching data from bcdata **(Lindsay)**
 
-3. Machine Learning use cases – Scikit-learn **(Stu)**
+4.3. Machine Learning use cases – Scikit-learn **(Stu)**
 
 

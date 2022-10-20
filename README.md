@@ -1,7 +1,7 @@
 [![Lifecycle:Experimental](https://img.shields.io/badge/Lifecycle-Experimental-339999)](<Redirect-URL>)
 
 # ds-intro-to-python
-Lessons for an Introduction to Data Science using Python Workshop
+Lessons for a 2 day Introduction to Data Science using Python Workshop
 
 ## Who should take this course?
 
