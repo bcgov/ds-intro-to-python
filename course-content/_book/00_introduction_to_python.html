@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./02_core_data_structure_concepts.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -168,6 +168,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./02_core_data_structure_concepts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Core Concepts</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
@@ -191,16 +196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#step-0" id="toc-step-0" class="nav-link" data-scroll-target="#step-0">Step 0</a></li>
   <li><a href="#from-the-command-lineterminal" id="toc-from-the-command-lineterminal" class="nav-link" data-scroll-target="#from-the-command-lineterminal">From the command line/terminal</a></li>
-  <li><a href="#from-a-file-in-vscode" id="toc-from-a-file-in-vscode" class="nav-link" data-scroll-target="#from-a-file-in-vscode">From a file (in VSCode)</a>
-  <ul class="collapse">
-  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
-  <li><a href="#challenge-2" id="toc-challenge-2" class="nav-link" data-scroll-target="#challenge-2">Challenge 2</a></li>
-  </ul></li>
-  <li><a href="#from-jupyterlab" id="toc-from-jupyterlab" class="nav-link" data-scroll-target="#from-jupyterlab">From JupyterLab</a>
-  <ul class="collapse">
-  <li><a href="#challenge-3" id="toc-challenge-3" class="nav-link" data-scroll-target="#challenge-3">Challenge 3</a></li>
-  <li><a href="#challenge-4" id="toc-challenge-4" class="nav-link" data-scroll-target="#challenge-4">Challenge 4</a></li>
-  </ul></li>
+  <li><a href="#from-a-file-in-vscode" id="toc-from-a-file-in-vscode" class="nav-link" data-scroll-target="#from-a-file-in-vscode">From a file (in VSCode)</a></li>
+  <li><a href="#from-jupyterlab" id="toc-from-jupyterlab" class="nav-link" data-scroll-target="#from-jupyterlab">From JupyterLab</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -414,7 +411,7 @@ VS Code
 <li>To the bottom (area C): this is where we can open and run commands from the command line (or terminal).</li>
 </ul>
 <p>Now remember, we set up a special environment that contains python and our data science packages. We want to make sure we are always using this environment, so in the open terminal, re-type <code>conda activate ds-env</code> and this terminal will now be open in this environment. We also want to check that VSCode itself (and not just the terminal) will use the same environment. We again access the command palette with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, and begin typing <code>Python: Select Interpreter</code>. Click on this, and choose the <code>ds-env</code> option. We are good to go!</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -452,40 +449,75 @@ Conda Environments
 <p>To run this code, first save the file, and then simply click the play button (triangle in the top right!). Note that this will display an output in a terminal at the bottom of VSCode. VSCode takes the python file you told it to run, and will run every line of code individually. Thus, we get two lines of output for the two print statements.</p>
 <p>But wait, there’s more! In VSCode we can run individual lines of code within a file as well. Simply move your cursor to the line you wish to run, and hit <kbd>Shift</kbd>+<kbd>Enter</kbd>.</p>
 <p>Note the difference here. Instead of running the entire file, VSCode actually opened up a python window inside our terminal, and ran the single line of code, just like we did before.</p>
-<section id="challenge-1" class="level4">
-<h4 class="anchored" data-anchor-id="challenge-1">Challenge 1</h4>
-<blockquote class="blockquote">
-<p>Run the other line of code, and then add and run third line of code that prints your favourite TV show.</p>
-<details>
-<summary>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Run the other line of code, and then add and run a third line of code that prints your favourite TV show.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution to Challenge 1
-</summary>
-<p><br> hit <kbd>Shift</kbd>+<kbd>Enter</kbd> while the cursor is on the other line of code. Add a line of code such as:</p>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Press <kbd>Shift</kbd>+<kbd>Enter</kbd> while the cursor is on the other line of code.</p>
+<p>Add a line of code such as:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"C'mon son! You know the best show is Psych!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Save the file, and again press <kbd>Shift</kbd>+<kbd>Enter</kbd> while on this line.</p>
-<br>
-</details>
-</blockquote>
-</section>
-<section id="challenge-2" class="level4">
-<h4 class="anchored" data-anchor-id="challenge-2">Challenge 2</h4>
-<blockquote class="blockquote">
+</div>
+</div>
+</div>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Try clicking the play button again. What happens here? Can you explain why?</p>
-<details>
-<summary>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution to Challenge 2
-</summary>
-<p><br> An error will occur in the terminal. This is because VSCode tried to run the entire program again, but from inside an already open python program (which we opened when we ran a single line using the <kbd>Shift</kbd>+<kbd>Enter</kbd> method). To fix this, we can either <code>exit()</code> the current python execution in the current terminal, or Kill/Delete the open terminal. This button can be found by hovering over the <code>Python</code> symbol at the right hand side of the terminals.</p>
-<br>
-</details>
-</blockquote>
-</section>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>An error will occur in the terminal.</p>
+<p>This is because VSCode tried to run the entire program again, but from inside an already open python program (which we opened when we ran a single line using the <kbd>Shift</kbd>+<kbd>Enter</kbd> method).</p>
+<p>To fix this, we can either <code>exit()</code> the current python execution in the current terminal, or Kill/Delete the open terminal. This button can be found by hovering over the <code>Python</code> symbol at the right hand side of the terminals.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="from-jupyterlab" class="level3">
 <h3 class="anchored" data-anchor-id="from-jupyterlab">From JupyterLab</h3>
 <p>JupyterLab is an application with a web-based user interface that enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals, and even custom components in a flexible, integrated, and extensible manner.</p>
 <p>To start JupyterLab, you can use <code>Anaconda Navigator</code>, a GUI that comes packaged with <code>Anaconda</code> if you wish. However it is nearly always easier to access it from the command line. Inside VSCode, navigate to a new terminal.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -539,35 +571,69 @@ Fun Fact
 <li>Plotting the number with other numbers, and then looking at all of those numbers.</li>
 </ul>
 <p>Let’s open up a notebook (click the <code>Python 3</code> icon underneath the Notebook heading). This will open up a new tab called <code>Untitled.ipynb</code>.</p>
-<section id="challenge-3" class="level4">
-<h4 class="anchored" data-anchor-id="challenge-3">Challenge 3</h4>
-<blockquote class="blockquote">
-<p>Rename the notebook to <code>hello_world.ipynb</code>.</p>
-<details>
-<summary>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rename the notebook to <code>hello_world.ipynb</code></p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution to Challenge 3
-</summary>
-<p><br> On either the tab to the top, or the filename that popped up on the left panel, right click the file <code>Untitled.ipynb</code> and click <code>Rename notebook...</code>. Enter your new name here.</p>
-<br>
-</details>
-</blockquote>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>On either the tab to the top, or the filename that popped up on the left panel, right click the file <code>Untitled.ipynb</code> and click <code>Rename notebook...</code>. Enter your new name here.</p>
+</div>
+</div>
+</div>
 <p>In this new file, we have a single blue box (this is a single <code>cell</code>). We can type multiple lines of code inside a single cell. Within the blue box, pressing <kbd>Enter</kbd> will let you add a new line to the cell. To execute a cell, we press <kbd>Shift</kbd>+<kbd>Enter</kbd>. This will execute every line of code within that cell. If there is output to display, it will display in the space directly below the cell. Pressing the <code>+</code> at the top of the tab will add a new cell (as will running the bottom-most cell). The ‘active’ cell will always be the one that is highlighted with a blue box.</p>
-</section>
-<section id="challenge-4" class="level4">
-<h4 class="anchored" data-anchor-id="challenge-4">Challenge 4</h4>
-<blockquote class="blockquote">
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Print ‘Hello World’ inside the Jupyter Notebook.</p>
-<details>
-<summary>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution to Challenge 4
-</summary>
-<p><br> Inside the blue box, write the python code:</p>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Inside the blue box, write the python code:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello World!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-While still on this cell (highlighted in blue), press <kbd>Shift</kbd>+<kbd>Enter</kbd>. We should see the output directly below! <br>
-</details>
-</blockquote>
+<p>While still on this cell (highlighted in blue), press <kbd>Shift</kbd>+<kbd>Enter</kbd>. We should see the output directly below!</p>
+</div>
+</div>
+</div>
 <p>When we are done with a JupyterLab session, we must shutdown the server. From the Menu Bar select the <code>File</code> menu and then choose <code>Shut Down</code> at the bottom of the dropdown menu. You will be prompted to confirm that you wish to shutdown the JupyterLab server (don’t forget to save your work!). Click <code>Shut Down</code> to shutdown the JupyterLab server.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -589,7 +655,6 @@ JupyterLab and Us!
 </div>
 
 
-</section>
 </section>
 </section>
 
@@ -699,8 +764,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02_core_data_structure_concepts.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Core Concepts</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
