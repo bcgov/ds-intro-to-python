@@ -10,6 +10,7 @@ book:
   chapters:
     - index.qmd
     - 00_introduction_to_python.qmd
+    - 31_exploring_data_structures.qmd
     - references.qmd
 
 bibliography: references.bib
