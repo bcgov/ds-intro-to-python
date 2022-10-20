@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Stuart Hemerling">
+
+<title>Introduction to Data Science using Python - 2&nbsp; Exploring Data Structures</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./00_introduction_to_python.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introduction to Data Science using Python</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_exploring_data_structures.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#part-3.1-exploring-and-understanding-data" id="toc-part-3.1-exploring-and-understanding-data" class="nav-link active" data-scroll-target="#part-3.1-exploring-and-understanding-data"><span class="toc-section-number">3</span>  Part 3.1 Exploring and Understanding Data</a>
+  <ul>
+  <li><a href="#getting-the-data-and-an-overview" id="toc-getting-the-data-and-an-overview" class="nav-link" data-scroll-target="#getting-the-data-and-an-overview"><span class="toc-section-number">3.1</span>  3.1.1. Getting the data and an overview</a></li>
+  <li><a href="#selecting-columns-variables" id="toc-selecting-columns-variables" class="nav-link" data-scroll-target="#selecting-columns-variables"><span class="toc-section-number">3.2</span>  3.1.2. Selecting columns (variables)</a></li>
+  <li><a href="#selecting-rows" id="toc-selecting-rows" class="nav-link" data-scroll-target="#selecting-rows"><span class="toc-section-number">3.3</span>  3.1.3. Selecting rows</a></li>
+  <li><a href="#sorting-rows" id="toc-sorting-rows" class="nav-link" data-scroll-target="#sorting-rows"><span class="toc-section-number">3.4</span>  3.1.4. Sorting rows</a></li>
+  <li><a href="#putting-multiple-methods-together-chaining" id="toc-putting-multiple-methods-together-chaining" class="nav-link" data-scroll-target="#putting-multiple-methods-together-chaining"><span class="toc-section-number">3.5</span>  3.1.5. Putting multiple methods together (chaining)</a></li>
+  <li><a href="#creating-new-columns-of-data" id="toc-creating-new-columns-of-data" class="nav-link" data-scroll-target="#creating-new-columns-of-data"><span class="toc-section-number">3.6</span>  3.1.6. Creating new columns of data</a></li>
+  <li><a href="#joining-datasets-together" id="toc-joining-datasets-together" class="nav-link" data-scroll-target="#joining-datasets-together"><span class="toc-section-number">3.7</span>  3.1.7. Joining datasets together</a></li>
+  <li><a href="#grouping" id="toc-grouping" class="nav-link" data-scroll-target="#grouping"><span class="toc-section-number">3.8</span>  3.1.8. Grouping</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="toc-section-number">3.9</span>  3.1.9. Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stuart Hemerling </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="part-3.1-exploring-and-understanding-data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Part 3.1 Exploring and Understanding Data</h1>
+<p>Getting a high level summary of the data is important but data is particularly valuable when refined. Your analysis will start to come alive when we start to do some slicing and dicing and grouping of data or even creating additional variables. In an Excel world, this is like when you use filter options for columns, or create pivot tables, or when you create a formula in a new column to create a new variable. In data science parlance, this is the kind of thing that is referred to as <code>data wrangling</code> - getting the (already cleaned) data you want in the form you want it in.</p>
+<p>In the world of python, this usually means working with a library or package you have already been introduced to called pandas. It let’s you do so much!</p>
+<p>The first dataset we’ll look at is one that looks at data for countries around the world and shows population levels as well as gdp per capita over a number of years. It is a great data set to look at.</p>
+<section id="getting-the-data-and-an-overview" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="getting-the-data-and-an-overview"><span class="header-section-number">3.1</span> 3.1.1. Getting the data and an overview</h2>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/gapfinder.csv"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>It’s usually a good idea right away to take a quick look at the data to make sure what we have read in makes sense. So let’s do that using some pandas methods that we covered earlier.</p>
+<div class="callout-remember callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Remember
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you create a variable or object, you can name it pretty much whatever you want. But it is a best practice to name it something intuitive but not overly verbose. Also remember to not leave spaces in your names, and to always be consistent in the naming conventions you use (e.g.&nbsp;camelCase, underscore_case, etc.)</p>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 1704 entries, 0 to 1703
+Data columns (total 6 columns):
+ #   Column     Non-Null Count  Dtype  
+---  ------     --------------  -----  
+ 0   country    1704 non-null   object 
+ 1   year       1704 non-null   int64  
+ 2   pop        1704 non-null   float64
+ 3   continent  1704 non-null   object 
+ 4   lifeExp    1704 non-null   float64
+ 5   gdpPercap  1704 non-null   float64
+dtypes: float64(3), int64(1), object(2)
+memory usage: 80.0+ KB</code></pre>
+</div>
+</div>
+<p>So this data is looking good so far. We can see that we have created a pandas dataframe within our python environment. There are 1704 rows of data and 6 columns or variables. You can see there are only non-null values… so happily there is no missing data to worry about.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>1952</td>
+      <td>8425333.0</td>
+      <td>Asia</td>
+      <td>28.801</td>
+      <td>779.445314</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>1957</td>
+      <td>9240934.0</td>
+      <td>Asia</td>
+      <td>30.332</td>
+      <td>820.853030</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>The <code>.head()</code> method let’s us look at actual data like we would likely do in Excel. This dataset has some high level country metrics about population and the economy going back to 1952.</p>
+</section>
+<section id="selecting-columns-variables" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="selecting-columns-variables"><span class="header-section-number">3.2</span> 3.1.2. Selecting columns (variables)</h2>
+<p>In the “real world” of data its not uncommon to see hundreds or thousands of columns, so knowing how to pare down our dataset so it is not overly bloated is important. Our dataset is just 6 columns wide, so not too big, but let’s go ahead and narrow it down anyway.</p>
+<p>Let’s create an object (in this case a dataframe) called “narrow_df” and then specify the names of columns that we want to have in our slimmed down dataset. We are primarily interested in population, but we want to have year, country, and continent in there too. After we create it let’s take a look at the new dataframe:</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>narrow_df <span class="op">=</span> df[[<span class="st">'country'</span>, <span class="st">'year'</span>, <span class="st">'pop'</span>, <span class="st">'continent'</span>]]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>narrow_df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>1952</td>
+      <td>8425333.0</td>
+      <td>Asia</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>1957</td>
+      <td>9240934.0</td>
+      <td>Asia</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>So now we have a more manageable dataset to work with called narrow_df. The original dataframe df is still there, and still the same size as before it we want to have a look though.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you create a variable or dataframe in python, to the left of the <code>=</code> sign you always put the name of the thing you want to make or modify. To the right, that’s where you put the contents of what it is you want to create. It may feel counterintuitive! Especially if you are using the same variable or dataframe identifier on both sides of the equals sign.</p>
+</div>
+</div>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s say you just want to narrow down the dataset to include just the country and the GDP per capita. How would you do it? Don’t forget to run your code so it also shows a view of the result so you can confirm the code worked as you wanted it to.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution to Challenge 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First you would like to create a new object to hold this narrowed down version of the dataset, then just use some method like <code>.head()</code> to see some of the resulting data.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>challenge1_df <span class="op">=</span> df[[<span class="st">'country'</span>, <span class="st">'gdpPercap'</span>]]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>challenge1_df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="selecting-rows" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="selecting-rows"><span class="header-section-number">3.3</span> 3.1.3. Selecting rows</h2>
+<p>Of course, in data analysis we are usually interested in looking at just some of rows of data, not all of it all the time. So when we want to look at just selected rows (i.e.&nbsp;values within a given column) there is a hand pandas function called <code>.query()</code> that we can leverage. It helps us with selecting the rows we want.</p>
+<p>We set up an expression in pandas with <code>.query()</code> and it will evaluate it for us. For example, imagine we want to find just the rows where the year is 1972. Here’s how we do that, using <code>==</code> instead of just <code>=</code>:</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> df.query(<span class="st">'year == 1972'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>filtered_df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>Afghanistan</td>
+      <td>1972</td>
+      <td>13079460.0</td>
+      <td>Asia</td>
+      <td>36.088</td>
+      <td>739.981106</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Albania</td>
+      <td>1972</td>
+      <td>2263554.0</td>
+      <td>Europe</td>
+      <td>67.690</td>
+      <td>3313.422188</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>We can even get more specific with string variables, looking for content by starting letter or letters. For example, here’s how we can look for specific countries:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> df.query(<span class="st">'country.str.startswith("C") &amp; year == 1972'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>filtered_df.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>220</th>
+      <td>Cambodia</td>
+      <td>1972</td>
+      <td>7450606.0</td>
+      <td>Asia</td>
+      <td>40.317</td>
+      <td>421.624026</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <td>Cameroon</td>
+      <td>1972</td>
+      <td>7021028.0</td>
+      <td>Africa</td>
+      <td>47.049</td>
+      <td>1684.146528</td>
+    </tr>
+    <tr>
+      <th>244</th>
+      <td>Canada</td>
+      <td>1972</td>
+      <td>22284500.0</td>
+      <td>Americas</td>
+      <td>72.880</td>
+      <td>18970.570860</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your director has come to you and asked if you what the life expectancy was is in Canada in 2007. How would you use pandas code to get the data you need? And after having run the code, what’s the answer?</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution to Challenge 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First you would like to create a new object to hold this narrowed down version of the dataset, then just use some method like <code>.print()</code> or <code>.head()</code> to see some of the resulting data.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>challenge2_df <span class="op">=</span> df.query(<span class="st">'country.str.startswith("Canada") &amp; year == 1972'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(challenge2_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is something else you should know about row selection. It is VERY common within python/pandas to see the <code>.loc()</code> and <code>.iloc()</code> codes to identify rows by index location. The index starts at 0 for the first row (yes, “0”, and not “1”)! And you can also use this method You may not ever need to use it, but it is good to know what it means when you come across it.</p>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x_df <span class="op">=</span> df.loc[<span class="dv">0</span>:<span class="dv">1</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       country  year        pop continent  lifeExp   gdpPercap
+0  Afghanistan  1952  8425333.0      Asia   28.801  779.445314
+1  Afghanistan  1957  9240934.0      Asia   30.332  820.853030</code></pre>
+</div>
+</div>
+</section>
+<section id="sorting-rows" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sorting-rows"><span class="header-section-number">3.4</span> 3.1.4. Sorting rows</h2>
+<p>So now you’ve mastered how to select rows and columns you want, congratulations!</p>
+<p>Instead of hunting and pecking for insights, one way to quickly make some sense of the data is to sort it - something you probably do in Excel all the time.</p>
+<p>Above, we have created a dataframe with just the one country in it and for all years above 1972. So now let’s sort the data by year, and then see what can spot any insights. To do this, we use the <code>.sort_values()</code> method.</p>
+<p>Let’s go fetch and look at the filtered_df dataframe from above, and use this method to sort by year, going from more recent to less recent:</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>filtered_df.sort_values(<span class="st">'lifeExp'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>244</th>
+      <td>Canada</td>
+      <td>1972</td>
+      <td>22284500.0</td>
+      <td>Americas</td>
+      <td>72.88000</td>
+      <td>18970.570860</td>
+    </tr>
+    <tr>
+      <th>388</th>
+      <td>Cuba</td>
+      <td>1972</td>
+      <td>8831348.0</td>
+      <td>Americas</td>
+      <td>70.72300</td>
+      <td>5305.445256</td>
+    </tr>
+    <tr>
+      <th>400</th>
+      <td>Czech Republic</td>
+      <td>1972</td>
+      <td>9862158.0</td>
+      <td>Europe</td>
+      <td>70.29000</td>
+      <td>13108.453600</td>
+    </tr>
+    <tr>
+      <th>376</th>
+      <td>Croatia</td>
+      <td>1972</td>
+      <td>4225310.0</td>
+      <td>Europe</td>
+      <td>69.61000</td>
+      <td>9164.090127</td>
+    </tr>
+    <tr>
+      <th>352</th>
+      <td>Costa Rica</td>
+      <td>1972</td>
+      <td>1834796.0</td>
+      <td>Americas</td>
+      <td>67.84900</td>
+      <td>5118.146939</td>
+    </tr>
+    <tr>
+      <th>280</th>
+      <td>Chile</td>
+      <td>1972</td>
+      <td>9717524.0</td>
+      <td>Americas</td>
+      <td>63.44100</td>
+      <td>5494.024437</td>
+    </tr>
+    <tr>
+      <th>292</th>
+      <td>China</td>
+      <td>1972</td>
+      <td>862030000.0</td>
+      <td>Asia</td>
+      <td>63.11888</td>
+      <td>676.900092</td>
+    </tr>
+    <tr>
+      <th>304</th>
+      <td>Colombia</td>
+      <td>1972</td>
+      <td>22542890.0</td>
+      <td>Americas</td>
+      <td>61.62300</td>
+      <td>3264.660041</td>
+    </tr>
+    <tr>
+      <th>340</th>
+      <td>Congo Rep.</td>
+      <td>1972</td>
+      <td>1340458.0</td>
+      <td>Africa</td>
+      <td>54.90700</td>
+      <td>3213.152683</td>
+    </tr>
+    <tr>
+      <th>364</th>
+      <td>Cote d'Ivoire</td>
+      <td>1972</td>
+      <td>6071696.0</td>
+      <td>Africa</td>
+      <td>49.80100</td>
+      <td>2378.201111</td>
+    </tr>
+    <tr>
+      <th>316</th>
+      <td>Comoros</td>
+      <td>1972</td>
+      <td>250027.0</td>
+      <td>Africa</td>
+      <td>48.94400</td>
+      <td>1937.577675</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <td>Cameroon</td>
+      <td>1972</td>
+      <td>7021028.0</td>
+      <td>Africa</td>
+      <td>47.04900</td>
+      <td>1684.146528</td>
+    </tr>
+    <tr>
+      <th>328</th>
+      <td>Congo Dem. Rep.</td>
+      <td>1972</td>
+      <td>23007669.0</td>
+      <td>Africa</td>
+      <td>45.98900</td>
+      <td>904.896068</td>
+    </tr>
+    <tr>
+      <th>268</th>
+      <td>Chad</td>
+      <td>1972</td>
+      <td>3899068.0</td>
+      <td>Africa</td>
+      <td>45.56900</td>
+      <td>1104.103987</td>
+    </tr>
+    <tr>
+      <th>256</th>
+      <td>Central African Republic</td>
+      <td>1972</td>
+      <td>1927260.0</td>
+      <td>Africa</td>
+      <td>43.45700</td>
+      <td>1070.013275</td>
+    </tr>
+    <tr>
+      <th>220</th>
+      <td>Cambodia</td>
+      <td>1972</td>
+      <td>7450606.0</td>
+      <td>Asia</td>
+      <td>40.31700</td>
+      <td>421.624026</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Here we can read a few insights out of the data.</p>
+</section>
+<section id="putting-multiple-methods-together-chaining" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="putting-multiple-methods-together-chaining"><span class="header-section-number">3.5</span> 3.1.5. Putting multiple methods together (chaining)</h2>
+<p>You can also put multiple methods in the same line of code, as long as you separate each of the elements. In pandas, this is called “method chaining”, as you are kind of creating a chain of actions to take place.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> df.query(<span class="st">'country.str.startswith("Ca") &amp; year == 2007'</span>).sort_values(<span class="st">'year'</span>, ascending <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>filtered_df.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>227</th>
+      <td>Cambodia</td>
+      <td>2007</td>
+      <td>14131858.0</td>
+      <td>Asia</td>
+      <td>59.723</td>
+      <td>1713.778686</td>
+    </tr>
+    <tr>
+      <th>239</th>
+      <td>Cameroon</td>
+      <td>2007</td>
+      <td>17696293.0</td>
+      <td>Africa</td>
+      <td>50.430</td>
+      <td>2042.095240</td>
+    </tr>
+    <tr>
+      <th>251</th>
+      <td>Canada</td>
+      <td>2007</td>
+      <td>33390141.0</td>
+      <td>Americas</td>
+      <td>80.653</td>
+      <td>36319.235010</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your director has come back to you and wondered aloud whether the life expectancy of people changed during the 1970s in Cambodia. Use what you know about selecting rows and sorting data to get the data you need to answer the question.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution to Challenge 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Using the query() and sort.values() methods and by chaining them together. Looking at the data we see that in the 1970s there was a sharp decline in life expectancy in Cambodia. We also see, thankfully, that is has recovered strongly since then.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>challenge3_df <span class="op">=</span> df.query(<span class="st">'country.str.startswith("Cambodia") &amp; year &lt; 2008'</span>).sort_values(<span class="st">'year'</span>, ascending <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(challenge3_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-new-columns-of-data" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="creating-new-columns-of-data"><span class="header-section-number">3.6</span> 3.1.6. Creating new columns of data</h2>
+<p>Very often we have some data in our dataset that we want to transform to give us additional information.</p>
+<p>In Excel this is something that is done all the time by creating a formula in a cell that refers to other columns and applies some sort of logic or mathematical expression to it. In pandas, one handy tool to use is the <code>.assign()</code> method.</p>
+<p>Imagine we want to know what the actual GDP is for a given country for a given year and not just the GDP per capita. Can we do this? Let’s take a look. It’s with the help of an additional function called lambda.</p>
+<p>We create our own little function right inside of the code that allows us to create this column (or variable, or feature). The logic is:</p>
+<p>(new_variable_name = <code>lambda x: some expression involving x and math and/or other variables</code>)</p>
+<p>The <code>.assign()</code> method looks at this expression and then returns the value it is asked to do. This is how it comes all together to give us actual GDP for each row in our dataframe:</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>new_df <span class="op">=</span> df.assign(gdp<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="st">'pop'</span>] <span class="op">*</span> x[<span class="st">'gdpPercap'</span>])</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>new_df <span class="op">=</span> new_df.query(<span class="st">'year == 2007'</span>).sort_values(<span class="st">'gdp'</span>, ascending <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>new_df.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+      <th>gdp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1619</th>
+      <td>United States</td>
+      <td>2007</td>
+      <td>3.011399e+08</td>
+      <td>Americas</td>
+      <td>78.242</td>
+      <td>42951.653090</td>
+      <td>1.293446e+13</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>China</td>
+      <td>2007</td>
+      <td>1.318683e+09</td>
+      <td>Asia</td>
+      <td>72.961</td>
+      <td>4959.114854</td>
+      <td>6.539501e+12</td>
+    </tr>
+    <tr>
+      <th>803</th>
+      <td>Japan</td>
+      <td>2007</td>
+      <td>1.274680e+08</td>
+      <td>Asia</td>
+      <td>82.603</td>
+      <td>31656.068060</td>
+      <td>4.035135e+12</td>
+    </tr>
+    <tr>
+      <th>707</th>
+      <td>India</td>
+      <td>2007</td>
+      <td>1.110396e+09</td>
+      <td>Asia</td>
+      <td>64.698</td>
+      <td>2452.210407</td>
+      <td>2.722925e+12</td>
+    </tr>
+    <tr>
+      <th>575</th>
+      <td>Germany</td>
+      <td>2007</td>
+      <td>8.240100e+07</td>
+      <td>Europe</td>
+      <td>79.406</td>
+      <td>32170.374420</td>
+      <td>2.650871e+12</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>So now we can see which countries had the biggest GDP in 2007. Notice that the gdp data is in scientific notation (i.e.&nbsp;the decimal number times x number of zeros), so it’s a bit hard to read. If we wanted readers to consume that data we would go ahead and change the data type for it. But for current purposes we’ll leave that alone.</p>
+</section>
+<section id="joining-datasets-together" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="joining-datasets-together"><span class="header-section-number">3.7</span> 3.1.7. Joining datasets together</h2>
+<p>One of the most important tasks in data analysis is to be able to join multiple datasets together. There is a second file that we can get regarding country size in square kilometers. Let’s fetch that data and take a look.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>url2 <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/countrysize.csv"</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_csv(url2, encoding<span class="op">=</span> <span class="st">'unicode_escape'</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df2.info()</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>df2.sample(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 235 entries, 0 to 234
+Data columns (total 2 columns):
+ #   Column           Non-Null Count  Dtype 
+---  ------           --------------  ----- 
+ 0   nation           235 non-null    object
+ 1   area_square_kms  235 non-null    int64 
+dtypes: int64(1), object(1)
+memory usage: 3.8+ KB</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>nation</th>
+      <th>area_square_kms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>78</th>
+      <td>Guinea</td>
+      <td>245857</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>Hungary</td>
+      <td>93028</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Ok, this new dataset looks like we expect - a list of countries alongside the land size in square kilometers.</p>
+<p>While pandas makes it possible to join two dataframes on their index, joining on a particular “key” column is also possible. Joining on a key column is likely more intuitive for those familiar with merging with vlookup in Excel or joining tables with SQL. So let’s go ahead and join this based on the “country” column from the original dataset and “nation” from the second one. In database management language, we are going to to a left join (perhaps the most common type of join).</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In pandas, there are two methods we can use to bring these datasets together, namely the <code>.merge()</code> and the <code>.join()</code> function. Both can accomplish many of the same tasks and you likely will come across both. But it probably makes sense to keep it simple and get familiar with one of them first, then move on to the next one later.</p>
+</div>
+</div>
+<p>In the example below we will use the <code>.join()</code> function. We will think of “df” as being the original dataset on the left, and df2 as the other dataset that we want to merge data from. We use for both the variable ‘country’ as the key to join on. We use an inline <code>.set_index()</code> function in order to preserve a nice looking index column on the left of the dataframe, based on the index of df.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>join_df <span class="op">=</span> df.join(df2.set_index(<span class="st">'nation'</span>), on<span class="op">=</span><span class="st">'country'</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>join_df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+      <th>area_square_kms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>1952</td>
+      <td>8425333.0</td>
+      <td>Asia</td>
+      <td>28.801</td>
+      <td>779.445314</td>
+      <td>652230.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>1957</td>
+      <td>9240934.0</td>
+      <td>Asia</td>
+      <td>30.332</td>
+      <td>820.853030</td>
+      <td>652230.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Now you want to see all of the columns in this new dataset but just for the year 2007 and you want to see it organized by gdp per capita.</p>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your director has come back, yet again, and wants to know what top five countries were in terms GDP per capita in 2007.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution to Challenge 4
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Using the <code>.query()</code> method, you specfy that you want to return the values that are equivalent to the year of interest. Then you can chain along the <code>.sort_values()</code> method</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>challenge4_df <span class="op">=</span> join_df.query(<span class="st">'year == 2007'</span>).sort_values(<span class="st">'gdpPercap'</span>, ascending <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>challenge4_df.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>challenge4_df <span class="op">=</span> join_df.query(<span class="st">'year == 2007'</span>).sort_values(<span class="st">'gdpPercap'</span>, ascending <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>challenge4_df.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+      <th>area_square_kms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1151</th>
+      <td>Norway</td>
+      <td>2007</td>
+      <td>4627926.0</td>
+      <td>Europe</td>
+      <td>80.196</td>
+      <td>49357.19017</td>
+      <td>323802.0</td>
+    </tr>
+    <tr>
+      <th>863</th>
+      <td>Kuwait</td>
+      <td>2007</td>
+      <td>2505559.0</td>
+      <td>Asia</td>
+      <td>77.588</td>
+      <td>47306.98978</td>
+      <td>17818.0</td>
+    </tr>
+    <tr>
+      <th>1367</th>
+      <td>Singapore</td>
+      <td>2007</td>
+      <td>4553009.0</td>
+      <td>Asia</td>
+      <td>79.972</td>
+      <td>47143.17964</td>
+      <td>710.0</td>
+    </tr>
+    <tr>
+      <th>1619</th>
+      <td>United States</td>
+      <td>2007</td>
+      <td>301139947.0</td>
+      <td>Americas</td>
+      <td>78.242</td>
+      <td>42951.65309</td>
+      <td>9372610.0</td>
+    </tr>
+    <tr>
+      <th>755</th>
+      <td>Ireland</td>
+      <td>2007</td>
+      <td>4109086.0</td>
+      <td>Europe</td>
+      <td>78.885</td>
+      <td>40675.99635</td>
+      <td>70273.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="grouping" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="grouping"><span class="header-section-number">3.8</span> 3.1.8. Grouping</h2>
+<p>Sometimes of course you would prefer to group rows together for the purpose of summarizing them somehow. With our current dataset, we would like to summarize it so that we can see the breakdown of the metrics for each year by country in alphabetical order.</p>
+<p>We can accomplish this using the <code>.groupby()</code> method together with another mathematical function.</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>group_df <span class="op">=</span> join_df.groupby(by<span class="op">=</span>[<span class="st">'year'</span>]).<span class="bu">sum</span>()</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>group_df.head(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/h1/1c4m6wcn3wqgwhgdzlbvj5kh0000gn/T/ipykernel_54719/3741548511.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.sum is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+  group_df = join_df.groupby(by=['year']).sum()</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>pop</th>
+      <th>lifeExp</th>
+      <th>gdpPercap</th>
+      <th>area_square_kms</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1952</th>
+      <td>2.406957e+09</td>
+      <td>6966.18200</td>
+      <td>5.289892e+05</td>
+      <td>105279084.0</td>
+    </tr>
+    <tr>
+      <th>1957</th>
+      <td>2.664405e+09</td>
+      <td>7314.05096</td>
+      <td>6.105160e+05</td>
+      <td>105279084.0</td>
+    </tr>
+    <tr>
+      <th>1962</th>
+      <td>2.899783e+09</td>
+      <td>7612.51336</td>
+      <td>6.710654e+05</td>
+      <td>105279084.0</td>
+    </tr>
+    <tr>
+      <th>1967</th>
+      <td>3.217478e+09</td>
+      <td>7906.31712</td>
+      <td>7.786787e+05</td>
+      <td>105279084.0</td>
+    </tr>
+    <tr>
+      <th>1972</th>
+      <td>3.576977e+09</td>
+      <td>8185.92888</td>
+      <td>9.613518e+05</td>
+      <td>105279084.0</td>
+    </tr>
+    <tr>
+      <th>1977</th>
+      <td>3.930046e+09</td>
+      <td>8458.96236</td>
+      <td>1.038470e+06</td>
+      <td>105279084.0</td>
+    </tr>
+    <tr>
+      <th>1982</th>
+      <td>4.289437e+09</td>
+      <td>8737.71400</td>
+      <td>1.067684e+06</td>
+      <td>105279084.0</td>
+    </tr>
+    <tr>
+      <th>1987</th>
+      <td>4.691477e+09</td>
+      <td>8976.19100</td>
+      <td>1.121931e+06</td>
+      <td>105279084.0</td>
+    </tr>
+    <tr>
+      <th>1992</th>
+      <td>5.110710e+09</td>
+      <td>9110.76800</td>
+      <td>1.158522e+06</td>
+      <td>105279084.0</td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>5.515204e+09</td>
+      <td>9232.08400</td>
+      <td>1.290805e+06</td>
+      <td>105279084.0</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>5.886978e+09</td>
+      <td>9328.67900</td>
+      <td>1.408334e+06</td>
+      <td>105279084.0</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>6.251013e+09</td>
+      <td>9515.05400</td>
+      <td>1.658570e+06</td>
+      <td>105279084.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>In the example above we see the sum of each of the metrics for all of the values in the respective year. So we see that world population grew from about 2.5 billion people in 1952 to over 6.25 billion in 2007.</p>
+</section>
+<section id="summary" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="summary"><span class="header-section-number">3.9</span> 3.1.9. Summary</h2>
+<p>By now you should be able to select the rows and columns of data you want directly and generate some quick on the fly insights as you need to. The next section will look at some of the more sophisticated and elegant tools for understanding and presenting your data. But the building blocks you have just learned about are the meat and potatoes of data analysis in the python world.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./00_introduction_to_python.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
