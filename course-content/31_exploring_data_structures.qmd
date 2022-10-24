@@ -289,7 +289,7 @@ group_df.head(20)
 
 In the example above we see the sum of each of the metrics for all of the numerical columns in the respective year. So we see that world population grew from about 2.5 billion people in 1952 to over 6.25 billion in 2007. Luckily, the total land area of the world hasn't shrunk with all those extra people! 
 
-## 3.1.9. Summary 
+### Summary 
 
 By now you should be able to select the rows and columns of data you want directly and generate some quick on the fly insights as you need to. The next section will look at some of the more sophisticated and elegant tools for understanding and presenting your data. But the building blocks you have just learned about are the meat and potatoes of data analysis in the python world. 
 
