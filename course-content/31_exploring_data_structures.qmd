@@ -219,7 +219,7 @@ new_df.head(5)
 
 So now we can see which countries had the biggest GDP in 2007. Notice that the gdp data is in scientific notation (i.e. the decimal number times x number of zeros), so it's a bit hard to read. If we wanted readers to consume that data we would go ahead and change the data type for it. But for current purposes we'll leave that alone.
 
-## 3.1.7. Joining datasets together
+### Joining datasets together
 
 One of the most important tasks in data analysis is to be able to join multiple datasets together. There is a second file that we can get regarding country size in square kilometers.  Let's fetch that data and take a look. 
 
