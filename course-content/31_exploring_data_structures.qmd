@@ -263,7 +263,7 @@ Your director has come back, yet again, and wants to know what top five countrie
 
 :::{.callout-note icon="false" collapse="true"}
 
-### Solution to Challenge 4
+## Solution to Challenge 4
 
 Using the `.query()` method, you specfy that you want to return the values that are equivalent to the year of interest.  Then you can chain along the `.sort_values()` method 
 
