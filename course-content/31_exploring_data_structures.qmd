@@ -128,7 +128,7 @@ Your director has come to you and asked if you know what the life expectancy was
 
 First you would like to create a new object to hold this narrowed down version of the dataset, then just use some method like `.print()` or `.head()` to see some of the resulting data. 
 
-```python
+```{python}
 challenge2_df = df.query('country.str.startswith("Canada") & year == 1972')
 print(challenge2_df)
 ```
