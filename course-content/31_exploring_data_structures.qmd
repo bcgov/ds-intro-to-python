@@ -276,7 +276,7 @@ challenge4_df = join_df.query('year == 2007').sort_values('gdpPercap', ascending
 challenge4_df.head(5)
 ```
 
-## 3.1.8. Grouping 
+### Grouping 
 
 Sometimes of course you would prefer to group rows together for the purpose of summarizing them somehow. With our current dataset, we would like to  summarize it so that we can see the breakdown of the metrics for each year by country in alphabetical order. 
 
