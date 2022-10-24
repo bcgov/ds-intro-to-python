@@ -62,7 +62,8 @@ narrow_df.head(2)
 
 So now we have a more manageable dataset to work with called narrow_df. The original dataframe df is still there, and still the same size as before it we want to have a look though. 
 
-:::{.callout-important}
+:::{.callout-tip}
+## Reminder on Assignment!
 When you create a variable or dataframe in python, to the left of the `=` sign you always put the name of the thing you want to make or modify. To the right, that's where you put the contents of what it is you want to create. It may feel counterintuitive! Especially if you are using the same variable or dataframe identifier on both sides of the equals sign.
 :::
 
