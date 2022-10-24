@@ -137,7 +137,7 @@ print(challenge2_df)
 
 :::{.callout-tip}
 ## .loc() and .iloc() to also filter rows! 
-There is something else you should know about row selection. It is VERY common within python/pandas to see the `.loc()` and `.iloc()` codes to identify rows by index location.   The index starts at 0 for the first row (yes, "0", and not "1")!  And you can also use this method You may not ever need to use it, but it is good to know what it means when you come across it. 
+There is something else you should know about row selection. It is VERY common within python/pandas to see the `.loc()` and `.iloc()` methods to identify rows by index location. The index starts at 0 for the first row (yes, "0", and not "1")!  You can also use these methods. You may not ever need to use it, but it is good to know what it means when you come across it. 
 :::
 
 ```{python}
