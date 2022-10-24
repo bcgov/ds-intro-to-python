@@ -255,7 +255,7 @@ Now you want to see all of the columns in this new dataset but just for the year
 
 
 
-Your director has come back, yet again, and wants to know what top five countries were in terms GDP per capita in 2007. 
+Your director has come back, yet again, and wants to know what the top five countries were in terms of GDP per capita in 2007. 
 
 :::
 
