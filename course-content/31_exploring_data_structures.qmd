@@ -145,7 +145,7 @@ x_df = df.loc[0:1]
 print(x_df)
 ```
 
-## 3.1.4. Sorting rows
+### Sorting rows
 
 So now you've mastered how to select rows and columns you want, congratulations!
 
