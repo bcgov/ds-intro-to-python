@@ -94,7 +94,7 @@ challenge1_df.head(2)
 
 ### Selecting Rows
 
-Of course, in data analysis we are usually interested in looking at just some of rows of data, not all of it all the time. So when we want to look at just selected rows (i.e. values within a given column) there is a hand pandas function called `.query()` that we can leverage. It helps us with selecting the rows we want. 
+Of course, in data analysis we are usually interested in looking at just some of rows of data, not all of it all the time. So when we want to look at just selected rows (i.e. values within a given column) there is a handy pandas function called `.query()` that we can leverage. It helps us with selecting the rows we want. 
 
 We set up an expression in pandas  with `.query()` and it will evaluate it for us. For example, imagine we want to find just the rows where the year is 1972. Here's how we do that, using `==` instead of just `=`:
 
