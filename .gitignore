@@ -17,3 +17,7 @@ venv.bak/
 # IDEs
 .idea
 .vscode
+
+# Quarto
+_book/
+.quarto/
