@@ -197,7 +197,7 @@ print(challenge3_df)
 
 :::
 
-## 3.1.6. Creating new columns of data
+### Creating new columns of data
 
 Very often we have some data in our dataset that we want to transform to give us additional information.
 
