@@ -188,7 +188,7 @@ Your director has come back to you and wondered about whether the life expectanc
 
 ### Solution to Challenge 3
 
-Using the query() and sort.values() methods and by chaining them together. Looking at the data we see that in the 1970s there was a sharp decline in life expectancy in Cambodia. We also see, thankfully, that is has recovered strongly since then. 
+Use the `query()` and `sort_values()` methods and chain them together. Looking at the data we see that in the 1970s there was a sharp decline in life expectancy in Cambodia. We also see, thankfully, that it has recovered strongly since then. 
 
 ```python
 challenge3_df = df.query('country.str.startswith("Cambodia") & year < 2008').sort_values('year', ascending = False)
