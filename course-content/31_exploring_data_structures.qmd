@@ -232,7 +232,7 @@ df2.sample(2)
 
 Ok, this new dataset looks like we expect - a list of countries alongside the land size in square kilometers. 
 
-While pandas makes it possible to join two dataframes on their index, joining on a particular "key" column is also possible. Joining on a key column is likely more intuitive for those familiar with merging with vlookup in Excel or joining tables with SQL. So let's go ahead and join this based on the "country" column from the original dataset and "nation" from the second one. In database management language, we are going to to a left join (perhaps the most common type of join). 
+While pandas makes it possible to join two dataframes on their index, joining on a particular "key" column is also possible. Joining on a key column is likely more intuitive for those familiar with merging with vlookup in Excel or joining tables with SQL. So let's go ahead and join this based on the "country" column from the original dataset and "nation" from the second one. In database management language, we are going to do a left join (perhaps the most common type of join). 
 
 :::{.callout-important}
 In pandas, there are two methods we can use to bring these datasets together, namely the `.merge()` and the `.join()` function. Both can accomplish many of the same tasks and you likely will come across both. But it probably makes sense to keep it simple and get familiar with one of them first, then move on to the next one later.
