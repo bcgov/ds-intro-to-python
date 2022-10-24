@@ -85,7 +85,7 @@ Let's say you just want to narrow down the dataset to include just the country a
 
 First you would like to create a new object to hold this narrowed down version of the dataset, then just use some method like `.head()` to see some of the resulting data. 
 
-```python
+```{python}
 challenge1_df = df[['country', 'gdpPercap']]
 challenge1_df.head(2)
 ```
