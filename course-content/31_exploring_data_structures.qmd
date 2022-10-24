@@ -30,7 +30,8 @@ df = pd.read_csv(url)
 
 It's usually a good idea right away to take a quick look at the data to make sure what we have read in makes sense. So let's do that using some pandas methods that we covered earlier.
 
-:::{.callout-remember}
+:::{.callout-tip}
+## Reminder: Naming variables!
 When you create a variable or object, you can name it pretty much whatever you want. But it is a best practice to name it something intuitive but not overly verbose. Also remember to not leave spaces in your names, and to always be consistent in the naming conventions you use (e.g. camelCase, underscore_case, etc.)
 
 
