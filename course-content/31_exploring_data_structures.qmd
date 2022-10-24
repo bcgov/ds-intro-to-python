@@ -116,7 +116,7 @@ filtered_df.head(3)
 
 
 
-Your director has come to you and asked if you what the life expectancy was is in Canada in 2007.  How would you use pandas code to get the data you need? And after having run the code, what's the answer? 
+Your director has come to you and asked if you know what the life expectancy was is in Canada in 2007.  How would you use pandas code to get the data you need? And after having run the code, what's the answer? 
 
 :::
 
