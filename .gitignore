@@ -19,5 +19,4 @@ venv.bak/
 .vscode
 
 # Quarto
-_book/
 .quarto/
