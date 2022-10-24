@@ -178,7 +178,7 @@ filtered_df.head(3)
 
 
 
-Your director has come back to you and wondered aloud whether the life expectancy of people changed during the 1970s in Cambodia. Use what you know about selecting rows and sorting data to get the data you need to answer the question. 
+Your director has come back to you and wondered about whether the life expectancy of people changed during the 1970s in Cambodia. Use what you know about selecting rows and sorting data to get the data you need to answer the question. 
 
 :::
 
