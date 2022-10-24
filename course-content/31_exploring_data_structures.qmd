@@ -267,7 +267,7 @@ Your director has come back, yet again, and wants to know what the top five coun
 
 Using the `.query()` method, you specfy that you want to return the values that are equivalent to the year of interest.  Then you can chain along the `.sort_values()` method 
 
-```python
+```{python}
 challenge4_df = join_df.query('year == 2007').sort_values('gdpPercap', ascending = False)
 challenge4_df.head(5)
 ```
