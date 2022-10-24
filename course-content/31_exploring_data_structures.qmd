@@ -162,7 +162,7 @@ filtered_df.sort_values('lifeExp', ascending=False)
 
 Here we can read a few insights out of the data.
 
-## 3.1.5. Putting multiple methods together (chaining)
+### Putting multiple methods together (chaining)
 
 You can also put multiple methods in the same line of code, as long as you separate each of the elements. In pandas, this is called "method chaining",  as you are kind of creating a chain of actions to take place. 
 
