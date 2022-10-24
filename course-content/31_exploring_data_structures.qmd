@@ -92,7 +92,7 @@ challenge1_df.head(2)
 
 :::
 
-## 3.1.3. Selecting rows
+### Selecting Rows
 
 Of course, in data analysis we are usually interested in looking at just some of rows of data, not all of it all the time. So when we want to look at just selected rows (i.e. values within a given column) there is a hand pandas function called `.query()` that we can leverage. It helps us with selecting the rows we want. 
 
