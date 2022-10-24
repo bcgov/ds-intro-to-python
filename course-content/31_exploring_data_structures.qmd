@@ -203,7 +203,7 @@ Very often we have some data in our dataset that we want to transform to give us
 
 In Excel this is something that is done all the time by creating a formula in a cell that refers to other columns and applies some sort of logic or mathematical expression to it. In pandas, one handy tool to use is the `.assign()` method. 
 
-Imagine we want to know what the actual GDP is for a given country for a given year and not just the GDP per capita. Can we do this? Let's take a look. It's with the help of an additional function called lambda. 
+Imagine we want to know what the actual GDP is for a given country for a given year and not just the GDP per capita. Can we do this? Let's take a look. It's with the help of an additional special Python function called `lambda`. 
 
 We create our own little function right inside of the code that allows us to create this column (or variable, or feature). The logic is:
 
