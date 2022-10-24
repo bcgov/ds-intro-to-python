@@ -48,7 +48,7 @@ df.head(2)
 
 The `.head()` method let's us look at actual data like we would likely do in Excel. This dataset has some high level country metrics about population and the economy going back to 1952. 
 
-## 3.1.2. Selecting columns (variables)
+### Selecting columns (variables)
 
 In the "real world" of data its not uncommon to see hundreds or thousands of columns, so knowing how to pare down our dataset so it is not overly bloated is important. Our dataset is just 6 columns wide, so not too big, but let's go ahead and narrow it down anyway.  
 
