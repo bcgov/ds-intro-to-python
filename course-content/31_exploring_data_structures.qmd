@@ -69,7 +69,7 @@ When you create a variable or dataframe in python, to the left of the `=` sign y
 
 :::{.callout-warning icon="false"}
 
-### Challenge 1
+## Challenge 1
 
 
 
