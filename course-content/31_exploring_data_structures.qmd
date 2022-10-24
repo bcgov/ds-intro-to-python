@@ -237,7 +237,7 @@ While pandas makes it possible to join two dataframes on their index, joining on
 :::{.callout-tip}
 
 To Merge or to Join?
-In pandas, there are two methods we can use to bring these datasets together, namely the `.merge()` and the `.join()` function. Both can accomplish many of the same tasks and you likely will come across both. But it probably makes sense to keep it simple and get familiar with one of them first, then move on to the next one later.
+In pandas, there are two methods we can use to bring these datasets together, namely the `.merge()` and the `.join()` functions. Both can accomplish many of the same tasks and you likely will come across both. `merge()` is a more generalized version of `join(),` and allows for more complicated combinations of data. To keep things simple, we will start with just the `join()` method here, but keep in mind that a lot of the functionality will carry over to `merge()`!
 :::
 
 In the example below we will use the `.join()` function. We will think of "df" as being the original dataset on the left, and df2 as the other dataset that we want to merge data from. We use for both the variable 'country' as the key to join on. We use an inline `.set_index()` function in order to preserve a nice looking index column on the left of the dataframe, based on the index of df. 
