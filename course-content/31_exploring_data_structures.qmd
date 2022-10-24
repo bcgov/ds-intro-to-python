@@ -174,7 +174,7 @@ filtered_df.head(3)
 
 :::{.callout-warning icon="false"}
 
-### Challenge 3
+## Challenge 3
 
 
 
