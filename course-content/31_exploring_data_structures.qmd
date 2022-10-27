@@ -11,288 +11,437 @@ keypoints: null
 jupyter: python3
 ---
 
-## Exploring and Understanding Data
+# Exploring and Understanding Data
 
 Getting a high level summary of the data is important but data is particularly valuable when refined. Your analysis will start to come alive when we start to do some slicing and dicing and grouping of data or even creating additional variables. In an Excel world, this is like when you use filter options for columns, or create pivot tables, or when you create a formula in a new column to create a new variable. In data science parlance, this is the kind of thing that is referred to as `data wrangling` - getting the (already cleaned) data you want in the form you want it in. 
 
 In the world of python, this usually means working with a library or package you have already been introduced to called pandas. It let's you do so much!
 
-The first dataset we'll look at is one that looks at data for countries around the world and shows population levels as well as gdp per capita over a number of years. It is a great data set to look at. 
+The first dataset we'll look at is one that looks at data for countries around the world and shows population levels as well as gdp per capita over a number of years. It is a great data set to look at. Let's import the pandas library and then use the `.read_csv()` function to get some population by country data. 
 
-## 3.1.1. Getting the data and an overview
+
 
 ```{python}
-#| output: false
 import pandas as pd
 url = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/gapfinder.csv"
 df = pd.read_csv(url)
 ```
 
-It's usually a good idea right away to take a quick look at the data to make sure what we have read in makes sense. So let's do that using some pandas methods that we covered earlier.
+It's usually a good idea right away to take a quick look at the data to make sure what we have read in makes sense. The `.info()` method prints the number of columns, column labels, column data types, memory usage, range index, and the number of cells in each column (non-null values).
+
 
 :::{.callout-tip}
 ## Reminder: Naming variables!
-When you create a variable or object, you can name it pretty much whatever you want. But it is a best practice to name it something intuitive but not overly verbose. Also remember to not leave spaces in your names, and to always be consistent in the naming conventions you use (e.g. camelCase, underscore_case, etc.)
-
-
+When you create a variable or object, you can name it pretty much whatever you want. You will see widespread use of the name "df". Apart from "df", it is considered good practice to name dataframes something that is at the same time intuitive but not overly verbose. Also remember to not leave spaces in your names, and to always be consistent in the naming conventions you use (e.g. camelCase, underscore_case, etc.)
 :::
 
 ```{python}
 df.info()
 ```
 
-So this data is looking good so far. We can see that we have created a pandas dataframe within our python environment. There are 1704 rows of data and 6 columns or variables. You can see there are only non-null values... so happily there is no missing data to worry about.
+So this data is looking good so far. We can see that we have created a pandas dataframe within our python environment. There are 1704 rows of data and six columns or variables. You can see there are only non-null values... so happily there is no missing data to worry about.
+
+The `.head()` pandas method let’s us look at actual data as one does in Excel.
 
 ```{python}
 df.head(2)
 ```
 
-The `.head()` method let's us look at actual data like we would likely do in Excel. This dataset has some high level country metrics about population and the economy going back to 1952. 
+This dataset has some high level country metrics about population and the economy going back to 1952. 
 
-### Selecting columns (variables)
+## Selecting columns (variables)
 
-In the "real world" of data its not uncommon to see hundreds or thousands of columns, so knowing how to pare down our dataset so it is not overly bloated is important. Our dataset is just 6 columns wide, so not too big, but let's go ahead and narrow it down anyway.  
+In the "real world" of data it is not uncommon to see hundreds or even thousands of columns in a single dataframe, so knowing how to pare down our dataset so it is not overly bloated is important. 
 
-Let's create an object (in this case a dataframe) called "narrow_df" and then specify the names of columns that we want to have in our slimmed down dataset. We are primarily interested in population, but we want to have year, country, and continent in there too. After we create it let's take a look at the new dataframe:
+<center>
+    <img src="images/exploring-data-structures/select_columns.png" 
+    width=700 style="margin:auto"/>
+    <p style="text-align: center">
+       Selecting Columns
+    </p>
+    <br/>
+</center>
+
+First things first. If we want to look the contents of a single column, we could do it like this, specifying the column name after the . without parentheses:
+
+```{python}
+df.country
+```
+
+
+When we want to select more than one column to include in our dataframe, we use the convention df[['col1', 'col2']] to select the columns we want.
+
+In our example below, we will create a new dataframe called "narrow_df", and we are primarily interested in getting the population column from the original df, but we want to have year, country, and continent in our new dataframe also.
 
 ```{python}
 narrow_df = df[['country', 'year', 'pop', 'continent']]
 narrow_df.head(2)
 ```
 
-So now we have a more manageable dataset to work with called narrow_df. The original dataframe df is still there, and still the same size as before it we want to have a look though. 
+So now we have a more manageable dataset to work with called "narrow_df". The original dataframe "df" is still there, and still the same shape as before, we have not changed it.
+
+Sometimes you might have many columns in a dataframe you want to keep and only a relatively few you might want to remove. In these instances, you might want to use the pandas `.drop()` method instead. We can achieve the same result as the example above by simply dropping two variables instead of naming the other four. With this method, we also need to add the specification `axis = 1`, which indicates that it is columns being referenced for being dropped. 
+
+```{python}
+narrow_df = df.drop(['lifeExp', 'gdpPercap'], axis=1)
+narrow_df.head(2)
+```
 
 :::{.callout-tip}
 ## Reminder on Assignment!
-When you create a variable or dataframe in python, to the left of the `=` sign you always put the name of the thing you want to make or modify. To the right, that's where you put the contents of what it is you want to create. It may feel counterintuitive! Especially if you are using the same variable or dataframe identifier on both sides of the equals sign.
+When you create a variable or dataframe object in python, to the left of the `=` sign you always put the name of the thing you want to make or modify. To the right, that's where you put the contents of what it is you want to create. It may feel counterintuitive! Especially if you are using the same variable or dataframe identifier on both sides of the equals sign.
 :::
-
 :::{.callout-warning icon="false"}
 
-## Challenge 1
-
-
-
+### Challenge 1
 Let's say you just want to narrow down the dataset to include just the country and the GDP per capita. How would you do it? Don't forget to run your code so it also shows a view of the result so you can confirm the code worked as you wanted it to. 
 
 :::
-
-
-
 :::{.callout-note icon="false" collapse="true"}
 
 ### Solution to Challenge 1
 
-First you would like to create a new object to hold this narrowed down version of the dataset, then just use some method like `.head()` to see some of the resulting data. 
+First you would like to create a new object to hold this narrowed down version of the dataset, then just use the `.head()` to see some of the resulting data. 
 
 ```{python}
 challenge1_df = df[['country', 'gdpPercap']]
 challenge1_df.head(2)
 ```
-
 :::
 
-### Selecting Rows
+## Selecting rows
 
-Of course, in data analysis we are usually interested in looking at just some of rows of data, not all of it all the time. So when we want to look at just selected rows (i.e. values within a given column) there is a handy pandas function called `.query()` that we can leverage. It helps us with selecting the rows we want. 
+Of course, in data analysis we are usually interested in looking at just some of rows of data, not all of it all the time. 
 
-We set up an expression in pandas  with `.query()` and it will evaluate it for us. For example, imagine we want to find just the rows where the year is 1972. Here's how we do that, using `==` instead of just `=`:
+<center>
+    <img src="images/exploring-data-structures/select_rows.png" 
+    width=700 style="margin:auto"/>
+    <p style="text-align: center">
+       Selecting Rows
+    </p>
+    <br/>
+</center>
+
+So when we want to look at just selected rows (i.e. values within a given column) we can specify the column(s) we want to select from, then we use `==` or a different operator as we require:
+
+ - not equal to `!=`
+ - less than `<`
+ - greater than `> `
+ - less than or equal to `<=`
+ - greater than or equal to `>=`
+
+Note that we do not use the `=` operator when it comes to specifying values we want to find in a column. This is an important point in python. The `==` operator compares the value or equality of two objects and is the right operator to use. It is a `comparison` operator. In comparison, the `=` is an `assignment` operator. We use it, for example, when we create or assign variables or objects. In the example below we see both at work.
+
+Likely the most common way in python to select rows is to use a condition inside selection brackets `[]`
 
 ```{python}
-filtered_df = df.query('year == 1972')
+filtered_df = df[df['year'] == 1972]
 filtered_df.head(2)
 ```
 
-We can even get more specific with string variables, looking for content by starting letter or letters.  For example, here's how we can look for specific countries: 
+Let's look at what is happening under the hood.  We see that pandas checks each row to see which rows fulfill the condition specified.  
 
 ```{python}
-filtered_df = df.query('country.str.startswith("C") & year == 1972')
-filtered_df.head(3)
+df['year'] == 1972
 ```
+
+We can also expand this concept by adding additional conditions that narrow or expand the number of rows filtered. Below we use the `&` condition to indicate that both parts of the equation need to be fulfilled. 
+
+When combining multiple conditional statements as in the example below, each condition must be surrounded by parentheses `()` within the square brackets `[]`. You must use the "or" operator `|` and/or the "and" operator `&` for the code to work. 
+
+```{python}
+filtered_df = df[(df['year'] == 1972) & (df['country'] == 'Albania')]
+filtered_df.head()
+```
+
+In the example above, there is only one row of data that matches the condition.
+
+Or we can use the `|` which indicates that if *either* of the statements are true, then all the rows satisfying either condition are returned.
+
+```{python}
+filtered_df = df[(df['year'] == 1972) | (df['country'] == 'Albania')]
+filtered_df.head()
+```
+
+In the example above, there are many rows that satisfy the condition.
 
 :::{.callout-warning icon="false"}
 
 ## Challenge 2
-
-
-
-Your director has come to you and asked if you know what the life expectancy was is in Canada in 2007.  How would you use pandas code to get the data you need? And after having run the code, what's the answer? 
-
+Your director has come to you and asked if you know what the life expectancy has been in Canada since 1992.  How would you use pandas code to get the data you need? And after having run the code, what's the answer? 
 :::
-
-
-
 :::{.callout-note icon="false" collapse="true"}
 
 ### Solution to Challenge 2
 
-First you would like to create a new object to hold this narrowed down version of the dataset, then just use some method like `.print()` or `.head()` to see some of the resulting data. 
+First you would like to create a new object to hold this narrowed down version of the dataset, then use some method like `.print()` or `.head()` to see some of the resulting data. 
+
 
 ```{python}
-challenge2_df = df.query('country.str.startswith("Canada") & year == 1972')
+challenge2_df = df[(df['year'] >= 1992) & (df['country'] == 'Canada')]
 print(challenge2_df)
 ```
-
 :::
 
-:::{.callout-tip}
-## .loc() and .iloc() to also filter rows! 
-There is something else you should know about row selection. It is VERY common within python/pandas to see the `.loc()` and `.iloc()` methods to identify rows by index location. The index starts at 0 for the first row (yes, "0", and not "1")!  You can also use these methods. You may not ever need to use it, but it is good to know what it means when you come across it. 
-:::
+
+You will find that it is very common within python/pandas to see the `.iloc()` method.
+
+The `.iloc()` method identifies rows based on their index value (that column to the left of the dataframe when you call the <code>.head()</code> function, for example). It can be used to look at individual rows of data by their original index value.
 
 ```{python}
-x_df = df.loc[0:1]
-print(x_df)
+df.iloc[251]
 ```
 
-### Sorting rows
-
-So now you've mastered how to select rows and columns you want, congratulations!
-
-Instead of hunting and pecking for insights, one way to quickly make some sense of the data is to sort it - something you probably do in Excel all the time. 
-
-Above, we have created a dataframe with just the one country in it and for all years above 1972. So now let's sort the data by year, and then see what can spot any insights. To do this, we use the `.sort_values()` method.
-
-Let's go fetch and look at the filtered_df dataframe from above, and use this method to sort by year, going from more recent to less recent:
+Or it can be used to call multiple rows in a range:
 
 ```{python}
-filtered_df.sort_values('lifeExp', ascending=False)
-#
+df.iloc[0:5]
 ```
 
-Here we can read a few insights out of the data.
+## Sorting rows
 
-### Putting multiple methods together (chaining)
+So now you've mastered how to select rows and columns you want, congratulations! Instead of hunting and pecking for insights, one way to quickly make some sense of the data is to sort it - something you probably do in Excel all the time. 
 
-You can also put multiple methods in the same line of code, as long as you separate each of the elements. In pandas, this is called "method chaining",  as you are kind of creating a chain of actions to take place. 
+In the challenge above we created a dataframe "challenge2_df" with just the one country in it and from 1997. So now let's sort the data by year, and then see what can spot any insights. To do this, we use the `.sort_values()` method.
+
+Let's go fetch and look at the dataframe, and use this method to sort by year, going from more recent to less recent:
+
+```{python}
+challenge2_df.sort_values('year', ascending=False)
+```
+
+## Putting multiple methods together (chaining)
+
+You can also put multiple methods in the same line of code, as long as you separate each of the elements. In pandas, this is called "method chaining",  as you are essentially of creating a chain of actions to take place. 
+
+In the example below, the chain consists of two links:
+
+1. Select just the rows where the country is equal to Canada AND where the year is 1997 or greater
+2. Take these rows and sort them by year, going from high to low values, top to bottom
 
 ```{python}
 #| scrolled: true
-filtered_df = df.query('country.str.startswith("Ca") & year == 2007').sort_values('year', ascending = False)
-filtered_df.head(3)
+chained_df = df[(df['country'] == 'Canada') & (df['year'] >= 1997)].sort_values('year', ascending = False)
+chained_df.head(3)
 ```
+
+Another way of chaining is to put each of the functions on multiple lines.  In the example below, each line of code modifies the dataframe to acheive the same result as above.
+
+```{python}
+chained2_df = df[(df['country'] == 'Canada')]
+chained2_df = chained2_df[(chained2_df['year'] >= 1997)]
+chained2_df = chained2_df.sort_values('year', ascending=False)
+chained2_df.head(3)
+```
+
+This latter approach is very common.  Each respective line to the right of the `=` contains the code that modifies the object assigned to the left of it. Note that you can use a combination of chaining and piping.  
+
+Each line is executed in sequence, so be careful when constructing code that the order in which you modify your dataframe is right. Take the example below, in which we want to find European values for GDP per capita. In it, we first have a line of code that selects the rows that contain "Europe" in the first line, then looks at the column values for "year", "country", and "gdpPercap".
+
+```{python}
+year_country_gdp = df[(df['continent'] == 'Europe')]
+year_country_gdp = year_country_gdp[['year', 'country', 'gdpPercap']]
+year_country_gdp.head(3)
+```
+
+Had we reversed the lines of code, and selected the "year", "country", and "gdpPercap" columns first to put into our new object, we would not have been able to sort for "Europe" in the "continent" column, as the "continent" would have been essentially removed from the dataframe in the step above, so python would have thrown an error. 
 
 :::{.callout-warning icon="false"}
 
 ## Challenge 3
-
-
-
 Your director has come back to you and wondered about whether the life expectancy of people changed during the 1970s in Cambodia. Use what you know about selecting rows and sorting data to get the data you need to answer the question. 
-
 :::
-
-
-
 :::{.callout-note icon="false" collapse="true"}
 
 ### Solution to Challenge 3
 
-Use the `query()` and `sort_values()` methods and chain them together. Looking at the data we see that in the 1970s there was a sharp decline in life expectancy in Cambodia. We also see, thankfully, that it has recovered strongly since then. 
+Using code to select the country Cambodia, then call `sort_values()` method and chain them together. Looking at the data we see that in the 1970s there was a sharp decline in life expectancy in Cambodia. We also see, thankfully, that it has recovered strongly since then. 
 
 ```{python}
-challenge3_df = df.query('country.str.startswith("Cambodia") & year < 2008').sort_values('year', ascending = False)
+challenge3_df = df[(df['country'] == 'Cambodia')].sort_values('year', ascending = False)
 print(challenge3_df)
 ```
 
 :::
 
-### Creating new columns of data
+## Creating new columns of data
 
-Very often we have some data in our dataset that we want to transform to give us additional information.
+Very often we have some data in our dataset that we want to transform to give us additional information. In Excel this is something that is done all the time by creating a formula in a cell that refers to other columns and applies some sort of logic or mathematical expression to it. 
 
-In Excel this is something that is done all the time by creating a formula in a cell that refers to other columns and applies some sort of logic or mathematical expression to it. In pandas, one handy tool to use is the `.assign()` method. 
+There are different ways you can go about this in pandas. The most straightforward way is to define a new column on the left of the `=` and then reference the existing column and whatever additional conditions you would like on the right. In the example below, the existing population variable “pop” is converted to a value that shows population in millions.
 
-Imagine we want to know what the actual GDP is for a given country for a given year and not just the GDP per capita. Can we do this? Let's take a look. It's with the help of an additional special Python function called `lambda`. 
+```{python}
+new_cols_df = df
+new_cols_df['pop_millions'] = new_cols_df['pop']/1000000
+new_cols_df.head(2)
+```
 
-We create our own little function right inside of the code that allows us to create this column (or variable, or feature). The logic is:
+So now we can see which countries had the biggest GDP in 2007. Notice that the GDP data is in scientific notation (i.e. the decimal number times x number of zeros), so it's a bit hard to read. If we wanted readers to consume that data we would go ahead and change the data type for it. But for current purposes we'll leave that alone.
 
-(new_variable_name  = `lambda x: some expression involving x and math and/or other variables`)
+There is a special python function called `lambda`. It is known as an anonymous function, because it is not given a name other than lambda, and can take any number of arguments in an expression.
 
-The `.assign()` method looks at this expression and then returns the value it is asked to do. This is how it comes all together to give us actual GDP for each row in our dataframe:
+The `.assign()` method looks at this expression with lambda in it and returns the value it is asked to do. This is how it comes all together to give us actual GDP for each row in our dataframe:
 
 ```{python}
 new_df = df.assign(gdp=lambda x: x['pop'] * x['gdpPercap'])
-new_df = new_df.query('year == 2007').sort_values('gdp', ascending = False)
 new_df.head(5)
 ```
 
-So now we can see which countries had the biggest GDP in 2007. Notice that the gdp data is in scientific notation (i.e. the decimal number times x number of zeros), so it's a bit hard to read. If we wanted readers to consume that data we would go ahead and change the data type for it. But for current purposes we'll leave that alone.
+Python allows us to create our own custom functions which we can use together with lambda.  We won’t create out own function here, but they we can make functions do any number of things, like double a number or convert celcius to fahrenheit, or whatever. Let’s assume that we have created a function and assigned it the name “myfunc”.
 
-### Joining datasets together
+We could and add it inline with `lambda` together with the `.apply()` function as in this example, which applies the function to a particular column:
 
-One of the most important tasks in data analysis is to be able to join multiple datasets together. There is a second file that we can get regarding country size in square kilometers.  Let's fetch that data and take a look. 
+df[‘new_col’] = df[‘old_col’]`.apply`(`lambda` x: `myfunc`(x))
 
-```{python}
-url2 = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/countrysize.csv"
-df2 = pd.read_csv(url2, encoding= 'unicode_escape')
-df2.info()
-df2.sample(2)
-```
+Finally, the example below would call, not just one column, but *all columns* (i.e. axis=1) in a dataframe to produce the new column result:
 
-Ok, this new dataset looks like we expect - a list of countries alongside the land size in square kilometers. 
+df[‘new_col’] = df`.apply`(`lambda` x: `myfunc`(x), axis=1)
 
-While pandas makes it possible to join two dataframes on their index, joining on a particular "key" column is also possible. Joining on a key column is likely more intuitive for those familiar with merging with vlookup in Excel or joining tables with SQL. So let's go ahead and join this based on the "country" column from the original dataset and "nation" from the second one. In database management language, we are going to do a left join (perhaps the most common type of join). 
 
-:::{.callout-tip}
 
-To Merge or to Join?
-In pandas, there are two methods we can use to bring these datasets together, namely the `.merge()` and the `.join()` functions. Both can accomplish many of the same tasks and you likely will come across both. `merge()` is a more generalized version of `join(),` and allows for more complicated combinations of data. To keep things simple, we will start with just the `join()` method here, but keep in mind that a lot of the functionality will carry over to `merge()`!
-:::
+## Joining datasets together
 
-In the example below we will use the `.join()` function. We will think of "df" as being the original dataset on the left, and df2 as the other dataset that we want to merge data from. We use for both the variable 'country' as the key to join on. We use an inline `.set_index()` function in order to preserve a nice looking index column on the left of the dataframe, based on the index of df. 
+One of the most important tasks in data analysis is to be able to join multiple datasets together. With pandas, there are functions called `.merge()` and `.join()` that are similar to each other. As `.merge()` is perhaps the more used, intuitive, and powerful of the two, we will introduce that method in this tutorial in some depth. There is also a cool function called `.concat()` that will be introduced below as well.
+
+But first, let’s get a second file that gives us country size in square kilometers by country. We will use this data to put together with our df dataframe.
 
 ```{python}
-join_df = df.join(df2.set_index('nation'), on='country')
-join_df.head(2)
+countrysize_url = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/countrysize.csv"
+countrysize = pd.read_csv(countrysize_url, encoding= 'unicode_escape')
+countrysize.info()
+countrysize.sample(2)
 ```
 
-Now you want to see all of the columns in this new dataset but just for the year 2007 and you want to see it organized by GDP per capita. 
+Ok, this `countrysize` dataset looks like we expect - a list of countries alongside the land size of that country in square kilometers. There are some omissions in this list - not all countries in our `df` dataset are present in this `countrysize` object. But for our present purposes this is ok. We just want to get that square kilometers data into a combined dataset and it is sufficient for that.
+
+Essentially what we want to do is a classic "left-join" operation of the sort in the diagram below. Conceptually, the `df` dataset is like the purple table and the `countrysize` dataset is like the red one.
+
+<center>
+    <img src="images/exploring-data-structures/join_types.png" 
+    width=700 style="margin:auto"/>
+    <p style="text-align: center">
+       Types of Joins
+    </p>
+    <br/>
+</center>
+
+The `.merge()` method (https://pandas.pydata.org/docs/reference/api/pandas.merge.html) works similarly to how table joining works in `SQL` or how the `VLOOKUP` function works in Excel. One needs to specify both dataframes, the key variables on which to join them, and the kind of join desired. 
+
+So let's look at the example below to see how it all comes together in code. 
+
+```{python}
+combined_df = df.merge(countrysize, left_on='country', right_on='nation', how='left')
+combined_df.head(2)
+```
+
+
+When you run the code above you will notice that both the `nation` key column and the `area_square_kms` column have been joined together in the new `combined_df` object. One can keep that nation column in there for control purposes, or it can be removed by using the `.drop()` method we used earlier:
+
+combined_df = combined_df.drop('nation', axis=1) 
+
+Another innovative way to put “merge” data together in pandas is with the `.concat()` function. Conceptually you can think if it like “stacking” two data objects on top of each other or side-by-side as shown in the diagram below.
+
+
+<center>
+    <img src="images/exploring-data-structures/concat.png" 
+    width=700 style="margin:auto"/>
+    <p style="text-align: center">
+       Ways to stack data
+    </p>
+    <br/>
+</center>
+
+
+
+To illustrate, let’s fetch two simple dataframes. Each contains the average scores for three subjects by year for two separate schools.
+
+```{python}
+school1_url  = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/school1.csv"
+school2_url  = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/school2.csv"
+school1_df = pd.read_csv(school1_url)
+school2_df = pd.read_csv(school2_url)
+```
+
+Let's take a quick look at the two dataframes.
+
+```{python}
+school1_df
+```
+
+```{python}
+school2_df
+```
+
+We call `.concat()` and pass in the objects that we want to stack vertically. This is a similiar operation to `union` in `SQL`.
+
+```{python}
+vertical_stack_df = pd.concat([school1_df, school2_df])
+vertical_stack_df
+```
+
+It is also possible to stack the data horizontally. Here it is necessary to specify the columnar axis (axis=1) as the default setting is for rows (axis=0).
+
+```{python}
+horizontal_stack = pd.concat([school1_df, school2_df], axis=1)
+horizontal_stack
+```
+
+This introduction only scratches the surface of how to leverage this way of joining datasets together. But it can be a powerful tool in the toolkit for the right use case. More detail found here: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.concat.html
+
+## Grouping and summarizing
+
+Sometimes of course you would prefer to group rows together for the purpose of summarizing them in various ways.
+
+We can accomplish this using the `.groupby()` method. A `.groupby()` operation involves some combination of splitting the object, applying a function, and combining the results.  It is used together with one or more aggregation functions:
+
+* `count()`: Total number of items
+* `first()`, `last()`: First and last item
+* `mean()`, `median()`: Mean and median
+* `min()`, `max()`: Minimum and maximum
+* `std()`, `var()`: Standard deviation and variance
+* `mad()`: Mean absolute deviation
+* `prod()`: Product of all items
+* `sum()`: Sum of all items
+
+With our data, let's use these tools to get population mean, min and max by continent. Here's how it works. 
+
+First we place "continent" in the `.groupby()` function, then we pass the aggregation functions "mean", "min", and "max" as a dictionary within the `.agg()` function. This dictionary takes the column that we are aggregating - in this case life expectancy - as a key and the aggregation functions as its value.
+
+```{python}
+grouped_single = df.groupby('continent').agg({'lifeExp': ['mean', 'min', 'max']})
+grouped_single.columns = ['lifeExp_mean', 'lifeExp_min', 'lifeExp_max']
+grouped_single.head(10)
+```
+
+We can nest additional "groups within groups" by creating a list of column names and passing that to the `.groupby()` function instead of passing a single string value.  The example below adds more granularity with the introduction of 'country' and the creation of a list to hold both 'continent' and 'country'.  
+
+```{python}
+grouped_multiple = df.groupby(['continent', 'country']).agg({'pop': ['mean', 'min', 'max']})
+grouped_multiple.columns = ['pop_mean', 'pop_min', 'pop_max']
+grouped_multiple.head(10)
+```
 
 :::{.callout-warning icon="false"}
 
 ## Challenge 4
-
-
-
-Your director has come back, yet again, and wants to know what the top five countries were in terms of GDP per capita in 2007. 
+You would like to summarize life expectancy by year for each continent so you can get an idea of trends from 1997 to 2007. Pick some aggregations that would make sense to look at for this task.
 
 :::
-
-
-
 :::{.callout-note icon="false" collapse="true"}
 
-## Solution to Challenge 4
+### Solution to Challenge 4
 
-Using the `.query()` method, you specfy that you want to return the values that are equivalent to the year of interest.  Then you can chain along the `.sort_values()` method 
+Using what we learned about how to select rows, we should limit the dataframe to rows where the year is greater than or equal to 1997. Next we should create a multicolumn call to the `.groupby()` function. Finally we should select some aggregations such as mean, min, and max among others could make sense here.
 
 ```{python}
-challenge4_df = join_df.query('year == 2007').sort_values('gdpPercap', ascending = False)
-challenge4_df.head(5)
+df_current = df[df['year'] >= 1997]
+cont_year = df_current.groupby(['continent', 'year']).agg({'lifeExp': ['mean', 'median', 'min', 'max']})
+cont_year.columns = ['lifeExp_mean', 'lifeExp_median', 'lifeExp_min', 'lifeExp_max']
+cont_year.head(20)
 ```
-
 :::
 
-```{python}
-challenge4_df = join_df.query('year == 2007').sort_values('gdpPercap', ascending = False)
-challenge4_df.head(5)
-```
 
-### Grouping 
 
-Sometimes of course you would prefer to group rows together for the purpose of summarizing them somehow. With our current dataset, we would like to  summarize it so that we can see the breakdown of the metrics for each year by country in alphabetical order. 
-
-We can accomplish this using the `.groupby()` method together with another mathematical function. 
-
-```{python}
-group_df = join_df.groupby(by=['year']).sum()
-group_df.head(20)
-```
-
-In the example above we see the sum of each of the metrics for all of the numerical columns in the respective year. So we see that world population grew from about 2.5 billion people in 1952 to over 6.25 billion in 2007. Luckily, the total land area of the world hasn't shrunk with all those extra people! 
-
-### Summary 
-
-By now you should be able to select the rows and columns of data you want directly and generate some quick on the fly insights as you need to. The next section will look at some of the more sophisticated and elegant tools for understanding and presenting your data. But the building blocks you have just learned about are the meat and potatoes of data analysis in the python world. 
+By now you should be able to select the rows and columns, join together dataframes, and create some basic summarizations of data. The next section will look at some of the more sophisticated and elegant tools for understanding and presenting your data. But the building blocks you have just learned about are the meat and potatoes of data analysis in the python world.
 
