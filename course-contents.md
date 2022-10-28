@@ -15,7 +15,7 @@
    - Make this ideally pre-work so they will have at least attempted to install the basics onto their computer before the workshop
    - Overview of working within given workspace (will choose either VSCode or PyCharm)
 
-1.3. Python Fundamentals **(Stu)**
+1.3. Working with Code **(Stu)**
    -	Writing code
    -	Python syntax and practice
    -	Troubleshooting and help
