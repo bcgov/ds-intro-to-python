@@ -16,10 +16,11 @@
    - Overview of working within given workspace (will choose either VSCode or PyCharm)
 
 1.3. Working with Code **(Stu)**
+   -	Documenting/organizing work   
+   -	Writing code     
    -	Python syntax and practice   
-   -	Writing code  
    -	Troubleshooting and help
-   -	Documenting/organizing work
+
    
 1.4. Core data structure concepts **(Lindsay)**
    - Variables, datatypes, lists, dicts, tuples etc. 
