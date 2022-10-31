@@ -16,8 +16,8 @@
    - Overview of working within given workspace (will choose either VSCode or PyCharm)
 
 1.3. Working with Code **(Stu)**
-   -	Writing code
-   -	Python syntax and practice
+   -	Python syntax and practice   
+   -	Writing code  
    -	Troubleshooting and help
    -	Documenting/organizing work
    
