@@ -228,6 +228,19 @@ Pandas!
 <section id="introduction-to-pandas" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="introduction-to-pandas"><span class="header-section-number">3.1</span> Introduction to Pandas</h2>
 <p>Pandas is one of the most widely-used Python libraries for statistics, and excels at processing tabular data. If you have ever had any experience with R, it is modeled extensively on the dataframes used there. In this section we aim to learn about the fundamental objects used in pandas, bring our own data into these objects, and then view basic information about it.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Did You Know?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Did you know that the <code>pandas</code> library package is aptly named? It is a portmanteau of the words <strong>panel</strong> and <strong>data</strong>. We are literally viewing panels of data!</p>
+</div>
+</div>
 <p>First, we need to make sure that we import the library into Python so we can use it:</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -243,7 +256,7 @@ A pandas dataframe
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>series_x <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>series_x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4406">
+<div class="cell-output cell-output-display" data-execution_count="1472">
 <pre><code>0    1
 1    2
 2    3
@@ -254,7 +267,7 @@ dtype: int64</code></pre>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>series_y <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="fl">2.0</span>, <span class="fl">3.14</span>])</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>series_y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4407">
+<div class="cell-output cell-output-display" data-execution_count="1473">
 <pre><code>0    1.00
 1    2.00
 2    3.14
@@ -266,7 +279,7 @@ dtype: float64</code></pre>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>series_z <span class="op">=</span> pd.Series([<span class="st">'settlers'</span>, <span class="st">'of'</span>, <span class="st">'catan'</span>])</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>series_z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4408">
+<div class="cell-output cell-output-display" data-execution_count="1474">
 <pre><code>0    settlers
 1          of
 2       catan
@@ -277,7 +290,7 @@ dtype: object</code></pre>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>series_mixed <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="fl">1.0</span>, <span class="st">'one'</span>])</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>series_mixed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4409">
+<div class="cell-output cell-output-display" data-execution_count="1475">
 <pre><code>0      1
 1    1.0
 2    one
@@ -293,7 +306,7 @@ dtype: object</code></pre>
 </ul>
 <p>However if you need to be more specific, you can be as well. These arguments are all required to be included in quotations, as they refer to aliases for pandas specific datatypes:</p>
 <ul>
-<li><code>'Int8'</code>, <code>'Int32'</code>, <code>'Int64'</code> provide nullable integer types (note the capital I!)</li>
+<li><code>'Int8'</code>, <code>'Int32'</code>, <code>'Int64'</code> provide <strong>nullable</strong> integer types (note the capital I! more on nullable typing below)</li>
 <li><code>'string'</code> provides access to a series that will be string specific, instead of the general <code>objects</code> type. Pandas recommends using this type for strings whenever possible.</li>
 </ul>
 <div class="cell" data-execution_count="6">
@@ -394,10 +407,10 @@ Beware NaN values!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In python, <code>NaN</code> is considered a <code>float</code> value. In the above example, we introduced a missing value for the new ‘d’ index, which defaults to the <code>NaN</code> float value. Because its type is float, this converted our entire Series to float as well. If we wish to keep the series as a float, we can coerce it back using the <code>astype()</code> method with one of the nullable integer types. This will introduce a slightly different looking null value that works for integers!</p>
+<p>Sometimes in our datasets, we want to allow a row to contain missing, or <strong>null</strong> values. The default null value for pandas is <code>NaN</code>. In python, <code>NaN</code> is considered a <code>float</code> value. In the above example, we introduced a missing value for the new ‘d’ index, which defaults to the <code>NaN</code> float value. Because its type is float, this converted our entire series to float as well. If we wish to keep the series as an int, we can coerce it back using the <code>astype()</code> method with one of the nullable integer types. This will introduce a slightly different looking null value that works for integers!</p>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>series_a.astype(<span class="st">'Int64'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4414">
+<div class="cell-output cell-output-display" data-execution_count="1480">
 <pre><code>d    &lt;NA&gt;
 c       6
 b       4
@@ -463,7 +476,7 @@ The Data Folder
 <div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../data/gapfinder.csv'</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4416">
+<div class="cell-output cell-output-display" data-execution_count="1482">
 
 <div>
 
@@ -679,7 +692,7 @@ No Spaces!
 <p>As a general rule of thumb, we never want to include special characters such as spaces, periods, hyphens and so on in our column names, as this will alter pandas capability of calling each of the columns as an attribute. Above, you will notice we reset one of the columns to have a space in the name. If we try to access this series as an attribute now, it will fail:</p>
 <div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'life expectancy'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4419">
+<div class="cell-output cell-output-display" data-execution_count="1485">
 <pre><code>0       28.801
 1       30.332
 2       31.997
@@ -700,7 +713,7 @@ Name: life expectancy, Length: 1704, dtype: float64</code></pre>
 <pre><code>SyntaxError: invalid syntax (41671440.py, line 1)</code></pre>
 </div>
 </div>
-<p>Try to stick to lowercase letters, numbers and underscores for your column names! (And as a matter of fact, let us change it back now):</p>
+<p>Try to stick to the same naming conventions for columns as for your python variables: lowercase letters, numbers (but not at the start of the name) and underscores only! (And as a matter of fact, let us change it back now):</p>
 <div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> [<span class="st">'country'</span>, <span class="st">'year'</span>, <span class="st">'pop'</span>, <span class="st">'continent'</span>, <span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -730,7 +743,7 @@ Challenge 1
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -739,7 +752,7 @@ Solution to Challenge 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df_challenge <span class="op">=</span> pd.read_csv(</span>
@@ -843,7 +856,7 @@ Solution to Challenge 1
 <p>Notice that, because we specified an index, the index now has a name! You can access the name of the index via <code>df_challenge.index.name</code>:</p>
 <div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df_challenge.index.name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4423">
+<div class="cell-output cell-output-display" data-execution_count="1489">
 <pre><code>'country'</code></pre>
 </div>
 </div>
@@ -1011,67 +1024,67 @@ Solution to Challenge 1
   </thead>
   <tbody>
     <tr>
-      <th>1646</th>
-      <td>Vietnam</td>
-      <td>1962</td>
-      <td>33796140.0</td>
-      <td>Asia</td>
-      <td>45.363</td>
-      <td>772.049160</td>
-    </tr>
-    <tr>
-      <th>460</th>
-      <td>Egypt</td>
-      <td>1972</td>
-      <td>34807417.0</td>
+      <th>1690</th>
+      <td>Zambia</td>
+      <td>2002</td>
+      <td>10595811.0</td>
       <td>Africa</td>
-      <td>51.137</td>
-      <td>2024.008147</td>
+      <td>39.193</td>
+      <td>1071.613938</td>
     </tr>
     <tr>
-      <th>1098</th>
-      <td>New Zealand</td>
-      <td>1982</td>
-      <td>3210650.0</td>
-      <td>Oceania</td>
-      <td>73.840</td>
-      <td>17632.410400</td>
+      <th>153</th>
+      <td>Bosnia and Herzegovina</td>
+      <td>1997</td>
+      <td>3607000.0</td>
+      <td>Europe</td>
+      <td>73.244</td>
+      <td>4766.355904</td>
     </tr>
     <tr>
-      <th>395</th>
-      <td>Cuba</td>
-      <td>2007</td>
-      <td>11416987.0</td>
+      <th>1071</th>
+      <td>Nepal</td>
+      <td>1967</td>
+      <td>11261690.0</td>
+      <td>Asia</td>
+      <td>41.472</td>
+      <td>676.442225</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Argentina</td>
+      <td>1987</td>
+      <td>31620918.0</td>
       <td>Americas</td>
-      <td>78.273</td>
-      <td>8948.102923</td>
+      <td>70.774</td>
+      <td>9139.671389</td>
     </tr>
     <tr>
-      <th>923</th>
-      <td>Madagascar</td>
+      <th>714</th>
+      <td>Indonesia</td>
+      <td>1982</td>
+      <td>153343000.0</td>
+      <td>Asia</td>
+      <td>56.159</td>
+      <td>1516.872988</td>
+    </tr>
+    <tr>
+      <th>899</th>
+      <td>Liberia</td>
       <td>2007</td>
-      <td>19167654.0</td>
+      <td>3193942.0</td>
       <td>Africa</td>
-      <td>59.443</td>
-      <td>1044.770126</td>
+      <td>45.678</td>
+      <td>414.507341</td>
     </tr>
     <tr>
-      <th>1172</th>
-      <td>Pakistan</td>
-      <td>1992</td>
-      <td>120065004.0</td>
-      <td>Asia</td>
-      <td>60.838</td>
-      <td>1971.829464</td>
-    </tr>
-    <tr>
-      <th>1168</th>
-      <td>Pakistan</td>
-      <td>1972</td>
-      <td>69325921.0</td>
-      <td>Asia</td>
-      <td>51.929</td>
-      <td>1049.938981</td>
+      <th>481</th>
+      <td>Equatorial Guinea</td>
+      <td>1957</td>
+      <td>232922.0</td>
+      <td>Africa</td>
+      <td>35.983</td>
+      <td>426.096408</td>
     </tr>
   </tbody>
 </table>
@@ -1102,7 +1115,7 @@ memory usage: 80.0+ KB</code></pre>
 <p><code>.describe()</code> will give us basic statistical information about every <strong>numerical</strong> column: mean, standard deviation, quartiles, and counts are all included with a call to a single method!</p>
 <div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4426">
+<div class="cell-output cell-output-display" data-execution_count="1492">
 
 <div>
 
@@ -1181,7 +1194,7 @@ memory usage: 80.0+ KB</code></pre>
 <p>Finally, if we want basic information about the non-numerical columns, we can use the <code>value_counts()</code> method. For a given series (or multiple series), this tells us how freqeuntly a given value appears. We will learn more about what this is doing under the hood when we learning about aggregation methods in a later section, but we can apply it to singular text columns here as a teaser</p>
 <div class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>df.country.value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4427">
+<div class="cell-output cell-output-display" data-execution_count="1493">
 <pre><code>Afghanistan          12
 Pakistan             12
 New Zealand          12
@@ -1215,7 +1228,7 @@ Challenge 2
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1224,7 +1237,7 @@ Solution to Challenge 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>This should output a <strong>different</strong> result from <code>df.describe()</code>. We can break this down into two portions:</li>
@@ -1240,7 +1253,7 @@ Solution to Challenge 2
 </ul>
 <div class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>df_sample.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4429">
+<div class="cell-output cell-output-display" data-execution_count="1495">
 
 <div>
 
@@ -1264,52 +1277,52 @@ Solution to Challenge 2
     </tr>
     <tr>
       <th>mean</th>
-      <td>1982.119048</td>
-      <td>1.312754e+07</td>
-      <td>59.671071</td>
-      <td>5911.457501</td>
+      <td>1976.880952</td>
+      <td>3.468145e+07</td>
+      <td>57.075810</td>
+      <td>5884.346087</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>15.907051</td>
-      <td>1.942469e+07</td>
-      <td>13.686639</td>
-      <td>7887.590122</td>
+      <td>15.868672</td>
+      <td>1.221546e+08</td>
+      <td>13.124224</td>
+      <td>6975.170317</td>
     </tr>
     <tr>
       <th>min</th>
       <td>1952.000000</td>
-      <td>1.108120e+05</td>
-      <td>23.599000</td>
-      <td>344.161886</td>
+      <td>1.986760e+05</td>
+      <td>38.596000</td>
+      <td>464.099504</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>1972.000000</td>
-      <td>1.938514e+06</td>
-      <td>48.718000</td>
-      <td>1267.228363</td>
+      <td>1967.000000</td>
+      <td>3.532462e+06</td>
+      <td>44.192250</td>
+      <td>936.043854</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>1982.000000</td>
-      <td>5.060596e+06</td>
-      <td>61.664000</td>
-      <td>2691.981571</td>
+      <td>1977.000000</td>
+      <td>5.753376e+06</td>
+      <td>57.439500</td>
+      <td>2324.533943</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>1992.000000</td>
-      <td>1.281182e+07</td>
-      <td>70.410000</td>
-      <td>5739.915648</td>
+      <td>1987.000000</td>
+      <td>1.436245e+07</td>
+      <td>70.131250</td>
+      <td>8267.449564</td>
     </tr>
     <tr>
       <th>max</th>
       <td>2007.000000</td>
-      <td>8.155152e+07</td>
-      <td>79.590000</td>
-      <td>33203.261280</td>
+      <td>7.880000e+08</td>
+      <td>80.546000</td>
+      <td>28569.719700</td>
     </tr>
   </tbody>
 </table>
@@ -1321,7 +1334,7 @@ Solution to Challenge 2
 </ol>
 <div class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>df.sample(<span class="dv">42</span>).describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4430">
+<div class="cell-output cell-output-display" data-execution_count="1496">
 
 <div>
 
@@ -1345,52 +1358,52 @@ Solution to Challenge 2
     </tr>
     <tr>
       <th>mean</th>
-      <td>1979.619048</td>
-      <td>1.517513e+07</td>
-      <td>58.999238</td>
-      <td>5806.642379</td>
+      <td>1979.023810</td>
+      <td>1.522706e+07</td>
+      <td>58.063381</td>
+      <td>8529.712737</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>15.743295</td>
-      <td>1.931797e+07</td>
-      <td>12.116572</td>
-      <td>7499.761128</td>
+      <td>14.859485</td>
+      <td>2.873719e+07</td>
+      <td>12.272980</td>
+      <td>17534.861105</td>
     </tr>
     <tr>
       <th>min</th>
       <td>1952.000000</td>
-      <td>8.679600e+04</td>
-      <td>30.332000</td>
-      <td>659.877232</td>
+      <td>4.179080e+05</td>
+      <td>32.767000</td>
+      <td>431.790457</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>1967.000000</td>
-      <td>3.335487e+06</td>
-      <td>49.038250</td>
-      <td>1236.420030</td>
+      <td>2.377247e+06</td>
+      <td>49.469500</td>
+      <td>1356.246913</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>1979.500000</td>
-      <td>8.119796e+06</td>
-      <td>59.860000</td>
-      <td>2799.729613</td>
+      <td>1982.000000</td>
+      <td>5.007159e+06</td>
+      <td>57.563500</td>
+      <td>3158.458570</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>1992.000000</td>
-      <td>1.932170e+07</td>
-      <td>67.802250</td>
-      <td>6578.945993</td>
+      <td>1.053197e+07</td>
+      <td>69.597500</td>
+      <td>10079.301779</td>
     </tr>
     <tr>
       <th>max</th>
       <td>2007.000000</td>
-      <td>8.042831e+07</td>
-      <td>77.950000</td>
-      <td>34077.049390</td>
+      <td>1.504483e+08</td>
+      <td>79.696000</td>
+      <td>109347.867000</td>
     </tr>
   </tbody>
 </table>
@@ -1445,7 +1458,7 @@ pd.method() or df.method()?
 <pre><code>AttributeError: module 'pandas' has no attribute 'to_csv'</code></pre>
 </div>
 </div>
-<p>Inversely, the <code>read_csv</code> belongs directly to pandas, and so trying something like this will break:</p>
+<p>Inversely, the <code>read_csv</code> function belongs directly to pandas, and so trying something like this will break:</p>
 <div class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(df.read_csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -1468,7 +1481,7 @@ Challenge 3
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1477,7 +1490,7 @@ Solution to Challenge 3
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First, we want to make sure we have a folder to save our outputs to. I have made a folder called <code>outputs</code> that lives at the same level as the <code>data</code> folder. Next, we can invoke the <code>to_csv</code> method on a copy of our descriptive statistics:</p>
 <div class="cell" data-execution_count="29">

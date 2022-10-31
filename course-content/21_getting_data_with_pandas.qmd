@@ -22,6 +22,12 @@ keypoints:
 
 Pandas is one of the most widely-used Python libraries for statistics, and excels at processing tabular data. If you have ever had any experience with R, it is modeled extensively on the dataframes used there. In this section we aim to learn about the fundamental objects used in pandas, bring our own data into these objects, and then view basic information about it. 
 
+:::{.callout-tip}
+## Did You Know?
+
+Did you know that the `pandas` library package is aptly named? It is a portmanteau of the words **panel** and **data**. We are literally viewing panels of data! 
+:::
+
 First, we need to make sure that we import the library into Python so we can use it:
 
 ```{python}
@@ -79,7 +85,7 @@ When pandas sees data that cannot be obviously converted into a single datatype,
  
 However if you need to be more specific, you can be as well. These arguments are all required to be included in quotations, as they refer to aliases for pandas specific datatypes:
 
- * `'Int8'`, `'Int32'`, `'Int64'` provide nullable integer types (note the capital I!)
+ * `'Int8'`, `'Int32'`, `'Int64'` provide **nullable** integer types (note the capital I! more on nullable typing below)
  * `'string'` provides access to a series that will be string specific, instead of the general `objects` type. Pandas recommends using this type for strings whenever possible. 
 
 ```{python}
@@ -122,7 +128,7 @@ display(series_a)
 :::{.callout-tip}
 ## Beware NaN values!
 
-In python, `NaN` is considered a `float` value. In the above example, we introduced a missing value for the new 'd' index, which defaults to the `NaN` float value. Because its type is float, this converted our entire Series to float as well. If we wish to keep the series as a float, we can coerce it back using the `astype()` method with one of the nullable integer types. This will introduce a slightly different looking null value that works for integers! 
+Sometimes in our datasets, we want to allow a row to contain missing, or **null** values. The default null value for pandas is `NaN`. In python, `NaN` is considered a `float` value. In the above example, we introduced a missing value for the new 'd' index, which defaults to the `NaN` float value. Because its type is float, this converted our entire series to float as well. If we wish to keep the series as an int, we can coerce it back using the `astype()` method with one of the nullable integer types. This will introduce a slightly different looking null value that works for integers! 
 
 ```{python}
 series_a.astype('Int64')
@@ -227,7 +233,7 @@ df['life expectancy']
 df.life expectancy
 ```
 
-Try to stick to lowercase letters, numbers and underscores for your column names! (And as a matter of fact, let us change it back now):
+Try to stick to the same naming conventions for columns as for your python variables: lowercase letters, numbers (but not at the start of the name) and underscores only! (And as a matter of fact, let us change it back now):
 
 ```{python}
 df.columns = ['country', 'year', 'pop', 'continent', 'lifeExp', 'gdpPercap']
@@ -380,7 +386,7 @@ For example, to find the `to_csv()` function, we can see that it belongs to the 
 help(pd.to_csv)
 ```
 
-Inversely, the `read_csv` belongs directly to pandas, and so trying something like this will break:
+Inversely, the `read_csv` function belongs directly to pandas, and so trying something like this will break:
 
 ```{python}
 #| error: true
