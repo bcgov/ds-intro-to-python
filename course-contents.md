@@ -65,7 +65,7 @@
    - Creating columns (transform)
    - Joining datasets
 
-3.2. Graphical depictions of data (Visualizations) **(TBD)**
+3.2. Graphical depictions of data (Visualizations) **(Lindsay)**
    -	Distributions (e.g. line and bar histograms)
    -	Comparisons (e.g. barcharts and line charts)
    -	Relationships (e.g. Scatter and bubble plots)
