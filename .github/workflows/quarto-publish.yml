@@ -20,11 +20,13 @@ jobs:
           # version: 0.9.600
       
       # add software dependencies here
-      - name: Install dependencies
+      - name: Install python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           cache: 'pip'
+
+      - name: Install dependencies
         run: pip install -r requirements.txt
 
       - name: Publish to GitHub Pages (and render)
