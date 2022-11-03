@@ -13,7 +13,7 @@ keypoints:
 
 ## Documenting/organizing work
 
-Most data projects consist of some version of a) finding some data, b) cleaning it up, and c) generating some insights. In an Excel world, all three stages often happen in a single document. Albeit usually over many tabs, and almost always with little documentation. If the project is purely "ask a one time question and get a one time answer and never need to look at the file again", then this approach is arguably efficient and effective. But what if we want to update the insights over time or apply the question to a different dataset? What is someone wants to reproduce what we did?  How about verify if what we did was valid? Then we have to admit that we have something to work from that is neither efficient nor effective. 
+Most data projects consist of some version of a) finding some data, b) cleaning it up, and c) generating some insights. In an Excel world, all three stages often happen in a single document. Usually over many tabs. Almost always with little documentation. If the project is purely "ask a one time question and get a one time answer and literally never need to look at the file again", then this approach is arguably efficient and effective. But what if we want to update the insights over time or apply the question to a different dataset? What if someone wants to reproduce what we did?  How about verify if what we did was valid? Then we have to admit a complex Excel workbook is neither efficient nor effective. 
 
 Having a strategy ahead of time about *how you organize your work* when you are starting a project will pay handsome dividends, both for you and for anyone who will be accessing your work down the road. And when you use code (e.g. R or Python) to do a lot of the processing of the data in your project, it is unavoidable that you will have to make some decisions about how to manage your work, which includes managing your files. 
 
@@ -33,15 +33,13 @@ One of the first things that you will do in a coding environment is to identify 
 In many cases your data will be “dirty”. That is to say, filled with missing data, spelling mistakes, duplicate records, data type errors, you name it! Your code will clean it. Once you have your clean data, your code will generate insights from it. All of this code (in our case, Python code) will take the form of *scripts* in separate files. All of these scripts should be stored in a separately from the original data itself.  
 
 *Treat generated output as disposable*
-Because you should be able to take the original data as well as the scripts to process it into something useful, you can recreate the outputs at any time. So while we might have a place where we store the processed data, we can also treat outputs as disposable. 
-
-It is a bit like having a kitchen pantry with ingredients for making a cake along with the recipe to guide us through the steps to make it. We should be able to make the same cake over and over again with a stocked pantry and access to the recipe. But if we lose either the pantry or the recipe, we won't be able to make the cake. And if you are a chef, that is kind of a big deal.
+Because you should be able to take the original data as well as the scripts to process it into something useful, you can recreate the outputs at any time. So while we might have a place where we store the processed data, we can also treat outputs as disposable. It is a bit like having a kitchen pantry with ingredients for making a cake along with the recipe to guide us through the steps to make it. We should be able to make the same cake over and over again with a stocked pantry and access to the recipe. But if we lose either the stocked pantry or the recipe, we won't be able to make the cake. As the chef treats the cake as edible, so treats the data scientist the output as disposable. 
 
 Below are some good simple file organizing practices:
 
-Create a single name for your project and then a number of subdirectories as you develop contents. For example, let's say we have a project that is about analyzing migration flows in BC. Here's how you could structure your work, so that it stays well organized:
+Create a single name for your project and then a number of subdirectories as you develop contents. For example, let's say we have a project that is about analyzing marmots in BC. Here's how you could structure your work, so that it stays well organized:
 
-/MigrationFlowsBC       *the name of the project, without spaces, consistent naming approach with other projects*
+/MarmotsBC       *top level directory, contains project name, without spaces*
     /docs               *supporting text and word processed documents that are meant for humans to read*
     /data               *the original data and metadata that acts as an input and will be treated by code as read-only*
     /src                *your scripts, may further be divided into /functions, /test, etc.*
@@ -49,23 +47,57 @@ Create a single name for your project and then a number of subdirectories as you
     /output             *processed data written by your code to this location, could become input for another process*
     /analysis           *the charts, stats, figures and the like generated from your scripts*
 
-When you are naming files themselves, try to have the names reflect their content or function. You will also find that as your project grows, documents such as scripts may need to be split apart and renamed. For example, you might create some functions as you analyse your data in a single script. At some point you will likely want to create a separate script file just for the functions, for example. 
+*Naming and File Splitting.* 
+When you are naming files themselves, try to have the names reflect their content or function. You will also find that as your project grows, documents such as scripts may need to be split apart and renamed. For example, you might create some functions as you analyse your data in a single script. At some point you will likely want to create a separate script file just for the functions. When splitting, make sure you eliminate redundent content between files. 
 
-Version control. When working alone and especially when working within a team, it is helpful to leverage tools that help ensure that everyone's work is kept up to date and organized. There are tools such as git/GitHub that are made precisely for this purpose. It is beyond the scope of this tutorial to dive into this topic, but it is something to keep in mind.  
+*Version control.*
+When working alone and especially when working within a team, it is helpful to leverage tools that help ensure that everyone's work is kept up to date and organized. There are tools such as git/GitHub that are made precisely for this purpose. If you hear people talking about repos, merges, commits, pull requests, etc, they are probably talking about the git world. It is beyond the scope of this tutorial to dive into this topic, but it is something to keep in mind. 
 
-
-
-
-
-
-## Writing code 
-
-
-
-
+<center>
+    <img src="images/core-concepts/github.png"  style="margin:auto"/>
+    <p style="text-align: center">
+        Where ideas work (and are kept organized and up-to-date)
+    </p>
+</center>
 
 
-## Python syntax
+
+
+
+## Getting help
+
+
+
+
+This is a python course, so naturally we'll be diving deep mostly into Python. Being effective with using python, however, actually requires understanding and working with other technologies from time to time. Here are a few technologies you should be aware of.
+
+
+
+*Finding help.*  Inevitably code will fall apart on you and despite having taken part in amazing learning sessions, you may be at a loss as to why! Don't despair. Help is only some key-combos or search terms away. 
+
+In Jupyter Notebook, 
+
+
+
+
+
+<center>
+    <img src="images/core-concepts/google-stackoverflow.png"  style="margin:auto"/>
+    <p style="text-align: center">
+        Global community and solutions to challenges or fixes for bugs
+    </p>
+</center>
+
+For help on some topic area you'd like to know more about, it may also pay to look at "videos" among your Google search responses and you will likely see many YouTube offerings of varying degrees of relevance. There is a whole ecosystem of python developers (polished and not-so-much) who offer content that may be of help. 
+
+
+
+## Python style
+
+Working with python can be challenging. When you are first learning it, there may seem to be so many different rules around using certain kinds of brackets (and not others) at certain times, rules around indenting lines, etc. Many of these rules result in your code refusing to run. However, often your code may run, but not necessarily be easy to follow for someone reading through it. 
+
+Fortunately, there are some widely accepted guidelines about coding style that you should be aware of and strive towards over time. The author
+
 
 
 -	Attempt to be clean and clear 
@@ -83,9 +115,7 @@ Version control. When working alone and especially when working within a team, i
 ## Troubleshooting and help
 
 
--	Reading/getting help in the VS Code environment
 -	Where to find things
--	Troubleshooting/Bug detection
 
 
 
