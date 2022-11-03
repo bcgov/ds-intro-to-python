@@ -12,6 +12,7 @@ book:
     - 00_introduction_to_python.qmd
     - 02_core_data_structure_concepts.qmd
     - 21_getting_data_with_pandas.qmd
+    - 32_graphical_depictions_of_data.qmd
     - references.qmd
 
 bibliography: references.bib
