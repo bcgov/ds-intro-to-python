@@ -191,7 +191,7 @@ We have 3 main areas that we can utilize:
  
 Now remember, we set up a special environment that contains python and our data science packages. We want to make sure we are always using this environment, so in the open terminal, re-type `conda activate ds-env` and this terminal will now be open in this environment. We also want to check that VSCode itself (and not just the terminal) will use the same environment. We again access the command palette with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, and begin typing `Python: Select Interpreter`. Click on this, and choose the `ds-env` option. We are good to go! 
 
-:::{.callout-note}
+:::{.callout-tip}
 ## Conda Environments
 
 Although it does add an extra level of set-up whenever we start a python project, having these conda environments ends up being incredibly important for not only reproducibility, but making sure that packages work well together. When in doubt as to if you are using the correct environment, double check that the terminal you are using has `(ds-env)` in brackets at the start of a line. 
@@ -222,41 +222,40 @@ But wait, there's more! In VSCode we can run individual lines of code within a f
 
 Note the difference here. Instead of running the entire file, VSCode actually opened up a python window inside our terminal, and ran the single line of code, just like we did before. 
 
-#### Challenge 1
-> Run the other line of code, and then add and run third line of code that prints your favourite TV show.
->
-> <details>
->
-> <summary>
-> Solution to Challenge 1
-> </summary>
-> <br>
-> hit <kbd>Shift</kbd>+<kbd>Enter</kbd> while the cursor is on the other line of code. 
-> Add a line of code such as:
->```python
->print("C'mon son! You know the best show is Psych!")
->```
-> Save the file, and again press <kbd>Shift</kbd>+<kbd>Enter</kbd> while on this line.
->
-> <br>
-> </details>
+:::{.callout-warning icon="false"}
+## Challenge 1
 
+Run the other line of code, and then add and run a third line of code that prints your favourite TV show.
+:::
 
-#### Challenge 2
-> Try clicking the play button again. What happens here? Can you explain why?
->
-> <details>
->
-> <summary>
-> Solution to Challenge 2
-> </summary>
-> <br>
-> An error will occur in the terminal.
-> This is because VSCode tried to run the entire program again, but from inside an already open python program (which we opened when we ran a single line using the <kbd>Shift</kbd>+<kbd>Enter</kbd> method). 
-> To fix this, we can either `exit()` the current python execution in the current terminal, or Kill/Delete the open terminal. This button can be found by hovering over the `Python` symbol at the right hand side of the terminals.
->
-> <br>
-> </details>
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 1
+
+Press <kbd>Shift</kbd>+<kbd>Enter</kbd> while the cursor is on the other line of code. 
+
+Add a line of code such as:
+```python
+print("C'mon son! You know the best show is Psych!")
+```
+
+Save the file, and again press <kbd>Shift</kbd>+<kbd>Enter</kbd> while on this line.
+:::
+
+:::{.callout-warning icon="false"}
+## Challenge 2
+
+Try clicking the play button again. What happens here? Can you explain why?
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 2
+
+An error will occur in the terminal.
+
+This is because VSCode tried to run the entire program again, but from inside an already open python program (which we opened when we ran a single line using the <kbd>Shift</kbd>+<kbd>Enter</kbd> method). 
+
+To fix this, we can either `exit()` the current python execution in the current terminal, or Kill/Delete the open terminal. This button can be found by hovering over the `Python` symbol at the right hand side of the terminals.
+:::
 
 ### From JupyterLab
 
@@ -264,7 +263,7 @@ JupyterLab is an application with a web-based user interface that enables one to
 
 To start JupyterLab, you can use `Anaconda Navigator`, a GUI that comes packaged with `Anaconda` if you wish. However it is nearly always easier to access it from the command line. Inside VSCode, navigate to a new terminal.
 
-:::{.callout-note}
+:::{.callout-tip}
 ## Conda Reminder!
 
 Make sure that you double check that this new terminal is opened with the `ds-env`!
@@ -307,42 +306,42 @@ We will be using the JupyterLab interface quite a bit, so let's get used to the 
 
   Let's open up a notebook (click the `Python 3` icon underneath the Notebook heading). This will open up a new tab called `Untitled.ipynb`. 
 
-#### Challenge 3
-> Rename the notebook to `hello_world.ipynb`.
->
-> <details>
->
-> <summary>
-> Solution to Challenge 3
-> </summary>
-> <br>
-> On either the tab to the top, or the filename that popped up on the left panel, right click the file `Untitled.ipynb` and click `Rename notebook...`. Enter your new name here. 
->
-> <br>
-> </details>
+:::{.callout-warning icon="false"}
+## Challenge 3
+
+Rename the notebook to `hello_world.ipynb`
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 3
+
+On either the tab to the top, or the filename that popped up on the left panel, right click the file `Untitled.ipynb` and click `Rename notebook...`. Enter your new name here. 
+:::
 
 In this new file, we have a single blue box (this is a single `cell`). We can type multiple lines of code inside a single cell. Within the blue box, pressing <kbd>Enter</kbd> will let you add a new line to the cell. To execute a cell, we press <kbd>Shift</kbd>+<kbd>Enter</kbd>. This will execute every line of code within that cell. If there is output to display, it will display in the space directly below the cell. Pressing the `+` at the top of the tab will add a new cell (as will running the bottom-most cell). The 'active' cell will always be the one that is highlighted with a blue box. 
 
-#### Challenge 4
-> Print 'Hello World' inside the Jupyter Notebook.
->
-> <details>
->
-> <summary>
-> Solution to Challenge 4
-> </summary>
-> <br>
-> Inside the blue box, write the python code:
->```python
->print('Hello World!')
->```
->While still on this cell (highlighted in blue), press <kbd>Shift</kbd>+<kbd>Enter</kbd>. We should see the output directly below! 
-> <br>
-> </details>
+:::{.callout-warning icon="false"}
+## Challenge 4
+Print 'Hello World' inside the Jupyter Notebook.
+
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 4
+
+Inside the blue box, write the python code:
+
+```python
+print('Hello World!')
+```
+
+While still on this cell (highlighted in blue), press <kbd>Shift</kbd>+<kbd>Enter</kbd>. We should see the output directly below! 
+:::
+
 
 When we are done with a JupyterLab session, we must shutdown the server. From the Menu Bar select the `File` menu and then choose `Shut Down` at the bottom of the dropdown menu. You will be prompted to confirm that you wish to shutdown the JupyterLab server (don’t forget to save your work!). Click `Shut Down` to shutdown the JupyterLab server.
 
-:::{.callout-note}
+:::{.callout-tip}
 ## JupyterLab and Us!
 
 We will be using JupyterLab for the vast majority of our work throughout this course because of the ease of use in writing and executing code all in one place. Make sure you are comfortable with:

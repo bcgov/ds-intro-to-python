@@ -17,3 +17,6 @@ venv.bak/
 # IDEs
 .idea
 .vscode
+
+# rendering
+course-content/_book/
