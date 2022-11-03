@@ -20,14 +20,23 @@ jobs:
           # version: 0.9.600
       
       # add software dependencies here
-      - name: Install python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-          cache: 'pip'
+      #- name: Install python
+      #  uses: actions/setup-python@v4
+      #  with:
+      #    python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+      #    cache: 'pip'
+
+      #- name: Install dependencies
+      #  run: pip install -r requirements.txt
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.8
+          channels: conda-forge
+          mamba-version: "*"
+          activate-environment: ds-env
+          environment-file: environment.yml
 
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
