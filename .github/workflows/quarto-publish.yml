@@ -34,7 +34,6 @@ jobs:
         with:
           python-version: 3.9
           channels: defaults
-          mamba-version: "*"
           activate-environment: ds-env
           environment-file: environment.yml
 
