@@ -28,8 +28,5 @@ code-overflow: scroll
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
-
 
 
