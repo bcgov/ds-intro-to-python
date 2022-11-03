@@ -15,11 +15,12 @@
    - Make this ideally pre-work so they will have at least attempted to install the basics onto their computer before the workshop
    - Overview of working within given workspace (will choose either VSCode or PyCharm)
 
-1.3. Python Fundamentals **(Stu)**
-   -	Writing code
-   -	Python syntax and practice
+1.3. Working with Code **(Stu)**
+   -	Documenting/organizing work   
+   -	Writing code     
+   -	Python syntax and practice   
    -	Troubleshooting and help
-   -	Documenting/organizing work
+
    
 1.4. Core data structure concepts **(Lindsay)**
    - Variables, datatypes, lists, dicts, tuples etc. 
@@ -64,7 +65,7 @@
    - Creating columns (transform)
    - Joining datasets
 
-3.2. Graphical depictions of data (Visualizations) **(TBD)**
+3.2. Graphical depictions of data (Visualizations) **(Lindsay)**
    -	Distributions (e.g. line and bar histograms)
    -	Comparisons (e.g. barcharts and line charts)
    -	Relationships (e.g. Scatter and bubble plots)
