@@ -20,7 +20,7 @@ keypoints:
 
 ## Introduction to matplotlib
 
-`matplotlib` is the most widely used scientific plotting library in Python. For most data related purposes, the sub-library called `matplotlib.pyplot` is all that is necessary to use. A fantastic feature of the Jupyter environments is that anytime we create a plot, we can view it directly inline with our code, allowing us to make adjustments quickly and easily as we go along.
+`matplotlib` is the most widely used scientific plotting library in Python. For many data related purposes, the sub-library called `matplotlib.pyplot` is all that is necessary to use. A fantastic feature of the Jupyter environments is that anytime we create a plot, we can view it directly inline with our code, allowing us to make adjustments quickly and easily as we go along.
 
 We will typically import this library with the name `plt`:
 
@@ -59,6 +59,14 @@ plt.plot(x, y)
 ```
 
 In the above examples, we used lists of numbers to supply for our dataset. However, we can also use values directly from pandas dataframes. So let's work on a new dataset. Don't worry about the call to `seaborn` just yet - we will get there! For now, we just want to use it as a shortcut to a new dataset. This dataset looks at species of penguins, and compares various anatomical body part sizes to their species, location and sex. 
+
+<center>
+    <img src="images/plotting/penguin_types.jpg" 
+    width="70%" style="margin:auto"/>
+    <p style="text-align: center">
+        `load_dataset('penguins')` 
+    </p>
+</center>
 
 ```{python}
 from seaborn import load_dataset
@@ -177,7 +185,7 @@ While pandas provides a straightforward way to quickly look at the data, it is f
 
 `Seaborn` is a library for making statistical graphics in Python. It builds on top of `matplotlib` but is uniquely built to integrate closely with `pandas` data structures. Seaborn is dataset-oriented, and was built specifically to let you focus on what the different elements of a plot mean, rather than on the details of how to draw it. Leveraging seaborn allows us to build high quality graphics in a minimal amount of code. This not only allows us to spend more time analysing outputs and results, but also makes the code more transparent and easier for others to follow and understand. 
 
-Seaborn is usually imported with the shorthand `sns`. On top of this, it is often nice to reset the default matplotlib colour theme and layout to the default seaborn layout, which has more subdued colours and tones. Changing the theme will apply to any other matplotlib plots created in a notebook/script, even if they are created specifically by seaborn. 
+Seaborn is usually imported with the shorthand `sns`. On top of this, it is often nice to reset the default matplotlib colour theme and layout to the default seaborn layout, which has more subdued colours and tones. Changing the theme will apply to any other plots created in a notebook/script, even if they are created specifically by matplotlib. 
 
 ```{python}
 import seaborn as sns
@@ -187,10 +195,10 @@ sns.set_theme()
 Within seaborn, we will focus on three main plot types:
 
  * Relational plots 
- * Distrubtions
+ * Distributions
  * Categorical plots
 
-All three of these modules have a higher level interface (`relplot`, `displot`, `catplot`) that have options to produce the different subvarieties. They also have an axis-level interface (for example, `histplot` inside the `displot` category) that allows for more control over the matplotlib backend being used to produce the plot. For our purposes, we will stick to the high level interface as it is capable of produce beautiful plots with a few simple commands. 
+All three of these modules have a higher figure-level interface (`relplot`, `displot`, `catplot`) that have options to produce the different subvarieties. They also have an axes-level interface (for example, `histplot` inside the `displot` category) that allows for more control over the matplotlib backend being used to produce the plot. For our purposes, we will stick to the high level interface as it is capable of producing beautiful plots with a few simple commands. 
 
 <center>
     <img src="images/plotting/seaborn_categories.png" 
@@ -199,6 +207,27 @@ All three of these modules have a higher level interface (`relplot`, `displot`, 
         Seaborn plot categories. 
     </p>
 </center>
+
+:::{.callout-tip collapse="true"}
+## Advanced Tip - Figure vs. Axes Level?
+
+<center>
+    <img src="images/plotting/fig_axes.png" 
+    width="50%" style="margin:auto"/>
+    <p style="text-align: center">
+        Matplotlib Figures 
+    </p>
+</center>
+
+You will notice that I mentioned **figure** vs. **axes** level interfaces for seaborn. This is a small but subtle distinction that is worth explaining in more detail. When we introduced matplotlib, we explained that you can create multiple different plots all on the same figure. This is because matplotlib plots are individually drawn onto a common **axis**, but each individual plot does not own the axis, titles, legends, and so on. Matplotlib produces a base axis, then draws each individual plot on top, and then adds the extra pieces as requested. All the accompanying *fluff* (title, legend) that surrounds the axis is part of the overall **figure**, which we set with commands such as `plt.xlabel()`, `plt.title()` and so on. 
+
+So a figure can be thought of as the overall container holding each plot and accompanying axis labels. In seaborn, the figure-level interface we will be using is just this - figure-level. It is a 'finished product.' Producing a plot via the `relplot`, `displot`, and `catplot` methods will produce an entire figure, complete with titles, legends, and anything else we might specify, such as the figure size. However, this entire figure is no longer easily accessible like a matplotlib axis is (we cannot add a plot like this to a different set of matplotlib plots, for example). 
+
+This can be useful as it will simplify the amount of code needed to create a report-ready figure. However, the drawback is that it reduces the lack of customizability we have to work with. So if we wish to work with customizable axes that we can quickly drop into more complex matplotlib plots, we should use the axes-level interface (eg. using `sns.scatterplot()` instead of `sns.relplot()`). If we want to produce standard statistical plots, the figure-level interface is the recommended tool as they produce cleaner plots. 
+
+Check out the [Seaborn tutorial](https://seaborn.pydata.org/tutorial/function_overview.html) for more details on the differences between these methods! 
+
+:::
 
 Before we dive into the particulars, here's a wonderful one line command to show just how powerful seaborn can be!
 
@@ -317,12 +346,20 @@ That is a lot to take in. To summarize the relational plots available in Seaborn
 :::{.callout-warning icon="false"}
 ## Challenge 2
 
-TO DO
+Choose any two numerical features in the penguins dataset. Produce a scatter plot that highlights the differences between species. Separate the results into two plots - one for male and one for female penguins. 
 :::
 
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 2
 
+You might produce code that looks similar to this. `col` and `row` could be interchanged, and maybe you chose to use just one of style or hue. Explore your options! 
+```{python}
+g = sns.relplot(
+    data=penguins, x='flipper_length_mm', y='bill_length_mm',
+    hue='species', style='species', row='sex'
+)
+plt.show()
+```
 :::
 
 ### Distribution Plots
@@ -425,12 +462,39 @@ To summarize distributions available in Seaborn:
 :::{.callout-warning icon="false"}
 ## Challenge 3
 
-TO DO
+Create a KDE plot of body mass. Does it appear to be bi-modal (2 peaks)? If so, create another plot (or more) to identify what may be the cause. Are male penguins heavier? Is it a specific species? Does the island matter? 
 :::
 
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 3
+First let's just look at the body mass variable alone. 
 
+```{python}
+sns.displot(
+    data=penguins, x='body_mass_g', kind='kde'
+    )
+plt.show()
+```
+
+Hmm.. it's not immediately obvious that there might be two peaks here, but it does seem to skew a little bit to lower values. Let's see if looking at the different sexes gives us any more information:
+```{python}
+sns.displot(
+    data=penguins, x='body_mass_g', kind='kde', hue='sex',
+    fill=True  # Use fill to fill the KDE plot!
+    )
+plt.show()
+```
+
+Okay, weird. Splitting by sex does start to show two peaks, but it shows up in *both* male and female! So maybe it's the species where the peak is showing up?
+```{python}
+sns.displot(
+    data=penguins, x='body_mass_g', kind='kde', hue='species', col='sex',
+    fill=True 
+    )
+plt.show()
+```
+
+Aha - looks like we found a key difference here! While male tend to be heavier than the females on average, there are distinctly different distributions for the three species, with the Gentoo penguins being heavier than both the Adelie and Chinstrap. Doing this sort of exploration via plot is always a useful tool to learn more about our data! 
 :::
 
 ### Categorical Plots
@@ -470,7 +534,7 @@ sns.catplot(
 plt.show()
 ```
 
-:::{.callout-tip}
+:::{.callout-tip collapse="true"}
 ## Advanced Tip - Callable Estimators!
 
 In addition to the built in estimators, we can also use estimators for external functions. The function is required to take as an input a vector of values, and output a single value that summarizes that vector. The Python library `numpy` is the go-to resource for mathematical functions in Python. If we use `numpy`, we can send any sort of estimator to the barplot! Common statistical functions in numpy include `sum`, `prod`, `mean`, `std`, and `var`. 
@@ -519,12 +583,85 @@ To summarize the categorical plots available in Seaborn:
 :::{.callout-warning icon="false"}
 ## Challenge 4
 
-TO DO - countplot 
+Which penguin species was most frequently included in this dataset? Display your result visually!  
 :::
 
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 4
 
+To get the count for each of the species, we need to make a countplot:
+
+```{python}
+sns.catplot(data=penguins, x='species', kind='count')
+plt.show()
+```
+
+Done, in one line of code!
+
+As a bonus, if we want to plot the data in descending order, we can pass a list of strings containing the categories to the `catplot` method:
+
+```{python}
+sns.catplot(
+    data=penguins, x='species', 
+    kind='count', 
+    order=['Adelie', 'Gentoo', 'Chinstrap']
+    )
+plt.show()
+```
+:::
+
+## Saving your Plots
+
+We've now done all this work to make amazing incredible charts that produce stunning visuals for our datasets. Chances are, however that you do not want these images to live solely in your Jupyter notebook. You might want it for a presentation or a report. So, we need to save these images so we can access them outside of our Python environment. To do this we use the `plt.savefig()` method. This method will save the **currently open figure**. This is the figure that has not yet been shown on screen! Any call to save a plot must come *before* we display it via `plt.show()`, as this actually closes the figure so we can start our next one!  
+
+:::{.callout-important}
+## No Show and Tell! 
+
+This point is important enough that I am repeating it here. Always save your figure **before** showing it! 
+:::
+
+Let's create a plot, view it, and save it. We will save it to the same `outputs` folder we used in a prior section. 
+
+```{python}
+sns.catplot(
+    data=penguins, x='species', y='flipper_length_mm', 
+    kind='bar', hue='sex'
+    )
+plt.savefig('../outputs/penguins.png', bbox_inches='tight')
+plt.show()
+```
+
+You will notice that I used an optional argument here called `bbox_inches`. This is entirely optional, but when used it will cut out any empty whitespace on the sides of the figure before saving. I find it makes for cleaner looking images at the end, so I will often use this argument. And that's it, we now have our image saved and ready for use elsewhere! 
+
+:::{.callout-tip collapse="true"}
+## Advanced Tip - Changing the Figure Size
+
+We might want to vary the shape or size of the plot we are producing. There are two ways to do this, depending on the type of figure we have created. 
+
+
+### Axes-Level (Matplotlib Style) Figures
+If we are working directly with matplotlib or the axes-level seaborn functions, this is done by initializing the figure with a `figsize` command before creating any plot elements:
+
+```python
+plt.figure(figsize=(10, 8))
+plt.plot(...)
+sns.scatterplot(...)
+plt.savefig()
+plt.show()
+```
+
+The `figsize` argument inside the `plt.figure` method specifies the required width and height in inches. 
+
+### Figure-Level (Seaborn Style) Figures
+If we are working with the figure-level Seaborn interface, we cannot access the figure attributes externally. However, Seaborn has given us arguments we can pass directly to the plot method itself to set the figure size via the `height` and `aspect` arguments. 
+
+```python
+sns.relplot(data=..., height=5, aspect=0.5)
+plt.savefig()
+plt.show()
+```
+
+The `height` argument indicates the required height of each subplot in inches, while the aspect argument supplies the aspect ratio such that the width = aspect \* height. Note that height applies to every *individual* subplot in the plot, not the overall image! 
 :::
 
 ## Online Galleries
