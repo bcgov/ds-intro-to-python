@@ -41,7 +41,7 @@ df.info()
 
 So this data is looking good so far. We can see that we have created a pandas dataframe within our python environment. There are 1704 rows of data and six columns or variables. You can see there are only non-null values... so happily there is no missing data to worry about.
 
-The `.head()` pandas method let’s us look at actual data as one does in Excel.
+The `.head()` pandas method lets us look at actual data as one does in Excel.
 
 ```{python}
 df.head(2)
