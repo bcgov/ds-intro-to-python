@@ -387,7 +387,7 @@ horizontal_stack = pd.concat([school1_df, school2_df], axis=1)
 horizontal_stack
 ```
 
-This introduction only scratches the surface of how to leverage this way of joining datasets together. But it can be a powerful tool in the toolkit for the right use case. More detail found here: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.concat.html
+This introduction only scratches the surface of how to leverage this way of joining datasets together. But it can be a powerful tool in the toolkit for the right use case. [More detail found here.](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.concat.html)
 
 ## Grouping and summarizing
 
