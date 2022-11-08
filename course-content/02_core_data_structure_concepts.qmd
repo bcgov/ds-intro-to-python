@@ -495,7 +495,7 @@ else:
 ```
 
 :::{.callout-tip}
-Multiple Conditions Cause Confusion
+## Multiple Conditions Cause Confusion
 
 Just like with arithmetic, you can and should use parentheses whenever there is possible ambiguity. A good general rule is to always use parentheses when mixing `and` and `or` in the same condition.
 :::
@@ -552,6 +552,12 @@ else:
 
 print('The end result is the number', num, 'and animal', animal)
 ```
+:::
+
+:::{.callout-tip}
+## Element-Wise Logic
+
+Before we move on from our foray into boolean logic, let us make a brief mention of the `&`, `|`, and `~` symbols. These are similar, but not identical, to `and`, `or` and `not`. Where `and` is used for boolean logic on scalars, `&` is used for boolean logic on vectors, and will do an element-by-element comparison. This will be important when we introduce data structures later on! 
 :::
 
 ## Methods & Chaining
