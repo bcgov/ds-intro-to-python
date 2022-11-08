@@ -235,7 +235,7 @@ chained2_df = chained2_df.sort_values('year', ascending=False)
 chained2_df.head(3)
 ```
 
-This latter approach is very common.  Each respective line to the right of the `=` contains the code that modifies the object assigned to the left of it. Note that you can use a combination of chaining and piping.  
+This latter approach is very common, as it can be easier to read the code and interpret exactly what is happening. Each respective line to the right of the `=` contains the code that modifies the object assigned to the left of it. Note that you can use a combination of chaining and piping.  
 
 Each line is executed in sequence, so be careful when constructing code that the order in which you modify your dataframe is right. Take the example below, in which we want to find European values for GDP per capita. In it, we first have a line of code that selects the rows that contain "Europe" in the first line, then looks at the column values for "year", "country", and "gdpPercap".
 
