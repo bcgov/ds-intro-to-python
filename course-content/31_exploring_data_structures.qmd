@@ -326,7 +326,7 @@ Essentially what we want to do is a classic "left-join" operation of the sort in
     <br/>
 </center>
 
-The `.merge()` method (https://pandas.pydata.org/docs/reference/api/pandas.merge.html) works similarly to how table joining works in `SQL` or how the `VLOOKUP` function works in Excel. One needs to specify both dataframes, the key variables on which to join them, and the kind of join desired. 
+The `.merge()` method [(with reference material available here)](https://pandas.pydata.org/docs/reference/api/pandas.merge.html) works similarly to how table joining works in `SQL` or how the `VLOOKUP` function works in Excel. One needs to specify both dataframes, the key variables on which to join them, and the kind of join desired. 
 
 So let's look at the example below to see how it all comes together in code. 
 
