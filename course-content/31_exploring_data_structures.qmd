@@ -203,7 +203,7 @@ df.iloc[0:5]
 
 So now you've mastered how to select rows and columns you want, congratulations! Instead of hunting and pecking for insights, one way to quickly make some sense of the data is to sort it - something you probably do in Excel all the time. 
 
-In the challenge above we created a dataframe "challenge2_df" with just the one country in it and from 1997. So now let's sort the data by year, and then see what can spot any insights. To do this, we use the `.sort_values()` method.
+In the challenge above we created a dataframe "challenge2_df" with just the one country in it and from 1992. So now let's sort the data by year, and then see if we can spot any insights. To do this, we use the `.sort_values()` method.
 
 Let's go fetch and look at the dataframe, and use this method to sort by year, going from more recent to less recent:
 
