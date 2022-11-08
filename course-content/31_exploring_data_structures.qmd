@@ -124,6 +124,7 @@ Of course, in data analysis we are usually interested in looking at just some ro
 
 So when we want to look at just selected rows (i.e. select rows that have certain values within a given column) we can supply a condition that must be met in that column (for example equal to, less than, etc) and we will get back just the rows that match that condition:
 
+ - equal to `==`
  - not equal to `!=`
  - less than `<`
  - greater than `> `
