@@ -9,9 +9,15 @@ book:
   date: "2022-10-12"
   chapters:
     - index.qmd
-    - 00_introduction_to_python.qmd
-    - 02_core_data_structure_concepts.qmd
-    - 21_getting_data_with_pandas.qmd
+    - part: "Introduction to Python"
+      chapters:
+        - 00_introduction_to_python.qmd
+        - 02_core_data_structure_concepts.qmd
+    - part: "Get and Clean Data"
+      chapters:
+        - 21_getting_data_with_pandas.qmd
+    - part: "Understand and Analyze Data"
+    - part: "Advanced Topics"
     - references.qmd
 
 bibliography: references.bib
