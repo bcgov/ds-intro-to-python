@@ -111,7 +111,7 @@ challenge1_df.head(2)
 
 ## Selecting rows
 
-Of course, in data analysis we are usually interested in looking at just some of rows of data, not all of it all the time. 
+Of course, in data analysis we are usually interested in looking at just some rows of data, not all of it all the time. 
 
 <center>
     <img src="images/exploring-data-structures/select_rows.png" 
