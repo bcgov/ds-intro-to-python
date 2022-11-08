@@ -122,7 +122,7 @@ Of course, in data analysis we are usually interested in looking at just some ro
     <br/>
 </center>
 
-So when we want to look at just selected rows (i.e. values within a given column) we can specify the column(s) we want to select from, then we use `==` or a different operator as we require:
+So when we want to look at just selected rows (i.e. select rows that have certain values within a given column) we can supply a condition that must be met in that column (for example equal to, less than, etc) and we will get back just the rows that match that condition:
 
  - not equal to `!=`
  - less than `<`
