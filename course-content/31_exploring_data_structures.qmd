@@ -15,7 +15,7 @@ jupyter: python3
 
 Getting a high level summary of the data is important but data is particularly valuable when refined. Your analysis will start to come alive when we start to do some slicing and dicing and grouping of data or even creating additional variables. In an Excel world, this is like when you use filter options for columns, or create pivot tables, or when you create a formula in a new column to create a new variable. In data science parlance, this is the kind of thing that is referred to as `data wrangling` - getting the (already cleaned) data you want in the form you want it in. 
 
-In the world of python, this usually means working with a library or package you have already been introduced to called pandas. It let's you do so much!
+In the world of python, this usually means working with a library or package you have already been introduced to called pandas. It lets you do so much!
 
 The first dataset we'll look at is one that looks at data for countries around the world and shows population levels as well as gdp per capita over a number of years. It is a great data set to look at. Let's import the pandas library and then use the `.read_csv()` function to get some population by country data. 
 
