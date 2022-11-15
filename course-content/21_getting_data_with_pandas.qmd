@@ -12,7 +12,7 @@ keypoints:
 
 <center>
     <img src="images/getting-data-with-pandas/cute_panda.jpeg" 
-    width=600 style="margin:auto"/>
+    width="80%" style="margin:auto"/>
     <p style="text-align: center">
         Pandas!
     </p>
@@ -38,7 +38,7 @@ Objects in pandas are typically two-dimensional tables called **dataframes**. Yo
 
 <center>
     <img src="images/getting-data-with-pandas/dataframe.png" 
-    width=600 style="margin:auto"/>
+    width="85%" style="margin:auto"/>
     <p style="text-align: center">
         A pandas dataframe
     </p>
@@ -217,7 +217,7 @@ display(df.country)
 
 <center>
     <img src="images/getting-data-with-pandas/no_capes.jpg" 
-    width=300 style="margin:auto"/>
+    width="50%" style="margin:auto"/>
     <p style="text-align: center">
     </p>
 </center>
