@@ -11,6 +11,7 @@ book:
     - index.qmd
     - 00_introduction_to_python.qmd
     - 02_core_data_structure_concepts.qmd
+    - 21_getting_data_with_pandas.qmd
     - references.qmd
 
 bibliography: references.bib
@@ -26,8 +27,5 @@ code-overflow: scroll
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
-
 
 
