@@ -326,7 +326,7 @@ print (2)
 
 Below are some examples of how to incorporate spaces when you have operators with different priorities (i.e. remember PEMDAS or BODMAS from high school?). In general, add space for those instances with lower priority:
 
-```{python}
+```python
 # Good style
 i = i + 1 
 x = x*2 - 1
@@ -340,14 +340,14 @@ c = (a + b) * (a - b)
 
 There are many other conventions about spacing, but the ones above are some of the more common ones to watch out for. 
 
-
+<br>
 
 
 *Indentation*
 
 A line of code that completes a meaningful coherent action of some sort, is kind of like a complete sentence in grammar. As with sentences, a line of code can be short and sweet, long and convoluted, and anywhere in between. Where lines of code are longer than 79 characters, certain style guide rules come into play. The examples below show how to carry over content from one line to the next line. 
 
-```{python}
+```python
 # Correct - aligned with opening delimeter
 animals = animals.drop('weight', 'size', 'age', 'location', 'eye colour', 
                        'intelligence', 'cost', 'number held in zoos')
