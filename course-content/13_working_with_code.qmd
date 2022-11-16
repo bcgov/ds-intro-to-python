@@ -27,7 +27,7 @@ Having a strategy ahead of time about how you organize your work when you are st
 </center>
 
 
-
+<br>
 *Treat data as read only*
 
 One of the first things that you will do in a coding environment is to identify your data source and read or ingest that data into your environment to process it further. You should however, leave that originating data unaltered! Once the data is in your coding environment, that is where the processing will take place, and that process will end with some "improved" version of the data will be produced. 
@@ -69,7 +69,7 @@ When working alone and especially when working within a team, it is helpful to l
     </p>
 </center>
 
-
+<br>
 
 
 :::{.callout-warning icon="false"}
@@ -98,7 +98,7 @@ If output is generally considered the most usable thing for end-users of data, w
 
 Output can always be reproduced if the data itself and details about how the data is transformed (cleaned, munged, analyzed, etc.) is available. The loss of things that can be generated from data and code is not a serious risk to the project.
 :::
-
+<br>
 
 ## Getting coding help
 
@@ -237,7 +237,7 @@ Imagine we were working through the "SyntaxError: EOL while scanning string lite
 The highlighted summary information shows us that it understands that we are referring to a python issue, not a general coding one. So that is a good sign. It summarizes from a page on the realpython.com site (https://realpython.com/invalid-syntax-python/). Moreover it suggests different ways that others have extended the search that you might find helpful. While the suggested site itself is not an official python site, it nonetheless is a quality site about python that will likely be worthwhile to review. Once there, you will find more useful information 
 
 
-
+<br>
 
 
 :::{.callout-warning icon="false"}
@@ -275,7 +275,7 @@ You could use help off of the menu. Might be quicker to do a Google search.
 You may or may not know what "loops" are, but perhaps have heard of lists and such. Particularly at the beginning of your Python journey, there will be terms that you will not yet be familiar with that will show up in explanations of other things. Don't worry! As with anything, this will occur less and less often over time. 
 :::
 
-
+<br>
 
 ## Coding in style
 
@@ -317,10 +317,10 @@ a=print("hello")
 ```
 
 ```{python}
-# Good style, as there is no space between the function call and the left parenthesis
+# Good style, as there is no space between the function call and left parenthesis
 print(2)  
 
-# Poor style, as there should be no space between function call and the left parenthesis
+# Poor style, as there should be no space between function call and left parenthesis
 print (2) 
 ```
 
@@ -339,8 +339,6 @@ c = (a + b) * (a - b)
 ```
 
 There are many other conventions about spacing, but the ones above are some of the more common ones to watch out for. 
-
-<br>
 
 
 *Indentation*
@@ -392,7 +390,7 @@ Example 2: there should be no space between "fahrenheit", the "-" operator, and 
 Example 3: line exceeds 79 characters so should be spaced over two lines
 :::
 
-
+<br>
 *Consistency sometimes more important than being right*
 
 All of the rules above are about coding the "right" or "correct" way. There are times when you can consider breaking, or at least bending some of the rules for the greater good of being "consistent". This is especially the case when you are working on code as part of a project. Sometimes it is better to be consistent than right. This is often true if you are working on code as part of another project with some unique style practices. Keeping internally consistent with these practices will lead to overall greater readability, which is the greater goal of coding style. 
