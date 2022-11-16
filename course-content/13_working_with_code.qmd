@@ -15,14 +15,14 @@ jupyter: python3
 
 ## Organizing coding work
 
-Most data projects consist of some version of a) finding some data, b) cleaning it up, and c) generating some insights. In an Excel world, all three stages often happen in a single document. Usually over many tabs. Almost always with little documentation. If the project is purely "ask a one time question and get a one time answer and literally never need to look at the file again", then this approach is arguably efficient and effective. But what if we want to update the insights over time or apply the question to a different dataset? What if someone wants to reproduce what we did?  How about verify if what we did was valid? Then we have to admit a complex Excel workbook is neither efficient nor effective. 
+Most data projects consist of some version of a) finding some data, b) cleaning it up, and c) generating some insights. In an Excel world, all three stages often happen in a single document. Often over many tabs. Almost always with little documentation. If the project is purely "ask a one time question and get a one time answer and literally never need to look at the file again", then this approach is arguably efficient and effective. But what if we want to update the insights over time or apply the question to a different dataset? What if someone wants to reproduce what we did?  How about verify if what we did was valid or fix something that has gone wrong? These are some of the reasons why good file management practice is key to data project success. 
 
 Having a strategy ahead of time about how you organize your work when you are starting a project will pay handsome dividends, both for you and for anyone who will be accessing your work down the road. And when you use code (e.g. R or Python) to do a lot of the processing of the data in your project, it is unavoidable that you will have to make some decisions about how to manage your work, which includes managing your files.    
 
 <center>
     <img src="images/working-with-code/workaround.png" width=320 style="margin:auto"/>
     <p style="text-align: center">
-        Don't be like this guy!
+        Don't be this guy!
     </p>
 </center>
 
@@ -34,27 +34,27 @@ One of the first things that you will do in a coding environment is to identify 
 
 *Clean and analyse your data with code*
 
-In many cases your data will be “dirty”. That is to say, filled with missing data, spelling mistakes, duplicate records, data type errors, you name it! Your code will clean it. Once you have your clean data, your code will generate insights from it. All of this code (in our case, Python code) will take the form of scripts in separate files. All of these scripts should be stored in a separately from the original data itself.  
+In many cases your data will be “dirty”. That is to say, filled with missing data, spelling mistakes, duplicate records, data type errors, you name it! Your code will clean it. Once you have your clean data, your code will generate insights from it. All of this code (in our case, Python code) will take the form of scripts in separate files. All of these scripts should be stored in a folder separate from the original data itself.  
 
 *Treat generated output as disposable*
 
-Because you should be able to take the original data as well as the scripts to process it into something useful, you can recreate the outputs at any time. So while we might have a place where we store the processed data, we can also treat outputs as disposable. It is a bit like having a kitchen pantry with ingredients for making a cake along with the recipe to guide us through the steps to make it. We should be able to make the same cake over and over again with a stocked pantry and access to the recipe. But if we lose either the stocked pantry or the recipe, we won't be able to make the cake. As the chef treats the cake as edible, the data scientist treats the output as disposable. 
+As you should be able to take the original data as well as the scripts to process it into something useful, you can recreate the outputs at any time. So while you might have a place where you store the processed data, you should treat it as disposable. Disposable essentially means reproducible. It is a bit like having a kitchen pantry with ingredients for making a cake along with the recipe to guide us through the steps to make it. We should be able to make the same cake over and over again with a stocked pantry and access to the recipe. But if we lose either the stocked pantry or the recipe, we won't be able to make any more cake. As the chef treats the cake as edible, the data scientist treats the output as disposable. 
 
 *Organize your files*
 
 While there is no perfect template for how to organize your work, below is an example that shows how you might consider organizing your work for a relatively straightforward data project. Let's say we have a project that is about analyzing marmots in BC. Here's how you could structure your work, so that it stays well organized:
 
+ /MarmotsBC could be the top level directory, it is the project name, without spaces. Under this project the remaining files could be organized within the following structure:
 
-/MarmotsBC            top level directory, contains project name, without spaces
-    /docs             supporting text and word processed documents that are meant for humans to read
-    /data             the original (meta)data that acts as an input and will be treated as read-only
+    /docs             supporting text  documents that are meant for humans to read
+    /data             the original (meta)data that acts as an input and is read-only
     /src              your scripts, may further be divided into /functions, /test, etc.
     /bin              programs brought in from elsewhere
-    /output           data written by your code to this location, could be input for another process
+    /output           data written by your code, could be input for another process
     /analysis         the charts, stats, figures and the like generated from your scripts
+    
 
-
-*Naming and file splitting*
+*Name and split files when needed*
 
 When you are naming files themselves, try to have the names reflect their content or function. You will also find that as your project grows, documents such as scripts may need to be split apart and renamed. For example, you might create some functions as you analyse your data in a single script. At some point you will likely want to create a separate script file just for the functions. When splitting, make sure you eliminate redundent content between files. 
 
@@ -63,40 +63,41 @@ When you are naming files themselves, try to have the names reflect their conten
 When working alone and especially when working within a team, it is helpful to leverage tools that help ensure that everyone's work is kept up to date and organized. There are tools such as git/GitHub that are made precisely for this purpose. If you hear people talking about repos, merges, commits, pull requests, etc, they are probably talking about the git world. It is beyond the scope of this tutorial to dive into this topic, but it is something to keep in mind. 
 
 <center>
-    <img src="images/working-with-code/github.png" size=200 style="margin:auto"/>
+    <img src="images/working-with-code/github.png" size=200 style="margin:auto" border=1/>
     <p style="text-align: center">
         Where ideas work (and are kept organized and up-to-date)
     </p>
 </center>
 
 
+
+
 :::{.callout-warning icon="false"}
 ## Challenge 1
 
-What is the main risk to a project that you can think of if data are not kept well-organized? 
-
-
-
+What are three activities associated with a project that are made more difficult and put at risk if project files are not kept well organized? Who is likely to be affected? 
 :::
 
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 1
 
-Existing or future team members looking through project documents will not understand how data flows, so interpreting and/or fixing it will prove challenging.  
+Activities that will be affected are 1) interpreting outputs, and 2) fixing errors that arise, and 3) extending the project. 
+
+Existing or future team members will be most directly affected. Ultimately downstream users of the data may also be impacted. 
+:::
 
 
 :::{.callout-warning icon="false"}
 ## Challenge 2
 
 If output is generally considered the most usable thing for end-users of data, why should it be considered as disposable? 
-
-
 :::
 
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 2
 
-Output can always be reproduced if the data itself and details about how the data is transformed (cleaned, munged, analyzed, etc.) is available. The loss of things that can be generated from data and code is not an serious risk to the project.
+Output can always be reproduced if the data itself and details about how the data is transformed (cleaned, munged, analyzed, etc.) is available. The loss of things that can be generated from data and code is not a serious risk to the project.
+:::
 
 
 ## Getting coding help
@@ -105,7 +106,7 @@ Being effective with using python, or any other coding language, requires that y
 
 *Topical help*  
 
-In whatever developing environment (sometimes called an IDE - Integrated Development Environment) you are in, there are usually very helpful links readily available.  In the Jupyter Notebook environment, you will find such help under the *Help* choice in the top menu. 
+In whatever developing environment (sometimes called an IDE - Integrated Development Environment) you choose to work with, there are usually very helpful links readily available.  In the Jupyter Notebook environment, for example, you will find such help under the *Help* choice in the top menu. 
 
 <center>
     <img src="images/working-with-code/jup_help.png" size=700 style="margin:auto" border=1/>
@@ -123,7 +124,7 @@ When you click on `Help` you see an expanded range of topics:
     </p>
 </center>
 
-Under the topics listed you will find treasure troves of helpful documentation relating to python. Whether you are relatively new to the language or have years of experience already with it, one of the most helpful sections you will find there is *Python Reference*:
+Under the topics listed you will find treasure troves of helpful documentation relating to Python. Whether you are relatively new to the language or have years of experience already with it, one of the most helpful sections you will find there is *Python Reference*:
 
 <center>
     <img src="images/working-with-code/python_documentation.png" size=700 style="margin:auto" border=1/>
@@ -139,64 +140,74 @@ Each section in  provides useful content that is related to the version you Pyth
 
 Functions in Python have excellent documentation that you should be able to access fairly readily. Below are screen shots from the Jupyter Notebook environment that show two distinct ways to access. The example below shows how to get detail about a specific function by calling `help()` function itself and passing in the name of the function of interest:
 
-<center>
+<left>
     <img src="images/working-with-code/shiftenter_help.png" size=700 style="margin:auto" border=1/>
     <p style="text-align: center">
  
-</center>
+</left>
 
 Within Jupyter Notebook, it is also possible to place the cursor inside the "()" and then pulse the Shift-tab key combination twice to get access to a pop-up:
 
-<center>
+<left>
     <img src="images/working-with-code/shifttab_x2.png" size=700 style="margin:auto" border=1/>
     <p style="text-align: center">
-       Pulsing Shift-tab twice to get interactive function help.
-    </p>
-</center>
+     
+  
+</left>
 
 *Syntax error help*
 
-Inevitably code will fall apart on you and despite having taken part in amazing learning sessions, you may be at a loss as to why! Don't despair. Help is only some key-combos or search terms away. 
-
 When developing code, you will go through a process over and over where you write some code and then test it. If it works, you keep going, adding complexity and content to your code. But what happens if it does not work? Fortunately Python delivers some clues about what may have gone wrong. 
 
-Here are a few examples of syntax errors in Python, where Python can not understand the source of a program:
+Here are a couple of examples of syntax errors, where python is essentially saying "I don't understand what you mean"! 
 
-<center>
-    <img src="images/working-with-code/module_not_found.png" size=700 style="margin:auto" border=1/>
-    <p style="text-align: center">
-       
-    
-</center>
-
-
-<center>
+<left>
     <img src="images/working-with-code/EOL.png" size=700 style="margin:auto" border=1/>
     <p style="text-align: center">
         
  
-</center>
+</left>
 
+These kinds of errors are usually because of careless typing such as leaving off a quote or comma or bracket somewhere (or adding one too many).
 
-
-<center>
+<left>
     <img src="images/working-with-code/invalid_syntax.png" size=700 style="margin:auto" border=1/>
     <p style="text-align: center">
         
-  
-</center>
+</left>
+
+Syntax errors are usually not too complex, and relatively easy to find and fix. 
+
 
 *Runtime error help*
 
-Python reports also *runtime errors*, which are thrown when something goes wrong while a program is executing. 
+Python reports also *runtime errors*, also sometimes called *exceptions*, which are thrown when something goes wrong while a program is executing. This is more like python saying "I understand what you are saying, but I am running into some trouble in doing what you are asking". 
 
-<center>
-    <img src="images/working-with-code/runtime_error2.png" size=700 style="margin:auto" border=1/>
+Some common types of runtime errors when your code:
+
+- tries to divide something by zero
+- performs an operation on incompatible data types 
+- uses an identifier which has not been defined
+- accesses a list element, dictionary value or object attribute which doesn’t exist
+- tries to access a file which doesn’t exist
+
+In the example below, the code is telling python to import a package that is not yet installed. 
+
+<left>
+    <img src="images/working-with-code/module_not_found.png" size=500 style="margin:auto" border=1/>
+    <p style="text-align: center">
+    
+</left>
+
+In the example below, the issue is not a syntax error (although it might like a typo that one might associate with being a syntax error)
+<left>
+    <img src="images/working-with-code/runtime_error2.png" size=500 style="margin:auto" border=1/>
     <p style="text-align: center">     
   
-</center>
+</left>
 
-The above example introduces the concept of *Traceback*, which is Python's way of trying to locate the origin of the error experienced. A *Traceback* will show up in output that is to be read "from the bottom up".  In the above example, we see that the program does not recognize the object "aege" when it encounters it in cell line 2. Note that this does not necessarily mean that the problem should be fixed at the location indicated. In the above example, a reexamination of the code might reveal that the original name assigned was incorrectly spelled. Were that the case, then the original name assignment should be updated, not the reference to it in cell line 2. 
+The above examples introduce the concept of *traceback*, which is a way of helping the coder locate the origin of the error experienced. A *traceback* will show up in output that is to be read "from the bottom up".  In the above example, we see that the program does not recognize the object "aege" when it encounters it in cell line 2. Note that this does not necessarily mean that the problem should be fixed at the location indicated. In the above example, a reexamination of the code might reveal that the original name assigned was incorrectly spelled. Were that the case, then the original name assignment should be updated, not the reference to it in cell line 2. 
+
 
 *Diving deeper*
 
@@ -217,39 +228,44 @@ Imagine we were working through the "SyntaxError: EOL while scanning string lite
 
 
 <center>
-    <img src="images/working-with-code/google_syntax_error.png" size=700 style="margin:auto" border=1/>
+    <img src="images/working-with-code/google_syntax_error.png" size=500 style="margin:auto" border=1/>
     <p style="text-align: center">
         Error deep dive 
     </p>
 </center>
 
-The highlighted summary information of the issue from a page on the realpython.com site tells us that the error we are looking for was understood primarily as a python type issue. Moreover it suggests different ways that others have extended the search that you might find helpful. While the site itself is not an official python site, it nonetheless is a quality site that will likely be worthwhile to review. Once there, you will find more useful information 
+The highlighted summary information shows us that it understands that we are referring to a python issue, not a general coding one. So that is a good sign. It summarizes from a page on the realpython.com site (https://realpython.com/invalid-syntax-python/). Moreover it suggests different ways that others have extended the search that you might find helpful. While the suggested site itself is not an official python site, it nonetheless is a quality site about python that will likely be worthwhile to review. Once there, you will find more useful information 
 
-Copy and click the link to find more useful well-laid out information on the topic. 
 
-https://realpython.com/invalid-syntax-python/
+
 
 
 :::{.callout-warning icon="false"}
 ## Challenge 3
 
 You want to find out what the `print()` function does. How would you look to answer this question? What does it do, does it send a print job to a printer? 
-
+:::
 
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 3
 Use one of the two most efficient ways to obtain information
 
 help(print)   # One way to get the info
+
 print() # Another way to get the info
+
 Prints the values passed into it to a stream or to an output (usually to output shown on a monitor)
+:::
+
+
+
 
 :::{.callout-warning icon="false"}
 ## Challenge 4
 
 Someone asks you want the term "iterable" means in the context of a python function? How would you go about finding an answer? What does it mean? 
 
-
+:::
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 4
 You could use help off of the menu. Might be quicker to do a Google search. 
@@ -257,6 +273,9 @@ You could use help off of the menu. Might be quicker to do a Google search.
 *Iterable is an object which can be looped over or iterated over with the help of a for loop. Objects like lists, tuples, sets, dictionaries, strings, etc. are called iterables. In short and simpler terms, iterable is anything that you can loop over.*
 
 You may or may not know what "loops" are, but perhaps have heard of lists and such. Particularly at the beginning of your Python journey, there will be terms that you will not yet be familiar with that will show up in explanations of other things. Don't worry! As with anything, this will occur less and less often over time. 
+:::
+
+
 
 ## Coding in style
 
@@ -290,26 +309,30 @@ print("Hello World")  # New programmer's first line of code in any language
 There are a number of little conventions about spacing that just have to be learned. In the code below look at the comments that go along to see what is considered good style and what is considered good and what is not.  
 
 ```{python}
-a = print("hello")  # Correct, a space on either side of the assignment operator 
+# Good style, as there is a space on either side of the assignment operator 
+a = print("hello")  
 
-a=print("hello")    # Wrong
+# Poor style, as the assignment operator lacks spaces around it
+a=print("hello")    
 ```
 
 ```{python}
-print(2)  # Correct, no space between the function call and a parenthesis
+# Good style, as there is no space between the function call and the left parenthesis
+print(2)  
 
-print (2) # Wrong
+# Poor style, as there should be no space between function call and the left parenthesis
+print (2) 
 ```
 
 Below are some examples of how to incorporate spaces when you have operators with different priorities (i.e. remember PEMDAS or BODMAS from high school?). In general, add space for those instances with lower priority:
 
 ```{python}
-# Correct:
+# Good style
 i = i + 1 
 x = x*2 - 1
 c = (a+b) * (a-b)
 
-# Wrong:
+# Poor style
 i=i+1 
 x = x * 2 - 1
 c = (a + b) * (a - b)
@@ -335,7 +358,7 @@ animals = animals.drop(
     'cost', 'number held in zoos')
 ```
 
-Blank lines
+*Blank lines*
 
 Blank lines should be used sparingly, but they should be used when appropriate. As a general rule of thumb is that there should be a single blank row between blocks of code. 
 
@@ -345,9 +368,11 @@ Blank lines should be used sparingly, but they should be used when appropriate. 
 Based on what we have covered, what, if any are the style code issues. 
 ```python
 
-print (last_name) # Example 1
+# Example 1
+print (last_name) 
 
-celcius = (fahrenheit - 32) / 1.8  # Example 2
+# Example 2
+celcius = (fahrenheit - 32) / 1.8  
 
 # Example 3
  index = ['snail', 'pig', 'elephant', 'rabbit', 'giraffe', 'coyote', 'horse', 'giraffe', 'ping pong table']
@@ -365,7 +390,7 @@ Example 1: there should be no space between the function call and the "("
 Example 2: there should be no space between "fahrenheit", the "-" operator, and "32" 
 
 Example 3: line exceeds 79 characters so should be spaced over two lines
-
+:::
 
 
 *Consistency sometimes more important than being right*
