@@ -179,16 +179,16 @@ The `..` used in the above path tells python to look in the directory directly a
 
 As an example, my directory structure looks like:
 ```
-ds_intro_to_python
+/ds_intro_to_python
 │
-└─── introduction_to_python
+└───/introduction_to_python
 │   │   hello_world.ipynb
 │   │   hello_world.py
 │   
-└─── introduction_to_pandas
+└───/introduction_to_pandas
 │   │   intro_to_pandas.ipynb  <------ (THIS FILE!)
 │
-└─── data
+└───/data
 │   │   gapfinder.csv <--------------- (The file we want access to!)
 ```
 
