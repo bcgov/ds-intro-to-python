@@ -179,7 +179,7 @@ The `..` used in the above path tells python to look in the directory directly a
 
 As an example, my directory structure looks like:
 ```
-Intro to Python
+ds_intro_to_python
 │
 └─── introduction_to_python
 │   │   hello_world.ipynb
