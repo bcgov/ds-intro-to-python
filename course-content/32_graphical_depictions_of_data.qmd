@@ -110,7 +110,7 @@ What happened here! Matplotlib drew an axis for us, but neglected to include the
 :::{.callout-tip}
 ## Jupyter vs. Python
 
-There is a slight distinction between how Jupyter will handle figures vs. how a Python script wil handle figures. When Jupyter hits the end of a `cell` or codeblock, it will automatically show the figure at the end of the output, regardless of it `plt.show()` was called or not. This is equivalent to calling `plt.show()` however - a new codeblock will not recognize the code used to create this plot in a new cell. 
+There is a slight distinction between how Jupyter will handle figures vs. how a Python script wil handle figures. When Jupyter hits the end of a `cell` or codeblock, it will automatically show the figure at the end of the output, regardless of whether `plt.show()` was called or not. This is equivalent to calling `plt.show()` however - a new codeblock will not recognize the code used to create this plot in a new cell. 
 :::
 
 Let's finally get this all together on one plot:
@@ -185,7 +185,7 @@ While pandas provides a straightforward way to quickly look at the data, it is f
 
 `Seaborn` is a library for making statistical graphics in Python. It builds on top of `matplotlib` but is uniquely built to integrate closely with `pandas` data structures. Seaborn is dataset-oriented, and was built specifically to let you focus on what the different elements of a plot mean, rather than on the details of how to draw it. Leveraging seaborn allows us to build high quality graphics in a minimal amount of code. This not only allows us to spend more time analysing outputs and results, but also makes the code more transparent and easier for others to follow and understand. 
 
-Seaborn is usually imported with the shorthand `sns`. On top of this, it is often nice to reset the default matplotlib colour theme and layout to the default seaborn layout, which has more subdued colours and tones. Changing the theme will apply to any other plots created in a notebook/script, even if they are created specifically by matplotlib. 
+Seaborn is usually imported with the shorthand `sns`. On top of this, it is often nice to reset the default matplotlib colour theme and layout to the default seaborn layout, which has more subdued colours and tones. This can be done globally via the `.set_theme()` method. Changing the theme will apply to any other plots created in a notebook/script, even if they are created specifically by matplotlib. More options for the theme or style (which can also be set via `.set_style()`) can be found in the [Seaborn aesthetics tutorial.](https://seaborn.pydata.org/tutorial/aesthetics.html)
 
 ```{python}
 import seaborn as sns
@@ -223,7 +223,7 @@ You will notice that I mentioned **figure** vs. **axes** level interfaces for se
 
 So a figure can be thought of as the overall container holding each plot and accompanying axis labels. In seaborn, the figure-level interface we will be using is just this - figure-level. It is a 'finished product.' Producing a plot via the `relplot`, `displot`, and `catplot` methods will produce an entire figure, complete with titles, legends, and anything else we might specify, such as the figure size. However, this entire figure is no longer easily accessible like a matplotlib axis is (we cannot add a plot like this to a different set of matplotlib plots, for example). 
 
-This can be useful as it will simplify the amount of code needed to create a report-ready figure. However, the drawback is that it reduces the lack of customizability we have to work with. So if we wish to work with customizable axes that we can quickly drop into more complex matplotlib plots, we should use the axes-level interface (eg. using `sns.scatterplot()` instead of `sns.relplot()`). If we want to produce standard statistical plots, the figure-level interface is the recommended tool as they produce cleaner plots. 
+This can be useful as it will simplify the amount of code needed to create a report-ready figure. However, the drawback is that it reduces the customizability we have to work with. So if we wish to work with customizable axes that we can quickly drop into more complex matplotlib plots, we should use the axes-level interface (eg. using `sns.scatterplot()` instead of `sns.relplot()`). If we want to produce standard statistical plots, the figure-level interface is the recommended tool as they produce cleaner plots. 
 
 Check out the [Seaborn tutorial](https://seaborn.pydata.org/tutorial/function_overview.html) for more details on the differences between these methods! 
 
@@ -494,7 +494,7 @@ sns.displot(
 plt.show()
 ```
 
-Aha - looks like we found a key difference here! While male tend to be heavier than the females on average, there are distinctly different distributions for the three species, with the Gentoo penguins being heavier than both the Adelie and Chinstrap. Doing this sort of exploration via plot is always a useful tool to learn more about our data! 
+Aha - looks like we found a key difference here! While males tend to be heavier than the females on average, there are distinctly different distributions for the three species, with the Gentoo penguins being heavier than both the Adelie and Chinstrap. Doing this sort of exploration via plot is always a useful tool to learn more about our data! 
 :::
 
 ### Categorical Plots
