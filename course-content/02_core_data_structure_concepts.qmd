@@ -13,7 +13,7 @@ keypoints:
 In order to effectively use Python to interact with various datasets, we need to build out our fundamental knowledge about how Python works. 
 
 <center>
-    <img src="images/core-concepts/toolkit-wide.jpg" width=450 style="margin:auto"/>
+    <img src="images/core-concepts/toolkit-wide.jpg" width="65%" style="margin:auto"/>
     <p style="text-align: center">
         Adding tools to our Python toolkit
     </p>
@@ -115,9 +115,9 @@ After a long day of work and to prevent confusion, it can be helpful to use the 
 ## Lists & Indexing
 
 <center>
-    <img src="images/core-concepts/zero_index.png" height=300 style="margin:auto"/>
+    <img src="images/core-concepts/zero_index.png" height="30%" style="margin:auto"/>
     <p style="text-align: center">
-        Sorry not sorry R
+        #sorrynotsorry R
     </p>
 </center>
 
@@ -432,7 +432,7 @@ The `if` keyword tells Python we want to make a choice. We then use `:` to end t
 In either case, 'done' will always print as it is in neither indented block. 
 
 <center>
-    <img src="images/core-concepts/python-flowchart-conditional.png" height=300 style="margin:auto"/>
+    <img src="images/core-concepts/python-flowchart-conditional.png" width="50%" style="margin:auto"/>
     <p style="text-align: center">
         Following a Logical Flow
     </p>
@@ -495,7 +495,7 @@ else:
 ```
 
 :::{.callout-tip}
-Multiple Conditions Cause Confusion
+## Multiple Conditions Cause Confusion
 
 Just like with arithmetic, you can and should use parentheses whenever there is possible ambiguity. A good general rule is to always use parentheses when mixing `and` and `or` in the same condition.
 :::
@@ -554,10 +554,16 @@ print('The end result is the number', num, 'and animal', animal)
 ```
 :::
 
+:::{.callout-tip}
+## Element-Wise Logic
+
+Before we move on from our foray into boolean logic, let us make a brief mention of the `&`, `|`, and `~` symbols. These are similar, but not identical, to `and`, `or` and `not`. Where `and` is used for boolean logic on scalars, `&` is used for boolean logic on vectors, and will do an element-by-element comparison. This will be important when we introduce data structures later on! 
+:::
+
 ## Methods & Chaining
 
 <center>
-    <img src="images/core-concepts/pokemon_class.jpg" height=250 style="margin:auto"/>
+    <img src="images/core-concepts/pokemon_class.jpg" width="65%" style="margin:auto"/>
     <p style="text-align: center">
         Object Oriented Programming
     </p>
@@ -697,7 +703,7 @@ else:
 ## Accessing Other Packages
 
 <center>
-    <img src="images/core-concepts/python_import.png" height=400 style="margin:auto"/>
+    <img src="images/core-concepts/python_import.png" width="60%" style="margin:auto"/>
     <p style="text-align: center">
         Import Packages
     </p>
