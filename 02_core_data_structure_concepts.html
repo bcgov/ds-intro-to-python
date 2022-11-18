@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -161,21 +161,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Introduction to Python</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></a>
+  <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Up and Running</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_core_data_structure_concepts.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Core Concepts</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Get and Clean Data</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./21_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Understand and Analyze Data</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Advanced Topics</span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
@@ -221,6 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -229,7 +256,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>In order to effectively use Python to interact with various datasets, we need to build out our fundamental knowledge about how Python works.</p>
 <center>
-<img src="images/core-concepts/toolkit-wide.jpg" width="450" style="margin:auto">
+<img src="images/core-concepts/toolkit-wide.jpg" width="65%" style="margin:auto">
 <p style="text-align: center">
 Adding tools to our Python toolkit
 </p>
@@ -436,9 +463,9 @@ Jupyter Notebooks: Order of Execution
 <section id="lists-indexing" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="lists-indexing"><span class="header-section-number">2.2</span> Lists &amp; Indexing</h2>
 <center>
-<img src="images/core-concepts/zero_index.png" height="300" style="margin:auto">
+<img src="images/core-concepts/zero_index.png" height="30%" style="margin:auto">
 <p style="text-align: center">
-Sorry not sorry R
+#sorrynotsorry R
 </p>
 </center>
 <section id="lists" class="level3">
@@ -883,7 +910,7 @@ done</code></pre>
 <p>The <code>if</code> keyword tells Python we want to make a choice. We then use <code>:</code> to end the conditional we would like to consider, and indentation to specify our <code>if</code> block of code that should execute if the condition is met. If the condition is not met, the body of the <code>else</code> block gets executed instead.</p>
 <p>In either case, ‘done’ will always print as it is in neither indented block.</p>
 <center>
-<img src="images/core-concepts/python-flowchart-conditional.png" height="300" style="margin:auto">
+<img src="images/core-concepts/python-flowchart-conditional.png" width="50%" style="margin:auto">
 <p style="text-align: center">
 Following a Logical Flow
 </p>
@@ -961,11 +988,10 @@ condition_1 was true</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Tip
+Multiple Conditions Cause Confusion
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Multiple Conditions Cause Confusion</p>
 <p>Just like with arithmetic, you can and should use parentheses whenever there is possible ambiguity. A good general rule is to always use parentheses when mixing <code>and</code> and <code>or</code> in the same condition.</p>
 </div>
 </div>
@@ -1022,12 +1048,25 @@ The end result is the number 42 and animal dolphin</code></pre>
 </div>
 </div>
 </div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Element-Wise Logic
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before we move on from our foray into boolean logic, let us make a brief mention of the <code>&amp;</code>, <code>|</code>, and <code>~</code> symbols. These are similar, but not identical, to <code>and</code>, <code>or</code> and <code>not</code>. Where <code>and</code> is used for boolean logic on scalars, <code>&amp;</code> is used for boolean logic on vectors, and will do an element-by-element comparison. This will be important when we introduce data structures later on!</p>
+</div>
+</div>
 </section>
 </section>
 <section id="methods-chaining" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="methods-chaining"><span class="header-section-number">2.4</span> Methods &amp; Chaining</h2>
 <center>
-<img src="images/core-concepts/pokemon_class.jpg" height="250" style="margin:auto">
+<img src="images/core-concepts/pokemon_class.jpg" width="65%" style="margin:auto">
 <p style="text-align: center">
 Object Oriented Programming
 </p>
@@ -1109,7 +1148,7 @@ Challenge 6
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1118,7 +1157,7 @@ Solution to Challenge 6
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We will get an error:</p>
 <div class="cell" data-execution_count="36">
@@ -1165,7 +1204,7 @@ Challenge 7
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1174,7 +1213,7 @@ Solution to Challenge 7
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>pen_1 <span class="op">=</span> <span class="st">'123456'</span></span>
@@ -1205,7 +1244,7 @@ Solution to Challenge 7
 <section id="accessing-other-packages" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="accessing-other-packages"><span class="header-section-number">2.5</span> Accessing Other Packages</h2>
 <center>
-<img src="images/core-concepts/python_import.png" height="400" style="margin:auto">
+<img src="images/core-concepts/python_import.png" width="60%" style="margin:auto">
 <p style="text-align: center">
 Import Packages
 </p>
@@ -1321,7 +1360,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1357,31 +1413,49 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./00_introduction_to_python.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Up and Running</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

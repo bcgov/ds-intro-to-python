@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Data Science using Python - 1&nbsp; Introduction to Python</title>
+<title>Introduction to Data Science using Python - 1&nbsp; Getting Up and Running</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Up and Running</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -161,21 +161,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Introduction to Python</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></a>
+  <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Up and Running</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_core_data_structure_concepts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Core Concepts</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Get and Clean Data</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./21_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Understand and Analyze Data</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Advanced Topics</span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
@@ -212,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Up and Running</span></h1>
 </div>
 
 
@@ -220,6 +246,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -230,7 +257,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="1.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">1.1</span> Motivation</h2>
 <p>Data has become interwined with the inner workings of nearly every facet of working within the BC Public Service. Whether you have to read an excel spreadsheet, prepare a report based on a survey, comb through csv files to find a specific data source, it is likely that you have worked with a dataset at some point in your career. However, the process of looking at and dealing with data can be messy, error-prone and hard to duplicate. Questions such as <em>‘wait, how did I get that number again?’</em> are all too common.</p>
 <center>
-<img src="images/introduction-to-python/reproducible.jpeg" height="300" style="margin:auto">
+<img src="images/introduction-to-python/reproducible.jpeg" width="50%" style="margin:auto">
 <p style="text-align: center">
 The Messy Side of Data
 </p>
@@ -311,7 +338,7 @@ Powershell Prompt
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="ex">activate</span> ds-env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <center>
-<img src="images/introduction-to-python/create_env.png" width="700" style="margin:auto">
+<img src="images/introduction-to-python/create_env.png" width="100%" style="margin:auto">
 <p style="text-align: center">
 Creating a Conda Environment
 </p>
@@ -336,7 +363,7 @@ Creating a Conda Environment
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pandas.__version__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <center>
-<img src="images/introduction-to-python/check_python.png" width="700" style="margin:auto">
+<img src="images/introduction-to-python/check_python.png" width="100%" style="margin:auto">
 <p style="text-align: center">
 Testing the python installation
 </p>
@@ -348,7 +375,7 @@ Testing the python installation
 <h3 class="anchored" data-anchor-id="setup-our-vscode-environment">Setup our VSCode Environment</h3>
 <p>Still with me? Great. Here’s a cute otter as congratulations for making it this far.</p>
 <center>
-<img src="images/introduction-to-python/cute_otter.jpg" height="350" style="margin:auto">
+<img src="images/introduction-to-python/cute_otter.jpg" width="60%" style="margin:auto">
 <p style="text-align: center">
 The cutest.
 </p>
@@ -372,7 +399,7 @@ The cutest.
 <h2 data-number="1.3" class="anchored" data-anchor-id="hello-world"><span class="header-section-number">1.3</span> Hello World</h2>
 <p>i.e.&nbsp;the <em>how many different ways can we print <strong>Hello World!</strong> to our screen?</em> section</p>
 <center>
-<img src="images/introduction-to-python/helloworld.png" height="350" style="margin:auto">
+<img src="images/introduction-to-python/helloworld.png" width="60%" style="margin:auto">
 <p style="text-align: center">
 Hello World!
 </p>
@@ -403,7 +430,7 @@ Tip: Using the command line
 <p>In all cases, we will want to have a folder from which we wish to work out of. Take some time to set up a folder somewhere you won’t lose it. For me, I’ve simply made a folder called <code>Intro to Python</code> on my C: drive that will hold any course materials we use/create here.</p>
 <p>Next, to make any interactions with python, we will want to open VSCode and work from here. When we first open VSCode, you should be prompted to open a folder. We are going to work out of that <code>Intro to Python</code> folder, so open it here. After doing this, we should now have a VSCode screen open that will look something like this:</p>
 <center>
-<img src="images/introduction-to-python/vscode.png" width="700" style="margin:auto">
+<img src="images/introduction-to-python/vscode.png" width="100%" style="margin:auto">
 <p style="text-align: center">
 VS Code
 </p>
@@ -544,7 +571,7 @@ Conda Reminder!
 </div>
 <p>This should open up a screen that looks something like this:</p>
 <center>
-<img src="images/introduction-to-python/jupyterlab.png" width="700" style="margin:auto">
+<img src="images/introduction-to-python/jupyterlab.png" width="100%" style="margin:auto">
 <p style="text-align: center">
 JupyterLab
 </p>
@@ -705,7 +732,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -741,24 +785,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
