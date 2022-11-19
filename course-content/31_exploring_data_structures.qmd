@@ -17,7 +17,7 @@ Getting a high level summary of the data is important but data is particularly v
 
 In the world of python, this usually means working with a library or package you have already been introduced to called pandas. It lets you do so much!
 
-The first dataset we'll look at is one that looks at data for countries around the world and shows population levels as well as gdp per capita over a number of years. It is a great data set to look at. Let's import the pandas library and then use the `.read_csv()` function to get some population by country data.  We will read the data into an object that will call `country_metrics`, so that it is easier for us to remember what it consists of.
+The first dataset we'll look at is one that looks at data for countries around the world and shows population levels as well as gdp per capita over a number of years. Let's import the pandas library and then use the `.read_csv()` function to get some population by country data.  We will read the data into an object that will call `country_metrics`, so that it is easier for us to remember what it consists of.
 
 ```{python}
 import pandas as pd
@@ -46,6 +46,7 @@ country_metrics.head(2)
 ```
 
 This dataset has some high level country metrics about population and the economy going back to 1952. 
+<br>
 
 ## Selecting columns (variables)
 
@@ -60,7 +61,7 @@ In the "real world" of data it is not uncommon to see hundreds or even thousands
     <br/>
 </center>
 
-First things first. If we want to look the contents of a single column, we could do it like this, specifying the column name after the . without parentheses:
+First things first. If we want to look the contents of a single column, we could do it like this, specifying the column name after the `.` without parentheses:
 
 ```{python}
 country_metrics.country
@@ -69,16 +70,16 @@ country_metrics.country
 
 When we want to select more than one column to include in our dataframe, we use the convention df[['col1', 'col2']] to select the columns we want.
 
-In our example below, we will create a new dataframe called "narrow_country_metrics", and we are primarily interested in getting the population column from the original dataset, but we want to have just year, country, and continent in our new dataframe also. So the dataset will be more narrow than the one it was created from. 
+In our example below, we will create a new dataframe called "narrow_country_metrics".We primarily interested in getting the population metric from the original dataset, and since we want to be able to analyze it by year, country, and continent, we will add those into our new dataframe also. So the dataset will be more narrow than the one it was created from. 
 
-There are two ways to approach this. The first is to identify all the columns you want to keep. 
+There are two ways to approach this. The first way to approach is to identify all the columns you want to keep. 
 
 ```{python}
 narrow_country_metrics = country_metrics[['country', 'year', 'pop', 'continent']]
 narrow_country_metrics.head(2)
 ```
 
-The second way is use the pandas `.drop()` method to drop the columns from the original object that you do not want. We can achieve the same result as the example above by simply dropping two variables instead of naming the other four. With this method, we also need to add the specification `axis = 1`, which indicates that it is columns being referenced for being dropped. 
+The second way is use the pandas `.drop()` method to drop the columns from the original object that you do not want to keep. In the end we can achieve the same result as the example above by simply dropping two variables instead of naming four. With this method, we also need to add the specification `axis = 1`, which indicates that it is columns (and not rows) being referenced for being dropped. 
  
 ```{python}
 narrow_country_metrics = country_metrics.drop(['lifeExp', 'gdpPercap'], axis=1)
@@ -94,7 +95,7 @@ narrow_country_metrics = narrow_country_metrics.drop(['pop'], axis=1)
 narrow_country_metrics.head(2)
 ```
 
-If we want to have the `pop` variable back in the narrow_country_metrics object, we will need to recreate it from the source it came from, where pop was still intact.
+If we want to have the `pop` variable back in the narrow_country_metrics object, we will need to recreate it from the source it came from, where `pop` was still intact.
 
 :::{.callout-tip}
 ## Reminder on Assignment!
@@ -197,7 +198,7 @@ print(challenge2_df)
 
 You will find that it is very common within python/pandas to see the `.iloc()` function used, so it is worthwhile to give that a brief introduction also.
 
-It enables us to select a particular set in the in the dataset that belongs to a particular row or column, accoring to the integer based numbering system as shown in the image below:
+This function enables the selection of data from a particular row or column, according to the integer based index as shown in the image below:
 
 <center>
     <img src="images/exploring-data-structures/pandasdf.png" 
@@ -208,7 +209,7 @@ It enables us to select a particular set in the in the dataset that belongs to a
     <br/>
 </center>
 
-By referring to these locations, we can use `iloc()` to retrieve the exact cells we want to see. For example, if we just want to say, the row of data corresponding to the integer value 5, we would run the following code:
+By referring to these locations, we can use `iloc()` to retrieve the exact cells we want to see. For example, if we just want the row of data corresponding to the index integer value 5, we would run the following code:
 
 ```{python}
 country_metrics.iloc[5]
@@ -226,7 +227,7 @@ We can also retrieve *ranges* of rows and columns respectively by employing a `c
 country_metrics.iloc[0:2,0:3]
 ```
 
-It is a flexible tool that can be very helpful as you build your code. 
+It is a flexible tool that can be very helpful as you build and review your code. 
 <br>
 
 ## Sorting rows
@@ -241,9 +242,13 @@ Let's go fetch and look at the dataframe, and use this method to sort by year, g
 challenge2_df.sort_values('year', ascending=False)
 ```
 
+That was pretty straightforward and it helps us get more insights. 
+
+<br>
+
 ## Putting multiple methods together 
 
-Sometimes you will want to invoke a number of calls sequentially to some object, with each one in turn performing some action on it. 
+The next step is usually to bring several of these commands together to get a nicely refined look at the data. Essentially you will need to invoke a number of calls sequentially to some object, with each one in turn performing some action on it. 
 
 A common approach is to put the object name on each sucessive line of code along with the `=` operator as well as the modifying code to the right.  Imagine we were give the following task:
 
@@ -322,7 +327,7 @@ GDP_df.head(5)
 
 So now we can see what the GDP was for each country in our new object. Notice that the GDP data is in scientific notation (i.e. the decimal number times x number of zeros), so it's a bit hard to read. If we wanted readers to consume that data we would go ahead and change the data type for it. But for current purposes we'll leave that alone.
 
-
+<br>
 
 ## Joining datasets together
 
@@ -332,14 +337,14 @@ But first, let’s get a second file that gives us country size in square kilome
 
 ```{python}
 country_size_url = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/countrysize.csv"
-country_size = pd.read_csv(countrysize_url, encoding= 'unicode_escape')
+country_size = pd.read_csv(country_size_url, encoding= 'unicode_escape')
 country_size.info()
 country_size.sample(2)
 ```
 
-Ok, this `country_size` dataset looks like we expect - a list of countries alongside the land size of that country in square kilometers. There are some omissions in this list - not all countries in our `df` dataset are present in this `countrysize` object. But for our present purposes this is ok. We just want to get that square kilometers data into a combined dataset and it is sufficient for that.
+Ok, this `country_size` dataset looks like we expect - a list of countries alongside the land size of that country in square kilometers. There are some omissions in this list - not all countries in our `country_metrics` dataset are present in this `country_size` object. But for our present purposes this is ok. We just want to get that square kilometers data into a combined dataset and it is sufficient for that.
 
-Essentially what we want to do is a classic "left-join" operation of the sort in the diagram below. Conceptually, the `df` dataset is like the purple table and the `countrysize` dataset is like the red one.
+Essentially what we want to do is a classic "left-join" operation of the sort in the diagram below. Conceptually, the `country_metrics` dataset is like the purple table and the `country_size` dataset is like the red one.
 
 <center>
     <img src="images/exploring-data-structures/join_types.png" 
@@ -355,7 +360,7 @@ The `.merge()` method [(with reference material available here)](https://pandas.
 So let's look at the example below to see how it all comes together in code. 
 
 ```{python}
-combined_df = country_metrics.merge(countrysize, left_on='country', right_on='nation', how='left')
+combined_df = country_metrics.merge(country_size, left_on='country', right_on='nation', how='left')
 combined_df.head(2)
 ```
 
@@ -413,6 +418,8 @@ horizontal_stack
 
 This introduction only scratches the surface of how to leverage this way of joining datasets together. But it can be a powerful tool in the toolkit for the right use case. [More detail found here.](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.concat.html)
 
+<br>
+
 ## Grouping and summarizing
 
 Sometimes of course you would prefer to group rows together for the purpose of summarizing them in various ways.
@@ -468,14 +475,14 @@ You would like to summarize life expectancy by year for each continent so you ca
 Using what we learned about how to select rows, we should limit the dataframe to rows where the year is greater than or equal to 1997. Next we should create a multicolumn call to the `.groupby()` function. Finally we should select some aggregations such as mean, min, and max among others could make sense here.
 
 ```{python}
-df_current = df[df['year'] >= 1997]
+df_current = country_metrics[country_metrics['year'] >= 1997]
 cont_year = df_current.groupby(['continent', 'year']).agg({'lifeExp': ['mean', 'median', 'min', 'max']})
 cont_year.columns = ['lifeExp_mean', 'lifeExp_median', 'lifeExp_min', 'lifeExp_max']
 cont_year.head(20)
 ```
 :::
 
-
+<br>
 
 By now you should be able to select the rows and columns, join together dataframes, and create some basic summarizations of data. The next section will look at some of the more sophisticated and elegant tools for understanding and presenting your data. But the building blocks you have just learned about are the meat and potatoes of data analysis in the python world.
 
