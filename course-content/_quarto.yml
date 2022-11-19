@@ -18,6 +18,8 @@ book:
         - 21_getting_data_with_pandas.qmd
     - part: "Understand and Analyze Data"
     - part: "Advanced Topics"
+      chapters:
+        - 30_bcdata.qmd
     - references.qmd
 
 bibliography: references.bib

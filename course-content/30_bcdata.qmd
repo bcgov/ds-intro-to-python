@@ -1,0 +1,233 @@
+---
+title: "Introduction to bcdata"
+teaching: 45
+exercises: 10
+questions:
+- "Fill this in!"
+objectives:
+- "Fill this in too!"
+keypoints:
+- "Same verse!"
+---
+
+<center>
+    <img src="images/bcdata/data_catalog.png" 
+    width="80%" style="margin:auto"/>
+    <p style="text-align: center">
+        B.C. Data Catalogue
+    </p>
+</center>
+
+The British Columbia government hosts over 2000 tabular and geospatial data sets in the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/). Most data is available through the B.C. Data Catalogue under an open licence. The `bcdata` package provides a programming interface to the **geospatial** data sets of the  B.C. Data Catalogue. This allows Python users to import data directly from the B.C. Data Catalogue into their Python session. Through this functionality the bcdata package connects British Columbia government public data holdings in the B.C. Data Catalogue with the vast capabilities of Python.
+
+## Installing
+
+Unlike the rest of the packages we have downloaded (using `conda` commands), the `bcdata` package is not available for download via conda (this is often the case for smaller packages that are not widely distributed globally). This is one of those instances where we need to mix our use of `pip` and `conda`. However, the installation process proceeds in the same fashion as before. These commands can be done from an anaconda prompt, or from the command prompt (`cmd`) utility inside VS Code. 
+
+```{.bash filename='Anaconda Prompt'}
+> conda activate ds-env
+> pip install bcdata
+```
+
+As before, make sure that you are installing this package in the `ds-env` environment! To make sure that this has successfully downloaded, we can try importing it into our Python session. 
+
+```{python}
+import bcdata
+bcdata.__version__
+```
+
+## Basic Usage
+
+### Introduction to the Catalogue
+
+To use the `bcdata` package, we will need to familiarize ourselves with the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/). If we enter a search term in the catalog, it will bring up a variety of data sets that might meet our needs. However, the python `bcdata` package is only for geospatial datsets. These will typically be data types with a *resource storage format* (one of the filter options) that matches:
+ 
+ * arcgis_rest
+ * kml
+ * geojson
+ * multiple
+ * wms
+
+If we filter to only include these options for the format, we will find some geospatial datasets. Let's try looking for a list of the locations of all B.C. hospitals. 
+
+<center>
+    <img src="images/bcdata/bc_hospitals.png" 
+    width="100%" style="margin:auto"/>
+    <p style="text-align: center">
+        B.C. Hospitals
+    </p>
+</center>
+
+The first search result here, **BC Health Care Facilities (Hospital)**, looks like it might be what we are looking for. If we click on it, we see that there are options for geographic downloads on the right hand side of the page. This is good - it means that we have found a geographic dataset! 
+
+<center>
+    <img src="images/bcdata/warehouse_download.png" 
+    width="80%" style="margin:auto"/>
+    <p style="text-align: center">
+        Geographic Download Options
+    </p>
+</center>
+
+If we now click on the `View` button beside the **BC Geographic Warehouse Custom Download** resource, we will get some more information about the dataset. This includes details such as how frequently the dataset is refreshed, when it was last refreshed, the type of geometry used, the details of the columns included in the data and more. 
+
+At this point in a 'pre-programming' world, we would have to request to access/download the dataset, wait for the file to arrive, store it locally in a folder we hopefully don't misplace, and then find some tool capable of viewing the data. While each of these steps individually is not terribly difficult, putting them altogther, and *documenting* the entire process can be prohibitive and mistake prone. What if we forget where we stored the file? Or forget which file we were using when we need to refresh the dataset? When datasets are acquired manually like this, having a reproducible workflow becomes so much more difficult! 
+
+In a python world, all of these steps can be done directly within a single script! This essentially guarantees the reproducibility and transparency of the workflow. 
+
+### Getting the Data into Python
+
+Okay, we have a geospatial dataset in mind, now what? First, we will call on the `bcdata` package to import our chosen dataset into python. To do this, we need to use the `get_data()` method, and use 2 arguments:
+
+ * `dataset`: this is the name of the dataset we wish to pull from the catalog. This can be either the `id` or `Object Name`:
+    
+    * `id`: last portion of the URL - in this case 'bc-health-care-facilities-hospital'
+    * `Object Name`: under `Object Description` - in this case 'WHSE_IMAGERY_AND_BASE_MAPS.GSR_HOSPITALS_SVW'
+
+ * `as_gdf`: a boolean argument that specifies to load the data into a geopandas DataFrame (a specialized pandas dataframe capable of holding geospatial data)
+
+Let's go ahead and use these arguments to pull the dataset into Python! 
+
+```{python}
+hospitals = bcdata.get_data(
+    dataset='bc-health-care-facilities-hospital', 
+    as_gdf=True
+    )
+hospitals.head()
+```
+
+<br> 
+
+Success! We have our data. Notice, in particular that we have a column called `geometry`. This is a special column for spatial datasets that will hold different types of geography depending on what the dataset is. In this case, we have specific locations of hospitals, so the geometry is a list of point objects that contain latitude/longitude coordinates. 
+
+Let's try a different dataset that will give us *area* geometries. Area geometries will show up as '(multi)polygons' in the datset, meaning that they are a list of points that define the boundary of some area. This could be school district boundaries, health authority areas, or any other region we might be interested in. For fun, let's look at the [B.C. Wildfire Fire Zones](https://catalogue.data.gov.bc.ca/dataset/bc-wildfire-fire-zones). 
+
+:::{.callout-warning icon="false"}
+## Challenge 1
+
+Bring the B.C. Wildfire Fire Zones dataset into python. 
+
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 1
+
+```{python}
+fires = bcdata.get_data(
+    dataset='bc-wildfire-fire-zones',
+    as_gdf=True
+)
+fires.head()
+```
+:::
+
+### Pre-Filtering the Data
+
+It might be the case that the data we wish to access is only a subset of the overall dataset. While we could filter the data after it comes into python, it might be faster, more efficient, or simply be less of a memory hog if we filter it before it comes into our session. In this case, we can add the optional `query` argument when we fetch the data. We can supply a *string* to this argument that will act like a simple SQL 'where' clause. As an example, let's filter the hospital dataset to include only those in the Vancouver Island Health Authority:
+
+```{python}
+hospital_filtered = bcdata.get_data(
+    dataset='bc-health-care-facilities-hospital', 
+    as_gdf=True,
+    query="HEALTH_AUTHORITY_NAME='Vancouver Island Health Authority'"
+)
+hospital_filtered.head()
+```
+
+:::{.callout-tip}
+## SQL Syntax
+
+In the query above, note that the column in the query is NOT put in an extra set of quotations, whereas the column value is for character columns. This is in line with standard SQL syntax, but if you are not familiar with SQL then it might look a little confusing at first! General rule of thumb for the query is that it will be something of the form:
+
+`"COLUMN_A = 'some string value' OR COLUMN_B = 42"`
+:::
+
+## Geospatial Plots
+
+Alright, we have some geospatial data in Python now. That's great. I really love 
+
+POLYGON ((-118.37713213 49.91303648, -118.37772348 49.91308665, -118.37819007 49.91293438, -118.37864102 49.91273297, -118.37885065 49.91240661, -118.37894791 49.91201733, -118.3791819 49.91159333, -118.37960692 49.91128489, -118.3800468 49.91108959, -118.38056154 49.91089751, -118.38113866 49.91078258, -118.38179033 49.91067428, -118.38237742 49.91061745, -118.38289869 49.91056691, -118.38332771 49.91048198, -118.38381897 49.91036744, -118.38447835 49.91018407, -118.38517458 49.91007327, -118.38585128 49.91001193, -118.38650275 49.90998635, -118.38735549 49.90993369, -118.38790802 49.90991568, -118.38842369 49.90990548, -118.38892747 49.90988955, -118.38972597 49.90985294, -118.39035971 49.90986504, -118.39098773 49.9099297, -118.39161337 49.90996627, -118.39214558 49.91004415, -118.39273105 49.91006478, -118.3932995 49.90999734, -118.39412967 49.90993219, -118.39464161 49.90987966, -118.39535483 49.90980076, -118.39601118 49.90972691, ...) 
+
+this time of year, don't you? 
+
+... no? No clue where that is or what it might look like? Me neither. Luckily for us, we can checkout these datasets with some geospatial plots! The geopandas dataframe that the data was loaded into can automatically display a map with points, borders, or coloured regions. 
+
+Let's look at the basic plot that is displayed for a 'point' style geometry vs. a 'polygon' style geometry. Don't forget to import matplotlib to display the plots! 
+
+```{python}
+#| layout-ncol: 2
+import matplotlib.pyplot as plt
+
+hospitals.plot()
+plt.show()
+
+fires.plot()
+plt.show()
+```
+
+Way better! With polygon areas, we also have a few more options for how we wish to colour the regions. 
+
+We can colour based on a categorical variable:
+
+```{python}
+fires.plot(column='MOF_FIRE_CENTRE_NAME')
+plt.show()
+```
+
+Or on a numerical variable:
+
+```{python}
+fires.plot(column='FEATURE_AREA_SQM', legend=True)
+plt.show()
+```
+
+Or if we only want to display the boundaries of our regions, we can do that too:
+
+```{python}
+fires.boundary.plot()
+plt.show()
+```
+
+You'll notice that we can easily see the shape of B.C. in these region plots, but it is less obvious for the hospitals dataset. Beceause the hospitals dataset only contains 'point' objects, it will just place these points on an axis, but with no region boundaries to reference, it might just look like a scattering of points on a plot. 
+
+Luckily, we can combine our region plot and point plot to give context to point locations. Because the underlying plotting tools used by these dataframes is matplotlib, we can plot both plots to the same axes before showing the overall figure! 
+
+```{python}
+ax = fires.boundary.plot()  # assign the output of this first plot to a variable 
+
+hospitals.plot(
+    ax=ax, # use the output of the first plot as the basis for the next 
+    marker='.',  # apply some styling options 
+    color='red'
+    )  
+
+# use the axis again later to turn off the annoying axis labels
+# we don't always want/need those for geospatial plots! 
+ax.set_axis_off()
+
+# display your work!
+plt.show()
+```
+:::{.callout-tip collapse="true"}
+## Advanced Tip: Managing Projections
+
+We were able to plot these two spatial datasets together because they were imported into python using the same Coordinate Reference System (CRS). The CRS tells the polygon or point shapes how to relate to actual physical locations on Earth. On the B.C. Catalogue Reference Page for both datasets, the spatial reference system is given as `EPSG:3005 - NAD83/BC Albers`. 
+
+We can check what the CRS is for a given dataset in Python by looking at the geometry series:
+
+```{python}
+display(hospitals['geometry'].crs)
+display(fires['geometry'].crs)
+```
+
+If for some reason, the two spatial datasets do not have the same reference system, the geopandas dataset gives an option for converting one CRS to another:
+
+```python
+my_geoseries = my_geoseries.to_crs("EPSG:4326")
+my_geoseries = my_geoseries.to_crs(epsg=4326)
+```
+:::
+
+Well there you have it. You can find more information on making [geopandas plots here](https://geopandas.org/en/stable/docs/user_guide/mapping.html), as well as more information on the [bcdata package here](https://pypi.org/project/bcdata/#description). We know that this is a much more technical topic than some of the previous sections, but hopefully it will get you excited about all the new ways of exploring data that python allows us to explore! 
+
+
+
