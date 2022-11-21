@@ -163,7 +163,7 @@ We can also expand this concept by adding additional conditions that narrow or e
 When combining multiple conditional statements as in the example below, each condition must be surrounded by parentheses `()` within the square brackets `[]`. You must use the "or" operator `|` and/or the "and" operator `&` for the code to work. 
 
 ```{python}
-filtered_country_metrics = country_metrics[(df['year'] == 1972) & (country_metrics['country'] == 'Albania')]
+filtered_country_metrics = country_metrics[(country_metrics['year'] == 1972) & (country_metrics['country'] == 'Albania')]
 filtered_country_metrics.head()
 ```
 
