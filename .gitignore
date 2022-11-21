@@ -21,3 +21,7 @@ requirements_full.txt
 
 # rendering
 course-content/_book/
+/.quarto/
+
+# full environment file
+requirements_full.txt
