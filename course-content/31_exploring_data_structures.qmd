@@ -360,7 +360,12 @@ The `.merge()` method [(with reference material available here)](https://pandas.
 So let's look at the example below to see how it all comes together in code. 
 
 ```{python}
-combined_df = country_metrics.merge(country_size, left_on='country', right_on='nation', how='left')
+combined_df = country_metrics.merge(
+    country_size, 
+    left_on='country', 
+    right_on='nation', 
+    how='left'
+    )
 combined_df.head(2)
 ```
 
