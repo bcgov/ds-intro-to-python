@@ -68,9 +68,9 @@ country_metrics.country
 ```
 
 
-When we want to select more than one column to include in our dataframe, we use the convention df[['col1', 'col2']] to select the columns we want.
+When we want to select more than one column to include in our dataframe, we use the convention `df[['col1', 'col2']]` to select the columns we want.
 
-In our example below, we will create a new dataframe called "narrow_country_metrics".We primarily interested in getting the population metric from the original dataset, and since we want to be able to analyze it by year, country, and continent, we will add those into our new dataframe also. So the dataset will be more narrow than the one it was created from. 
+In our example below, we will create a new dataframe called "narrow_country_metrics". We are primarily interested in getting the population metric from the original dataset, and since we want to be able to analyze it by year, country, and continent, we will add those into our new dataframe also. So the dataset will be more narrow than the one it was created from. 
 
 There are two ways to approach this. The first way to approach is to identify all the columns you want to keep. 
 
@@ -163,7 +163,7 @@ We can also expand this concept by adding additional conditions that narrow or e
 When combining multiple conditional statements as in the example below, each condition must be surrounded by parentheses `()` within the square brackets `[]`. You must use the "or" operator `|` and/or the "and" operator `&` for the code to work. 
 
 ```{python}
-filtered_country_metrics = country_metrics[(df['year'] == 1972) & (country_metrics['country'] == 'Albania')]
+filtered_country_metrics = country_metrics[(country_metrics['year'] == 1972) & (country_metrics['country'] == 'Albania')]
 filtered_country_metrics.head()
 ```
 
@@ -333,7 +333,7 @@ So now we can see what the GDP was for each country in our new object. Notice th
 
 One of the most important tasks in data analysis is to be able to join multiple datasets together. With pandas, there are functions called `.merge()` and `.join()` that are similar to each other. As `.merge()` is perhaps the more used, intuitive, and powerful of the two, we will introduce that method in this tutorial in some depth. There is also a cool function called `.concat()` that will be introduced below as well.
 
-But first, let’s get a second file that gives us country size in square kilometers by country. We will use this data to put together with our df dataframe.
+But first, let’s get a second file that gives us country size in square kilometers by country. We will use this data to put together with our `country_metrics` dataframe.
 
 ```{python}
 country_size_url = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/countrysize.csv"
@@ -360,7 +360,12 @@ The `.merge()` method [(with reference material available here)](https://pandas.
 So let's look at the example below to see how it all comes together in code. 
 
 ```{python}
-combined_df = country_metrics.merge(country_size, left_on='country', right_on='nation', how='left')
+combined_df = country_metrics.merge(
+    country_size, 
+    left_on='country', 
+    right_on='nation', 
+    how='left'
+    )
 combined_df.head(2)
 ```
 
