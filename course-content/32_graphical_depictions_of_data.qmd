@@ -47,18 +47,39 @@ In Jupyter environments, running the cell that produces a plot will generate the
 plt.show()
 ```
 
-This command can also be used within a Notebook - for instance to display multiple figures if they are created within a single cell. We recommend as accepted practice to always include a call to `plt.show()` if you ever intend to show a plot, in a notebook or otherwise.
+Directly after creating our plot using `plt.plot(...)`. 
+
+This command can also be used within a Notebook - for instance to display multiple figures if they are created within a single cell: 
+
+```{python}
+# create some lists of data
+x = [1, 2, 3, 4, 5]
+y1 = [2, 4, 6, 8, 10] 
+y2 = [1, 4, 9, 16, 25]
+
+# plot and display x vs y1
+plt.plot(x, y1)
+plt.show()
+
+# plot and display x vs y2
+plt.plot(x, y2)
+plt.show()
+```
+
+
+We recommend as accepted practice to always include a call to `plt.show()` if you ever intend to show a plot, in a notebook or otherwise.
 :::
 
 Plots typically require some set of values to supply to the x value, and an equal length set of values to supply to the y value. If we supply mismatched data, we will get an error:
 
 ```{python}
 #| error: true
+x = [1, 2, 3, 4, 5]
 y = [1, 8, 27, 64]
 plt.plot(x, y)
 ```
 
-In the above examples, we used lists of numbers to supply for our dataset. However, we can also use values directly from pandas dataframes. So let's work on a new dataset. Don't worry about the call to `seaborn` just yet - we will get there! For now, we just want to use it as a shortcut to a new dataset. This dataset looks at species of penguins, and compares various anatomical body part sizes to their species, location and sex. 
+In the above examples, we used lists of numbers to supply for our dataset. However, we can also use values directly from pandas dataframes. So let's work on a new dataset in a pandas dataframe. We will load this dataset from the `Seaborn` package. `Seaborn` is another plotting library which we will learn how to use in subsequent sections - but it also has a great built-in dataset that we are going to use to demonstrate matplotlib now, and seaborn later. This dataset looks at species of penguins, and compares various anatomical body part sizes to their species, location and sex. 
 
 <center>
     <img src="images/plotting/penguin_types.jpg" 
@@ -309,12 +330,12 @@ plt.show()
 In that last example you'll notice that I broke the code up for the plot onto multiple lines. When you start to have many arguments being supplied to a function, it is often a good idea to put different arguments on different lines for readability. As long as argument stays with the brackets, you can use as many lines or indentations as you want! 
 :::
 
-If we want to avoid using too many different styling choices, but we would still like to understand how our features vary across different categories, we can make multiple plots using the built in `FacetGrid` class features of the `relplot` objects. 
+If we want to avoid using too many different styling choices, but we would still like to understand how our features vary across different categories, we can make multiple plots using the built in `row` and `col` arguments of the `relplot` objects. By supplying a category to `row` (`col`), Seaborn is told to split the dataset into all the different values in the category. Then each subset of the data is plotted on a different row (column) of the data. The end result is a grid of plots, with each plot having a unique subset of the category represented. 
 
 ```{python}
 g = sns.relplot(
     data=penguins, x='body_mass_g', y='flipper_length_mm',
-    col='species', row='island', hue='sex',
+    row='island', col='species', hue='sex',
     height=2.5
 )
 g.set_titles(size=8)  # include this line because the titles will overlap otherwise!
@@ -327,6 +348,8 @@ Finally, a frequent goal of creating a scatter plot is to identify if there is a
 sns.lmplot(data=penguins, x='body_mass_g', y='flipper_length_mm', hue='sex')
 plt.show()
 ```
+
+Note that because we included a third categorical dimension (`hue='sex'`), we have actually displayed two different best fit lines: the best relationship between body mass and flipper length for male penguins, and the best relationship for female penguins as well. 
 
 This method is capable of doing more than the default linear regression! Some such arguments available include: 
  
@@ -509,9 +532,22 @@ Aha - looks like we found a key difference here! While males tend to be heavier 
 
 Relational plots let us quickly view relationships between two sets of numerical features. Categorical plots will allow us to do the same where one (or both) of the features is categorical (divided into discrete groups). 
 
-The `catplot` method will provide us a unified high-level interface to a variety of different plots. Here, we will focus on the one that you are most likely to use (but we will give the full list in the summary!), `barplots`.
+The `catplot` method will provide us a unified high-level interface to a variety of different plots. The default behaviour of `catplot` is to produce a **non-aggregated** view of the categories in a strip plot. 
 
-Bar plots are something that we are likely all familiar with, as human beings living in a society of.. people. In Seaborn, a barplot operates on the full dataset to obtain an estimate of some aggregation function (which is the **mean** by default). It will also default to providing an estimation of the confidence interval on its estimates. Just like with all of the other Seaborn plots, we can add an additional feature for free via the `hue` styling choice. 
+```{python}
+sns.catplot(
+    data=penguins, x='species', y='flipper_length_mm')
+plt.show()
+```
+
+This is a categorical version of a scatter plot, in which all of the data for a single category is plotted at the same horizontal position, but with a small amount of horizontal 'jitter' added so that data points with identical numerical values do not completely overlap. This gives us a general idea of how the data is distributed within a category: do most of the penguins have similar flipper lengths within a species, or do they spread out to cover a wide range? 
+
+The most commonly used categorical plot however, is the bar plot. Bar plots are something that we are likely all familiar with, as human beings living in a society of.. people. However, typically when you see a bar plot, it is representing some sort of aggregation of our data. What is the average flipper length of the various penguin species? How many penguins live on each island? As the data stands, we do not have this information directly - it is non-aggregated, row level data. We could use our skills with Pandas to group the data according to the categories of interest and apply some statistic measures to the numerical columns of interest, and then use a matplotlib or Seaborn plot to display the results of that aggregation. However, Seaborn has developed tools that allow us to skip the grouping steps ourselves and allow the plotting package to do the grouping and statistical analysis behind the scenes. This has two advantages:
+
+1. The code is shorter and more precise, leading to easier understanding for others. This helps with code transparency. 
+2. Seaborn also provides confidence intervals to include in its aggregated bar plots, which would be an extra level of complexity added to a manual grouping of the data.
+
+In Seaborn, a barplot operates on the full dataset to obtain an estimate of some aggregation function (which is the **mean** by default). It will also default to providing an estimation of the confidence interval on its estimates. Just like with all of the other Seaborn plots, we can add an additional feature for free via the `hue` styling choice. 
 
 ```{python}
 sns.catplot(
@@ -612,7 +648,7 @@ plt.show()
 
 ## Saving your Plots
 
-We've now done all this work to make amazing incredible charts that produce stunning visuals for our datasets. Chances are, however that you do not want these images to live solely in your Jupyter notebook. You might want it for a presentation or a report. So, we need to save these images so we can access them outside of our Python environment. To do this we use the `plt.savefig()` method. This method will save the **currently open figure**. This is the figure that has not yet been shown on screen! Any call to save a plot must come *before* we display it via `plt.show()`, as this actually closes the figure so we can start our next one!  
+We've now done all this work to make amazing incredible charts that produce stunning visuals for our datasets. Chances are, however that you do not want these images to live solely in your Jupyter notebook. You might want it for a presentation or a report. So, we need to save these images so we can access them outside of our Python environment. To do this we use the `plt.savefig()` method. This method will save the **currently open figure**. This is the figure that has not yet been shown on screen! Any call to save a plot must come *before* we display it via `plt.show()`, as this actually closes the figure/plotting device so we can start our next one!  
 
 :::{.callout-important}
 ## No Show and Tell! 
