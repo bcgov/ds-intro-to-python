@@ -68,7 +68,7 @@ country_metrics.country
 ```
 
 
-When we want to select more than one column to include in our dataframe, we use the convention df[['col1', 'col2']] to select the columns we want.
+When we want to select more than one column to include in our dataframe, we use the convention `df[['col1', 'col2']]` to select the columns we want.
 
 In our example below, we will create a new dataframe called "narrow_country_metrics".We primarily interested in getting the population metric from the original dataset, and since we want to be able to analyze it by year, country, and continent, we will add those into our new dataframe also. So the dataset will be more narrow than the one it was created from. 
 
