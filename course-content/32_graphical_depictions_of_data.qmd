@@ -28,6 +28,12 @@ We will typically import this library with the name `plt`:
 import matplotlib.pyplot as plt
 ```
 
+```{python}
+#| echo: false
+plt.style.use('default')
+```
+
+
 Simple plots are then straightforward to create:
 
 ```{python}
@@ -284,7 +290,66 @@ sns.relplot(data=penguins, x='body_mass_g', y='flipper_length_mm', kind='line')
 plt.show()
 ```
 
-When we utilize the lineplot option, Seaborn will default to automatically aggregating data along the x-axis, displaying uncertainty in the y-axis with confidence intervals. Note that it also doesn't care about the order of the data, assuming that we wanted a nicely flowing line from left to right! 
+When we utilize the lineplot option, Seaborn will default to automatically aggregating data along the x-axis, displaying uncertainty in the y-axis with confidence intervals. Note that it also doesn't care about the initial order of the data. Seaborn automatically assumes that we wanted a nicely flowing line from left to right, and will sort the x values accordingly.
+
+:::{.callout-warning icon="false"}
+## Challenge 2
+
+Using the Seaborn `load_dataset` method, import a dataset called 'dowjones'. Answer the following questions:
+
+1. What does this dataset include/represent?
+2. On what date does the data represented here reach its highest price? 
+3. Create a line plot to depict the data. Does the plot agree with the answer you came up with in part 2?
+
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 2
+
+1. Let's get our dataset first and take a quick peek
+
+```{python}
+dowjones = load_dataset('dowjones')
+dowjones.head()
+```
+
+It looks like this is a list of dates and prices. Context clues from the name of the dataset hint that this is probably the Dow Jones Industrial Average. From the looks of the Date column, it is probably a monthly average price!  
+
+2. We could do this one of two ways. We could sort the dataframe by price and then look at the first data in the sorted dataframe. Alternatively, we can use aggregation and filtering. Note that because we do not want to get statistics per varying group, we do not need to do any `groupby()` before looking for the max value. 
+
+```{python}
+# option 1: sort and grab first row
+date_of_max = dowjones.sort_values(by='Price', ascending=False).head(1)
+display(date_of_max)
+```
+
+```{python}
+# option 2: aggregate and filter 
+# determine the max price in the dataset
+max_price = dowjones['Price'].max()
+
+# use this max price to filter to the date it occured on
+date_of_max = dowjones[dowjones['Price']==max_price]
+
+# check out the result 
+display(date_of_max)
+```
+
+3. We will use Seaborn to build our lineplot. 
+
+```{python}
+import datetime as dt
+sns.relplot(
+    data=dowjones,
+    x='Date',
+    y='Price',
+    kind='line'
+)
+plt.show()
+```
+
+It does indeed look like the plot is peaking around 1966, which matches what we found earlier! It also looks like you can see the stock market crash that started the Great Depression...
+:::
 
 Although relational plots are two dimensional in their presentation, we can add a third dimension to the data by applying the `hue`, `size`, and `style` arguments to secondary columns. 
 
@@ -367,13 +432,13 @@ That is a lot to take in. To summarize the relational plots available in Seaborn
  * `lmplot` can be used to provide basic regression fits to the data
 
 :::{.callout-warning icon="false"}
-## Challenge 2
+## Challenge 3
 
 Choose any two numerical features in the penguins dataset. Produce a scatter plot that highlights the differences between species. Separate the results into two plots - one for male and one for female penguins. 
 :::
 
 :::{.callout-note icon="false" collapse="true"}
-## Solution to Challenge 2
+## Solution to Challenge 3
 
 You might produce code that looks similar to this. `col` and `row` could be interchanged, and maybe you chose to use just one of style or hue. Explore your options! 
 ```{python}
@@ -483,13 +548,13 @@ To summarize distributions available in Seaborn:
 * `row` and `col` will split our plot out into multiple facets, according to the categories found in the datasets
 
 :::{.callout-warning icon="false"}
-## Challenge 3
+## Challenge 4
 
 Create a KDE plot of body mass. Does it appear to be bi-modal (2 peaks)? If so, create another plot (or more) to identify what may be the cause. Are male penguins heavier? Is it a specific species? Does the island matter? 
 :::
 
 :::{.callout-note icon="false" collapse="true"}
-## Solution to Challenge 3
+## Solution to Challenge 4
 First let's just look at the body mass variable alone. 
 
 ```{python}
@@ -617,13 +682,13 @@ To summarize the categorical plots available in Seaborn:
 * By swapping the `x` and `y` variables, we can choose which orientation the plot will display in
 
 :::{.callout-warning icon="false"}
-## Challenge 4
+## Challenge 5
 
 Which penguin species was most frequently included in this dataset? Display your result visually!  
 :::
 
 :::{.callout-note icon="false" collapse="true"}
-## Solution to Challenge 4
+## Solution to Challenge 5
 
 To get the count for each of the species, we need to make a countplot:
 
