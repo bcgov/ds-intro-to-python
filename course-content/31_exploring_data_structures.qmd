@@ -333,7 +333,7 @@ So now we can see what the GDP was for each country in our new object. Notice th
 
 One of the most important tasks in data analysis is to be able to join multiple datasets together. With pandas, there are functions called `.merge()` and `.join()` that are similar to each other. As `.merge()` is perhaps the more used, intuitive, and powerful of the two, we will introduce that method in this tutorial in some depth. There is also a cool function called `.concat()` that will be introduced below as well.
 
-But first, let’s get a second file that gives us country size in square kilometers by country. We will use this data to put together with our df dataframe.
+But first, let’s get a second file that gives us country size in square kilometers by country. We will use this data to put together with our `country_metrics` dataframe.
 
 ```{python}
 country_size_url = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/countrysize.csv"
