@@ -11,7 +11,6 @@ book:
     - index.qmd
     - 00_introduction_to_python.qmd
     - 02_core_data_structure_concepts.qmd
-    - 13_working_with_code.qmd
     - 21_getting_data_with_pandas.qmd
     - 31_exploring_data_structures.qmd
     - references.qmd
