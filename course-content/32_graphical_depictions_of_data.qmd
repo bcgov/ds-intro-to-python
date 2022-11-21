@@ -430,7 +430,7 @@ sns.displot(data=penguins, x='flipper_length_mm', hue='sex')
 plt.show()
 ```
 
-The default here is to create an overlapping histogram, but we could create stacked histograms, dodged histograms, or even use the column option to produce multiple plots! 
+The default here is to create an overlapping histogram, but we could create stacked histograms, dodged (side-by-side) histograms, or even use the `col` or `row` options to produce multiple plots! 
 
 ```{python}
 #| layout-ncol: 2
@@ -453,7 +453,7 @@ sns.displot(data=penguins, x='flipper_length_mm', kind='kde')
 plt.show()
 ```
 
-Just like we were able to adjust the bin sizes for the histogram, we can adjust the 'bandwidth' of our estimation. This will vary the amount of noise that is included in the end distribution:
+Just like we were able to adjust the bin sizes for the histogram, we can adjust the 'bandwidth' of our estimation. This will vary the amount of smoothing that is applied in the end distribution:
 ```{python}
 #| layout-ncol: 2
 sns.displot(data=penguins, x='flipper_length_mm', kind='kde', bw_adjust=0.25)
