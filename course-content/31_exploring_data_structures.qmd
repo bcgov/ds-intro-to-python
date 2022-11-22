@@ -21,7 +21,8 @@ The first dataset we'll look at is one that looks at data for countries around t
 
 ```{python}
 import pandas as pd
-url = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/gapfinder.csv"
+url = "https://raw.githubusercontent.com/bcgov/"\
+    "ds-intro-to-python/main/data/gapfinder.csv"
 country_metrics = pd.read_csv(url)
 ```
 
@@ -75,14 +76,18 @@ In our example below, we will create a new dataframe called "narrow_country_metr
 There are two ways to approach this. The first way to approach is to identify all the columns you want to keep. 
 
 ```{python}
-narrow_country_metrics = country_metrics[['country', 'year', 'pop', 'continent']]
+narrow_country_metrics = country_metrics[
+    ['country', 'year', 'pop', 'continent']
+    ]
 narrow_country_metrics.head(2)
 ```
 
 The second way is use the pandas `.drop()` method to drop the columns from the original object that you do not want to keep. In the end we can achieve the same result as the example above by simply dropping two variables instead of naming four. With this method, we also need to add the specification `axis = 1`, which indicates that it is columns (and not rows) being referenced for being dropped. 
  
 ```{python}
-narrow_country_metrics = country_metrics.drop(['lifeExp', 'gdpPercap'], axis=1)
+narrow_country_metrics = country_metrics.drop(
+    ['lifeExp', 'gdpPercap'], axis=1
+    )
 narrow_country_metrics.head(2)
 ```
 
@@ -121,7 +126,7 @@ challenge1_df.head(2)
 
 ## Selecting rows
 
-Of course, in data analysis we are usually interested in looking at just some rows of data, not all the rows all the time. 
+Of course, in data analysis we are usually interested in looking at just some rows of data, not *all* rows *all* the time. 
 
 <center>
     <img src="images/exploring-data-structures/select_rows.png" 
@@ -132,7 +137,7 @@ Of course, in data analysis we are usually interested in looking at just some ro
     <br/>
 </center>
 
-So when we want to look at just selected rows (i.e. select rows that have certain values within a given column) we can supply a condition that must be met in that column (for example equal to, less than, etc) and we will get back just the rows that match that condition:
+When we want to look at just selected rows (i.e. select rows that have certain values within a given column) we can supply a condition that must be met for a given row in that column.   To do this, we must use one of the following *comparison operators* also called *relational operators*:
 
  - equal to `==`
  - not equal to `!=`
@@ -140,43 +145,56 @@ So when we want to look at just selected rows (i.e. select rows that have certai
  - greater than `> `
  - less than or equal to `<=`
  - greater than or equal to `>=`
+<br>
+Let's try an example. The most commonly used relational operator is likely the equal to `==` so in the example below we have a statement that pandas evaluates line by line in the dataframe as to whether it corresponds to a boolean value of `True` or `False`. 
 
-Note that we do not use the `=` operator when it comes to specifying values we want to find in a column. This is an important point in python. The `==` operator compares the value or equality of two objects and is the right operator to use. It is a `comparison` operator. In contrast, the `=` is the `assignment` operator. We use it, for example, when we create or assign variables or objects. In the example below we see both at work.
+```{python}
+country_metrics['year'] == 1972
+```
 
-The most common way in python to select rows is to use a condition inside selection brackets `[]`
+When we create an object from this evaluation in pandas, it returns to that object only the rows that evaluate as `True`:
 
 ```{python}
 filtered_country_metrics = country_metrics[country_metrics['year'] == 1972]
 filtered_country_metrics.head(2)
 ```
 
-Let's look at what is happening under the hood.  If we look at the code inside the square brackets, we see that pandas checks each row to see which rows fulfill the condition specified.  
+*Logical operators in pandas and python*
+
+In python, it is common to use the logical operators `and`, `or`, and `not` to evaluate expressions. For example, as in the code below, python evaluates the `and` to see whether BOTH operands are true:
+
 
 ```{python}
-country_metrics['year'] == 1972
+x = 5
+print(x > 3 and x < 10)
 ```
 
-Those rows where this check returns `True` are then selected from the data frame.
+However, when we ask pandas to evaluate whether a set of logical relations exist within a pandas series object, we must use pandas logical operators:
 
-We can also expand this concept by adding additional conditions that narrow or expand the number of rows filtered. Below we use the `&` condition to indicate that both parts of the equation need to be fulfilled. 
+ - and `&`
+ - or `|`
+ - not `~`
 
-When combining multiple conditional statements as in the example below, each condition must be surrounded by parentheses `()` within the square brackets `[]`. You must use the "or" operator `|` and/or the "and" operator `&` for the code to work. 
+When combining multiple conditional statements in a pandas series object, each condition must be surrounded by parentheses `()` within the square brackets `[]`. In the example below, we use an `&` to indicate that both conditions must be true for a row to be retured:
+
 
 ```{python}
-filtered_country_metrics = country_metrics[(country_metrics['year'] == 1972) & (country_metrics['country'] == 'Albania')]
+filtered_country_metrics = country_metrics[
+    (country_metrics['year'] == 1972) & (country_metrics['country'] == 'Albania')
+    ]
 filtered_country_metrics.head()
 ```
 
-In the example above, there is only one row of data that matches the condition.
-
-Or we can use the `|` which indicates that if *either* of the statements are true, then all the rows satisfying either condition are returned.
+In the example above, there is only one row of data that matches the condition. We can use the `|` which indicates that if *either or both* of the conditions are true for a given row, that row is returned into the object:
 
 ```{python}
-filtered_country_metrics = country_metrics[(country_metrics['year'] == 1972) | (country_metrics['country'] == 'Albania')]
+filtered_country_metrics = country_metrics[
+    (country_metrics['year'] == 1972) | (country_metrics['country'] == 'Albania')
+    ]
 filtered_country_metrics.head()
 ```
 
-In the example above, there are many rows that satisfy the condition.
+In the example above, there are many rows that satisfy one or the other  condition.
 
 :::{.callout-warning icon="false"}
 
@@ -191,7 +209,10 @@ First you would like to create a new object to hold this narrowed down version o
 
 
 ```{python}
-challenge2_df = country_metrics[(country_metrics['year'] >= 1992) & (country_metrics['country'] == 'Canada')]
+challenge2_df = country_metrics[
+    (country_metrics['year'] >= 1992) & 
+    (country_metrics['country'] == 'Canada')
+    ]
 print(challenge2_df)
 ```
 :::
@@ -272,14 +293,18 @@ The code below accomplishes what the more verbose code above does but in a more 
 
 ```{python}
 #| scrolled: true
-chained_df = country_metrics[(country_metrics['country'] == 'Canada') &     (country_metrics['year'] >= 1997)].sort_values('year', ascending = False)
+chained_df = country_metrics[(country_metrics['country'] == 'Canada') & \
+    (country_metrics['year'] >= 1997)]\
+    .sort_values('year', ascending = False)
 chained_df.head(3)
 ```
 
 Each line is executed in sequence, so be careful when constructing code that the order in which you modify your dataframe is what you intend. Take the example below, in which we want to find European values for GDP per capita. In it, we first have a line of code that selects the rows that contain "Europe" in the first line, then looks at the column values for "year", "country", and "gdpPercap".
 
 ```{python}
-year_country_gdp = country_metrics[(country_metrics['continent'] == 'Europe')]
+year_country_gdp = country_metrics[
+    (country_metrics['continent'] == 'Europe')
+    ]
 year_country_gdp = year_country_gdp[['year', 'country', 'gdpPercap']]
 year_country_gdp.head(3)
 ```
@@ -298,7 +323,9 @@ Your director has come back to you and wondered about whether the life expectanc
 Using code to select the country Cambodia, then call `sort_values()` method and chain them together. Looking at the data we see that in the 1970s there was a sharp decline in life expectancy in Cambodia. We also see, thankfully, that it has recovered strongly since then. 
 
 ```{python}
-challenge3_df = country_metrics[(country_metrics['country'] == 'Cambodia')].sort_values('year', ascending = False)
+challenge3_df = country_metrics[
+    (country_metrics['country'] == 'Cambodia')
+    ].sort_values('year', ascending = False)
 print(challenge3_df)
 ```
 
@@ -336,7 +363,8 @@ One of the most important tasks in data analysis is to be able to join multiple 
 But first, let’s get a second file that gives us country size in square kilometers by country. We will use this data to put together with our `country_metrics` dataframe.
 
 ```{python}
-country_size_url = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/countrysize.csv"
+country_size_url = "https://raw.githubusercontent.com/bcgov/"\
+    "ds-intro-to-python/main/data/countrysize.csv"
 country_size = pd.read_csv(country_size_url, encoding= 'unicode_escape')
 country_size.info()
 country_size.sample(2)
@@ -391,8 +419,10 @@ Another innovative way to put “merge” data together in pandas is with the `.
 To illustrate, let’s fetch two simple dataframes. Each contains the average scores for three subjects by year for two separate schools.
 
 ```{python}
-school1_url  = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/school1.csv"
-school2_url  = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/school2.csv"
+school1_url  = "https://raw.githubusercontent.com/bcgov/"\
+    "ds-intro-to-python/main/data/school1.csv"
+school2_url  = "https://raw.githubusercontent.com/bcgov/"\
+    "ds-intro-to-python/main/data/school2.csv"
 school1_df = pd.read_csv(school1_url)
 school2_df = pd.read_csv(school2_url)
 ```
