@@ -28,6 +28,8 @@ book:
       chapters:
         - 21_getting_data_with_pandas.qmd
     - part: "Understand and Analyze Data"
+      chapters:
+       - 32_graphical_depictions_of_data.qmd
     - part: "Advanced Topics"
     - references.qmd
 
