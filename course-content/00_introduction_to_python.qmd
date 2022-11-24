@@ -33,7 +33,7 @@ During the course of these lessons, we hope to cover:
 If we have time, we may touch on some more advanced python lessons, such as:
 
 * Publishing reports
-* Accessing the [B.C. Data Catalog](https://catalogue.data.gov.bc.ca/)
+* Accessing the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/)
 * Machine learning in python 
 
 ## BEFORE STARTING!!
