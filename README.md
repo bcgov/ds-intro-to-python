@@ -48,7 +48,7 @@ Before the course starts, we ask that all attendees install Python and its assoc
 
  * Data Cleaning (90 min) (Stuart)
  * BREAK ☕
- * Exploring Data with Python (90 min) (Stuart)
+ * Exploring Data with Pandas (90 min) (Stuart)
  * LUNCH 🍍
  * Graphical Depictions of Data (90 min) (Lindsay)
  * BREAK 🍩
