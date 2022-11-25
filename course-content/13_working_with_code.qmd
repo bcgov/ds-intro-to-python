@@ -30,7 +30,7 @@ Having a strategy ahead of time about how you organize your work when you are st
 <br>
 *Treat data as read only*
 
-One of the first things that you will do in a coding environment is to identify your data source and read or ingest that data into your environment to process it further. You should however, leave that originating data unaltered! Once the data is in your coding environment, that is where the processing will take place, and that process will end with some "improved" version of the data will be produced. 
+One of the first things that you will do in a coding environment is to identify your data source and read or ingest that data into your environment to process it further. You should however, leave that originating data unaltered! Once the data is in your coding environment, that is where the processing will take place, and that process will end with some "improved" version of the data being produced. 
 
 *Clean and analyse your data with code*
 
