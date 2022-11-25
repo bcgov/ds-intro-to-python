@@ -38,7 +38,7 @@ In many cases your data will be “dirty”. That is to say, filled with missing
 
 *Treat generated output as disposable*
 
-As you should be able to take the original data as well as the scripts to process it into something useful, you can recreate the outputs at any time. So while you might have a place where you store the processed data, you should treat it as disposable. Disposable essentially means reproducible. It is a bit like having a kitchen pantry with ingredients for making a cake along with the recipe to guide us through the steps to make it. We should be able to make the same cake over and over again with a stocked pantry and access to the recipe. But if we lose either the stocked pantry or the recipe, we won't be able to make any more cake. As the chef treats the cake as edible, the data scientist treats the output as disposable. 
+As you should be able to take the original data as well as the scripts to process it into something useful, you can recreate the outputs at any time. So while you might have a place where you store the processed data, you should treat it as disposable. Disposable essentially means reproducible. It is a bit like having a kitchen pantry with ingredients for making a cake along with the recipe to guide us through the steps to make it. We should be able to make the same cake over and over again with a stocked pantry and access to the recipe. But if we lose either the stocked pantry or the recipe, we won't be able to make any more cake. As the chef treats the cake as edible, the data scientist treats the output (plots, data summaries, model results) as disposable. 
 
 *Organize your files*
 
