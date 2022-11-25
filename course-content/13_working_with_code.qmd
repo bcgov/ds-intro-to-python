@@ -81,7 +81,11 @@ What are three activities associated with a project that are made more difficult
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 1
 
-Activities that will be affected are 1) interpreting outputs, and 2) fixing errors that arise, and 3) extending the project. 
+Activities that will be affected include:
+
+1. interpreting outputs
+2. fixing errors that arise
+3. extending the project. 
 
 Existing or future team members will be most directly affected. Ultimately downstream users of the data may also be impacted. 
 :::
