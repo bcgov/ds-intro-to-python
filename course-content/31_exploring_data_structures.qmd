@@ -169,7 +169,7 @@ x = 5
 print(x > 3 and x < 10)
 ```
 
-However, when we ask pandas to evaluate whether a set of logical relations exist within a pandas series object, we must use pandas logical operators:
+However, when we ask pandas to evaluate whether a set of logical relations exist within a pandas series object, we must use pandas *bitwise* logical operators:
 
  - and `&`
  - or `|`
@@ -185,7 +185,9 @@ filtered_country_metrics = country_metrics[
 filtered_country_metrics.head()
 ```
 
-In the example above, there is only one row of data that matches the condition. We can use the `|` which indicates that if *either or both* of the conditions are true for a given row, that row is returned into the object:
+In the example above, there is only one row of data that matches the condition. 
+
+We can use the `|` which indicates that if *either or both* of the conditions are true for a given row, that row is returned into the object:
 
 ```{python}
 filtered_country_metrics = country_metrics[
@@ -194,7 +196,7 @@ filtered_country_metrics = country_metrics[
 filtered_country_metrics.head()
 ```
 
-In the example above, there are many rows that satisfy one or the other  condition.
+In the example above, there are many rows that satisfy one or the other condition.
 
 :::{.callout-warning icon="false"}
 
@@ -210,10 +212,10 @@ First you would like to create a new object to hold this narrowed down version o
 
 ```{python}
 challenge2_df = country_metrics[
-    (country_metrics['year'] >= 1992) & 
+    (country_metrics['year'] >= 1992) & \
     (country_metrics['country'] == 'Canada')
-    ]
-print(challenge2_df)
+    ]    
+challenge2_df.head()
 ```
 :::
 
@@ -255,15 +257,46 @@ It is a flexible tool that can be very helpful as you build and review your code
 
 So now you've mastered how to select rows and columns you want, congratulations! Instead of hunting and pecking for insights, one way to quickly make some sense of the data is to sort it - something you probably do in Excel all the time. 
 
-In the challenge above we created a dataframe "challenge2_df" with just the one country in it and from 1992. So now let's sort the data by year, and then see if we can spot any insights. To do this, we use the `.sort_values()` method.
-
-Let's go fetch and look at the dataframe, and use this method to sort by year, going from more recent to less recent:
+Let's say we wanted to know more about Asian countries in 2007. First we should go ahead and create a dataframe that consists of just the data we are wanting to look at.
 
 ```{python}
-challenge2_df.sort_values('year', ascending=False)
+countries_2007 = country_metrics[
+    (country_metrics['year'] >= 2007) & \
+    (country_metrics['continent'] == 'Asia')
+    ]    
+countries_2007.head()
 ```
 
-That was pretty straightforward and it helps us get more insights. 
+This is a nice start. But to see some meaningful insights it is helpful to sort the metric we are interested in something other than the default way the data appear positioned in the dataframe. 
+
+The `.sort_values()` method let's us specify a column (or multiple columns) we want to sort and enter an argument that indicates in which direction we would like it to be sorted, from low to high or vice-versa.  We want life expectancy from high to low, so the ascending parameter should be set to `False`.
+
+```{python}
+countries_2007 = countries_2007.sort_values('lifeExp', ascending=False)
+countries_2007.head()
+```
+
+That was pretty straightforward and it helps us get more insights. Looks like Japan is the Asian country with the highest life expectancy in 2007.
+
+We see that when we created and sorted this new object, the index values are those that were associated with the original `country_metrics` dataframe.  
+
+Depending on what we want to do with `countries_2007` going forward, we might want to create a new "default" index for it instead of the existing one. That's where the .reset_index() call comes into play. 
+
+In the code below, we reset the index.
+
+```{python}
+countries_2007 = countries_2007.reset_index(drop=False)
+countries_2007.head()
+```
+
+Notice how the original index now is turned into a column itself called "index". Depending on the use case, we might want to *keep* this column in the new dataframe. For example, if we ultimately wanted to join this dataframe back with the original it could act as a key. If we know, however, that it is of no value anymore to us, we can and probably should delete it. To do this, we would have set the `drop` parameter above to `True`. 
+
+Let's use the iloc() method to look at the positional content of this `countries_2007` dataframe and confirm that Japan shows up in row 0 as we expect. 
+
+```{python}
+countries_2007.iloc[0:4,0:5]
+```
+
 
 <br>
 
@@ -292,10 +325,10 @@ You can also put multiple methods in the same line of code, as long as you separ
 The code below accomplishes what the more verbose code above does but in a more efficient way:
 
 ```{python}
-#| scrolled: true
-chained_df = country_metrics[(country_metrics['country'] == 'Canada') & \
-    (country_metrics['year'] >= 1997)]\
-    .sort_values('year', ascending = False)
+chained_df = country_metrics[
+    (country_metrics['country'] == 'Canada') & \
+    (country_metrics['year'] >= 1997)
+    ].sort_values('year', ascending = False)
 chained_df.head(3)
 ```
 
@@ -309,24 +342,24 @@ year_country_gdp = year_country_gdp[['year', 'country', 'gdpPercap']]
 year_country_gdp.head(3)
 ```
 
-Had we reversed the lines of code, and selected the "year", "country", and "gdpPercap" columns first to put into our new object, we would not have been able to sort for "Europe" in the "continent" column, as the "continent" would have been essentially removed from the dataframe in the step above, so python would have thrown an error. 
+Had we reversed the lines of code, and selected the "year", "country", and "gdpPercap" columns first to put into our new object, we would not have been able to sort for "Europe" in the "continent" column, as the "continent" would have been essentially removed from the dataframe in the step above. So an error would have been thrown. 
 
 :::{.callout-warning icon="false"}
 
 ## Challenge 3
-Your director has come back to you and wondered about whether the life expectancy of people changed during the 1970s in Cambodia. Use what you know about selecting rows and sorting data to get the data you need to answer the question. 
+Your director has come back to you and wondered about whether the life expectancy of people changed during the 1970s in Cambodia. Use what you know about selecting rows and sorting data to get the data you need to answer the question, sorted from most recent at the top. 
 :::
 :::{.callout-note icon="false" collapse="true"}
 
 ### Solution to Challenge 3
 
-Using code to select the country Cambodia, then call `sort_values()` method and chain them together. Looking at the data we see that in the 1970s there was a sharp decline in life expectancy in Cambodia. We also see, thankfully, that it has recovered strongly since then. 
+Using code to select the country Cambodia, then call `sort_values()` method and chain them together and sorting by year in descending fashion. Looking at the data we see that in the 1970s there was a sharp decline in life expectancy in Cambodia. We also see, thankfully, that it has recovered strongly since then. 
 
 ```{python}
 challenge3_df = country_metrics[
     (country_metrics['country'] == 'Cambodia')
     ].sort_values('year', ascending = False)
-print(challenge3_df)
+challenge3_df.head(10)
 ```
 
 :::
@@ -457,9 +490,9 @@ This introduction only scratches the surface of how to leverage this way of join
 
 ## Grouping and summarizing
 
-Sometimes of course you would prefer to group rows together for the purpose of summarizing them in various ways.
+Sometimes of course one would prefer to group rows together for the purpose of summarizing them in various ways.
 
-We can accomplish this using the `.groupby()` method. A `.groupby()` operation involves some combination of splitting the object, applying a function, and combining the results.  It is used together with one or more aggregation functions:
+In pandas, we can accomplish this using the `.groupby()` method. A `.groupby()` operation involves some combination of splitting the object, applying a function, and combining the results.  It is used together with one or more aggregation functions:
 
 * `count()`: Total number of items
 * `first()`, `last()`: First and last item
@@ -474,46 +507,66 @@ First let us look at a simple example where we want to get the mean life expecta
 
 ```{python}
 simple_mean = country_metrics.groupby('continent').lifeExp.mean()
-simple_mean.head(10)
+simple_mean
 ```
 
-Fortunately, if we want to look at more aggregations at once, we can do that too. To extend our example above, we would put "continent" in the `.groupby()` function, then pass additional aggregation functions (in our case, we will add  "mean", "min", and "max") as a dictionary within the `.agg()` function. This dictionary takes the column that we are aggregating - in this case life expectancy - as a key and the aggregation functions as its value.
+Fortunately, if we want to look at several aggregations at once, we can do that too. To extend our example above, we would specify the "continent" column in the `.groupby()` function, then pass additional aggregation functions (in our case, we will add  "mean", "min", and "max") as a dictionary within the `.agg()` function. This dictionary takes the column that we are aggregating - in this case life expectancy - as a key and the aggregation functions as its value. We also add a line of code that gives each of the columns a new name with the .columns() function.
 
 ```{python}
-grouped_single = country_metrics.groupby('continent').agg({'lifeExp': ['mean', 'min', 'max']})
+grouped_single = country_metrics.groupby('continent') \
+    .agg({'lifeExp': ['mean', 'min', 'max']})
 grouped_single.columns = ['lifeExp_mean', 'lifeExp_min', 'lifeExp_max']
-grouped_single.head(5)
+grouped_single
 ```
 
-We can nest additional "groups within groups" by creating a list of column names and passing that to the `.groupby()` function instead of passing a single string value.  The example below adds more granularity with the introduction of 'country' and the creation of a list to hold both 'continent' and 'country'.  
+If you look closely at `grouped_single` you see that the variable "continent" is on a different line than are the columns that are aggregated. That is because continent in this instance is actually an index and not a column. 
+
+We can nest additional "groups within groups" by creating a *list* of column names and passing them to the `.groupby()` function instead of passing a single value.  
+
+The example below adds more granularity with the introduction of 'country' and the creation of a list to hold both 'continent' and 'country'.  
 
 ```{python}
-grouped_multiple = country_metrics.groupby(['continent', 'country']).agg({'pop': ['mean', 'min', 'max']})
+grouped_multiple = country_metrics.groupby(
+    ['continent', 'country']).agg({'pop': ['mean', 'min', 'max']}
+    )
 grouped_multiple.columns = ['pop_mean', 'pop_min', 'pop_max']
-#grouped_multiple = grouped_multiple.reset_index()
-grouped_multiple.head(5)
+grouped_multiple.head(10)
 ```
 
-Notice that in the codeblock above there is a commented out line of code that calls a function called `reset_index()`. This is a step that resets the index to an integer based index. If we uncomment the comment and rerun the code, we can see the index numbering. 
+Again will notice that this dataframe looks a little different than some others we hae seen in that there are blank spaces below each grouped value of continent in that index. This object is a multi-indexed dataframe. It presents the data nicely to consume visually, but it is not ideal to work with if you want to do further manipulation. 
 
+This is likely again a good time to use the `reset_index()` function. This is a step that resets the index to an integer based index and re-creates a non-indexed pandas dataframe. 
+
+The code block below is identical to the one we just ran except for the line of code that resets the index:
+
+```{python}
+grouped_multiple = country_metrics.groupby(
+    ['continent', 'country']).agg({'pop': ['mean', 'min', 'max']}
+    )
+grouped_multiple.columns = ['pop_mean', 'pop_min', 'pop_max']
+grouped_multiple = grouped_multiple.reset_index()  # resets the index
+grouped_multiple.head(10)
+```
+
+This looks more like the structure of the dataframes we know already. 
 
 :::{.callout-warning icon="false"}
 
 ## Challenge 4
-You would like to summarize life expectancy by year for each continent so you can get an idea of trends from 1997 to 2007. Pick some aggregations that would make sense to look at for this task.
+You would like to summarize population as well as life expectancy by year, grouped by continent. Pick some aggregations that would make sense to look at for this task. Don't worry about re-setting the index or about creating new labels for the result.
 
 :::
 :::{.callout-note icon="false" collapse="true"}
 
 ### Solution to Challenge 4
 
-Using what we learned about how to select rows, we should limit the dataframe to rows where the year is greater than or equal to 1997. Next we should create a multicolumn call to the `.groupby()` function. Finally we should select some aggregations such as mean, min, and max among others could make sense here.
+Using what we learned about how to select rows, we should limit the dataframe to rows where the year is greater than or equal to 1997. Next we should create a multi-column call to the `.groupby()` function. Finally we should select some aggregations such as mean and max among others could make sense here.
 
 ```{python}
-df_current = country_metrics[country_metrics['year'] >= 1997]
-cont_year = df_current.groupby(['continent', 'year']).agg({'lifeExp': ['mean', 'median', 'min', 'max']})
-cont_year.columns = ['lifeExp_mean', 'lifeExp_median', 'lifeExp_min', 'lifeExp_max']
-cont_year.head(20)
+challenge4_df = country_metrics.groupby(
+    ['continent', 'year']).agg({'pop' : ['mean', 'max'], 'lifeExp' : ['mean', 'max']}
+    )
+challenge4_df
 ```
 :::
 
