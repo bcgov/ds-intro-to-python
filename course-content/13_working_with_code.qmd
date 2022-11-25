@@ -137,7 +137,7 @@ Under the topics listed you will find treasure troves of helpful documentation r
     </p>
 </center>
 
-Each section in  provides useful content that is related to the version you Python you are working with! One of the particularly helpful sections for those new to Python is the *Tutorial* section, where you will find tutorials on several of the topics in this course, plus many more.
+Each section provides useful content that is related to the version of Python you are working with! One of the particularly helpful sections for those new to Python is the *Tutorial* section, where you will find tutorials on several of the topics in this course, plus many more.
 
 
 *Functions help*  
