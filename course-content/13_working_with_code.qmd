@@ -395,7 +395,7 @@ Example 3: line exceeds 79 characters so should be spaced over two lines
 :::
 
 <br>
-*Consistency sometimes more important than being right*
+*Consistency is sometimes more important than being right*
 
 All of the rules above are about coding the "right" or "correct" way. There are times when you can consider breaking, or at least bending some of the rules for the greater good of being "consistent". This is especially the case when you are working on code as part of a project. Sometimes it is better to be consistent than right. This is often true if you are working on code as part of another project with some unique style practices. Keeping internally consistent with these practices will lead to overall greater readability, which is the greater goal of coding style. 
 
