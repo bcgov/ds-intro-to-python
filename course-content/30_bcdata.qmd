@@ -40,7 +40,7 @@ bcdata.__version__
 
 ### Introduction to the Catalogue
 
-To use the `bcdata` package, we will need to familiarize ourselves with the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/). If we enter a search term in the catalog, it will bring up a variety of data sets that might meet our needs. However, the python `bcdata` package is only for geospatial datsets. These will typically be data types with a *resource storage format* (one of the filter options) that matches:
+To use the `bcdata` package, we will need to familiarize ourselves with the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/). If we enter a search term in the catalogue, it will bring up a variety of data sets that might meet our needs. However, the python `bcdata` package is only for geospatial datsets. These will typically be data types with a *resource storage format* (one of the filter options) that matches:
  
  * arcgis_rest
  * kml
