@@ -24,6 +24,7 @@ book:
     - 02_core_data_structure_concepts.qmd
     - 21_getting_data_with_pandas.qmd
     - 32_graphical_depictions_of_data.qmd
+    - 30_bcdata.qmd
     - references.qmd
 
   sidebar:
@@ -53,6 +54,9 @@ book:
           - text: "Graphical Depictions of Data"
             href: 32_graphical_depictions_of_data.qmd
       - text: "Advanced Topics"
+        menu:
+          - text: "bcdata package"
+            href: 30_bcdata.qmd
       - text: "References"
         href: references.qmd
     right:
