@@ -1,11 +1,58 @@
 [![Lifecycle:Experimental](https://img.shields.io/badge/Lifecycle-Experimental-339999)](<Redirect-URL>)
 
-# ds-intro-to-python
-Lessons for a 2 day Introduction to Data Science using Python Workshop
+# Introduction to Data Science Using Python
+
+This is a repository to house materials for a 2 day course introducing participants to data science using Python.
+
+The goal of this workshop is to teach new-to-programming data professionals to import data, clean up and summarize a data set, and make some static data visualizations using Python. This is an introductory course to programming, specifically programming with Python. Python is a popular computer language for statistics and other scientific disciplines. It is commonly used for statistical analysis, machine-learning, generating high quality visualzations, and automating data workflows. 
+
+The workshop content will follow best practices for Python for data analysis, giving attendees a foundation in the fundamentals of Python and scientific computing.
 
 ## Who should take this course?
 
+ * Anyone who works with data or who is interested in learning efficient ways to make meaning from data
+ * Anyone keen to learn a programming language (**no prior experience necessary!**)
+
 ## Workshop Schedule
+
+### Daily Schedule
+
+| Activity      | Start Time | End Time |
+| ------------- | ---------- | -------- |
+| **Session 1** | 9:00       | 10:30    |
+| Break         | 10:30      | 10:45    |
+| **Session 2** | 10:45      | 12:00    |
+| Lunch         | 12:00      | 1:00     |
+| **Session 3** | 1:00       | 2:30     |
+| Break         | 2:30       | 2:45     |
+| **Session 4** | 2:45       | 4:30     |
+
+### Pre-Course Work
+
+**Important!**
+
+Before the course starts, we ask that all attendees install Python and its associated packages required for data analysis! Instructions for how to do so are found in the [Introduction to Python Section](https://bcgov.github.io/ds-intro-to-python/00_introduction_to_python.html#before-starting). If anyone is having troubles getting Python up and running, please contact us **before** the course starts so that we can hit the ground running during the workshop. 
+
+### Day 1
+
+ * Course Introduction (20 min)
+ * [Getting Up and Running](00_introduction_to_python.qmd) (60 min) (Lindsay)
+ * BREAK ☕
+ * Working with Code (90 min) (Stuart) 
+ * LUNCH 🍍
+ * [Core Data Structure Concepts](02_core_data_structure_concepts.qmd) (90 min) (Lindsay)
+ * BREAK 🍩
+ * [Getting Data](21_getting_data_with_pandas.qmd) (90 min) (Lindsay)
+
+### Day 2
+
+ * Data Cleaning (90 min) (Stuart)
+ * BREAK ☕
+ * Exploring Data with Pandas (90 min) (Stuart)
+ * LUNCH 🍍
+ * Graphical Depictions of Data (90 min) (Lindsay)
+ * BREAK 🍩
+ * Bonus Content: TBD (90 min) (TBD)
 
 ## Getting Help or Reporting an Issue
 
