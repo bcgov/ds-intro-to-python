@@ -100,16 +100,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 20,
   "language": {
     "search-no-results-text": "No results",
@@ -130,10 +132,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./BCID_H_rgb_rev.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction to Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-to-python">    
+        <li>
+    <a class="dropdown-item" href="./00_introduction_to_python.html">
+ <span class="dropdown-text">Getting Up and Running</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./02_core_data_structure_concepts.html">
+ <span class="dropdown-text">Core Concepts</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Get and Clean Data</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-get-and-clean-data">    
+        <li>
+    <a class="dropdown-item" href="./21_getting_data_with_pandas.html">
+ <span class="dropdown-text">Getting Data With Pandas</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Understand and Analyze Data</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-understand-and-analyze-data">    
+        <li>
+    <a class="dropdown-item" href="./32_graphical_depictions_of_data.html">
+ <span class="dropdown-text">Graphical Depictions of Data</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="dropdown-header">
+ <span class="menu-text">Advanced Topics</span></li>
+  <li class="nav-item">
+    <a class="nav-link" href="./references.html">
+ <span class="menu-text">References</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bcgov/ds-intro-to-python"><i class="bi bi-github" role="img" aria-label="Source Code">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item dropdown  compact">
+    <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-share" role="img" aria-label="Share">
+</i> 
+ <span class="menu-text"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="">    
+        <li>
+    <a class="dropdown-item" href="https://twitter.com/intent/tweet?url=|url|"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="dropdown-text">Twitter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|"><i class="bi bi-facebook" role="img">
+</i> 
+ <span class="dropdown-text">Facebook</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></h1>
@@ -144,13 +239,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Introduction to Data Science using Python</a> 
-    </div>
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -164,59 +259,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Introduction to Python</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Up and Running</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_core_data_structure_concepts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Core Concepts</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Get and Clean Data</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./21_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Understand and Analyze Data</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./32_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">Advanced Topics</span>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
@@ -228,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
   <li><a href="#introduction-to-pandas" id="toc-introduction-to-pandas" class="nav-link active" data-scroll-target="#introduction-to-pandas"><span class="toc-section-number">3.1</span>  Introduction to Pandas</a></li>
@@ -236,7 +298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#learning-about-our-data" id="toc-learning-about-our-data" class="nav-link" data-scroll-target="#learning-about-our-data"><span class="toc-section-number">3.3</span>  Learning about our data</a></li>
   <li><a href="#saving-our-data" id="toc-saving-our-data" class="nav-link" data-scroll-target="#saving-our-data"><span class="toc-section-number">3.4</span>  Saving our data</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/21_getting_data_with_pandas.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/21_getting_data_with_pandas.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -1063,67 +1125,67 @@ Solution to Challenge 1
   </thead>
   <tbody>
     <tr>
-      <th>603</th>
-      <td>Guatemala</td>
+      <th>27</th>
+      <td>Algeria</td>
       <td>1967</td>
-      <td>4690773.0</td>
-      <td>Americas</td>
-      <td>50.016</td>
-      <td>3242.531147</td>
-    </tr>
-    <tr>
-      <th>558</th>
-      <td>Gambia</td>
-      <td>1982</td>
-      <td>715523.0</td>
+      <td>12760499.0</td>
       <td>Africa</td>
-      <td>45.580</td>
-      <td>835.809611</td>
+      <td>51.407</td>
+      <td>3246.991771</td>
     </tr>
     <tr>
-      <th>584</th>
-      <td>Ghana</td>
-      <td>1992</td>
-      <td>16278738.0</td>
+      <th>125</th>
+      <td>Benin</td>
+      <td>1977</td>
+      <td>3168267.0</td>
       <td>Africa</td>
-      <td>57.501</td>
-      <td>925.060154</td>
+      <td>49.190</td>
+      <td>1029.161251</td>
     </tr>
     <tr>
-      <th>76</th>
-      <td>Austria</td>
-      <td>1972</td>
-      <td>7544201.0</td>
+      <th>149</th>
+      <td>Bosnia and Herzegovina</td>
+      <td>1977</td>
+      <td>4086000.0</td>
       <td>Europe</td>
-      <td>70.630</td>
-      <td>16661.625600</td>
+      <td>69.860</td>
+      <td>3528.481305</td>
     </tr>
     <tr>
-      <th>981</th>
-      <td>Mauritius</td>
-      <td>1997</td>
-      <td>1149818.0</td>
-      <td>Africa</td>
-      <td>70.736</td>
-      <td>7425.705295</td>
-    </tr>
-    <tr>
-      <th>722</th>
-      <td>Iran</td>
-      <td>1962</td>
-      <td>22874000.0</td>
+      <th>696</th>
+      <td>India</td>
+      <td>1952</td>
+      <td>372000000.0</td>
       <td>Asia</td>
-      <td>49.325</td>
-      <td>4187.329802</td>
+      <td>37.373</td>
+      <td>546.565749</td>
     </tr>
     <tr>
-      <th>788</th>
-      <td>Jamaica</td>
-      <td>1992</td>
-      <td>2378618.0</td>
+      <th>1255</th>
+      <td>Puerto Rico</td>
+      <td>1987</td>
+      <td>3444468.0</td>
       <td>Americas</td>
-      <td>71.766</td>
-      <td>7404.923685</td>
+      <td>74.630</td>
+      <td>12281.341910</td>
+    </tr>
+    <tr>
+      <th>1034</th>
+      <td>Mozambique</td>
+      <td>1962</td>
+      <td>7788944.0</td>
+      <td>Africa</td>
+      <td>36.161</td>
+      <td>556.686354</td>
+    </tr>
+    <tr>
+      <th>1023</th>
+      <td>Morocco</td>
+      <td>1967</td>
+      <td>14770296.0</td>
+      <td>Africa</td>
+      <td>50.335</td>
+      <td>1711.044770</td>
     </tr>
   </tbody>
 </table>
@@ -1316,52 +1378,52 @@ Solution to Challenge 2
     </tr>
     <tr>
       <th>mean</th>
-      <td>1978.071429</td>
-      <td>2.646120e+07</td>
-      <td>60.637452</td>
-      <td>8089.080828</td>
+      <td>1975.452381</td>
+      <td>1.498799e+07</td>
+      <td>59.539214</td>
+      <td>6614.337089</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>17.127062</td>
-      <td>5.099286e+07</td>
-      <td>12.574491</td>
-      <td>9032.901581</td>
+      <td>16.248381</td>
+      <td>2.111499e+07</td>
+      <td>13.392361</td>
+      <td>7026.680113</td>
     </tr>
     <tr>
       <th>min</th>
       <td>1952.000000</td>
-      <td>1.916890e+05</td>
-      <td>35.463000</td>
-      <td>464.099504</td>
+      <td>1.204470e+05</td>
+      <td>32.548000</td>
+      <td>355.203227</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>1963.250000</td>
-      <td>3.559072e+06</td>
-      <td>50.614500</td>
-      <td>1468.663245</td>
+      <td>2.084146e+06</td>
+      <td>46.986250</td>
+      <td>1831.795419</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>1977.000000</td>
-      <td>6.432672e+06</td>
-      <td>60.434500</td>
-      <td>5591.529303</td>
+      <td>1972.000000</td>
+      <td>6.374512e+06</td>
+      <td>62.820000</td>
+      <td>4214.902394</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>1992.000000</td>
-      <td>2.895611e+07</td>
-      <td>71.421750</td>
-      <td>9719.945968</td>
+      <td>1987.000000</td>
+      <td>1.872252e+07</td>
+      <td>70.939000</td>
+      <td>8559.471872</td>
     </tr>
     <tr>
       <th>max</th>
       <td>2007.000000</td>
-      <td>3.011399e+08</td>
+      <td>8.804982e+07</td>
       <td>78.471000</td>
-      <td>42951.653090</td>
+      <td>29478.999190</td>
     </tr>
   </tbody>
 </table>
@@ -1397,52 +1459,52 @@ Solution to Challenge 2
     </tr>
     <tr>
       <th>mean</th>
-      <td>1976.761905</td>
-      <td>3.112765e+07</td>
-      <td>57.949405</td>
-      <td>5672.138801</td>
+      <td>1977.357143</td>
+      <td>4.066999e+07</td>
+      <td>58.733667</td>
+      <td>7078.970247</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>15.576420</td>
-      <td>1.336669e+08</td>
-      <td>12.206612</td>
-      <td>6809.997438</td>
+      <td>14.832103</td>
+      <td>1.380438e+08</td>
+      <td>11.511898</td>
+      <td>8113.428292</td>
     </tr>
     <tr>
       <th>min</th>
       <td>1952.000000</td>
-      <td>1.276170e+05</td>
-      <td>35.985000</td>
-      <td>378.904163</td>
+      <td>1.916890e+05</td>
+      <td>36.087000</td>
+      <td>339.296459</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>1963.250000</td>
-      <td>2.869863e+06</td>
-      <td>47.918750</td>
-      <td>1394.532855</td>
+      <td>1967.000000</td>
+      <td>2.524565e+06</td>
+      <td>49.551000</td>
+      <td>1441.821113</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>1972.000000</td>
-      <td>6.248018e+06</td>
-      <td>57.849000</td>
-      <td>3021.661221</td>
+      <td>1977.000000</td>
+      <td>4.714838e+06</td>
+      <td>56.666000</td>
+      <td>3332.027182</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>1987.000000</td>
-      <td>9.843238e+06</td>
-      <td>69.729500</td>
-      <td>6730.322005</td>
+      <td>1990.750000</td>
+      <td>1.062460e+07</td>
+      <td>70.529500</td>
+      <td>10568.729374</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>2002.000000</td>
+      <td>2007.000000</td>
       <td>8.720000e+08</td>
-      <td>78.160000</td>
-      <td>33519.476600</td>
+      <td>77.320000</td>
+      <td>33965.661150</td>
     </tr>
   </tbody>
 </table>
@@ -1573,6 +1635,121 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -1699,6 +1876,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Introduction to Data Science using Python was written by <br> Lindsay Forestell and Stuart Hemerling</div>   
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./license.qmd">License</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bcgov.github.io/ds-intro-to-r-2-day/index.html">R Course</a>
+  </li>  
+</ul>
+      </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
 
 
 
