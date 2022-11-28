@@ -189,8 +189,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
     </ul>
   </li>
-  <li class="dropdown-header">
- <span class="menu-text">Advanced Topics</span></li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Advanced Topics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced-topics">    
+        <li>
+    <a class="dropdown-item" href="./30_bcdata.html">
+ <span class="dropdown-text">bcdata package</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./references.html">
  <span class="menu-text">References</span></a>
@@ -277,6 +286,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./32_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -1125,67 +1139,67 @@ Solution to Challenge 1
   </thead>
   <tbody>
     <tr>
-      <th>27</th>
-      <td>Algeria</td>
-      <td>1967</td>
-      <td>12760499.0</td>
-      <td>Africa</td>
-      <td>51.407</td>
-      <td>3246.991771</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>Benin</td>
+      <th>665</th>
+      <td>Hong Kong China</td>
       <td>1977</td>
-      <td>3168267.0</td>
-      <td>Africa</td>
-      <td>49.190</td>
-      <td>1029.161251</td>
-    </tr>
-    <tr>
-      <th>149</th>
-      <td>Bosnia and Herzegovina</td>
-      <td>1977</td>
-      <td>4086000.0</td>
-      <td>Europe</td>
-      <td>69.860</td>
-      <td>3528.481305</td>
-    </tr>
-    <tr>
-      <th>696</th>
-      <td>India</td>
-      <td>1952</td>
-      <td>372000000.0</td>
+      <td>4583700.0</td>
       <td>Asia</td>
-      <td>37.373</td>
-      <td>546.565749</td>
+      <td>73.600</td>
+      <td>11186.141250</td>
     </tr>
     <tr>
-      <th>1255</th>
-      <td>Puerto Rico</td>
-      <td>1987</td>
-      <td>3444468.0</td>
-      <td>Americas</td>
-      <td>74.630</td>
-      <td>12281.341910</td>
-    </tr>
-    <tr>
-      <th>1034</th>
-      <td>Mozambique</td>
-      <td>1962</td>
-      <td>7788944.0</td>
-      <td>Africa</td>
-      <td>36.161</td>
-      <td>556.686354</td>
-    </tr>
-    <tr>
-      <th>1023</th>
-      <td>Morocco</td>
+      <th>1371</th>
+      <td>Slovak Republic</td>
       <td>1967</td>
-      <td>14770296.0</td>
+      <td>4442238.0</td>
+      <td>Europe</td>
+      <td>70.980</td>
+      <td>8412.902397</td>
+    </tr>
+    <tr>
+      <th>598</th>
+      <td>Greece</td>
+      <td>2002</td>
+      <td>10603863.0</td>
+      <td>Europe</td>
+      <td>78.256</td>
+      <td>22514.254800</td>
+    </tr>
+    <tr>
+      <th>599</th>
+      <td>Greece</td>
+      <td>2007</td>
+      <td>10706290.0</td>
+      <td>Europe</td>
+      <td>79.483</td>
+      <td>27538.411880</td>
+    </tr>
+    <tr>
+      <th>1524</th>
+      <td>Thailand</td>
+      <td>1952</td>
+      <td>21289402.0</td>
+      <td>Asia</td>
+      <td>50.848</td>
+      <td>757.797418</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Algeria</td>
+      <td>1992</td>
+      <td>26298373.0</td>
       <td>Africa</td>
-      <td>50.335</td>
-      <td>1711.044770</td>
+      <td>67.744</td>
+      <td>5023.216647</td>
+    </tr>
+    <tr>
+      <th>1574</th>
+      <td>Turkey</td>
+      <td>1962</td>
+      <td>29788695.0</td>
+      <td>Europe</td>
+      <td>52.098</td>
+      <td>2322.869908</td>
     </tr>
   </tbody>
 </table>
@@ -1378,52 +1392,52 @@ Solution to Challenge 2
     </tr>
     <tr>
       <th>mean</th>
-      <td>1975.452381</td>
-      <td>1.498799e+07</td>
-      <td>59.539214</td>
-      <td>6614.337089</td>
+      <td>1983.904762</td>
+      <td>1.715198e+07</td>
+      <td>57.154262</td>
+      <td>6953.926756</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>16.248381</td>
-      <td>2.111499e+07</td>
-      <td>13.392361</td>
-      <td>7026.680113</td>
+      <td>18.177726</td>
+      <td>3.765304e+07</td>
+      <td>13.165023</td>
+      <td>7868.237871</td>
     </tr>
     <tr>
       <th>min</th>
       <td>1952.000000</td>
-      <td>1.204470e+05</td>
-      <td>32.548000</td>
-      <td>355.203227</td>
+      <td>4.349040e+05</td>
+      <td>28.801000</td>
+      <td>543.255241</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>1963.250000</td>
-      <td>2.084146e+06</td>
-      <td>46.986250</td>
-      <td>1831.795419</td>
+      <td>1968.250000</td>
+      <td>3.580346e+06</td>
+      <td>46.821250</td>
+      <td>1444.145096</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>1972.000000</td>
-      <td>6.374512e+06</td>
-      <td>62.820000</td>
-      <td>4214.902394</td>
+      <td>1982.000000</td>
+      <td>8.435234e+06</td>
+      <td>59.358000</td>
+      <td>3986.517069</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>1987.000000</td>
-      <td>1.872252e+07</td>
-      <td>70.939000</td>
-      <td>8559.471872</td>
+      <td>2002.000000</td>
+      <td>1.639050e+07</td>
+      <td>69.886000</td>
+      <td>8742.864656</td>
     </tr>
     <tr>
       <th>max</th>
       <td>2007.000000</td>
-      <td>8.804982e+07</td>
-      <td>78.471000</td>
-      <td>29478.999190</td>
+      <td>2.428035e+08</td>
+      <td>75.563000</td>
+      <td>34167.762600</td>
     </tr>
   </tbody>
 </table>
@@ -1459,52 +1473,52 @@ Solution to Challenge 2
     </tr>
     <tr>
       <th>mean</th>
-      <td>1977.357143</td>
-      <td>4.066999e+07</td>
-      <td>58.733667</td>
-      <td>7078.970247</td>
+      <td>1980.571429</td>
+      <td>5.364910e+07</td>
+      <td>58.326905</td>
+      <td>9493.992156</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>14.832103</td>
-      <td>1.380438e+08</td>
-      <td>11.511898</td>
-      <td>8113.428292</td>
+      <td>18.455144</td>
+      <td>2.031542e+08</td>
+      <td>13.157908</td>
+      <td>16046.822305</td>
     </tr>
     <tr>
       <th>min</th>
       <td>1952.000000</td>
-      <td>1.916890e+05</td>
-      <td>36.087000</td>
-      <td>339.296459</td>
+      <td>6.534500e+04</td>
+      <td>35.180000</td>
+      <td>241.165876</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>1967.000000</td>
-      <td>2.524565e+06</td>
-      <td>49.551000</td>
-      <td>1441.821113</td>
+      <td>1962.000000</td>
+      <td>2.731720e+06</td>
+      <td>47.398750</td>
+      <td>1124.647064</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>1977.000000</td>
-      <td>4.714838e+06</td>
-      <td>56.666000</td>
-      <td>3332.027182</td>
+      <td>1982.000000</td>
+      <td>8.368820e+06</td>
+      <td>60.506000</td>
+      <td>3759.096620</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>1990.750000</td>
-      <td>1.062460e+07</td>
-      <td>70.529500</td>
-      <td>10568.729374</td>
+      <td>1997.000000</td>
+      <td>3.061275e+07</td>
+      <td>68.905000</td>
+      <td>12988.391693</td>
     </tr>
     <tr>
       <th>max</th>
       <td>2007.000000</td>
-      <td>8.720000e+08</td>
-      <td>77.320000</td>
-      <td>33965.661150</td>
+      <td>1.318683e+09</td>
+      <td>78.980000</td>
+      <td>95458.111760</td>
     </tr>
   </tbody>
 </table>

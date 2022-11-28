@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./30_bcdata.html" rel="next">
 <link href="./21_getting_data_with_pandas.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -190,8 +190,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
     </ul>
   </li>
-  <li class="dropdown-header">
- <span class="menu-text">Advanced Topics</span></li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Advanced Topics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced-topics">    
+        <li>
+    <a class="dropdown-item" href="./30_bcdata.html">
+ <span class="dropdown-text">bcdata package</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./references.html">
  <span class="menu-text">References</span></a>
@@ -278,6 +287,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./32_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -439,104 +453,104 @@ plt.show()
   </thead>
   <tbody>
     <tr>
-      <th>148</th>
+      <th>46</th>
       <td>Adelie</td>
       <td>Dream</td>
-      <td>36.0</td>
-      <td>17.8</td>
-      <td>195.0</td>
-      <td>3450.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>90</th>
-      <td>Adelie</td>
-      <td>Dream</td>
-      <td>35.7</td>
-      <td>18.0</td>
-      <td>202.0</td>
-      <td>3550.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Adelie</td>
-      <td>Torgersen</td>
-      <td>39.3</td>
-      <td>20.6</td>
-      <td>190.0</td>
-      <td>3650.0</td>
+      <td>41.1</td>
+      <td>19.0</td>
+      <td>182.0</td>
+      <td>3425.0</td>
       <td>Male</td>
     </tr>
     <tr>
-      <th>317</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>46.9</td>
-      <td>14.6</td>
-      <td>222.0</td>
-      <td>4875.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>251</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>42.8</td>
-      <td>14.2</td>
-      <td>209.0</td>
-      <td>4700.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>208</th>
+      <th>197</th>
       <td>Chinstrap</td>
       <td>Dream</td>
-      <td>45.2</td>
-      <td>16.6</td>
-      <td>191.0</td>
-      <td>3250.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>260</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>42.7</td>
-      <td>13.7</td>
-      <td>208.0</td>
-      <td>3950.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>52</th>
-      <td>Adelie</td>
-      <td>Biscoe</td>
-      <td>35.0</td>
-      <td>17.9</td>
-      <td>190.0</td>
-      <td>3450.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>61</th>
-      <td>Adelie</td>
-      <td>Biscoe</td>
-      <td>41.3</td>
-      <td>21.1</td>
-      <td>195.0</td>
-      <td>4400.0</td>
+      <td>50.8</td>
+      <td>18.5</td>
+      <td>201.0</td>
+      <td>4450.0</td>
       <td>Male</td>
     </tr>
     <tr>
-      <th>0</th>
+      <th>210</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>50.2</td>
+      <td>18.8</td>
+      <td>202.0</td>
+      <td>3800.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>128</th>
       <td>Adelie</td>
       <td>Torgersen</td>
-      <td>39.1</td>
-      <td>18.7</td>
-      <td>181.0</td>
-      <td>3750.0</td>
+      <td>39.0</td>
+      <td>17.1</td>
+      <td>191.0</td>
+      <td>3050.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.2</td>
+      <td>19.6</td>
+      <td>195.0</td>
+      <td>4675.0</td>
       <td>Male</td>
+    </tr>
+    <tr>
+      <th>204</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>45.7</td>
+      <td>17.3</td>
+      <td>193.0</td>
+      <td>3600.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>41.1</td>
+      <td>19.1</td>
+      <td>188.0</td>
+      <td>4100.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>35.3</td>
+      <td>18.9</td>
+      <td>187.0</td>
+      <td>3800.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>37.8</td>
+      <td>20.0</td>
+      <td>190.0</td>
+      <td>4250.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>36.5</td>
+      <td>18.0</td>
+      <td>182.0</td>
+      <td>3150.0</td>
+      <td>Female</td>
     </tr>
   </tbody>
 </table>
@@ -1762,8 +1776,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./30_bcdata.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
