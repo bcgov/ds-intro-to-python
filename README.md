@@ -2,7 +2,7 @@
 
 # Introduction to Data Science Using Python
 
-This is a repository to house materials for a 2 day course introducing participants to data science uying Python.
+This is a repository to house materials for a 2 day course introducing participants to data science using Python.
 
 The goal of this workshop is to teach new-to-programming data professionals to import data, clean up and summarize a data set, and make some static data visualizations using Python. This is an introductory course to programming, specifically programming with Python. Python is a popular computer language for statistics and other scientific disciplines. It is commonly used for statistical analysis, machine-learning, generating high quality visualzations, and automating data workflows. 
 
