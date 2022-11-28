@@ -187,7 +187,7 @@ fires.boundary.plot()
 plt.show()
 ```
 
-You'll notice that we can easily see the shape of B.C. in these region plots, but it is less obvious for the hospitals dataset. Beceause the hospitals dataset only contains 'point' objects, it will just place these points on an axis, but with no region boundaries to reference, it might just look like a scattering of points on a plot. 
+You'll notice that we can easily see the shape of B.C. in these region plots, but it is less obvious for the hospitals dataset. Because the hospitals dataset only contains 'point' objects, it will just place these points on an axis, but with no region boundaries to reference, it might just look like a scattering of points on a plot. 
 
 Luckily, we can combine our region plot and point plot to give context to point locations. Because the underlying plotting tools used by these dataframes is matplotlib, we can plot both plots to the same axes before showing the overall figure! 
 
