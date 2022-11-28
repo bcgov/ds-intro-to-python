@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: _book
 
 book:
   title: "Introduction to Data Science using Python"
@@ -7,26 +8,77 @@ book:
     - "Lindsay Forestell" 
     - "Stuart Hemerling"
   date: "2022-10-12"
+
+  #reader-mode: true
+
+  repo-url: https://github.com/bcgov/ds-intro-to-python
+  repo-branch: main
+  repo-actions: [source, edit, issue]
+  sharing: [twitter, facebook]
+  cover-image: cover.png
+  #downloads: [pdf]
+
   chapters:
     - index.qmd
-    - part: "Introduction to Python"
-      chapters:
-        - 00_introduction_to_python.qmd
-        - 02_core_data_structure_concepts.qmd
-    - part: "Get and Clean Data"
-      chapters:
-        - 21_getting_data_with_pandas.qmd
-    - part: "Understand and Analyze Data"
-      chapters:
-       - 32_graphical_depictions_of_data.qmd
-    - part: "Advanced Topics"
-      chapters:
-        - 30_bcdata.qmd
+    - 00_introduction_to_python.qmd
+    - 02_core_data_structure_concepts.qmd
+    - 21_getting_data_with_pandas.qmd
+    - 32_graphical_depictions_of_data.qmd
+    - 30_bcdata.qmd
     - references.qmd
 
+  sidebar:
+    style: "docked"
+    logo: cover.png
+    background: dark
+
+  navbar:
+    logo: BCID_H_rgb_rev.png
+    title: false
+    collapse-below: lg
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Introduction to Python"
+        menu:
+          - text: Getting Up and Running
+            href: 00_introduction_to_python.qmd
+          - text: Core Concepts
+            href: 02_core_data_structure_concepts.qmd
+      - text: "Get and Clean Data"
+        menu:
+          - text: Getting Data With Pandas
+            href: 21_getting_data_with_pandas.qmd
+      - text: "Understand and Analyze Data"
+        menu:
+          - text: "Graphical Depictions of Data"
+            href: 32_graphical_depictions_of_data.qmd
+      - text: "Advanced Topics"
+        menu:
+          - text: "bcdata package"
+            href: 30_bcdata.qmd
+      - text: "References"
+        href: references.qmd
+    right:
+      - icon: share
+
+  page-footer:
+    left: |
+      Introduction to Data Science using Python was written by <br>
+      Lindsay Forestell and Stuart Hemerling 
+    center: 
+      - text: "License"
+        href: license.qmd
+      - text: "R Course"
+        href: https://bcgov.github.io/ds-intro-to-r-2-day/index.html
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+
 bibliography: references.bib
+csl-entry-spacing: 2em
 
 toc: true
+toc-title: On this page
 number-sections: true
 number-depth: 2
 toc-depth: 4
@@ -36,6 +88,8 @@ code-overflow: scroll
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: flatly
+      dark: darkly
 
 
