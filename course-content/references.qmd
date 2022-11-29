@@ -5,6 +5,14 @@ nocite: |
 
 # References {.unnumbered}
 
+::: {.hidden}
+Include this hidden section to get extra references to show up,
+for some reason the no-cite doesn't work for github
+@bcdata 
+@SNS 
+@PGG
+:::
+
 ## References
 
 ::: {#refs}
