@@ -50,12 +50,18 @@ Before the course starts, we ask that all attendees install Python and its assoc
  * BREAK ☕
  * Exploring Data with Pandas (90 min) (Stuart)
  * LUNCH 🍍
- * Graphical Depictions of Data (90 min) (Lindsay)
+ * [Graphical Depictions of Data](32_graphical_depictions_of_data.qmd) (90 min) (Lindsay)
  * BREAK 🍩
  * Bonus Content: TBD (90 min) (TBD)
     * [Fill in this poll to choose our final topic!](link-to-poll)
 
 ## Acknowledgements    
+
+This course has been developed and is being given on the traditional territory of the lək̓ʷəŋən speaking peoples, today known as the Esquimalt and Songhees Nations. As this is a data oriented course, we encourage you to check out some of these resources to learn more about these lands, or the lands that you yourself live, work and play on:
+
+ * [First Nations in B.C.](https://www.bcafn.ca/first-nations-bc/interactive-map)
+ * [Global Territories Map](https://native-land.ca/)
+ * [More on the Songhees Nation](https://www.songheesnation.ca/community/l-k-ng-n-traditional-territory)
 
 Parts of the above lesson material are sourced or adapted from [Software Carpentry](https://software-carpentry.org/) python courses:
 
@@ -68,6 +74,3 @@ This work is licensed under the Creative Commons Attribution 4.0 International L
 To view a copy of this license, visit [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
 
 [![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/). 
-
-:::{.content-hidden when-format="html"}
-:::

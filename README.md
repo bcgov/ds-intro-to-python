@@ -36,13 +36,13 @@ Before the course starts, we ask that all attendees install Python and its assoc
 ### Day 1
 
  * Course Introduction (20 min)
- * [Getting Up and Running](00_introduction_to_python.qmd) (60 min) (Lindsay)
+ * Getting Up and Running (60 min) (Lindsay)
  * BREAK ☕
  * Working with Code (90 min) (Stuart) 
  * LUNCH 🍍
- * [Core Data Structure Concepts](02_core_data_structure_concepts.qmd) (90 min) (Lindsay)
+ * Core Data Structure Concepts (90 min) (Lindsay)
  * BREAK 🍩
- * [Getting Data](21_getting_data_with_pandas.qmd) (90 min) (Lindsay)
+ * Getting Data (90 min) (Lindsay)
 
 ### Day 2
 
