@@ -154,13 +154,13 @@ When we want to look at just selected rows (i.e. select rows that have certain v
 Let's try an example. The most commonly used relational operator is likely equal to (`==`). In the example below we have a statement that pandas evaluates line by line in the dataframe as to whether it corresponds to a boolean value of `True` or `False`. 
 
 ```{python}
-country_metrics['year'] == 1922
+country_metrics['year'] == 1972
 ```
 
 When we create an object from this evaluation in pandas, it returns to that object only the rows that evaluate as `True`:
 
 ```{python}
-filtered_country_metrics = country_metrics[country_metrics['year'] == 1922]
+filtered_country_metrics = country_metrics[country_metrics['year'] == 1972]
 filtered_country_metrics.head(2)
 ```
 
@@ -186,7 +186,7 @@ When combining multiple conditional statements in a pandas series object, each c
 
 ```{python}
 filtered_country_metrics = country_metrics[
-    (country_metrics['year'] == 1922) &   
+    (country_metrics['year'] == 1972) &   
     (country_metrics['country'] == 'Albania')
     ]
 filtered_country_metrics.head()
@@ -198,7 +198,7 @@ We can use the `|` which indicates that if *either or both* of the conditions ar
 
 ```{python}
 filtered_country_metrics = country_metrics[
-    (country_metrics['year'] == 1922) | 
+    (country_metrics['year'] == 1972) | 
     (country_metrics['country'] == 'Albania')
     ]
 filtered_country_metrics.head()
@@ -265,7 +265,7 @@ It is a flexible tool that can be very helpful as you build and review your code
 
 So now you've mastered how to select rows and columns you want, congratulations! Instead of hunting and pecking for insights, one way to quickly make some sense of the data is to sort it - something you probably do in Excel all the time. 
 
-Let's say we wanted to know more about Asian countries in 2002. First we should go ahead and create a dataframe that consists of just the data we are wanting to look at.
+Let's say we wanted to know more about Asian countries since 2002. First we should go ahead and create a dataframe that consists of just the data we are wanting to look at.
 
 ```{python}
 countries_2000s = country_metrics[
@@ -286,7 +286,7 @@ countries_2000s.head()
 
 That was pretty straightforward and it helps us get more insights. Looks like Japan, in 2007, was the Asian country with the highest life expectancy.
 
-Often one will want to sort by more than one column. To do that, instead of passing in a single column, we pass in a list of the columns we want to sort on. We can also control whether we would like each column to be sorted in ascending or descending order by passing in the respective list of boolean values in the `ascending=` parameter.
+Often one will want to sort by more than one column. To do that, instead of passing in a single column, we pass in a *list* of the columns we want to sort on. We can also control whether we would like each column to be sorted in ascending or descending order by passing in a respective list of boolean values in the `ascending=` parameter.
 
 ```{python}
 countries_2000s = countries_2000s.sort_values(
@@ -394,7 +394,7 @@ new_cols_df['pop_millions'] = new_cols_df['pop']/1000000
 new_cols_df.head(2)
 ```
 <br>
-Another way is to call the pandas function `apply()` in which other functions can be passed for a given column. In the example below, the `len()` function calculates the number of characters for each row (i.e. for each country name in the "country" column) and returns the number of characters for that row in a new column:
+Another way is to call the pandas function `apply()` in which other functions can be passed for a given column. In the example below, the `len()` function is applied to each row in the "country" column and a new column with the number of characters for that row is returned:
 
 ```{python}
 new_cols_df['country_name_chars'] = new_cols_df.country.apply(len)
@@ -434,7 +434,7 @@ Essentially what we want to do is a classic "left-join" operation of the sort in
 
 <center>
     <img src="images/exploring-data-structures/join_types.png" 
-    width=200 style="margin:auto"/>
+    width=500 style="margin:auto"/>
     <p style="text-align: center">
        Types of Joins
     </p>
@@ -470,7 +470,7 @@ Another innovative way to put “merge” data together in pandas is with the `.
 
 <center>
     <img src="images/exploring-data-structures/concat.png" 
-    width=200 style="margin:auto"/>
+    width=500 style="margin:auto"/>
     <p style="text-align: center">
        Ways to stack data
     </p>
