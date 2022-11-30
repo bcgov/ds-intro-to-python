@@ -544,7 +544,7 @@ Fortunately, if we want to look at several aggregations at once, we can do that 
 
 :::{.callout-tip}
 ## Recall: Dictionaries in Python
-A dictionary in Python language is a particular type of data structure that contains a collection of what are called key:value pairs. It is analagous to a regular word dictionary you are familiar with which is a collection of words to their meanings.  Python dictionaries allow us to associate a value to a unique key, and then to quickly access this value.  They are generally created within curly braces `{}` and have a specified key name and value (e.g. basic form for a python dictionary `{"key1": "value1"}`)
+Remember that a dictionary in Python language is a particular type of data structure that contains a collection of `key`: `value` pairs. It is analogous to a regular word dictionary you are familiar with which is a collection of words to their meanings.  Python dictionaries allow us to associate a value to a unique key, and then to quickly access this value.  They are generally created within curly braces `{}` and have a specified key name and value (e.g. basic form for a python dictionary `{"key1": "value1"}`)
 :::
 
 
