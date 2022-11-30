@@ -11,7 +11,7 @@ keypoints: null
 jupyter: python3
 ---
 
-# Exploring and Understanding Data
+Exploring and Understanding Data
 
 Getting a high level summary of the data is important but data is particularly valuable when refined. Your analysis will start to come alive when we start to do some slicing and dicing and grouping of data or even creating additional variables. In an Excel world, this is like when you use filter options for columns, or create pivot tables, or when you create a formula in a new column to create a new variable. In data science parlance, this is the kind of thing that is referred to as `data wrangling` - getting the data you want in the form you want it in. 
 
@@ -38,7 +38,7 @@ When you create a variable or object, you can name it pretty much whatever you w
 country_metrics.info()
 ```
 
-So this data is looking good so far. We can see that we have created a pandas dataframe within our python environment. There are 1704 rows of data and six columns or variables. You can see there are only non-null values... so happily there is no missing data to worry about.
+So this data is looking good so far. We can see that we have created a pandas dataframe within our python environment. There are 1204 rows of data and six columns or variables. You can see there are only non-null values... so happily there is no missing data to worry about.
 
 The `.head()` pandas method lets us look at actual data in a somewhat similar way to how one does in an Excel spreadsheet.
 
@@ -55,7 +55,7 @@ In the "real world" of data it is not uncommon to see hundreds or even thousands
 
 <center>
     <img src="images/exploring-data-structures/select_columns.png" 
-    width=700 style="margin:auto"/>
+    width=200 style="margin:auto"/>
     <p style="text-align: center">
        Selecting Columns
     </p>
@@ -130,7 +130,7 @@ Of course, in data analysis we are usually interested in looking at just some ro
 
 <center>
     <img src="images/exploring-data-structures/select_rows.png" 
-    width=700 style="margin:auto"/>
+    width=200 style="margin:auto"/>
     <p style="text-align: center">
        Selecting Rows
     </p>
@@ -154,13 +154,13 @@ When we want to look at just selected rows (i.e. select rows that have certain v
 Let's try an example. The most commonly used relational operator is likely equal to (`==`). In the example below we have a statement that pandas evaluates line by line in the dataframe as to whether it corresponds to a boolean value of `True` or `False`. 
 
 ```{python}
-country_metrics['year'] == 1972
+country_metrics['year'] == 1922
 ```
 
 When we create an object from this evaluation in pandas, it returns to that object only the rows that evaluate as `True`:
 
 ```{python}
-filtered_country_metrics = country_metrics[country_metrics['year'] == 1972]
+filtered_country_metrics = country_metrics[country_metrics['year'] == 1922]
 filtered_country_metrics.head(2)
 ```
 
@@ -186,7 +186,7 @@ When combining multiple conditional statements in a pandas series object, each c
 
 ```{python}
 filtered_country_metrics = country_metrics[
-    (country_metrics['year'] == 1972) &   
+    (country_metrics['year'] == 1922) &   
     (country_metrics['country'] == 'Albania')
     ]
 filtered_country_metrics.head()
@@ -198,7 +198,7 @@ We can use the `|` which indicates that if *either or both* of the conditions ar
 
 ```{python}
 filtered_country_metrics = country_metrics[
-    (country_metrics['year'] == 1972) | 
+    (country_metrics['year'] == 1922) | 
     (country_metrics['country'] == 'Albania')
     ]
 filtered_country_metrics.head()
@@ -265,14 +265,14 @@ It is a flexible tool that can be very helpful as you build and review your code
 
 So now you've mastered how to select rows and columns you want, congratulations! Instead of hunting and pecking for insights, one way to quickly make some sense of the data is to sort it - something you probably do in Excel all the time. 
 
-Let's say we wanted to know more about Asian countries in 2007. First we should go ahead and create a dataframe that consists of just the data we are wanting to look at.
+Let's say we wanted to know more about Asian countries in 2002. First we should go ahead and create a dataframe that consists of just the data we are wanting to look at.
 
 ```{python}
-countries_2007 = country_metrics[
-    (country_metrics['year'] >= 2007) & 
+countries_2000s = country_metrics[
+    (country_metrics['year'] >= 2002) & 
     (country_metrics['continent'] == 'Asia')
     ]    
-countries_2007.head()
+countries_2000s.head()
 ```
 
 This is a nice start. But to see some meaningful insights it is helpful to sort the metric we are interested in something other than the default way the data appear positioned in the dataframe. 
@@ -280,29 +280,39 @@ This is a nice start. But to see some meaningful insights it is helpful to sort 
 The `.sort_values()` method let's us specify a column (or multiple columns) we want to sort and enter an argument that indicates in which direction we would like it to be sorted, from low to high or vice-versa.  We want life expectancy from high to low, so the ascending parameter should be set to `False`.
 
 ```{python}
-countries_2007 = countries_2007.sort_values('lifeExp', ascending=False)
-countries_2007.head()
+countries_2000s = countries_2000s.sort_values('lifeExp', ascending=False)
+countries_2000s.head()
 ```
 
-That was pretty straightforward and it helps us get more insights. Looks like Japan is the Asian country with the highest life expectancy in 2007.
+That was pretty straightforward and it helps us get more insights. Looks like Japan, in 2007, was the Asian country with the highest life expectancy.
+
+Often one will want to sort by more than one column. To do that, instead of passing in a single column, we pass in a list of the columns we want to sort on. We can also control whether we would like each column to be sorted in ascending or descending order by passing in the respective list of boolean values in the `ascending=` parameter.
+
+```{python}
+countries_2000s = countries_2000s.sort_values(
+    ['country', 'lifeExp'], ascending=[True, False]
+    )
+countries_2000s.head()
+```
+
 
 We see that when we created and sorted this new object, the index values are those that were associated with the original `country_metrics` dataframe.  
 
-Depending on what we want to do with `countries_2007` going forward, we might want to create a new "default" index for it instead of the existing one. That's where the `.reset_index()` function comes into play. 
+Depending on what we want to do with `countries_2000s` going forward, we might want to create a new "default" index for it instead of the existing one. That's where the `.reset_index()` function comes into play. 
 
 In the code below, we reset the index.
 
 ```{python}
-countries_2007 = countries_2007.reset_index(drop=False)
-countries_2007.head()
+countries_2000s = countries_2000s.reset_index(drop=False)
+countries_2000s.head()
 ```
 
 Notice how the original index now is turned into a column itself called "index". Depending on the use case, we might want to *keep* this column in the new dataframe. For example, if we ultimately wanted to join this dataframe back with the original it could act as a key. If we know, however, that it is of no value anymore to us, we can and probably should delete it. To do this, we would have set the `drop` parameter above to `True`. 
 
-Let's use the iloc() method to look at the positional content of this `countries_2007` object and confirm that Japan shows up in row 0 as we expect. 
+Let's use the iloc() method to look at the positional content of this `countries_2000s` object and confirm that Japan shows up in row 0 as we expect. 
 
 ```{python}
-countries_2007.iloc[0:4,0:5]
+countries_2000s.iloc[0:4,0:5]
 ```
 
 
@@ -314,14 +324,14 @@ The next step is usually to bring several of these commands together to get a ni
 
 A common approach is to put the object name on each sucessive line of code along with the `=` operator as well as the modifying code to the right.  Imagine we were given the following task:
 
-1. Select only the rows where the country is equal to Ireland AND where the year is 1997 or greater
+1. Select only the rows where the country is equal to Ireland AND where the year is 1992 or greater
 2. Take these rows and sort them by year, going from high to low values, top to bottom
 
 The example below shows how we would employ the line-by-line approach:
 
 ```{python}
 chained2_df = country_metrics[(country_metrics['country'] == 'Ireland')]
-chained2_df = chained2_df[(chained2_df['year'] >= 1997)]
+chained2_df = chained2_df[(chained2_df['year'] >= 1992)]
 chained2_df = chained2_df.sort_values('year', ascending=False)
 chained2_df.head(3)
 ```
@@ -335,7 +345,7 @@ The code below accomplishes what the more verbose code above does but in a more 
 ```{python}
 chained_df = country_metrics[
     (country_metrics['country'] == 'Ireland') & 
-    (country_metrics['year'] >= 1997)
+    (country_metrics['year'] >= 1992)
     ].sort_values('year', ascending = False)
 chained_df.head(3)
 ```
@@ -355,13 +365,13 @@ Had we reversed the lines of code, and selected the "year", "country", and "gdpP
 :::{.callout-warning icon="false"}
 
 ## Challenge 3
-Your director has come back to you and wondered about whether the life expectancy of people changed during the 1970s in Cambodia. Use what you know about selecting rows and sorting data to get the data you need to answer the question, sorted from most recent at the top. 
+Your director has come back to you and wondered about whether the life expectancy of people changed during the 1920s in Cambodia. Use what you know about selecting rows and sorting data to get the data you need to answer the question, sorted from most recent at the top. 
 :::
 :::{.callout-note icon="false" collapse="true"}
 
 ### Solution to Challenge 3
 
-Using code to select the country Cambodia, then call `sort_values()` method and chain them together and sorting by year in descending fashion. Looking at the data we see that in the 1970s there was a sharp decline in life expectancy in Cambodia. We also see, thankfully, that it has recovered strongly since then. 
+Using code to select the country Cambodia, then call `sort_values()` method and chain them together and sorting by year in descending fashion. Looking at the data we see that in the 1920s there was a sharp decline in life expectancy in Cambodia. We also see, thankfully, that it has recovered strongly since then. 
 
 ```{python}
 challenge3_df = country_metrics[
@@ -383,17 +393,24 @@ new_cols_df = country_metrics
 new_cols_df['pop_millions'] = new_cols_df['pop']/1000000
 new_cols_df.head(2)
 ```
+<br>
+Another way is to call the pandas function `apply()` in which other functions can be passed for a given column. In the example below, the `len()` function calculates the number of characters for each row (i.e. for each country name in the "country" column) and returns the number of characters for that row in a new column:
 
-There is also a special python function called `lambda`. It is known as an anonymous function, because it is not given a name other than lambda.  It can take any number of arguments in an expression.
+```{python}
+new_cols_df['country_name_chars'] = new_cols_df.country.apply(len)
+new_cols_df.sample(5)
+```
+<br>
+There is also a special python function called `lambda`. It is known as an anonymous function, appears in a single line of code, and is not given a name other than lambda.  It can take any number of arguments in an expression.
 
-The `.assign()` method looks at this expression with lambda in it and returns the value it is asked to do. This is how it comes all together to give us actual GDP for each row in our dataframe:
+The `.assign()` method looks at this expression with lambda in it and returns the value it is asked to do and assigns it to the variable name given it. This is how it comes all together to give us actual GDP for each row in our dataframe:
 
 ```{python}
 GDP_df = new_cols_df.assign(GDP=lambda x: x['pop'] * x['gdpPercap'])
 GDP_df.head(5)
 ```
 
-So now we can see what the GDP was for each country in our new object. Notice that the GDP data is in scientific notation (i.e. the decimal number times x number of zeros), so it's a bit hard to read. If we wanted readers to consume that data we would go ahead and change the data type for it. But for current purposes we'll leave that alone.
+So now we can see the newly created column "GDP" and see the value for each country in our new object. Notice that the GDP data is in scientific notation (i.e. the decimal number times x number of zeros), so it's a bit hard to read. If we wanted readers to consume that data we would go ahead and change the data type for it. But for current purposes we'll leave that alone.
 
 <br>
 
@@ -417,7 +434,7 @@ Essentially what we want to do is a classic "left-join" operation of the sort in
 
 <center>
     <img src="images/exploring-data-structures/join_types.png" 
-    width=700 style="margin:auto"/>
+    width=200 style="margin:auto"/>
     <p style="text-align: center">
        Types of Joins
     </p>
@@ -453,7 +470,7 @@ Another innovative way to put “merge” data together in pandas is with the `.
 
 <center>
     <img src="images/exploring-data-structures/concat.png" 
-    width=700 style="margin:auto"/>
+    width=200 style="margin:auto"/>
     <p style="text-align: center">
        Ways to stack data
     </p>
@@ -523,7 +540,16 @@ simple_mean = country_metrics.groupby('continent').lifeExp.mean()
 simple_mean
 ```
 
-Fortunately, if we want to look at several aggregations at once, we can do that too. To extend our example above, we would specify the "continent" column in the `.groupby()` function, then pass additional aggregation functions (in our case, we will add  "mean", "min", and "max") as a dictionary within the `.agg()` function. This dictionary takes the column that we are aggregating - in this case life expectancy - as a key and the aggregation functions as its value. We also add a line of code that gives each of the columns a new name with the `.columns()` function.
+Fortunately, if we want to look at several aggregations at once, we can do that too. To extend our example above, we would specify the "continent" column in the `.groupby()` function, then pass additional aggregation functions (in our case, we will add  "mean", "min", and "max") as a dictionary within the `.agg()` function. 
+
+:::{.callout-tip}
+## What is a Dictionary in Python?
+A dictionary in Python language is a particular type of data structure that contains a collection of what are called key:value pairs. It is analagous to a regular word dictionary you are familiar with which is a collection of words to their meanings.  Python dictionaries allow us to associate a value to a unique key, and then to quickly access this value.  They are generally created within curly braces `{}` and have a specified key name and value (e.g. basic form for a python dictionary `{"key1": "value1"}`)
+:::
+
+
+<br>
+This dictionary takes the column that we are aggregating - in this case life expectancy - as a key and the aggregation functions as its value. We also add a line of code that gives each of the columns a new name with the `.columns()` function.
 
 ```{python}
 grouped_single = country_metrics.groupby('continent') \
@@ -573,7 +599,7 @@ You would like to summarize population as well as life expectancy by year, group
 
 ### Solution to Challenge 4
 
-Using what we learned about how to select rows, we should limit the dataframe to rows where the year is greater than or equal to 1997. Next we should create a multi-column call to the `.groupby()` function. Finally we should select some aggregations such as mean and max among others could make sense here.
+Using what we learned about how to select rows, we should limit the dataframe to rows where the year is greater than or equal to 1992. Next we should create a multi-column call to the `.groupby()` function. Finally we should select some aggregations such as mean and max among others could make sense here.
 
 ```{python}
 challenge4_df = country_metrics.groupby(
