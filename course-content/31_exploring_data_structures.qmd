@@ -394,7 +394,7 @@ new_cols_df['pop_millions'] = new_cols_df['pop']/1000000
 new_cols_df.head(2)
 ```
 <br>
-Another way is to call the pandas function `apply()` in which other functions can be passed for a given column. In the example below, the `len()` function is applied to each row in the "country" column and a new column with the number of characters for that row is returned:
+Another way is to call the pandas function `apply()` in which other, more complicated functions can be passed for a given column. This could be a complicated mathematical formula, a function acting on strings or dates, or any other function that cannot be represented by a simple multiplication or division. In the example below, the `len()` function is applied to each row in the "country" column and a new column with the number of characters for that row is returned:
 
 ```{python}
 new_cols_df['country_name_chars'] = new_cols_df.country.apply(len)
@@ -544,13 +544,13 @@ simple_mean
 Fortunately, if we want to look at several aggregations at once, we can do that too. To extend our example above, we would specify the "continent" column in the `.groupby()` function, then pass additional aggregation functions (in our case, we will add  "mean", "min", and "max") as a dictionary within the `.agg()` function. 
 
 :::{.callout-tip}
-## What is a Dictionary in Python?
-A dictionary in Python language is a particular type of data structure that contains a collection of what are called key:value pairs. It is analagous to a regular word dictionary you are familiar with which is a collection of words to their meanings.  Python dictionaries allow us to associate a value to a unique key, and then to quickly access this value.  They are generally created within curly braces `{}` and have a specified key name and value (e.g. basic form for a python dictionary `{"key1": "value1"}`)
+## Recall: Dictionaries in Python
+Remember that a dictionary in Python language is a particular type of data structure that contains a collection of `key`: `value` pairs. It is analogous to a regular word dictionary you are familiar with which is a collection of words to their meanings.  Python dictionaries allow us to associate a value to a unique key, and then to quickly access this value.  They are generally created within curly braces `{}` and have a specified key name and value (e.g. basic form for a python dictionary `{"key1": "value1"}`)
 :::
 
 
 <br>
-This dictionary takes the column that we are aggregating - in this case life expectancy - as a key and the aggregation functions as its value. We also add a line of code that gives each of the columns a new name with the `.columns()` function.
+This dictionary takes the column that we are aggregating - in this case life expectancy - as a key and a **list** of aggregation functions as its value. We also add a line of code that gives each of the columns a new name with the `.columns()` function.
 
 ```{python}
 grouped_single = country_metrics.groupby('continent') \
