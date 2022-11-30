@@ -11,7 +11,7 @@ keypoints: null
 jupyter: python3
 ---
 
-Exploring and Understanding Data
+## Exploring and Understanding Data
 
 Getting a high level summary of the data is important but data is particularly valuable when refined. Your analysis will start to come alive when we start to do some slicing and dicing and grouping of data or even creating additional variables. In an Excel world, this is like when you use filter options for columns, or create pivot tables, or when you create a formula in a new column to create a new variable. In data science parlance, this is the kind of thing that is referred to as `data wrangling` - getting the data you want in the form you want it in. 
 
@@ -286,11 +286,11 @@ countries_2000s.head()
 
 That was pretty straightforward and it helps us get more insights. Looks like Japan, in 2007, was the Asian country with the highest life expectancy.
 
-Often one will want to sort by more than one column. To do that, instead of passing in a single column, we pass in a *list* of the columns we want to sort on. We can also control whether we would like each column to be sorted in ascending or descending order by passing in a respective list of boolean values in the `ascending=` parameter.
+Often one will want to sort by more than one column. To do that, instead of passing in a single column, we pass in a *list* of the columns we want to sort on. We can also control whether we would like each column to be sorted in ascending or descending order by passing in a respective list of boolean values in the `ascending=` parameter. In the example below, the code indicates that we want to sort first by 'country' in reverse alphabetical order, then by life expectancy from high to low. 
 
 ```{python}
 countries_2000s = countries_2000s.sort_values(
-    ['country', 'lifeExp'], ascending=[True, False]
+    ['country', 'lifeExp'], ascending=[False, False]
     )
 countries_2000s.head()
 ```
@@ -309,7 +309,7 @@ countries_2000s.head()
 
 Notice how the original index now is turned into a column itself called "index". Depending on the use case, we might want to *keep* this column in the new dataframe. For example, if we ultimately wanted to join this dataframe back with the original it could act as a key. If we know, however, that it is of no value anymore to us, we can and probably should delete it. To do this, we would have set the `drop` parameter above to `True`. 
 
-Let's use the iloc() method to look at the positional content of this `countries_2000s` object and confirm that Japan shows up in row 0 as we expect. 
+Let's use the iloc() method to look at the positional content of this `countries_2000s` object and confirm that Yeman shows up in row 0 as we expect. 
 
 ```{python}
 countries_2000s.iloc[0:4,0:5]
@@ -460,8 +460,9 @@ combined_df.head(2)
 When you run the code above you will notice that both the `nation` key column and the `area_square_kms` column have been joined together in the new `combined_df` object. One can keep that nation column in there for control purposes, or it can be removed by using the `.drop()` method we used earlier:
 
 
-```
+```{python}
 combined_df = combined_df.drop('nation', axis=1) 
+combined_df.head()
 ```
 
 
