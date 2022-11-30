@@ -233,7 +233,7 @@ This function enables the selection of data from a particular row or column, acc
 
 <center>
     <img src="images/exploring-data-structures/pandasdf.png" 
-    width=500 style="margin:auto"/>
+    style="margin:auto"/>
     <p style="text-align: center">
       Row and column values iloc() refers to
     </p>
