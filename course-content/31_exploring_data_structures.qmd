@@ -55,7 +55,7 @@ In the "real world" of data it is not uncommon to see hundreds or even thousands
 
 <center>
     <img src="images/exploring-data-structures/select_columns.png" 
-    width=500 style="margin:auto"/>
+    width="60%" style="margin:auto"/>
     <p style="text-align: center">
        Selecting Columns
     </p>
