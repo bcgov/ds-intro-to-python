@@ -13,6 +13,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+requirements_full.txt
 
 # IDEs
 .idea
@@ -20,3 +21,7 @@ venv.bak/
 
 # rendering
 course-content/_book/
+/.quarto/
+
+# full environment file
+requirements_full.txt
