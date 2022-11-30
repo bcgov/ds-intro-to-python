@@ -549,7 +549,7 @@ Remember that a dictionary in Python language is a particular type of data struc
 
 
 <br>
-This dictionary takes the column that we are aggregating - in this case life expectancy - as a key and the aggregation functions as its value. We also add a line of code that gives each of the columns a new name with the `.columns()` function.
+This dictionary takes the column that we are aggregating - in this case life expectancy - as a key and a **list** of aggregation functions as its value. We also add a line of code that gives each of the columns a new name with the `.columns()` function.
 
 ```{python}
 grouped_single = country_metrics.groupby('continent') \
