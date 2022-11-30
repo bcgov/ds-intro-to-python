@@ -11,7 +11,7 @@ keypoints: null
 jupyter: python3
 ---
 
-Exploring and Understanding Data
+## Exploring and Understanding Data
 
 Getting a high level summary of the data is important but data is particularly valuable when refined. Your analysis will start to come alive when we start to do some slicing and dicing and grouping of data or even creating additional variables. In an Excel world, this is like when you use filter options for columns, or create pivot tables, or when you create a formula in a new column to create a new variable. In data science parlance, this is the kind of thing that is referred to as `data wrangling` - getting the data you want in the form you want it in. 
 
