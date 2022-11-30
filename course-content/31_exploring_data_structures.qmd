@@ -394,7 +394,7 @@ new_cols_df['pop_millions'] = new_cols_df['pop']/1000000
 new_cols_df.head(2)
 ```
 <br>
-Another way is to call the pandas function `apply()` in which other functions can be passed for a given column. In the example below, the `len()` function is applied to each row in the "country" column and a new column with the number of characters for that row is returned:
+Another way is to call the pandas function `apply()` in which other, more complicated functions can be passed for a given column. This could be a complicated mathematical formula, a function acting on strings or dates, or any other function that cannot be represented by a simple multiplication or division. In the example below, the `len()` function is applied to each row in the "country" column and a new column with the number of characters for that row is returned:
 
 ```{python}
 new_cols_df['country_name_chars'] = new_cols_df.country.apply(len)
