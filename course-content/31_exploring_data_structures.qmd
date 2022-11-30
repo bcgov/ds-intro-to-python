@@ -55,7 +55,7 @@ In the "real world" of data it is not uncommon to see hundreds or even thousands
 
 <center>
     <img src="images/exploring-data-structures/select_columns.png" 
-    width=200 style="margin:auto"/>
+    width=500 style="margin:auto"/>
     <p style="text-align: center">
        Selecting Columns
     </p>
@@ -130,7 +130,7 @@ Of course, in data analysis we are usually interested in looking at just some ro
 
 <center>
     <img src="images/exploring-data-structures/select_rows.png" 
-    width=200 style="margin:auto"/>
+    width=500 style="margin:auto"/>
     <p style="text-align: center">
        Selecting Rows
     </p>
@@ -233,7 +233,7 @@ This function enables the selection of data from a particular row or column, acc
 
 <center>
     <img src="images/exploring-data-structures/pandasdf.png" 
-    width=300 style="margin:auto"/>
+    width=500 style="margin:auto"/>
     <p style="text-align: center">
       Row and column values iloc() refers to
     </p>
