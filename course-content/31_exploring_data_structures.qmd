@@ -130,7 +130,7 @@ Of course, in data analysis we are usually interested in looking at just some ro
 
 <center>
     <img src="images/exploring-data-structures/select_rows.png" 
-    width=500 style="margin:auto"/>
+    width="60%" style="margin:auto"/>
     <p style="text-align: center">
        Selecting Rows
     </p>
@@ -434,7 +434,7 @@ Essentially what we want to do is a classic "left-join" operation of the sort in
 
 <center>
     <img src="images/exploring-data-structures/join_types.png" 
-    width=500 style="margin:auto"/>
+    width="70%" style="margin:auto"/>
     <p style="text-align: center">
        Types of Joins
     </p>
@@ -471,7 +471,7 @@ Another innovative way to put “merge” data together in pandas is with the `.
 
 <center>
     <img src="images/exploring-data-structures/concat.png" 
-    width=500 style="margin:auto"/>
+    width="70%" style="margin:auto"/>
     <p style="text-align: center">
        Ways to stack data
     </p>
