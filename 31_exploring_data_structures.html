@@ -669,7 +669,7 @@ Solution to Challenge 1
 <h2 data-number="4.3" class="anchored" data-anchor-id="selecting-rows"><span class="header-section-number">4.3</span> Selecting rows</h2>
 <p>Of course, in data analysis we are usually interested in looking at just some rows of data, not <em>all</em> rows <em>all</em> the time.</p>
 <center>
-<img src="images/exploring-data-structures/select_rows.png" width="500" style="margin:auto">
+<img src="images/exploring-data-structures/select_rows.png" width="60%" style="margin:auto">
 <p style="text-align: center">
 Selecting Rows
 </p>
@@ -1783,59 +1783,59 @@ Solution to Challenge 3
   </thead>
   <tbody>
     <tr>
-      <th>816</th>
-      <td>Kenya</td>
-      <td>1952</td>
-      <td>6464046.0</td>
-      <td>Africa</td>
-      <td>42.270</td>
-      <td>853.540919</td>
-      <td>6.464046</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>820</th>
-      <td>Kenya</td>
-      <td>1972</td>
-      <td>12044785.0</td>
-      <td>Africa</td>
-      <td>53.559</td>
-      <td>1222.359968</td>
-      <td>12.044785</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>1007</th>
-      <td>Mongolia</td>
+      <th>839</th>
+      <td>Korea Dem. Rep.</td>
       <td>2007</td>
-      <td>2874127.0</td>
+      <td>23301725.0</td>
       <td>Asia</td>
-      <td>66.803</td>
-      <td>3095.772271</td>
-      <td>2.874127</td>
-      <td>8</td>
+      <td>67.297</td>
+      <td>1593.065480</td>
+      <td>23.301725</td>
+      <td>15</td>
     </tr>
     <tr>
-      <th>622</th>
-      <td>Guinea</td>
+      <th>685</th>
+      <td>Iceland</td>
+      <td>1957</td>
+      <td>165110.0</td>
+      <td>Europe</td>
+      <td>73.470</td>
+      <td>9244.001412</td>
+      <td>0.165110</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>786</th>
+      <td>Jamaica</td>
+      <td>1982</td>
+      <td>2298309.0</td>
+      <td>Americas</td>
+      <td>71.210</td>
+      <td>6068.051350</td>
+      <td>2.298309</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>Belgium</td>
+      <td>1957</td>
+      <td>8989111.0</td>
+      <td>Europe</td>
+      <td>69.240</td>
+      <td>9714.960623</td>
+      <td>8.989111</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>250</th>
+      <td>Canada</td>
       <td>2002</td>
-      <td>8807818.0</td>
-      <td>Africa</td>
-      <td>53.676</td>
-      <td>945.583584</td>
-      <td>8.807818</td>
+      <td>31902268.0</td>
+      <td>Americas</td>
+      <td>79.770</td>
+      <td>33328.965070</td>
+      <td>31.902268</td>
       <td>6</td>
-    </tr>
-    <tr>
-      <th>1167</th>
-      <td>Pakistan</td>
-      <td>1967</td>
-      <td>60641899.0</td>
-      <td>Asia</td>
-      <td>49.800</td>
-      <td>942.408259</td>
-      <td>60.641899</td>
-      <td>8</td>
     </tr>
   </tbody>
 </table>
@@ -1970,14 +1970,14 @@ memory usage: 3.8+ KB</code></pre>
   </thead>
   <tbody>
     <tr>
-      <th>37</th>
-      <td>Chile</td>
-      <td>756102</td>
+      <th>188</th>
+      <td>Tonga</td>
+      <td>747</td>
     </tr>
     <tr>
-      <th>141</th>
-      <td>Armenia</td>
-      <td>29743</td>
+      <th>41</th>
+      <td>Somalia</td>
+      <td>637657</td>
     </tr>
   </tbody>
 </table>
@@ -1987,7 +1987,7 @@ memory usage: 3.8+ KB</code></pre>
 <p>Ok, this <code>country_size</code> dataset looks like we expect - a list of countries alongside the land size of that country in square kilometers. There are some omissions in this list - not all countries in our <code>country_metrics</code> dataset are present in this <code>country_size</code> object. But for our present purposes this is ok. We just want to get that square kilometers data into a combined dataset and it is sufficient for that.</p>
 <p>Essentially what we want to do is a classic “left-join” operation of the sort in the diagram below. Conceptually, the <code>country_metrics</code> dataset is like the purple table and the <code>country_size</code> dataset is like the red one.</p>
 <center>
-<img src="images/exploring-data-structures/join_types.png" width="500" style="margin:auto">
+<img src="images/exploring-data-structures/join_types.png" width="70%" style="margin:auto">
 <p style="text-align: center">
 Types of Joins
 </p>
@@ -2146,7 +2146,7 @@ Types of Joins
 </div>
 <p>Another innovative way to put “merge” data together in pandas is with the <code>.concat()</code> function. Conceptually you can think if it like “stacking” two data objects on top of each other or side-by-side as shown in the diagram below.</p>
 <center>
-<img src="images/exploring-data-structures/concat.png" width="500" style="margin:auto">
+<img src="images/exploring-data-structures/concat.png" width="70%" style="margin:auto">
 <p style="text-align: center">
 Ways to stack data
 </p>
