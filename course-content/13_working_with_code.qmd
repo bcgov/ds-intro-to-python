@@ -203,7 +203,7 @@ In the example below, the code is telling python to import a package that is not
     
 </left>
 
-In the example below, the issue is not a syntax error (although it might like a typo that one might associate with being a syntax error)
+In the example below, the issue is not a syntax error (although it might look like a typo that one might associate with being a syntax error)
 <left>
     <img src="images/working-with-code/runtime_error2.png" size=500 style="margin:auto" border=1/>
     <p style="text-align: center">     
