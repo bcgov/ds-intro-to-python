@@ -44,15 +44,29 @@ As you should be able to take the original data as well as the scripts to proces
 
 While there is no perfect template for how to organize your work, below is an example that shows how you might consider organizing your work for a relatively straightforward data project. Let's say we have a project that is about analyzing marmots in BC. Here's how you could structure your work, so that it stays well organized:
 
- /MarmotsBC could be the top level directory, it is the project name, without spaces. Under this project the remaining files could be organized within the following structure:
+MarmotsBC could be the top level directory, it is the project name, without spaces. Under this project the remaining files could be organized within the following structure:
 
-    /docs             supporting text  documents that are meant for humans to read
-    /data             the original (meta)data that acts as an input and is read-only
-    /src              your scripts, may further be divided into /functions, /test, etc.
-    /bin              programs brought in from elsewhere
-    /output           data written by your code, could be input for another process
-    /analysis         the charts, stats, figures and the like generated from your scripts
-    
+ ```
+/MarmotsBC          top level directory, 
+│                   contains project name, without spaces
+│
+└─── /docs          supporting text and word processed documents 
+│                   that are meant for humans to read
+│
+└─── /data          the original (meta)data that acts as an input 
+│                   and will be treated as read-only
+│
+└─── /src           your scripts, may further be divided 
+│                   into /functions, /test, etc.
+│
+└─── /bin           programs brought in from elsewhere
+│
+└─── /output        data written by your code to this location, 
+│                   could be input for another process
+│
+└─── /analysis      the charts, stats, figures and the like 
+                    generated from your scripts
+```
 
 *Name and split files when needed*
 
@@ -60,7 +74,7 @@ When you are naming files themselves, try to have the names reflect their conten
 
 *Version control*
 
-When working alone and especially when working within a team, it is helpful to leverage tools that help ensure that everyone's work is kept up to date and organized. There are tools such as git/GitHub that are made precisely for this purpose. If you hear people talking about repos, merges, commits, pull requests, etc, they are probably talking about the git world. It is beyond the scope of this tutorial to dive into this topic, but it is something to keep in mind. 
+When working alone and especially when working within a team, it is helpful to leverage tools that help ensure that everyone's work is kept up to date and organized. There are tools such as git/GitHub that are made precisely for this purpose. If you hear people talking about repos, merges, commits, pull requests, etc, they are probably talking about the git world. It is beyond the scope of this tutorial to dive into this topic, but it is something to keep in mind.  [Software Carpentry offers a good intro to all things "git".](https://swcarpentry.github.io/git-novice/).  
 
 <center>
     <img src="images/working-with-code/github.png" size=200 style="margin:auto" border=1/>
