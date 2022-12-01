@@ -187,7 +187,7 @@ Syntax errors are usually not too complex, and relatively easy to find and fix.
 
 Python reports also *runtime errors*, also sometimes called *exceptions*, which are thrown when something goes wrong while a program is executing. This is more like python saying "I understand what you are saying, but I am running into some trouble in doing what you are asking". 
 
-Some common types of runtime errors when your code:
+Some common types of runtime errors when you code:
 
 - tries to divide something by zero
 - performs an operation on incompatible data types 
