@@ -238,7 +238,7 @@ Imagine we were working through the "SyntaxError: EOL while scanning string lite
     </p>
 </center>
 
-The highlighted summary information shows us that it understands that we are referring to a python issue, not a general coding one. So that is a good sign. It summarizes from a page on the realpython.com site (https://realpython.com/invalid-syntax-python/). Moreover it suggests different ways that others have extended the search that you might find helpful. While the suggested site itself is not an official python site, it nonetheless is a quality site about python that will likely be worthwhile to review. Once there, you will find more useful information 
+The highlighted summary information shows us that it understands that we are referring to a python issue, not a general coding one. So that is a good sign. It summarizes from a [page on the realpython.com site](https://realpython.com/invalid-syntax-python/). Moreover it suggests different ways that others have extended the search that you might find helpful. While the suggested site itself is not an official python site, it nonetheless is a quality site about python that will likely be worthwhile to review. Once there, you will find more useful information 
 
 
 <br>
