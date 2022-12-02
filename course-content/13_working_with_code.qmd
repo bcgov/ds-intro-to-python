@@ -42,9 +42,7 @@ As you should be able to take the original data as well as the scripts to proces
 
 *Organize your files*
 
-While there is no perfect template for how to organize your work, below is an example that shows how you might consider organizing your work for a relatively straightforward data project. Let's say we have a project that is about analyzing marmots in BC. Here's how you could structure your work, so that it stays well organized:
-
-MarmotsBC could be the top level directory, it is the project name, without spaces. Under this project the remaining files could be organized within the following structure:
+While there is no perfect template for how to organize your work, below is an example that shows how you might consider organizing your work for a relatively straightforward data project. Let's say we have a project that is about analyzing marmots in BC. MarmotsBC could be the top level directory, it is the project name, without spaces. Under this project the remaining files could be organized within the following structure:
 
  ```
 /MarmotsBC          top level directory, 
@@ -74,10 +72,10 @@ When you are naming files themselves, try to have the names reflect their conten
 
 *Version control*
 
-When working alone and especially when working within a team, it is helpful to leverage tools that help ensure that everyone's work is kept up to date and organized. There are tools such as git/GitHub that are made precisely for this purpose. If you hear people talking about repos, merges, commits, pull requests, etc, they are probably talking about the git world. It is beyond the scope of this tutorial to dive into this topic, but it is something to keep in mind.  [Software Carpentry offers a good intro to all things "git".](https://swcarpentry.github.io/git-novice/).  
+When working alone and especially when working within a team, it is helpful to leverage tools that help ensure that everyone's work is kept up to date and organized. There are tools such as git/GitHub that are made precisely for this purpose. If you hear people talking about repos, merges, commits, pull requests, etc, they are probably talking about the git world. It is beyond the scope of this tutorial to dive into this topic, but it is something to keep in mind.  [Here is a good intro to all things "git".](https://swcarpentry.github.io/git-novice/).  
 
 <center>
-    <img src="images/working-with-code/github.png" size=200 style="margin:auto" border=1/>
+    <img src="images/working-with-code/github.png" width=100% style="margin:auto" border=1/>
     <p style="text-align: center">
         Where ideas work (and are kept organized and up-to-date)
     </p>
@@ -89,7 +87,7 @@ When working alone and especially when working within a team, it is helpful to l
 :::{.callout-warning icon="false"}
 ## Challenge 1
 
-What are three activities associated with a project that are made more difficult and put at risk if project files are not kept well organized? Who is likely to be affected? 
+What are three activities associated with a project that are made more difficult and put at risk if project files are not kept well organized? Who is likely to be affected? Take three minutes or so working in groups of 3-4 people seated near you to come up with your responses.
 :::
 
 :::{.callout-note icon="false" collapse="true"}
@@ -124,19 +122,19 @@ Being effective with using python, or any other coding language, requires that y
 
 *Topical help*  
 
-In whatever developing environment (sometimes called an IDE - Integrated Development Environment) you choose to work with, there are usually very helpful links readily available.  In the Jupyter Notebook environment, for example, you will find such help under the *Help* choice in the top menu. 
+In whatever developing environment (sometimes called an IDE - Integrated Development Environment) you choose to work with, there are usually very helpful links readily available.  In the Jupyter Lab environment, for example, you will find such help under the *Help* choice in the top menu. 
 
 <center>
-    <img src="images/working-with-code/jup_help.png" size=700 style="margin:auto" border=1/>
+    <img src="images/working-with-code/jl_menu.png" width=90% style="margin:auto" border=1/>
     <p style="text-align: center">
-        Finding Jupyter Notebook's Help
+        Finding Jupyter Lab's Help
     </p>
 </center>
 
 When you click on `Help` you see an expanded range of topics:
 
 <center>
-    <img src="images/working-with-code/vertical_help.png" size=700 style="margin:auto" border=1/>
+    <img src="images/working-with-code/jl_help.png" width=60% style="margin:auto" border=1/>
     <p style="text-align: center">
         Topical Help at your fingertips
     </p>
@@ -145,7 +143,7 @@ When you click on `Help` you see an expanded range of topics:
 Under the topics listed you will find treasure troves of helpful documentation relating to Python. Whether you are relatively new to the language or have years of experience already with it, one of the most helpful sections you will find there is *Python Reference*:
 
 <center>
-    <img src="images/working-with-code/python_documentation.png" size=700 style="margin:auto" border=1/>
+    <img src="images/working-with-code/python_documentation.png" width=95% style="margin:auto" border=1/>
     <p style="text-align: center">
         Official Python Documentation
     </p>
@@ -153,55 +151,76 @@ Under the topics listed you will find treasure troves of helpful documentation r
 
 Each section provides useful content that is related to the version of Python you are working with! One of the particularly helpful sections for those new to Python is the *Tutorial* section, where you will find tutorials on several of the topics in this course, plus many more.
 
-
+<br>
 *Functions help*  
 
 Functions in Python have excellent documentation that you should be able to access fairly readily. Below are screen shots from the Jupyter Notebook environment that show two distinct ways to access. The example below shows how to get detail about a specific function by calling `help()` function itself and passing in the name of the function of interest:
 
+```{python}
+help(round) # Run code as normal to get help information
+```
+
+<br>
+
+
+Within Jupyter environments, it is also possible to place the cursor inside the cell with the function and hit `Shift-tab` to get information:
+
+
+```{python}
+#| error: True
+round() # Shift-tab to get drop-down help in Jupyter 
+```
+
+
 <left>
-    <img src="images/working-with-code/shiftenter_help.png" size=700 style="margin:auto" border=1/>
+    <img src="images/working-with-code/jl_shifttab.png" size=600 style="margin:auto" border=1/>
     <p style="text-align: center">
- 
 </left>
 
-Within Jupyter Notebook, it is also possible to place the cursor inside the "()" and then pulse the Shift-tab key combination twice to get access to a pop-up:
-
-<left>
-    <img src="images/working-with-code/shifttab_x2.png" size=700 style="margin:auto" border=1/>
-    <p style="text-align: center">
-     
-  
-</left>
-
+<br>
 *Syntax error help*
 
 When developing code, you will go through a process over and over where you write some code and then test it. If it works, you keep going, adding complexity and content to your code. But what happens if it does not work? Fortunately Python delivers some clues about what may have gone wrong. 
 
 Here are a couple of examples of syntax errors, where python is essentially saying "I don't understand what you mean"! 
 
+
+```{python}
+#| error: true
+# Forgot to close the quotation marks after the quote
+name = 'Feng
+```
+
 <left>
-    <img src="images/working-with-code/EOL.png" size=700 style="margin:auto" border=1/>
+    <img src="images/working-with-code/jl_syntaxerror.png" size=500 style="margin:auto" border=1/>
     <p style="text-align: center">
         
- 
 </left>
 
 These kinds of errors are usually because of careless typing such as leaving off a quote or comma or bracket somewhere (or adding one too many).
 
+
+```{python}
+#| error: true
+# An extra '=' in the assignment
+age = = 52
+```
+
+
 <left>
-    <img src="images/working-with-code/invalid_syntax.png" size=700 style="margin:auto" border=1/>
+    <img src="images/working-with-code/jl_syntaxerror2.png" size=500 style="margin:auto" border=1/>
     <p style="text-align: center">
         
 </left>
 
-Syntax errors are usually not too complex, and relatively easy to find and fix. 
+Syntax errors are generally mildly annoying, however, they are usually not too complex, and relatively easy to find and fix. 
 
-
+<br>
 *Runtime error help*
 
 Python reports also *runtime errors*, also sometimes called *exceptions*, which are thrown when something goes wrong while a program is executing. This is more like python saying "I understand what you are saying, but I am running into some trouble in doing what you are asking". 
 
-Some common types of runtime errors when you code:
+Some common types of runtime errors when your code:
 
 - tries to divide something by zero
 - performs an operation on incompatible data types 
@@ -211,22 +230,37 @@ Some common types of runtime errors when you code:
 
 In the example below, the code is telling python to import a package that is not yet installed. 
 
+```{python}
+#| error: true
+# Python cannot find this library
+import shap
+```
+
+
 <left>
-    <img src="images/working-with-code/module_not_found.png" size=500 style="margin:auto" border=1/>
+    <img src="images/working-with-code/nomodule.png" size=500 style="margin:auto" border=1/>
     <p style="text-align: center">
     
 </left>
+<br>
+In the example below, the issue is not a syntax error (although it might look like a typo that one might associate with being a syntax error).
 
-In the example below, the issue is not a syntax error (although it might look like a typo that one might associate with being a syntax error)
+```{python}
+#| error: true
+age = 54
+years_to_100 = 100 - aege  # mis-spelled assigned variable called 'age'
+```
+
+
 <left>
-    <img src="images/working-with-code/runtime_error2.png" size=500 style="margin:auto" border=1/>
+    <img src="images/working-with-code/aege_not_defined.png" size=500 style="margin:auto" border=1/>
     <p style="text-align: center">     
   
 </left>
-
+<br>
 The above examples introduce the concept of *traceback*, which is a way of helping the coder locate the origin of the error experienced. A *traceback* will show up in output that is to be read "from the bottom up".  In the above example, we see that the program does not recognize the object "aege" when it encounters it in cell line 2. Note that this does not necessarily mean that the problem should be fixed at the location indicated. In the above example, a reexamination of the code might reveal that the original name assigned was incorrectly spelled. Were that the case, then the original name assignment should be updated, not the reference to it in cell line 2. 
 
-
+<br>
 *Diving deeper*
 
 The first and best way to work though why your code failed is to look at the information provided at the bottom of the output. As in the examples above, much of the time you will have enough information there to give you some ideas about what the cause of the problem is and a starting point for modifying the code and running it again. 
@@ -246,7 +280,7 @@ Imagine we were working through the "SyntaxError: EOL while scanning string lite
 
 
 <center>
-    <img src="images/working-with-code/google_syntax_error.png" size=500 style="margin:auto" border=1/>
+    <img src="images/working-with-code/google_syntax_error.png" width=100% style="margin:auto" border=1/>
     <p style="text-align: center">
         Error deep dive 
     </p>
@@ -268,11 +302,17 @@ You want to find out what the `print()` function does. How would you look to ans
 ## Solution to Challenge 3
 Use one of the two most efficient ways to obtain information
 
+
+```{python}
 help(print)   # One way to get the info
+```
 
-print() # Another way to get the info
 
-Prints the values passed into it to a stream or to an output (usually to output shown on a monitor)
+```{python}
+print() # Shift-tab another way to get the info
+```
+
+Does not send to a physical printer! Prints the values passed into it to a stream or to an output (usually to output shown on a monitor). 
 :::
 
 
@@ -301,7 +341,7 @@ Working with python can be challenging. When you are first learning it, there ma
  <br>
  
 <center>
-    <img src="images/working-with-code/code_quality_3.png" size=700 style="margin:auto"/>
+    <img src="images/working-with-code/code_quality_3.png" width=100% style="margin:auto"/>
     <p style="text-align: center">
         Style matters!
     </p>
@@ -316,10 +356,10 @@ There are many specific rules in PEP8, here are some to be aware of from the sta
 When coding, it is good practice to `comment` on code, but only when the code is likely to be non-obvious to others who are likely to review it. Comments are preceded by a "#", which within Python, ensures that they are recognized as non-executable and therefore no threat to actually affecting your code. Below are two examples of how you can add comments to your code (if necessary).
 
 ```{python}
-# The bog standard first line of code learned in any progamming language
+# The bog standard first line of code learned in any language
 print("Hello World")
 
-print("Hello World")  # New programmer's first line of code in any language 
+print("Hello World")  # New programmer's first code in any language 
 ```
 
 *Spacing within code*
@@ -327,18 +367,18 @@ print("Hello World")  # New programmer's first line of code in any language
 There are a number of little conventions about spacing that just have to be learned. In the code below look at the comments that go along to see what is considered good style and what is considered good and what is not.  
 
 ```{python}
-# Good style, as there is a space on either side of the assignment operator 
+# Good, is a space on either side of the assignment operator 
 a = print("hello")  
 
-# Poor style, as the assignment operator lacks spaces around it
+# Poor, as the assignment operator lacks spaces around it
 a=print("hello")    
 ```
 
 ```{python}
-# Good style, as there is no space between the function call and left parenthesis
+# Good, is no space between call and left parenthesis
 print(2)  
 
-# Poor style, as there should be no space between function call and left parenthesis
+# Poor, should be no space between call and left parenthesis
 print (2) 
 ```
 
@@ -364,19 +404,47 @@ There are many other conventions about spacing, but the ones above are some of t
 A line of code that completes a meaningful coherent action of some sort, is kind of like a complete sentence in grammar. As with sentences, a line of code can be short and sweet, long and convoluted, and anywhere in between. Where lines of code are longer than 79 characters, certain style guide rules come into play. The examples below show how to carry over content from one line to the next line. 
 
 ```python
-# Correct - aligned with opening delimeter
+# Good - aligned with opening delimeter
 animals = animals.drop('weight', 'size', 'age', 'location', 'eye colour', 
                        'intelligence', 'cost', 'number held in zoos')
 
-# Correct - hanging indents (usually four spaces, should not use tabs)
+# Good - hanging indents (usually four spaces, should not use tabs)
 animals = animals.drop(
     'weight', 'size', 'age', 'location', 'eye colour', 'intelligence', 
     'cost', 'number held in zoos')
 ```
+It should be noted that many programmers use tabs instead of four spaces! While PEP8 is not a fan of tabbing, as this practice is widespread and effective, it is common to come across advocates. Mixing tabbing and individual spaces, however, may result in syntax errors being thrown. Also for multi-line constructs (such as those in the examples above), the closing brace/bracket/parenthesis may appear on the line *under* the last line code for the piece of code.
+
 
 *Blank lines*
 
-Blank lines should be used sparingly, but they can be used where appropriate. A general rule of thumb is that there should be a single blank row between blocks of code, and two blank rows between functions. 
+Blank lines should be used sparingly, but they can be used where appropriate. It can help your code "breath"!  A general rule of thumb is that there should be a single blank row between blocks of code, and two blank rows between functions. 
+
+```{python}
+#| error: true
+# Good - different kinds of coding elements together and separated by blank lines
+x = [1,2,3]
+y = [2,4,1]
+
+plt.plot(x, y)
+
+plt.xlabel('x - axis')
+plt.ylabel('y - axis')
+
+plt.title('My first graph!')
+plt.show()
+
+# Less good - harder for the eye to differentiate how the code is structured
+x = [1,2,3]
+y = [2,4,1]
+plt.plot(x, y)
+plt.xlabel('x - axis')
+plt.ylabel('y - axis')
+plt.title('My first graph!')
+plt.show()
+
+```
+
 
 :::{.callout-warning icon="false"}
 ## Challenge 5
@@ -391,7 +459,7 @@ print (last_name)
 celcius = (fahrenheit - 32) / 1.8  
 
 # Example 3
- index = ['snail', 'pig', 'elephant', 'rabbit', 'giraffe', 'coyote', 'horse', 'giraffe', 'ping pong table']
+index = ['snail', 'pig', 'elephant', 'rabbit', 'giraffe', 'coyote', 'horse', 'giraffe', 'ping pong table']
 
 
 ```
