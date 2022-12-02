@@ -445,6 +445,8 @@ plt.show()
 
 ```
 
+One can ignore the error thrown above as we have not imported the needed package to get the code to run. What is to notice is how the different similar blocks of code are separated with blank lines to make it more readable. 
+<br>
 
 :::{.callout-warning icon="false"}
 ## Challenge 5
