@@ -232,7 +232,7 @@ grouped_df.apply(create_multiple_aggregated_columns)
 
 ## Rolling and Cumulative Functions 
 
-TBD... (.rolling, .cumsum)
+TBD... (.rolling, .cumsum, .lag)
 
 ## Reshaping Data
 
