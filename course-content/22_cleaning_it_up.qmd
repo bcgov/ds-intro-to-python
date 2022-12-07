@@ -1,0 +1,156 @@
+---
+title: Cleaning Data
+teaching: 45
+exercises: 10
+questions:
+  - Fill this in!
+objectives:
+  - know how to clean up missing data
+  - know how to change data types
+  - know when and how to change values
+keypoints:
+  - Same verse!
+jupyter: python3
+---
+
+## What a mess!
+
+Imagine you have finally gotten that dataset that you need to work with. Before you get started in earnest working away with generating insights, it is important that you take a closer look at the "quality" of the data. Quality is a tricky term to define when it comes to data, as is the notion of "cleaning". The topic is a big and complex one. It is also often important that you excercise your own judgement when it comes to making decisions about what data to clean and how to clean.  
+
+<center>
+    <img src="images/getting-data-with-pandas/no capes.jpg" 
+    width=300 style="margin:auto"/>
+    <p style="text-align: center">
+    </p>
+</center>
+
+
+There are also a range of techniques in python and pandas, most with strengths and weaknesses, which we will work to identify in this tutorial. In this tutorial, however, we will focus on a few basic quality items that you are likely to come across over and over in your analysis practice.  
+
+- How to identify and clean up missing data
+- When and how to change datatypes
+- When and how to modify values in your dataset
+
+This is only scratching the surface of cleaning techniques. Other instances are:
+- eliminating redundant data
+- 
+
+To help us understand how to identify and deal with "dirty data", we took the 2014 Mental Health in Tech Survey https://www.kaggle.com/datasets/osmi/mental-health-in-tech-survey and sprinkled in a bit of dirt :-) 
+
+```{python}
+m health = pd.read csv('../data/Mental Health Survey Raw.csv')
+m health.head()
+```
+
+We should also import a couple of important libraries 
+
+```{python}
+###importing libraries
+import numpy as np # numpy for statistical calculation
+import pandas as pd # pandas for pre processing
+```
+
+This abridged version of the dataset contains 14 variables:
+
+- **Timestamp**
+- Age
+- Gender
+- Country
+- self employed: Are you self-employed?
+- family history: Do you have a family history of mental illness?
+- treatment: Have you sought treatment for a mental health condition?
+- work interfere: If you have a mental health condition, do you feel that it interferes with your work?
+- remote work: Do you work remotely (outside of an office) at least 50% of the time?
+- tech company: Is your employer primarily a tech company/organization?
+- benefits: Does your employer provide mental health benefits?
+- leave: How easy is it for you to take medical leave for a mental health condition?
+- mentalhealthconsequence: Do you think that discussing a mental health issue with your employer would have negative consequences?
+- comments: Any additional notes or comments
+
+
+
+## Cleaning the windowframe
+
+
+
+
+
+
+
+## Missing data
+
+
+```{python}
+###listing out the missing values
+m health.isnull().sum()
+```
+
+
+
+
+
+
+
+
+
+Missing data - Is there data we expect to be present that is missing?
+
+
+
+
+
+
+
+Out of range data - Do we see values that we would not expect to be valid?
+Data types - Are the data of the correct (or at least manageable) datatype? 
+
+
+
+
+
+
+
+
+## Missing data
+
+
+
+
+Also, you will need to make decisions about 
+
+
+
+And you'll want to document what you're doing. 
+
+Much of the work that data scientists actually do is what could be described as cleaning data. The topic of data cleaning can encompass a very broad range of things.  
+
+- Validity
+
+
+
+
+
+
+And python and pandas excels at dealing with almost all of it in efficient and future-proofing ways. Here 
+
+Do no harm. In your cleaning practices, it is important not to make arguable interpretative judgements that 
+
+
+
+
+<center>
+    <img src="images/working-with-code/workaround.png" width=320 style="margin:auto"/>
+    <p style="text-align: center">
+        Don't be this guy!
+    </p>
+</center>
+
+
+<br>
+*Treat data as read only*
+
+One of the first things that you will do in a coding environment is to identify your data source and read or ingest that data into your environment to process it further. You should however, leave that originating data unaltered! Once the data is in your coding environment, that is where the processing will take place, and that process will end with some "improved" version of the data being produced. 
+
+*Clean and analyse your data with code*
+
+In many cases your data will be “dirty”. That is to say, filled with missing data, spelling mistakes, duplicate records, data type errors, you name it! Your code will clean it. Once you have your clean data, your code will generate insights from it. All of this code (in our case, Python code) will take the form of scripts in separate files. All of these scripts should be stored in a folder separate from the original data itself.  
