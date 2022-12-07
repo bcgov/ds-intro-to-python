@@ -155,6 +155,7 @@ Note that because of this matplotlib behaviour (include every instruction to `pl
  * If a second plot of the same type as the first is created within the same figure, matplotlib will automatically assign it a new colour
  * To distinguish between plots, the argument `label = 'plot name'` can be provided during creation of the plot. A final call to `plt.legend()` after creating all plots will produce a legend that consists of the given labels. 
 
+### Challenge 1
 :::{.callout-warning icon="false"}
 ## Challenge 1
 
@@ -292,6 +293,7 @@ plt.show()
 
 When we utilize the lineplot option, Seaborn will default to automatically aggregating data along the x-axis, displaying uncertainty in the y-axis with confidence intervals. Note that it also doesn't care about the initial order of the data. Seaborn automatically assumes that we wanted a nicely flowing line from left to right, and will sort the x values accordingly.
 
+#### Challenge 2
 :::{.callout-warning icon="false"}
 ## Challenge 2
 
@@ -431,6 +433,7 @@ That is a lot to take in. To summarize the relational plots available in Seaborn
  * `row` and `col` will split our plot out into multiple facets, according to the categories found in the datasets
  * `lmplot` can be used to provide basic regression fits to the data
 
+#### Challenge 3
 :::{.callout-warning icon="false"}
 ## Challenge 3
 
@@ -547,6 +550,7 @@ To summarize distributions available in Seaborn:
 * `hue` can be adjusted to provide insight into extra categorical features
 * `row` and `col` will split our plot out into multiple facets, according to the categories found in the datasets
 
+#### Challenge 4
 :::{.callout-warning icon="false"}
 ## Challenge 4
 
@@ -681,6 +685,7 @@ To summarize the categorical plots available in Seaborn:
 * `row` and `col` will split our plot out into multiple facets, according to the categories found in the datasets
 * By swapping the `x` and `y` variables, we can choose which orientation the plot will display in
 
+#### Challenge 5
 :::{.callout-warning icon="false"}
 ## Challenge 5
 
