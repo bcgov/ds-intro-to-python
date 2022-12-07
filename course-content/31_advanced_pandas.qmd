@@ -24,13 +24,193 @@ In this section we will go over some Pandas functionality that is slightly more 
  * Advanced grouping techniques
  * Rolling and cumulative functions
  * Reshaping our data
- * Iterating over a dataframe 
 
 ## Conditional Column Assignment
 
-TBD (.where and .mask)
+In our previous sections on Pandas, we introduced the idea of column creation based on the data we currently have. We limited ourselves to fairly standard examples that are likely to crop up in typical data analysis: arithmetic operations, applying column specific functions, and the use of the `lambda` function inside a call to either `apply` or `assign`. Here we will expand our column possibilities to include conditional assignments, where the value of the column is dependent on the value/state of some other column. 
+
+Let's look at the penguins dataset we considered previously. This dataset has a good mix of categorical and numerical datatypes for us to create new columns from. 
+
+```{python}
+import pandas as pd
+from seaborn import load_dataset
+
+penguins = load_dataset('penguins')
+penguins.head()
+```
+
+### Binary If/Else
+
+The first type of conditional assignment we will consider is the simplest: **if** original column is *value A*, **then** assign *value x*, otherwise assign *value y*. The most straightforward way to do this is via the apply method again, combined with a lambda function acting on the column of interest. For this example, we are going to make a shorthand version of the `sex` column - **if** the sex column is *Female*, **then** assign *F*, otherwise assign *M*.  
+
+```{python}
+penguins['if_else_column'] = penguins.sex.apply(lambda x: 'F' if x=='Female' else 'M')
+penguins[['sex', 'if_else_column']].sample(5)
+```
+
+While apply is robust and can be used in many different applications and settings, it is often the slowest method available in Pandas. If you are doing very specific operations, Pandas often provides faster, vectorized methods to do the same thing. For instance, this if/else example can also be calculated using the Pandas `where` and `mask` methods. These methods complement each other, and you may find one more intuitive than the other based on the specific circumstances of the data you are working with. 
+
+Both methods assume you already have some column with a default value in place. For example, we can assign the value 'M' to an entire column. `where` and `mask` then work by updating the values of this column where some other condition is met. The syntax for `where` is:
+
+If `condition` is met, keep the default value, otherwise update to the `other` value:
+
+```{python}
+penguins['where_column'] = 'M'
+penguins['where_column'] = penguins.where_column.where(penguins.sex=='Male', 'F')
+penguins[['sex', 'if_else_column', 'where_column']].sample(5)
+```
+
+While the syntax for `mask` is:
+
+If `condition` is met, update to `other` value, otherwise keep the default value:
+
+```{python}
+penguins['mask_column'] = 'M'
+penguins['mask_column'] = penguins.mask_column.mask(penguins.sex=='Female', 'F')
+penguins[['sex', 'if_else_column', 'where_column', 'mask_column']].sample(5)
+```
+
+Again, while these all result in the same column, you may find one method more intuitive, efficient, or faster for the data you are working with. Explore and use what works best for you! 
+
+### Multiple Conditions
+
+Sometimes, a simple if/else statement doesn't cut it. Perhaps there are multiple options, and creating an `if`...`elseif`...`elseif`...`else` block will not only only be less intuitive but can easily be used incorrectly, leading to undesired outputs. In this case, the mapping functionality of Pandas provides a vectorized efficient method to create multiple changes to a column. The `map` method, which we apply to a single series, is optimized for mapping elements from one domain to another. The best example of this is using a dictionary to provide a mapping of your keys (initial column values) to your new value set. 
+
+Let's see this in action with the penguins. Perhaps we do not wish to bias our analysis by having knowledge of which island each penguin came from. In this case, we wish to replace the actual names of the three islands with generic island IDs. First, we supply our mapping dictionary that will transform each island to its generic ID. Then, we supply this dictionary to our `map` method: 
+
+```{python}
+my_mapping = {
+    'Torgersen': 'Island 1',
+    'Biscoe': 'Island 2',
+    'Dream': 'Island 3'
+}
+penguins['mapped_islands'] = penguins.island.map(my_mapping)
+penguins[['island', 'mapped_islands']].sample(10)
+```
+
+### Complex Conditions
+
+The above example used the `map` method, which is inherently a method to be used for `Series` only. As such, we cannot use it for more complicated conditions that may involve multiple columns. The final example we will consider is a more complicated set of conditions: we wish to create new categories based on the penguins body mass: underweight, overweight, or average weight. However, we also wish to consider the penguin species when creating these categories: what is underweight for the Gentoo species may be overweight for the Adelie! Thus, in theory we have 9 new categories to account for that depend on two columns.
+
+The best (read: efficient) way to approach this multi-column multi-conditional scenario is actually to go outside of the Pandas toolkit and use a tool that has been implemented by `numpy`. Numpy is a computational tool-kit for Python that utilizes the efficiency of powerful computational languages such as Fortran and C to provide fast and versatile computational tools for the vast majority of numerical and scientific anaylsis in Python. We have seen it already, having used numpy's statistical functions such as `mean` and `median` within our aggregations. Here, we wish to make use of the `numpy.select()` method. 
+
+In numpy, the `select` method is fairly simple. We supply a list of conditions we wish to consider, and a list of choices for what we wish to happen for each of the conditions. We may also supply a default value, for if none of the conditions are met. `select` will go through the list one by one, and will apply the choice for the first condition that is met. Let's see what this looks like for our penguins:
+
+```{python}
+import numpy as np
+
+# list all possible combos of species and specific body masses
+# note that we don't include the overweight combos, as we can catch these
+# with the default option in select!
+conditions = [
+    (penguins.species=='Adelie') & (penguins.body_mass_g<3300),
+    (penguins.species=='Adelie') & (penguins.body_mass_g<3700),
+    (penguins.species=='Chinstrap') & (penguins.body_mass_g<3333),
+    (penguins.species=='Chinstrap') & (penguins.body_mass_g<3733),
+    (penguins.species=='Gentoo') & (penguins.body_mass_g<4676),
+    (penguins.species=='Gentoo') & (penguins.body_mass_g<5076)
+]
+
+# for each listed condition, tell select what value to use
+choices = [
+    'Underweight',
+    'Average weight', 
+    'Underweight', 
+    'Average weight',
+    'Underweight',
+    'Average weight'
+]
+
+# use select to create our new column
+penguins['general_weight'] = np.select(conditions, choices, default='Overweight')
+
+# display results
+penguins[['species', 'body_mass_g', 'general_weight']].sample(10)
+```
+
+:::{.callout-tip}
+## Order Matters!
+
+When using the `select` method, the order of the conditions matters! Numpy always goes through the list in order, looking for the first `TRUE` condition. This ordering will matter, for example, if creating a list of bins for some numerical category. Conditions of the form:
+
+```{python}
+conditions = [
+    penguins.body_mass_g < 5_000,
+    penguins.body_mass_g < 4_000,
+    penguins.body_mass_g < 3_000,
+    penguins.body_mass_g < 2_000,
+    penguins.body_mass_g < 1_000
+]
+```
+
+Will never evaluate the choices for the conditions 2-5, as the first condition will be true as well. Instead we should flip this list and write our conditions starting from 1,000 and ending at 5,000. Keep this in mind when creating your conditions!
+
+:::
+
+### Challenge 1
+:::{.callout-warning icon="false"}
+## Challenge 1
+Create a column for 5-10 flipper length bins and plot the resulting frequencies (counts for each bin).
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 1
+Here we're going to pull together some Seaborn code and our new-found conditional knowledge to create the bins.
+
+```{python}
+# make sure seaborn is imported
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# check roughly where we could place bins
+display(penguins.agg({'flipper_length_mm': ['mean', 'std', 'min', 'max']}))
+
+# create some conditions for bins
+conditions = [
+    penguins.flipper_length_mm < 180,
+    penguins.flipper_length_mm < 190,
+    penguins.flipper_length_mm < 200,
+    penguins.flipper_length_mm < 210,
+    penguins.flipper_length_mm < 220,
+    penguins.flipper_length_mm < 230
+]
+
+# assign names to each condition
+choices = [
+    '0 - 180',
+    '180 - 190',
+    '190 - 200',
+    '200 - 210',
+    '210 - 220',
+    '220 - 230'
+]
+
+# add the new column
+penguins['flipper_length_bins'] = np.select(conditions, choices, default='230 +')
+
+# plot this data using the 'count' option
+sns.catplot(
+    penguins, 
+    x='flipper_length_bins', 
+    kind='count',
+    order = choices,
+    color = 'blue'
+)
+plt.xticks(rotation=45)
+plt.show()
+```
+
+:::
 
 ## Advanced Grouping
+
+<center>
+    <img src="images/advanced-pandas/pandas_group.jpg" 
+    width="40%" style="margin:auto"/>
+    <p style="text-align: center">
+        `groupby cuteness`
+    </p>
+</center>
 
 In our previous section on Pandas, we explored the basic tools we need to group our data by various columns, apply a host of statistical aggregation operations, and look at these outcomes. While incredibly powerful as is, these tools lack some functionality that you might wish to have. Some examples include:
 
@@ -54,8 +234,6 @@ Make sure you keep track of what kind of apply you are using when doing your dat
 
 Both `transform` and `apply` can be used on a grouped dataframe object. This is the object that is created when we use the `.groupby()` method. Let's create a small dataset and see what this object looks like:
 ```{python}
-import pandas as pd
-
 df = pd.DataFrame(
     {
         'unit' : [
@@ -227,9 +405,171 @@ def create_multiple_aggregated_columns(df_):
 grouped_df.apply(create_multiple_aggregated_columns)
 ```
 
-## Rolling and Cumulative Functions 
+### Challenge 2
+:::{.callout-warning icon="false"}
+## Challenge 2
+Determine which of the units in each group had the greatest profit, and return a dataframe containing only the rows corresponding to these units.
+:::
 
-TBD... (.rolling, .cumsum, .shift)
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 2
+There are a variety of different ways this could be approached. We have done a similar question using apply already, so let's do this via the transform function.
+
+```{python}
+condition = df.profit == df.groupby('unit').profit.transform('max')
+
+df[condition]
+```
+
+:::
+
+## Windowing Functions 
+
+<center>
+    <img src="images/advanced-pandas/pandas_window.jpg" 
+    width="40%" style="margin:auto"/>
+    <p style="text-align: center">
+    </p>
+</center>
+
+Often when we are looking at our data, we may have a question about how one value compares to the values around it. This is typically useful for timeseries data, where we can organize our data by date (or year, month, etc). Once sorted on a date, we might wish to know things such as:
+
+ * Did this year have a lower or higher average than the previous year?
+ * What is the roling average over the last 5 years?
+
+Or many other comparative questions. We can answer some of these questions using the **windowing** capabilities of Pandas. Windowing is the act of looking at a single 'window' of the data, asking our question (what is the average value for the time period in this window?), and then sliding the window to do it again. You have likely heard the term **rolling average** - this is what windowing allows us to calculate. 
+
+### Rolling
+To calculate a rolling average, we use two methods. First, we indicate that we want rolling statistics by using the `rolling()` method, and include in the argument the number of periods (rows) to include. After the `rolling` method, we indicate which aggregation we would like to use. Let's try this out on a timeseries dataset:
+
+```{python}
+dowjones = load_dataset('dowjones')
+dowjones.head()
+```
+
+This is a monthly aggregate of the Dow Jones index. Let's compare this monthly aggregate to a 6 month rolling average:
+
+```{python}
+dowjones['six_month_avg'] = dowjones.rolling(6).Price.mean()
+dowjones.head(10)
+```
+
+:::{.callout-tip}
+## Sort your Data!
+
+When using the rolling method this way, it assumes that the data is already sorted in the order you want! The dowjones dataset comes pre-sorted, but this isn't always the case. Before doing any sort of windowing function, it is always a good idea to pre-sort your data! For the dowjones dataset, we would sort on the Date column:
+
+```{python}
+dowjones = dowjones.sort_values(by='Date')
+```
+:::
+
+You'll notice that for the first 5 months, this method returns `NaN` - this is because there were not enough values to include in the average, as the method assumes you always wish to have exactly 6 values in each rolling window. We can alter this however, using the `min_periods` argument: 
+
+```{python}
+dowjones['six_month_avg'] = dowjones.rolling(6, min_periods=1).Price.mean()
+dowjones.head(10)
+```
+
+Let's see what these rolling averages look like visually:
+
+```{python}
+import matplotlib.pyplot as plt
+
+# add more averages
+dowjones['five_year'] = dowjones.rolling(60, min_periods=1).Price.mean()
+
+# plot the original data
+plt.plot(dowjones.Date, dowjones.Price, label='Actual Data')
+
+# plot the smoothed data
+plt.plot(dowjones.Date, dowjones.six_month_avg, label='Six Month')
+plt.plot(dowjones.Date, dowjones.five_year, label='Five Year')
+
+# add a legend
+plt.legend()
+
+plt.show()
+```
+The six month average is starting to smooth out the jagged peaks in the original data, while the five-year average has completely smoothed out all the wiggles! 
+
+### Cumulative
+While the rolling capabilities will provide us a fixed window into which we can calculate aggregate statistics, we may also wish to calculate cumulative statistics. The most common cumulative statistic is the **cumulative sum**, which calculates the sum of the current row and all preceding rows. In Pandas, we can calculate this with the `cumsum` method. 
+
+```{python}
+dowjones['cumulative_price'] = dowjones.Price.cumsum()
+dowjones.head()
+```
+
+### Shifts
+Finally, knowing the value preceding or following the current value is sometimes of interest. Forecast modeling will often use the current value and past values to predict future values, for example. To retrieve **lead** and **lag** values, Pandas has the `shift` method. This takes as an argument the number of periods by which we wish to shift our dataset (defaulting to 1). The periods can be negative, letting us get future values as well! Let's look at this with the dowjones dataset again:
+
+```{python}
+dowjones['year_prior'] = dowjones.Price.shift(12)
+dowjones['year_after'] = dowjones.Price.shift(-12)
+
+dowjones.head()
+```
+
+To show that this is actually the year before and after, let's filter to a year somewhere in the middle:
+
+```{python}
+from datetime import date
+
+# create dates for the filter
+current_year = date(1942, 8, 1)
+previous_year = date(1941, 8, 1)
+next_year = date(1943, 8, 1)
+
+# filter the date column
+dowjones[dowjones.Date.isin([current_year, previous_year, next_year])]
+```
+
+If we look at these three lines, we see that the `year_prior` and `year_after` columns do in fact give us the corresponding values from the initial dataset. And if we plot this, we will see three copies of the data, but shifted by a year:
+
+```{python}
+
+plt.plot(dowjones.Date, dowjones.year_prior, label='past')
+plt.plot(dowjones.Date, dowjones.Price, label='current')
+plt.plot(dowjones.Date, dowjones.year_after, label='future')
+
+plt.legend()
+
+plt.show()
+```
+
+### Challenge 3
+:::{.callout-warning icon="false"}
+## Challenge 3
+Find the average, minimum, and maximum Dow Jones prices on a yearly basis. Plot all three values to see how they compare! (Recall: this dataset is currently *monthly*)
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 3
+```{python}
+
+# first let's find the three aggregations we want
+dowjones_rolling = dowjones.rolling(12, min_periods=1).agg(
+    {'Price': ['min', 'max', 'mean']}
+)
+display(dowjones_rolling.head())
+
+# get rid of hierarchical naming scheme
+dowjones_rolling.columns = ['price_min', 'price_max', 'price_mean']
+
+# plot these (note that this DF doesn't have the dates, so we use the old DF dates)
+# here's a fancy plot that will show a coloured band!
+plt.fill_between(
+    dowjones.Date, 
+    dowjones_rolling.price_min, 
+    dowjones_rolling.price_max, 
+    alpha=0.3 # alpha makes the band more transparent
+) 
+plt.plot(dowjones.Date, dowjones_rolling.price_mean)
+plt.show()
+```
+
+:::
 
 ## Reshaping Data
 
@@ -455,12 +795,37 @@ gapminder.melt(
 Probably not. Having the population, GDP, and life expectancy all in the same column might lead to confusing results. As a general rule of thumb, including multiple unique measures that have different units (population is measured in number of people, life expectancy in years, and GDP per capita in dollars per person) in the same column is typically avoided. Another way to think of it is this: if I take the average of the entire column, will that actually make sense? Try not to melt further than necessary! Striking a balance between machine-preferred (entirely long-form) and human-preferred (wide-form) is an important and useful skill when creating scripts to analyse our datasets! 
 :::
 
-These examples only touch the surface of methods of reshaping our data. To explore even further, Pandas provides a [user guide to reshaping.](https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html) Check this out for even more reshaping functionality! 
+These examples only touch the surface of methods to reshape our data. To explore even further, Pandas provides a [user guide to reshaping.](https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html) Check this out for even more reshaping functionality! 
 
-## Iterating Over a Dataframe
+### Challenge 4
+:::{.callout-warning icon="false"}
+## Challenge 4
+Create a pivot table that counts the number of countries in each continent that has a population greater than 1,000,000 in any given year. 
+:::
 
-TBD... (.iterrows)
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 4
+First, let's demonstrate this using the methods we've learned about to reshape our data. We can create this aggregated pivot table using the `pivot_table` method, and supplying 'count' to the `aggfunc` method. 
 
+```{python}
+gapminder[gapminder['pop']>1_000_000].pivot_table(
+    index='year',
+    columns='continent',
+    values='country',
+    aggfunc='count'
+)
+```
+
+This type of table is commonly referred to as a **crosstable**: it gives us the frequency of occurences of items under different groupings. Because it is such a widely used table, it was given its own special method in Pandas: `crosstab`. Basic functionality is to supply two Series that we wish to cross-tabulate to the method, and let it do all the work. Note that this is a Pandas specific method, not a dataframe specific method!
+
+```{python}
+gapminder_filtered = gapminder[gapminder['pop']>1_000_000]
+pd.crosstab(
+    index=gapminder_filtered['year'],
+    columns=gapminder_filtered['continent']
+)
+```
+:::
 
 
 
