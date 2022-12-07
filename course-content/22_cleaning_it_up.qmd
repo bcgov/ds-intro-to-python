@@ -38,8 +38,8 @@ This is only scratching the surface of cleaning techniques. Other instances are:
 To help us understand how to identify and deal with "dirty data", we took the 2014 Mental Health in Tech Survey https://www.kaggle.com/datasets/osmi/mental-health-in-tech-survey and sprinkled in a bit of dirt :-) 
 
 ```{python}
-m health = pd.read csv('../data/Mental Health Survey Raw.csv')
-m health.head()
+m_health = pd.read_csv('../data/Mental Health Survey Raw.csv')
+m_health.head()
 ```
 
 We should also import a couple of important libraries 
@@ -56,33 +56,65 @@ This abridged version of the dataset contains 14 variables:
 - Age
 - Gender
 - Country
-- self employed: Are you self-employed?
-- family history: Do you have a family history of mental illness?
-- treatment: Have you sought treatment for a mental health condition?
-- work interfere: If you have a mental health condition, do you feel that it interferes with your work?
-- remote work: Do you work remotely (outside of an office) at least 50% of the time?
-- tech company: Is your employer primarily a tech company/organization?
-- benefits: Does your employer provide mental health benefits?
-- leave: How easy is it for you to take medical leave for a mental health condition?
-- mentalhealthconsequence: Do you think that discussing a mental health issue with your employer would have negative consequences?
-- comments: Any additional notes or comments
+- Self Employed: Are you self-employed?
+- Family History: Do you have a family history of mental illness?
+- Treatment: Have you sought treatment for a mental health condition?
+- Work Interfere: If you have a mental health condition, do you feel that it interferes with your work?
+- Remote Work: Do you work remotely (outside of an office) at least 50% of the time?
+- Tech Company: Is your employer primarily a tech company/organization?
+- Benefits: Does your employer provide mental health benefits?
+- Leave: How easy is it for you to take medical leave for a mental health condition?
+- Mental Health Consequence: Do you think that discussing a mental health issue with your employer would have negative consequences?
+- Comments: Any additional notes or comments
 
 
 
-## Cleaning the windowframe
+## Cleaning the header row
+
+A good practice, both in terms of ensuring a consistent convention for column names and for the ability to write more efficient code, is to ensure that all column header names do not have spaces in them and are all in lower case. To do this, we use the str.replace() function on all the header row, identified in pandas via .columns:
 
 
+```{python}
+m_health.columns = m_health.columns.str.replace(' ', '_')
+m_health.columns = m_health.columns.str.lower()
+m_health.head(10)
+```
 
-
-
+With that bit of best practice out of the way, let's get onto the "fun" part of data science!
 
 
 ## Missing data
 
+We have already taken a look at the dataframe, or at least the head contents, with the code above. Now let's start to take a more systematic look at it from a data cleaning perspective. 
+
+The most common issues to deal with in data cleaning are missing data issues. 
+
+In pandas, there is a widely used method `isna()`, which will return a boolean object indication if a value is considered NA. Pandas considers values such as NA, NaN, and None as NA values. Note that it does not consider empty strings to be missing! 
+
+:::{.callout-tip}
+## What about isnull()?
+
+Also used widely is `isnull()`, which essentially is simply the mask of `isna()`. You may run into both, and both will return the same results. There is also a `notnull()` function, which is inverse function of `isnull()`, returning True for values that are not NA. And to round things out, `isna()` also has a companinion inverse function called `notna()`. 
+:::
 
 ```{python}
 ###listing out the missing values
-m health.isnull().sum()
+m_health.isna()
+```
+
+In the case above, we are looking at the whole dataframe object. But to get a better overview of how much missing values there are, then we need to add a `.sum()` function to the line of code. 
+
+```{python}
+###listing out the missing values
+m_health.isna().sum()
+```
+
+The code now examines the columns as a series that is 
+
+
+```{python}
+###count up 
+m_health['tech_company'].value_counts()
 ```
 
 
@@ -90,10 +122,18 @@ m health.isnull().sum()
 
 
 
-
-
-
 Missing data - Is there data we expect to be present that is missing?
+
+Option 1: Drop the missing values
+
+
+dropna(how=any)
+
+dropna(subset=['column1', 'column2'], how=all)
+
+
+Options 2: Filling the missing values
+
 
 
 
