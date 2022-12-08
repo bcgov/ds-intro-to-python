@@ -1,4 +1,29 @@
+---
+nocite: |
+  @*
+---
+
 # References {.unnumbered}
+
+::: {.hidden}
+Include this hidden section to get extra references to show up,
+for some reason the no-cite doesn't work for github
+@bcdata 
+@SNS 
+@PGG
+:::
+
+## References
 
 ::: {#refs}
 :::
+
+## Cheat Sheets
+
+There are many useful cheatsheets that will aggregate commonly used functions and commands into one location. [datacamp](https://www.datacamp.com/cheat-sheet/category/python) hosts many of these cheatsheets for Python as well as other languages and programs. The cheatsheet itself is typically a 1-2 page PDF that can be easily referenced for standard functions. Some of the cheatsheets that reference materials in this course include:
+
+1. [Getting started with Python](https://www.datacamp.com/cheat-sheet/getting-started-with-python-cheat-sheet)
+2. [Python for Data Science](https://www.datacamp.com/cheat-sheet/python-for-data-science-cheat-sheet-for-beginners)
+3. [Pandas: Data Wrangling](https://www.datacamp.com/cheat-sheet/pandas-cheat-sheet-data-wrangling-in-python)
+4. [Matplotlib](https://www.datacamp.com/cheat-sheet/matplotlib-cheat-sheet-plotting-in-python)
+5. [Seaborn](https://www.datacamp.com/cheat-sheet/python-seaborn-cheat-sheet)
