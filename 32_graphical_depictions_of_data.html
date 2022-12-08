@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Data Science using Python - 5&nbsp; Graphical Depictions of Data</title>
+<title>Introduction to Data Science using Python - 6&nbsp; Graphical Depictions of Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -245,7 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -285,22 +285,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
+  <a href="./13_working_with_code.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with Code</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_exploring_data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
+  <a href="./21_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
+  <a href="./31_exploring_data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./30_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
+  <a href="./32_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -317,9 +322,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-matplotlib" id="toc-introduction-to-matplotlib" class="nav-link active" data-scroll-target="#introduction-to-matplotlib"><span class="toc-section-number">5.1</span>  Introduction to matplotlib</a></li>
-  <li><a href="#plotting-directly-from-pandas" id="toc-plotting-directly-from-pandas" class="nav-link" data-scroll-target="#plotting-directly-from-pandas"><span class="toc-section-number">5.2</span>  Plotting Directly From Pandas</a></li>
-  <li><a href="#introduction-to-seaborn" id="toc-introduction-to-seaborn" class="nav-link" data-scroll-target="#introduction-to-seaborn"><span class="toc-section-number">5.3</span>  Introduction to Seaborn</a>
+  <li><a href="#introduction-to-matplotlib" id="toc-introduction-to-matplotlib" class="nav-link active" data-scroll-target="#introduction-to-matplotlib"><span class="toc-section-number">6.1</span>  Introduction to matplotlib</a></li>
+  <li><a href="#plotting-directly-from-pandas" id="toc-plotting-directly-from-pandas" class="nav-link" data-scroll-target="#plotting-directly-from-pandas"><span class="toc-section-number">6.2</span>  Plotting Directly From Pandas</a></li>
+  <li><a href="#introduction-to-seaborn" id="toc-introduction-to-seaborn" class="nav-link" data-scroll-target="#introduction-to-seaborn"><span class="toc-section-number">6.3</span>  Introduction to Seaborn</a>
   <ul>
   <li><a href="#relational-plots" id="toc-relational-plots" class="nav-link" data-scroll-target="#relational-plots">Relational Plots</a>
   <ul class="collapse">
@@ -334,8 +339,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#summary-2" id="toc-summary-2" class="nav-link" data-scroll-target="#summary-2">Summary</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#saving-your-plots" id="toc-saving-your-plots" class="nav-link" data-scroll-target="#saving-your-plots"><span class="toc-section-number">5.4</span>  Saving your Plots</a></li>
-  <li><a href="#online-galleries" id="toc-online-galleries" class="nav-link" data-scroll-target="#online-galleries"><span class="toc-section-number">5.5</span>  Online Galleries</a></li>
+  <li><a href="#saving-your-plots" id="toc-saving-your-plots" class="nav-link" data-scroll-target="#saving-your-plots"><span class="toc-section-number">6.4</span>  Saving your Plots</a></li>
+  <li><a href="#online-galleries" id="toc-online-galleries" class="nav-link" data-scroll-target="#online-galleries"><span class="toc-section-number">6.5</span>  Online Galleries</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/32_graphical_depictions_of_data.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/32_graphical_depictions_of_data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -344,7 +349,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></h1>
 </div>
 
 
@@ -365,8 +370,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Plot all the things!
 </p>
 </center>
-<section id="introduction-to-matplotlib" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="introduction-to-matplotlib"><span class="header-section-number">5.1</span> Introduction to matplotlib</h2>
+<section id="introduction-to-matplotlib" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="introduction-to-matplotlib"><span class="header-section-number">6.1</span> Introduction to matplotlib</h2>
 <p><code>matplotlib</code> is the most widely used scientific plotting library in Python. For many data related purposes, the sub-library called <code>matplotlib.pyplot</code> is all that is necessary to use. A fantastic feature of the Jupyter environments is that anytime we create a plot, we can view it directly inline with our code, allowing us to make adjustments quickly and easily as we go along.</p>
 <p>We will typically import this library with the name <code>plt</code>:</p>
 <div class="cell" data-execution_count="1">
@@ -462,104 +467,104 @@ plt.show()
   </thead>
   <tbody>
     <tr>
-      <th>338</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>47.2</td>
-      <td>13.7</td>
-      <td>214.0</td>
-      <td>4925.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>312</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>45.5</td>
-      <td>14.5</td>
-      <td>212.0</td>
-      <td>4750.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>334</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>46.2</td>
-      <td>14.1</td>
-      <td>217.0</td>
-      <td>4375.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>293</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>46.5</td>
-      <td>14.8</td>
-      <td>217.0</td>
-      <td>5200.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>116</th>
+      <th>70</th>
       <td>Adelie</td>
       <td>Torgersen</td>
-      <td>38.6</td>
-      <td>17.0</td>
-      <td>188.0</td>
-      <td>2900.0</td>
+      <td>33.5</td>
+      <td>19.0</td>
+      <td>190.0</td>
+      <td>3600.0</td>
       <td>Female</td>
     </tr>
     <tr>
-      <th>272</th>
+      <th>250</th>
       <td>Gentoo</td>
       <td>Biscoe</td>
-      <td>45.1</td>
-      <td>14.4</td>
-      <td>210.0</td>
-      <td>4400.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>Adelie</td>
-      <td>Biscoe</td>
-      <td>35.3</td>
-      <td>18.9</td>
-      <td>187.0</td>
-      <td>3800.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>136</th>
-      <td>Adelie</td>
-      <td>Dream</td>
-      <td>35.6</td>
-      <td>17.5</td>
-      <td>191.0</td>
-      <td>3175.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>337</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>48.8</td>
-      <td>16.2</td>
+      <td>47.3</td>
+      <td>15.3</td>
       <td>222.0</td>
-      <td>6000.0</td>
+      <td>5250.0</td>
       <td>Male</td>
     </tr>
     <tr>
-      <th>270</th>
+      <th>276</th>
       <td>Gentoo</td>
       <td>Biscoe</td>
-      <td>46.6</td>
-      <td>14.2</td>
-      <td>210.0</td>
-      <td>4850.0</td>
+      <td>43.8</td>
+      <td>13.9</td>
+      <td>208.0</td>
+      <td>4300.0</td>
       <td>Female</td>
+    </tr>
+    <tr>
+      <th>278</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>43.2</td>
+      <td>14.5</td>
+      <td>208.0</td>
+      <td>4450.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.2</td>
+      <td>16.1</td>
+      <td>187.0</td>
+      <td>3550.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>303</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>50.0</td>
+      <td>15.9</td>
+      <td>224.0</td>
+      <td>5350.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>143</th>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>40.7</td>
+      <td>17.0</td>
+      <td>190.0</td>
+      <td>3725.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>294</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>46.4</td>
+      <td>15.0</td>
+      <td>216.0</td>
+      <td>4700.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>259</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>48.7</td>
+      <td>15.7</td>
+      <td>208.0</td>
+      <td>5350.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>45.6</td>
+      <td>20.3</td>
+      <td>191.0</td>
+      <td>4600.0</td>
+      <td>Male</td>
     </tr>
   </tbody>
 </table>
@@ -682,8 +687,8 @@ Solution to Challenge 1
 </div>
 </div>
 </section>
-<section id="plotting-directly-from-pandas" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="plotting-directly-from-pandas"><span class="header-section-number">5.2</span> Plotting Directly From Pandas</h2>
+<section id="plotting-directly-from-pandas" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="plotting-directly-from-pandas"><span class="header-section-number">6.2</span> Plotting Directly From Pandas</h2>
 <p>That was a lot of work to make a relatively straightforward plot. While matplotlib is extremely versatile, this same versatility comes at the expense of having to tweak the underlying code frequently to make the plots look the way that we want. Luckily, there exist other libraries that have been built on top of matplotlib that take care of much of the abstraction, so we can get directly to looking at our results as fast as possible!</p>
 <p>One extremely straightforward way to plot is directly from pandas, which implicitly uses <code>matplotlib.pyplot</code> in the background.</p>
 <div class="cell" data-execution_count="12">
@@ -703,8 +708,8 @@ Solution to Challenge 1
 </div>
 <p>While pandas provides a straightforward way to quickly look at the data, it is fairly limited, and we will still end up needing to default back to matplotlib methods to get high-quality plots. The next package will help with this!</p>
 </section>
-<section id="introduction-to-seaborn" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="introduction-to-seaborn"><span class="header-section-number">5.3</span> Introduction to Seaborn</h2>
+<section id="introduction-to-seaborn" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="introduction-to-seaborn"><span class="header-section-number">6.3</span> Introduction to Seaborn</h2>
 <p><code>Seaborn</code> is a library for making statistical graphics in Python. It builds on top of <code>matplotlib</code> but is uniquely built to integrate closely with <code>pandas</code> data structures. Seaborn is dataset-oriented, and was built specifically to let you focus on what the different elements of a plot mean, rather than on the details of how to draw it. Leveraging seaborn allows us to build high quality graphics in a minimal amount of code. This not only allows us to spend more time analysing outputs and results, but also makes the code more transparent and easier for others to follow and understand.</p>
 <p>Seaborn is usually imported with the shorthand <code>sns</code>. On top of this, it is often nice to reset the default matplotlib colour theme and layout to the default seaborn layout, which has more subdued colours and tones. This can be done globally via the <code>.set_theme()</code> method. Changing the theme will apply to any other plots created in a notebook/script, even if they are created specifically by matplotlib. More options for the theme or style (which can also be set via <code>.set_style()</code>) can be found in the <a href="https://seaborn.pydata.org/tutorial/aesthetics.html">Seaborn aesthetics tutorial.</a></p>
 <div class="cell" data-execution_count="14">
@@ -1458,8 +1463,8 @@ Solution to Challenge 5
 </section>
 </section>
 </section>
-<section id="saving-your-plots" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="saving-your-plots"><span class="header-section-number">5.4</span> Saving your Plots</h2>
+<section id="saving-your-plots" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="saving-your-plots"><span class="header-section-number">6.4</span> Saving your Plots</h2>
 <p>We’ve now done all this work to make amazing incredible charts that produce stunning visuals for our datasets. Chances are, however that you do not want these images to live solely in your Jupyter notebook. You might want it for a presentation or a report. So, we need to save these images so we can access them outside of our Python environment. To do this we use the <code>plt.savefig()</code> method. This method will save the <strong>currently open figure</strong>. This is the figure that has not yet been shown on screen! Any call to save a plot must come <em>before</em> we display it via <code>plt.show()</code>, as this actually closes the figure/plotting device so we can start our next one!</p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -1522,8 +1527,8 @@ Advanced Tip - Changing the Figure Size
 </div>
 </div>
 </section>
-<section id="online-galleries" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="online-galleries"><span class="header-section-number">5.5</span> Online Galleries</h2>
+<section id="online-galleries" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="online-galleries"><span class="header-section-number">6.5</span> Online Galleries</h2>
 <p>All of the tools described above are a great way to start visualizing your data, but there are many other libraries and tools available. If you ever need inspiration for a new visual, or simply need a reminder on what code you would need to create a specific chart, <a href="https://www.python-graph-gallery.com/">the Python Graph Gallery</a> is a fantastic resource. It contains examples as well as code for over 40 different types of charts using Python code.</p>
 
 
@@ -1781,12 +1786,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./31_exploring_data_structures.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./30_bcdata.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
