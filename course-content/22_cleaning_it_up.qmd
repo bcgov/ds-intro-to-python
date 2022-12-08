@@ -134,6 +134,10 @@ dropna(subset=['column1', 'column2'], how=all)
 
 Options 2: Filling the missing values
 
+fillna()
+
+
+
 
 
 
@@ -151,7 +155,7 @@ Data types - Are the data of the correct (or at least manageable) datatype?
 
 
 
-## Missing data
+## Recoding
 
 
 
@@ -176,21 +180,3 @@ And python and pandas excels at dealing with almost all of it in efficient and f
 Do no harm. In your cleaning practices, it is important not to make arguable interpretative judgements that 
 
 
-
-
-<center>
-    <img src="images/working-with-code/workaround.png" width=320 style="margin:auto"/>
-    <p style="text-align: center">
-        Don't be this guy!
-    </p>
-</center>
-
-
-<br>
-*Treat data as read only*
-
-One of the first things that you will do in a coding environment is to identify your data source and read or ingest that data into your environment to process it further. You should however, leave that originating data unaltered! Once the data is in your coding environment, that is where the processing will take place, and that process will end with some "improved" version of the data being produced. 
-
-*Clean and analyse your data with code*
-
-In many cases your data will be “dirty”. That is to say, filled with missing data, spelling mistakes, duplicate records, data type errors, you name it! Your code will clean it. Once you have your clean data, your code will generate insights from it. All of this code (in our case, Python code) will take the form of scripts in separate files. All of these scripts should be stored in a folder separate from the original data itself.  
