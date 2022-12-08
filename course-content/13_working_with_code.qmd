@@ -192,7 +192,7 @@ name = 'Feng
 ```
 
 <left>
-    <img src="images/working-with-code/jl_syntaxerror.png" size=500 style="margin:auto" border=1/>
+    <img src="images/working-with-code/jl_syntaxerror.png" size=70% style="margin:auto" border=1/>
     <p style="text-align: center">
         
 </left>
