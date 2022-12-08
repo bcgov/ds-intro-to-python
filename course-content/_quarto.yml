@@ -47,6 +47,8 @@ book:
             href: 00_introduction_to_python.qmd
           - text: Core Concepts
             href: 02_core_data_structure_concepts.qmd
+          - text: Working with Code
+            href: 13_working_with_code.qmd
       - text: "Get and Clean Data"
         menu:
           - text: Getting Data With Pandas
