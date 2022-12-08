@@ -253,7 +253,7 @@ years_to_100 = 100 - aege  # mis-spelled assigned variable called 'age'
 
 
 <left>
-    <img src="images/working-with-code/aege_not_defined.png" size=500 style="margin:auto" border=1/>
+    <img src="images/working-with-code/aege_not_defined.png" size=70% style="margin:auto" border=1/>
     <p style="text-align: center">     
   
 </left>
