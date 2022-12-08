@@ -234,7 +234,7 @@ Make sure you keep track of what kind of apply you are using when doing your dat
 
 Both `transform` and `apply` can be used on a grouped dataframe object. This is the object that is created when we use the `.groupby()` method. Let's create a small dataset and see what this object looks like:
 ```{python}
-df = pd.DataFrame(
+starwars = pd.DataFrame(
     {
         'unit' : [
             'Blaster', 'Blaster', 'Blaster', 
@@ -246,20 +246,20 @@ df = pd.DataFrame(
     }
 )
 
-df
+starwars
 ```
 
 Here we have a column that looks categorical (`unit`), and a couple that look numerical (`cost` and `sale_price`). We are going to focus on grouping our data according to the categorical column, and see what we can do with the numerical columns. 
 
 ```{python}
-grouped_df = df.groupby('unit')
-grouped_df
+grouped_starwars = starwars.groupby('unit')
+grouped_starwars
 ```
 
 Note that this object is no longer a dataframe, but some sort of `DataFrameGroupBy` object. By itself, it is not very useful, but we can use it to get all sorts of interesting information. Recall briefly how we used this earlier. Maybe we want the average buy and sell prices of each type of unit:
 
 ```{python}
-grouped_df.mean().reset_index()
+grouped_starwars.mean().reset_index()
 ```
 
 What if we wanted to know how much each particular unit contributed to it's groups overall sale? Or perhaps how much each group profited, on average? This is where `transform` and `apply` come in. Let's look at what each of these do.
@@ -278,7 +278,7 @@ Let's see each this in action. We will use transform to determine how much each 
 
 ```{python}
 pct_of_sales = (
-    grouped_df
+    grouped_starwars
     .sale_price
     .transform(lambda series_: series_/series_.sum())
 )
@@ -288,23 +288,23 @@ pct_of_sales
 Notice here that we used the `lambda` function again, which allows us to define a function inline acting on a given argument (in this case, the argument is named `series_`). This let us allow the value of the series to be the sum of the series. Because we are acting on a *grouped* object, Pandas knows that the sum we wish to employ is that of the group, not the overall sum! This new object will be in the same order (have the same indexing) as our initial dataframe, and so we can add it back to the dataframe as an extra column if we wish. This works explicitly because the transform method is required to return a series of the same length as the original object, giving us exactly what we want! 
 
 ```{python}
-df['percent_of_sales'] = pct_of_sales
-df
+starwars['percent_of_sales'] = pct_of_sales
+starwars
 ```
 
 #### Ex 2: Grouped Aggregate
 Transform can be used exclusively with an aggregation function as well, but it will still return a value for every row of the initial dataset. This allows us to add grouped level values as columns to the data:
 
 ```{python}
-df['average_unit_cost'] = grouped_df.cost.transform('mean')
-df
+starwars['average_unit_cost'] = grouped_starwars.cost.transform('mean')
+starwars
 ```
 
 #### Ex 3: Multiple Series
 Instead of passing a single column to the transform method, we could also pass the entire dataframe (or some subset of the columns in the dataframe), and calculate values for each series:
 
 ```{python}
-grouped_df.transform(lambda series_: (series_-series_.mean())/series_.std())
+grouped_starwars.transform(lambda series_: (series_-series_.mean())/series_.std())
 ```
 
 This has created two columns that have both had the same function applied. Note that if we wanted to merge these in with the original dataframe, we should be careful to rename the columns so that they do not overlap!
@@ -313,8 +313,8 @@ This has created two columns that have both had the same function applied. Note 
 Another use case for transform is in filtering a dataframe. Maybe we want to zero in on those items where the sale price of the object was less than the average unit cost. Let's filter our dataframe to only those rows:
 
 ```{python}
-condition = df.sale_price < grouped_df.cost.transform(lambda x: x.mean())
-df[condition]
+condition = starwars.sale_price < grouped_starwars.cost.transform(lambda x: x.mean())
+starwars[condition]
 ```
 
 
@@ -328,14 +328,14 @@ df[condition]
 Let's try something with apply. What if we want to know the average overall profit of each group. We could produce a profit column, group up on the unit, and then calculate the mean. 
 
 ```{python}
-df['profit'] = df.sale_price - df.cost
-df.groupby('unit').profit.mean()
+starwars['profit'] = starwars.sale_price - starwars.cost
+starwars.groupby('unit').profit.mean()
 ```
 
 We could also do this using the apply function, applied to our grouped object:
 
 ```{python}
-grouped_df.apply(lambda df_: (df_.sale_price - df_.cost).mean())
+grouped_starwars.apply(lambda df_: (df_.sale_price - df_.cost).mean())
 ```
 
 Again, we made use of that `lambda` function, this time applying it to a `df_` argument. You might notice that here I used a `df_` argument instead of `series_`: this is merely notation, and we could have used anything (`series_`, `df_`, `x`, `this_is_my_argument` would all work the same). However, we have used `df_` and `series_` so that we can remind ourselves exactly what type of object we are acting on. 
@@ -344,7 +344,7 @@ To see how transform differs from apply, let's try to do that exact same operati
 
 ```{python}
 #| error: true
-grouped_df.transform(lambda _df: (_df.sale_price - _df.cost).mean())
+grouped_starwars.transform(lambda _df: (_df.sale_price - _df.cost).mean())
 ```
 
 This fails because the object being acted on inside transform is itself just a series object, not the entire dataframe! As such, it has no attribute for `sale_price` or `buy_price` like our original dataframe does. Instead, it acts on the `sale_price` series, then the `buy_price` series, and returns the results.
@@ -353,7 +353,7 @@ This fails because the object being acted on inside transform is itself just a s
 While the first apply example returns a rolled up aggregated dataframe, we can also use apply to return the individual rows of the dataframe by mixing aggregation functions with row level functions. 
 
 ```{python}
-grouped_df.apply(lambda df_: df_.sale_price - df_.cost.mean())
+grouped_starwars.apply(lambda df_: df_.sale_price - df_.cost.mean())
 ```
 
 In this way we have to be careful: transform will **always** return a dataframe that is the same size as the original, while apply will return something that varies with the type of function we have utilized. 
@@ -362,20 +362,20 @@ In this way we have to be careful: transform will **always** return a dataframe 
 Apply lets us play some cool tricks as well. Suppose we only wanted to know about the two most expensive sales in each category. How could we filter to show this? We can use the `nlargest` (or smallest) method in conjunction with apply. `nlargest` does exactly what we might expect, returning the rows with the n largest values according to the provided column(s):
 
 ```{python}
-df.nlargest(2, 'sale_price')
+starwars.nlargest(2, 'sale_price')
 ```
 
 But if we mix this with apply and our grouping dataframe, we can get the largest for each group!
 
 ```{python}
-grouped_df.apply(lambda df_: df_.nlargest(2, 'sale_price'))
+grouped_starwars.apply(lambda df_: df_.nlargest(2, 'sale_price'))
 ```
 
 Note that when apply produces some different sized aggregate than the original dataframe, it tacks on an extra index indicating what the grouper was. We do not always care about this, and can eliminate it in the initial creation of our grouped dataframe via the `group_keys` argument:
 
 ```{python}
 (
-    df
+    starwars
     .groupby('unit', group_keys=False)
     .apply(lambda df_: df_.nlargest(2, 'sale_price'))
 )
@@ -390,7 +390,7 @@ def create_multiple_columns(df_):
     df_['profit_relative_to_group'] = df_['profit']/df_['average_group_profit']
     return df_
 
-grouped_df.apply(create_multiple_columns)
+grouped_starwars.apply(create_multiple_columns)
 ```
 
 <br>
@@ -402,7 +402,7 @@ def create_multiple_aggregated_columns(df_):
     df_['average_sale_price'] = df_.sale_price.mean()
     return df_
 
-grouped_df.apply(create_multiple_aggregated_columns)
+grouped_starwars.apply(create_multiple_aggregated_columns)
 ```
 
 ### Challenge 2
@@ -416,9 +416,9 @@ Determine which of the units in each group had the greatest profit, and return a
 There are a variety of different ways this could be approached. We have done a similar question using apply already, so let's do this via the transform function.
 
 ```{python}
-condition = df.profit == df.groupby('unit').profit.transform('max')
+condition = starwars.profit == starwars.groupby('unit').profit.transform('max')
 
-df[condition]
+starwars[condition]
 ```
 
 :::
@@ -511,21 +511,65 @@ dowjones['year_after'] = dowjones.Price.shift(-12)
 dowjones.head()
 ```
 
-To show that this is actually the year before and after, let's filter to a year somewhere in the middle:
+To show that this is actually the year before and after, let's filter to a year somewhere in the middle. 
+
+:::{.callout-tip collapse="true"}
+## Advanced Tip: Date Columns
+
+In order to filter to the middle year, we need to be sure of the type of data we are working with. Let's take a quick look at the Date column, and see what the datatype is:
 
 ```{python}
-from datetime import date
-
-# create dates for the filter
-current_year = date(1942, 8, 1)
-previous_year = date(1941, 8, 1)
-next_year = date(1943, 8, 1)
-
-# filter the date column
-dowjones[dowjones.Date.isin([current_year, previous_year, next_year])]
+print(dowjones.Date.dtype)
 ```
 
-If we look at these three lines, we see that the `year_prior` and `year_after` columns do in fact give us the corresponding values from the initial dataset. And if we plot this, we will see three copies of the data, but shifted by a year:
+This is a new column type that we have not encountered in detail before, but it tells us that this column contains date information. If we were to look at a single value in the Series, we would see that it is not simply a 'YYYY-MM-DD' string as displayed when we view the dataframe:
+
+```{python}
+single_date = dowjones.Date[0]
+print(single_date)
+print(type(single_date))
+```
+
+Because this is not a string, we cannot do a simple string comparison between two dates:
+
+```{python}
+print(single_date == '1914-12-01')
+```
+
+To filter based on date columns then, we should instead create a date type object in Python. The easiest way to do that is using the built in python library `datetime`. 
+
+```{python}
+from datetime import datetime
+
+# create a date-like object
+new_date = datetime(1914, 12, 1)
+print(new_date)
+
+# compare with the single date
+print(single_date == new_date)
+```
+
+
+For more information on dates in Pandas, see the [time series/date functionality](https://pandas.pydata.org/docs/user_guide/timeseries.html) page for Pandas, and the [numpy documentation for datetime64](https://numpy.org/doc/stable/reference/arrays.datetime.html). 
+:::
+
+```{python}
+from datetime import datetime
+
+# create dates for the filter
+current_year = datetime(1942, 8, 1)
+previous_year = datetime(1941, 8, 1)
+next_year = datetime(1943, 8, 1)
+
+# filter the date column
+dowjones[
+    dowjones.Date.isin([current_year, previous_year, next_year])
+][
+    ['Date', 'Price', 'year_prior', 'year_after']
+]
+```
+
+If we look at these three lines, we see that the `year_prior` and `year_after` columns do in fact give us the corresponding values from the initial dataset. And if we plot this, we will see three copies of the data, each shifted by a year:
 
 ```{python}
 
