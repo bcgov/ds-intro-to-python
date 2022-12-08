@@ -173,7 +173,7 @@ round() # Shift-tab to get drop-down help in Jupyter
 
 
 <left>
-    <img src="images/working-with-code/jl_shifttab.png" size=600 style="margin:auto" border=1/>
+    <img src="images/working-with-code/jl_shifttab.png" size=70% style="margin:auto" border=1/>
     <p style="text-align: center">
 </left>
 
