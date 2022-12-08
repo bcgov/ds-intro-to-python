@@ -38,7 +38,7 @@ Before the course starts, we ask that all attendees install Python and its assoc
  * Course Introduction (20 min)
  * [Getting Up and Running](00_introduction_to_python.qmd) (60 min) (Lindsay)
  * BREAK ☕
- * Working with Code (90 min) (Stuart) 
+ * [Working with Code](13_working_with_code.qmd) (90 min) (Stuart) 
  * LUNCH 🍍
  * [Core Data Structure Concepts](02_core_data_structure_concepts.qmd) (90 min) (Lindsay)
  * BREAK 🍩
@@ -48,7 +48,7 @@ Before the course starts, we ask that all attendees install Python and its assoc
 
  * Data Cleaning (90 min) (Stuart)
  * BREAK ☕
- * Exploring Data with Pandas (90 min) (Stuart)
+ * [Exploring Data with Pandas](31_exploring_data_structures.qmd) (90 min) (Stuart)
  * LUNCH 🍍
  * [Graphical Depictions of Data](32_graphical_depictions_of_data.qmd) (90 min) (Lindsay)
  * BREAK 🍩
