@@ -22,6 +22,7 @@ book:
     - index.qmd
     - 00_introduction_to_python.qmd
     - 02_core_data_structure_concepts.qmd
+    - 13_working_with_code.qmd 
     - 11_getting_data_with_pandas.qmd
     - 21_exploring_data_structures.qmd
     - 22_graphical_depictions_of_data.qmd
@@ -47,6 +48,8 @@ book:
             href: 00_introduction_to_python.qmd
           - text: Core Concepts
             href: 02_core_data_structure_concepts.qmd
+          - text: Working with Code
+            href: 13_working_with_code.qmd
       - text: "Get and Clean Data"
         menu:
           - text: Getting Data With Pandas
