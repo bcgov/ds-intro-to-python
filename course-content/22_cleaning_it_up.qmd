@@ -15,7 +15,9 @@ jupyter: python3
 
 ## What a mess!
 
-Imagine you have finally gotten that dataset that you need to work with. Before you get started in earnest working away with generating insights, it is important that you take a closer look at the "quality" of the data. Quality is a tricky term to define when it comes to data, as is the notion of "cleaning". The topic is a big and complex one. It is also often important that you excercise your own judgement when it comes to making decisions about what data to clean and how to clean.  
+Imagine you have finally gotten that dataset that you need to work with. Before you get started in earnest working away with generating insights, it is important that you take a closer look at the "quality" of the data.  You will hear it be said that 80% (or some high percentage) of a data scientist's time is spent cleaning data, that is, putting it in a form that will better suit its downstream uses.  
+
+Surprisingly data cleaning is such a big and complex one topic that it is hard to define.  It is even harder to teach in a relatively short tutorial! 
 
 <center>
     <img src="images/getting-data-with-pandas/no capes.jpg" 
@@ -24,72 +26,41 @@ Imagine you have finally gotten that dataset that you need to work with. Before 
     </p>
 </center>
 
-
-There are also a range of techniques in python and pandas, most with strengths and weaknesses, which we will work to identify in this tutorial. In this tutorial, however, we will focus on a few basic quality items that you are likely to come across over and over in your analysis practice.  
+In this tutorial, however, we will focus on a few cleaning techniques that are likely going to be leveraged over and over again. on a few basic quality items that you are likely to come across over and over in your analysis practice.  
 
 - How to identify and clean up missing data
 - When and how to change datatypes
 - When and how to modify values in your dataset
 
-This is only scratching the surface of cleaning techniques. Other instances are:
-- eliminating redundant data
-- 
 
-To help us understand how to identify and deal with "dirty data", we took the 2014 Mental Health in Tech Survey https://www.kaggle.com/datasets/osmi/mental-health-in-tech-survey and sprinkled in a bit of dirt :-) 
-
-```{python}
-m_health = pd.read_csv('../data/Mental Health Survey Raw.csv')
-m_health.head()
-```
-
-We should also import a couple of important libraries 
-
-```{python}
-###importing libraries
-import numpy as np # numpy for statistical calculation
-import pandas as pd # pandas for pre processing
-```
-
-This abridged version of the dataset contains 14 variables:
-
-- **Timestamp**
-- Age
-- Gender
-- Country
-- Self Employed: Are you self-employed?
-- Family History: Do you have a family history of mental illness?
-- Treatment: Have you sought treatment for a mental health condition?
-- Work Interfere: If you have a mental health condition, do you feel that it interferes with your work?
-- Remote Work: Do you work remotely (outside of an office) at least 50% of the time?
-- Tech Company: Is your employer primarily a tech company/organization?
-- Benefits: Does your employer provide mental health benefits?
-- Leave: How easy is it for you to take medical leave for a mental health condition?
-- Mental Health Consequence: Do you think that discussing a mental health issue with your employer would have negative consequences?
-- Comments: Any additional notes or comments
-
-
-
-## Cleaning the header row
-
-A good practice, both in terms of ensuring a consistent convention for column names and for the ability to write more efficient code, is to ensure that all column header names do not have spaces in them and are all in lower case. To do this, we use the str.replace() function on all the header row, identified in pandas via .columns:
-
-
-```{python}
-m_health.columns = m_health.columns.str.replace(' ', '_')
-m_health.columns = m_health.columns.str.lower()
-m_health.head(10)
-```
-
-With that bit of best practice out of the way, let's get onto the "fun" part of data science!
-
-
-## Missing data
+## Dealing with Missing Data
 
 We have already taken a look at the dataframe, or at least the head contents, with the code above. Now let's start to take a more systematic look at it from a data cleaning perspective. 
 
-The most common issues to deal with in data cleaning are missing data issues. 
+Before we get started with code, let's go and get pandas. 
 
-In pandas, there is a widely used method `isna()`, which will return a boolean object indication if a value is considered NA. Pandas considers values such as NA, NaN, and None as NA values. Note that it does not consider empty strings to be missing! 
+```{python}
+###importing libraries
+import pandas as pd # pandas for pre processing
+```
+
+Now, let's grab a completely fictional and small dataset of movie ratings. To fetch, run the code below:
+
+```{python}
+movie_ratings = pd.read_csv('../data/MovieRatingsShort.csv')
+movie_ratings.info()
+```
+
+Each row contains a movie rater as well as their ratings for selected movies that they have given ratings for. For interpretative purposes, let's say that each movie is rated on a 5 point scale, with 5 being super awesom and 1 being dismal. 
+When 
+
+In pandas, there is a widely used method `isna()`, which will return a boolean object indication if a value is considered missing (or in pandas parlance, "NA").
+
+```{python}
+###listing out the missing values
+movie_ratings.isna()
+```
+
 
 :::{.callout-tip}
 ## What about isnull()?
@@ -97,26 +68,19 @@ In pandas, there is a widely used method `isna()`, which will return a boolean o
 Also used widely is `isnull()`, which essentially is simply the mask of `isna()`. You may run into both, and both will return the same results. There is also a `notnull()` function, which is inverse function of `isnull()`, returning True for values that are not NA. And to round things out, `isna()` also has a companinion inverse function called `notna()`. 
 :::
 
-```{python}
-###listing out the missing values
-m_health.isna()
-```
-
 In the case above, we are looking at the whole dataframe object. But to get a better overview of how much missing values there are, then we need to add a `.sum()` function to the line of code. 
 
 ```{python}
 ###listing out the missing values
-m_health.isna().sum()
+movie_ratings.isna().sum()
 ```
 
-The code now examines the columns as a series that is 
 
 
 ```{python}
-###count up 
-m_health['tech_company'].value_counts()
+###listing out the missing values
+movie_ratings['Star Wars'].fillna()
 ```
-
 
 
 
@@ -137,6 +101,72 @@ Options 2: Filling the missing values
 fillna()
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Changing Data types
+
+
+
+Now let's grad a different dataset, this one is a very short version of the 2014 Mental Health in Tech Survey https://www.kaggle.com/datasets/osmi/mental-health-in-tech-survey.
+
+```{python}
+m_health = pd.read_csv('../data/TechMentalHealthShort.csv')
+m_health.head()
+m_health.info()
+```
+
+This abridged version of the dataset contains 71 cases and 13 variables:
+
+- **Timestamp**
+- Age
+- Gender
+- Country
+- Self Employed: Are you self-employed?
+- Family History: Do you have a family history of mental illness?
+- Treatment: Have you sought treatment for a mental health condition?
+- Work Interfere: If you have a mental health condition, do you feel that it interferes with your work?
+- Remote Work: Do you work remotely (outside of an office) at least 50% of the time?
+- Tech Company: Is your employer primarily a tech company/organization?
+- Benefits: Does your employer provide mental health benefits?
+- Leave: How easy is it for you to take medical leave for a mental health condition?
+- Mental Health Consequence: Do you think that discussing a mental health issue with your employer would have negative consequences?
+
+
+## 
+
+:::{.callout-tip}
+## Header grooming
+
+A good practice, both in terms of ensuring a consistent convention for column names and for the ability to write more efficient code, is to ensure that all column header names do not have spaces in them and are all in lower case. To do this with our current dataset, we use the `str.replace()` function on all the header row, identified in pandas via .columns:
+
+
+```{python}
+m_health.columns = m_health.columns.str.replace(' ', '_')
+m_health.columns = m_health.columns.str.lower()
+m_health.head(10)
+```
+
+:::
+
+
+
+## Missing data
 
 
 
