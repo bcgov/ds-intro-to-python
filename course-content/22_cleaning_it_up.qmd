@@ -15,9 +15,9 @@ jupyter: python3
 
 ## What a mess!
 
-Imagine you have finally gotten that dataset that you need to work with. Before you get started in earnest working away with generating insights, it is important that you take a closer look at the "quality" of the data.  You will hear it be said that 80% (or some high percentage) of a data scientist's time is spent cleaning data, that is, putting it in a form that will better suit its downstream uses.  
+Imagine you have finally gotten that dataset that you need to work with. But wait! Before you get started in earnest working away with generating insights, it is important that you take a closer look at the "quality" of the data.  You will hear it be said that 80% (or some high percentage) of a data scientist's time is spent cleaning data, that is, putting it in a form that will better suit its downstream uses.  
 
-Surprisingly data cleaning is such a big and complex one topic that it is hard to define.  It is even harder to teach in a relatively short tutorial! 
+Not surprisingly, data cleaning is a topic hard to cover systematically in an introductory course. 
 
 <center>
     <img src="images/getting-data-with-pandas/no capes.jpg" 
@@ -26,7 +26,7 @@ Surprisingly data cleaning is such a big and complex one topic that it is hard t
     </p>
 </center>
 
-In this tutorial, however, we will focus on a few cleaning techniques that are likely going to be leveraged over and over again. on a few basic quality items that you are likely to come across over and over in your analysis practice.  
+In this tutorial, we will focus on a few cleaning techniques that are likely going to be leveraged over and over again. 
 
 - How to identify and clean up missing data
 - When and how to change datatypes
@@ -40,25 +40,26 @@ We have already taken a look at the dataframe, or at least the head contents, wi
 Before we get started with code, let's go and get pandas. 
 
 ```{python}
-###importing libraries
+##importing libraries
 import pandas as pd # pandas for pre processing
 ```
 
-Now, let's grab a completely fictional and small dataset of movie ratings. To fetch, run the code below:
+Now, imagine we had out own online streaming service. We have access to some data that will help us predict what our users would like to see. To fetch it, run the code below:
 
 ```{python}
 movie_ratings = pd.read_csv('../data/MovieRatingsShort.csv')
 movie_ratings.info()
 ```
 
-Each row contains a movie rater as well as their ratings for selected movies that they have given ratings for. For interpretative purposes, let's say that each movie is rated on a 5 point scale, with 5 being super awesom and 1 being dismal. 
-When 
+Each row contains a movie rater as well as their ratings for selected movies that they have given ratings for. For interpretative purposes, each movie is rated on a 5 point scale, with 5 being super awesom and 1 being dismal. 
 
-In pandas, there is a widely used method `isna()`, which will return a boolean object indication if a value is considered missing (or in pandas parlance, "NA").
+This dataset exemplifies a classic "recommendation engine" use case problem - there are lots of raters and lots of movies, but an *awful lot* of missing data.
+
+In pandas, there is a widely used method `isna()`, which will return a boolean object indication if a value is considered missing (or in pandas parlance, "NA"). We can apply it to the whole dataframe or just to a particular series or column. 
 
 ```{python}
 ###listing out the missing values
-movie_ratings.isna()
+movie_ratings.notna()
 ```
 
 
@@ -68,65 +69,102 @@ movie_ratings.isna()
 Also used widely is `isnull()`, which essentially is simply the mask of `isna()`. You may run into both, and both will return the same results. There is also a `notnull()` function, which is inverse function of `isnull()`, returning True for values that are not NA. And to round things out, `isna()` also has a companinion inverse function called `notna()`. 
 :::
 
-In the case above, we are looking at the whole dataframe object. But to get a better overview of how much missing values there are, then we need to add a `.sum()` function to the line of code. 
+To get a better summary overview (i.e. one that summarizes with numbers) of how many missing values there are per column, then we need to chain togther a `.sum()` function to the line of code:  
 
 ```{python}
 ###listing out the missing values
 movie_ratings.isna().sum()
 ```
 
+The reason that this works is because value of True is represented in pandas by the value of 1, while False is represented by a 0. Therefore, we can apply the .sum() method to the whole dataframe with series being returned that contains the counts of missing items in each column.
 
+Now we see no missing data for raters, but missing data for each of the movies. For our use case, missing data is a real problem. With pandas, we can deal with this in many different ways. 
+
+### Dropping 
+
+One cleaning option we have is to drop rows or columns with missing values in them from the dataframe.  The method is called `dropna() `and takes a number of parameters:
+
+* axis: {0 or 'index', 1 or 'columns'}, default 0
+* how: {'any', 'all'}, default 'any'
+* subset: column label or sequence of labels
+
+Imagine we would like to drop all of the rows with any missing values in them. Since the `axis=0` and `how=any` paramters are the defaults, we can write an elegant and simple line of code:
 
 ```{python}
-###listing out the missing values
-movie_ratings['Star Wars'].fillna()
+reduced_rows = movie_ratings.dropna()
+reduced_rows.head()
 ```
 
+We still have three raters who have given us ratings for each movie. The dataset is nice and clean now, although it has come at a pretty big cost, losing 7 rows of albeit incomplete data. 
+
+Another option is to use subset to eliminate rows on the basis of whether values are missing in a specified subset. Let's say we want to have just the rows of data where there is not missing ratings data for the film "Parasite". We would use `subset()`: 
+
+```{python}
+parasite_df = movie_ratings.dropna(subset='Parasite')
+parasite_df.head()
+```
+
+When we run the head() method, we see that pandas calls these missing datapoints "NaN". While there is no NaN in the Parasite column, we can see they are still there sprinkled throughout. 
+
+Now what would happen if we applied that same drop logic to all columns? 
+
+```{python}
+reduced_cols = movie_ratings.dropna(axis=1)
+reduced_cols.head()
+```
+
+We see that we pretty much all the movie columns have been removed, as each of these columns had at least one missing value! So be careful when using dropna() as it can be a powerful eraser of data. Whether you should use it or how you should will depend on the downstream uses for your data.
+
+### Filling
+
+Sometimes it is the right cleaning decision to fill in missing data with some values. 
+
+A quite basic way to fill in missing values would you to specify a specific value to take the place of each missing value. One approach is to calculate and plug in the mean value - which we know to be 3.85) for the entire dataframe:
+
+```{python}
+filled_385= movie_ratings.fillna(3.85)
+filled_385.head()
+```
+
+Ok, that's good. Good, but not great! Maybe we could avail ourselves to some options within the `method=` parameter with the parentheses the `fillna()` function. With a specification of `bfill` we can fill a NaN value with the preceding valid value in that column. `Ffill` fills with the value after it. 
+
+What would that look like for our dataset? 
+
+```{python}
+bfilled_mr = movie_ratings.fillna(method='bfill')
+bfilled_mr.head()
+```
+
+For our use case, admittedly bfill and ffill probably are sub-optimal solutions. They could work better for a use case where the rows increment in some standard unit, like a sequence of units of time. 
+
+For our use case, what would likely work better is to fill in the missing data with an average rating that a movie receives. To do this, we pass in an arithmetic mean function and pandas does the rest.
+
+```{python}
+rowmeans_mr = movie_ratings.fillna(movie_ratings.mean())
+rowmeans_mr.head()
+```
+
+That feels like the best solution so far! And this only scratches the surface of how we could fill these empty spaces. 
+
+
+
+ADD NOTE ABOUT inplace= in this section somewhere.
+
+ADD CHALLENGE HERE
 
 
 
 
-Missing data - Is there data we expect to be present that is missing?
 
-Option 1: Drop the missing values
-
-
-dropna(how=any)
-
-dropna(subset=['column1', 'column2'], how=all)
-
-
-Options 2: Filling the missing values
-
-fillna()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Dealing with missing data is one normal task in cleaning, changing data content and structure is another, let's take a look at that next.  
 
 
 ## Changing Data types
 
-
-
 Now let's grad a different dataset, this one is a very short version of the 2014 Mental Health in Tech Survey https://www.kaggle.com/datasets/osmi/mental-health-in-tech-survey.
 
 ```{python}
-m_health = pd.read_csv('../data/TechMentalHealthShort.csv')
+m_health = pd.read_csv('../data/TechMentalHealthS.csv')
 m_health.head()
 m_health.info()
 ```
@@ -147,6 +185,7 @@ This abridged version of the dataset contains 71 cases and 13 variables:
 - Leave: How easy is it for you to take medical leave for a mental health condition?
 - Mental Health Consequence: Do you think that discussing a mental health issue with your employer would have negative consequences?
 
+The other thing to notice that there are no missing values! So we can just concentrate on other cleaning tasks. 
 
 ## 
 
@@ -164,28 +203,38 @@ m_health.head(10)
 
 :::
 
-
-
-## Missing data
-
-
-
-
-
-
-
-
-Out of range data - Do we see values that we would not expect to be valid?
-Data types - Are the data of the correct (or at least manageable) datatype? 
-
-
-
-
-
-
-
-
 ## Recoding
+
+With this dataset we've called there are a few columns that we would like to make changes to so that it will be easier to analyze the data in the way we want.
+
+m_health.uniques
+
+
+```{python}
+m_health.unique
+```
+
+
+
+###replacing similar entities with one attribute
+dataset['Gender'].replace(['Male ', 'male', 'M', 'm', 'Male', 'Cis Male',
+                     'Man', 'cis male', 'Mail', 'Male-ish', 'Male (CIS)',
+                      'Cis Man', 'msle', 'Malr', 'Mal', 'maile', 'Make',], 'Male', inplace = True)
+
+dataset['Gender'].replace(['Female ', 'female', 'F', 'f', 'Woman', 'Female',
+                     'femail', 'Cis Female', 'cis-female/femme', 'Femake', 'Female (cis)',
+                     'woman',], 'Female', inplace = True)
+
+dataset["Gender"].replace(['Female (trans)', 'queer/she/they', 'non-binary',
+                     'fluid', 'queer', 'Androgyne', 'Trans-female', 'male leaning androgynous',
+                      'Agender', 'A little about you', 'Nah', 'All',
+                      'ostensibly male, unsure what that really means',
+                      'Genderqueer', 'Enby', 'p', 'Neuter', 'something kinda male?',
+                      'Guy (-ish) ^_^', 'Trans woman',], 'Other', inplace = True)
+
+
+
+
 
 
 
