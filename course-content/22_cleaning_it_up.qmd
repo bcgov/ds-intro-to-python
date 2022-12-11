@@ -144,14 +144,54 @@ rowmeans_mr = movie_ratings.fillna(movie_ratings.mean())
 rowmeans_mr.head()
 ```
 
-That feels like the best solution so far! And this only scratches the surface of how we could fill these empty spaces. 
+That feels like the best solution so far! And this only scratches the surface of how we could fill these empty spaces. Similar to fillna() is a method called `interpolate()`, which takes the average of the values above and below the missing values. And recommendation engines would get muuuuuuch more sophisticated than this. But these pandas methods are useful tools for a variety of use cases. 
+
+:::{.callout-tip}
+## Saving the dataframe "inplace"
+You will notice....  
+:::
 
 
 
-ADD NOTE ABOUT inplace= in this section somewhere.
 
-ADD CHALLENGE HERE
+:::{.callout-warning icon="false"}
+## Challenge 1
 
+You are given a dataset for several days time frame in April/May 2021. You would like to create a plot of the data. But you notice that several of the days have data missing. 
+
+
+```{python}
+temps = "https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/CityTemp.csv"
+city_temps = pd.read_csv(temps)
+city_temps.head()
+```
+
+What method(s) would you use to clean it up to you have usable data for presentation?  Write code that implements your solution. 
+
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 1
+
+Given that it is for day by day temperature data, it is reasonable to think that the temperature for the missing days would be similar to the day preceding or coming after it. So either bfill or ffill parameter choices of the `fillna()` method would be justified. 
+
+```{python}
+filled_temps = city_temps.fillna(method='bfill')
+filled_temps.head(11)
+```
+
+An even better approach, perhaps, for this use case, would be to use the `interpolate()` method, which takes the average of the values above and below the missing values! 
+
+```{python}
+interpolate_temps = city_temps.interpolate()
+interpolate_temps.head(11)
+```
+
+
+```
+
+What m
+:::
 
 
 
