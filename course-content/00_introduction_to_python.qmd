@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Python"
+title: "Getting Up and Running"
 teaching: 45
 exercises: 10
 questions:
@@ -15,13 +15,13 @@ keypoints:
 Data has become interwined with the inner workings of nearly every facet of working within the BC Public Service. Whether you have to read an excel spreadsheet, prepare a report based on a survey, comb through csv files to find a specific data source, it is likely that you have worked with a dataset at some point in your career. However, the process of looking at and dealing with data can be messy, error-prone and hard to duplicate. Questions such as *'wait, how did I get that number again?'* are all too common. 
 
 <center>
-    <img src="images/introduction-to-python/reproducible.jpeg" height=300 style="margin:auto"/>
+    <img src="images/introduction-to-python/reproducible.jpeg" width="50%" style="margin:auto"/>
     <p style="text-align: center">
         The Messy Side of Data
     </p>
 </center>
 
-These lessons will teach you how to interact with data in a systematic way using the python ecosystem. By accessing and interpreting data through a set of prescribed methods (developed through the code written), our work with data becomes more accessible, repeatable, and ultimately insightful. 
+These lessons will teach you how to interact with data in a systematic way using the python ecosystem. By accessing and interpreting data through a set of prescribed methods (developed through the code written), our work with data becomes more accessible, repeatable, and ultimately insightful.
 
 During the course of these lessons, we hope to cover:
 
@@ -33,7 +33,7 @@ During the course of these lessons, we hope to cover:
 If we have time, we may touch on some more advanced python lessons, such as:
 
 * Publishing reports
-* Accessing the [B.C. Data Catalog](https://catalogue.data.gov.bc.ca/)
+* Accessing the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/)
 * Machine learning in python 
 
 ## BEFORE STARTING!!
@@ -86,7 +86,7 @@ Let's run through the basic steps of setting up a conda environment, installing 
 ```
     
 <center>
-    <img src="images/introduction-to-python/create_env.png" width=700 style="margin:auto"/>
+    <img src="images/introduction-to-python/create_env.png" width="100%" style="margin:auto"/>
     <p style="text-align: center">
         Creating a Conda Environment
     </p>
@@ -111,7 +111,7 @@ pandas.__version__
 ```
     
 <center>
-    <img src="images/introduction-to-python/check_python.png" width=700 style="margin:auto"/>
+    <img src="images/introduction-to-python/check_python.png" width="100%" style="margin:auto"/>
     <p style="text-align: center">
         Testing the python installation
     </p>
@@ -126,7 +126,7 @@ If this all works with no errors, python was successfully installed.
 Still with me? Great. Here's a cute otter as congratulations for making it this far. 
 
 <center>
-    <img src="images/introduction-to-python/cute_otter.jpg" height=350 style="margin:auto"/>
+    <img src="images/introduction-to-python/cute_otter.jpg" width="60%" style="margin:auto"/>
     <p style="text-align: center">
         The cutest.
     </p>
@@ -149,7 +149,7 @@ That's it. We are ready to go!
 i.e. the *how many different ways can we print **Hello World!** to our screen?* section
 
 <center>
-    <img src="images/introduction-to-python/helloworld.png" height=350 style="margin:auto"/>
+    <img src="images/introduction-to-python/helloworld.png" width="60%" style="margin:auto"/>
     <p style="text-align: center">
         Hello World!
     </p>
@@ -176,7 +176,7 @@ In all cases, we will want to have a folder from which we wish to work out of. T
 Next, to make any interactions with python, we will want to open VSCode and work from here. When we first open VSCode, you should be prompted to open a folder. We are going to work out of that `Intro to Python` folder, so open it here. After doing this, we should now have a VSCode screen open that will look something like this: 
 
 <center>
-    <img src="images/introduction-to-python/vscode.png" width=700 style="margin:auto"/>
+    <img src="images/introduction-to-python/vscode.png" width="100%" style="margin:auto"/>
     <p style="text-align: center">
         VS Code
     </p>
@@ -278,7 +278,7 @@ From the terminal, to launch a new JupyterLab session, simply type:
 This should open up a screen that looks something like this:
 
 <center>
-    <img src="images/introduction-to-python/jupyterlab.png" width=700 style="margin:auto"/>
+    <img src="images/introduction-to-python/jupyterlab.png" width="100%" style="margin:auto"/>
     <p style="text-align: center">
         JupyterLab
     </p>

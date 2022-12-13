@@ -75,7 +75,7 @@ When you are naming files themselves, try to have the names reflect their conten
 When working alone and especially when working within a team, it is helpful to leverage tools that help ensure that everyone's work is kept up to date and organized. There are tools such as git/GitHub that are made precisely for this purpose. If you hear people talking about repos, merges, commits, pull requests, etc, they are probably talking about the git world. It is beyond the scope of this tutorial to dive into this topic, but it is something to keep in mind.  [Here is a good intro to all things "git".](https://swcarpentry.github.io/git-novice/).  
 
 <center>
-    <img src="images/working-with-code/github.png" width=100% style="margin:auto" border=1/>
+    <img src="images/working-with-code/github.PNG" width=100% style="margin:auto" border=1/>
     <p style="text-align: center">
         Where ideas work (and are kept organized and up-to-date)
     </p>
@@ -125,7 +125,7 @@ Being effective with using python, or any other coding language, requires that y
 In whatever developing environment (sometimes called an IDE - Integrated Development Environment) you choose to work with, there are usually very helpful links readily available.  In the Jupyter Lab environment, for example, you will find such help under the *Help* choice in the top menu. 
 
 <center>
-    <img src="images/working-with-code/jl_menu.png" width=90% style="margin:auto" border=1/>
+    <img src="images/working-with-code/jl_menu.PNG" width=90% style="margin:auto" border=1/>
     <p style="text-align: center">
         Finding Jupyter Lab's Help
     </p>
@@ -134,7 +134,7 @@ In whatever developing environment (sometimes called an IDE - Integrated Develop
 When you click on `Help` you see an expanded range of topics:
 
 <center>
-    <img src="images/working-with-code/jl_help.png" width=60% style="margin:auto" border=1/>
+    <img src="images/working-with-code/jl_help.PNG" width=60% style="margin:auto" border=1/>
     <p style="text-align: center">
         Topical Help at your fingertips
     </p>
@@ -143,7 +143,7 @@ When you click on `Help` you see an expanded range of topics:
 Under the topics listed you will find treasure troves of helpful documentation relating to Python. Whether you are relatively new to the language or have years of experience already with it, one of the most helpful sections you will find there is *Python Reference*:
 
 <center>
-    <img src="images/working-with-code/python_documentation.png" width=95% style="margin:auto" border=1/>
+    <img src="images/working-with-code/python_documentation.PNG" width=95% style="margin:auto" border=1/>
     <p style="text-align: center">
         Official Python Documentation
     </p>
@@ -173,7 +173,7 @@ round() # Shift-tab to get drop-down help in Jupyter
 
 
 <left>
-    <img src="images/working-with-code/jl_shifttab.png" size=600 style="margin:auto" border=1/>
+    <img src="images/working-with-code/jl_shifttab.PNG" size=70% style="margin:auto" border=1/>
     <p style="text-align: center">
 </left>
 
@@ -192,7 +192,7 @@ name = 'Feng
 ```
 
 <left>
-    <img src="images/working-with-code/jl_syntaxerror.png" size=500 style="margin:auto" border=1/>
+    <img src="images/working-with-code/jl_syntaxerror.PNG" size=70% style="margin:auto" border=1/>
     <p style="text-align: center">
         
 </left>
@@ -208,7 +208,7 @@ age = = 52
 
 
 <left>
-    <img src="images/working-with-code/jl_syntaxerror2.png" size=500 style="margin:auto" border=1/>
+    <img src="images/working-with-code/jl_syntaxerror2.PNG" size=70% style="margin:auto" border=1/>
     <p style="text-align: center">
         
 </left>
@@ -238,7 +238,7 @@ import shap
 
 
 <left>
-    <img src="images/working-with-code/nomodule.png" size=500 style="margin:auto" border=1/>
+    <img src="images/working-with-code/nomodule.png" size=70% style="margin:auto" border=1/>
     <p style="text-align: center">
     
 </left>
@@ -248,12 +248,12 @@ In the example below, the issue is not a syntax error (although it might look li
 ```{python}
 #| error: true
 age = 54
-years_to_100 = 100 - aege  # mis-spelled assigned variable called 'age'
+years_to_100 = 100 - aege  # "misspelled" assigned variable called 'age'
 ```
 
 
 <left>
-    <img src="images/working-with-code/aege_not_defined.png" size=500 style="margin:auto" border=1/>
+    <img src="images/working-with-code/aege_not_defined.PNG" size=70% style="margin:auto" border=1/>
     <p style="text-align: center">     
   
 </left>
@@ -268,7 +268,7 @@ The first and best way to work though why your code failed is to look at the inf
 Many times, however, you will find that your code throws errors you still don't understand.  Other times, you would like to get a better understanding of some topic you have come across. For those moments, don't be shy to use Google to get going by typing in the search field those terms that are narrow enough to describe your problem as succinctly as possible.
 
 <center>
-    <img src="images/working-with-code/goog-stackoverflow.png" size=700 style="margin:auto" border=1/>
+    <img src="images/working-with-code/goog-stackoverflow.PNG" size=700 style="margin:auto" border=1/>
     <p style="text-align: center">
         Global community and solutions to challenges or fixes for bugs
     </p>
@@ -280,13 +280,13 @@ Imagine we were working through the "SyntaxError: EOL while scanning string lite
 
 
 <center>
-    <img src="images/working-with-code/google_syntax_error.png" width=100% style="margin:auto" border=1/>
+    <img src="images/working-with-code/google_syntax_error.PNG" width=100% style="margin:auto" border=1/>
     <p style="text-align: center">
         Error deep dive 
     </p>
 </center>
 
-The highlighted summary information shows us that it understands that we are referring to a python issue, not a general coding one. So that is a good sign. It summarizes from a [page on the realpython.com site](https://realpython.com/invalid-syntax-python/). Moreover it suggests different ways that others have extended the search that you might find helpful. While the suggested site itself is not an official python site, it nonetheless is a quality site about python that will likely be worthwhile to review. Once there, you will find more useful information 
+The highlighted summary information shows us that it understands that we are referring to a python issue, not a general coding one. So that is a good sign. It summarizes from a [page on the realpython.com site](https://realpython.com/invalid-syntax-python/). Moreover it suggests different ways that others have extended the search that you might find helpful. While the suggested site itself is not an official python site, it nonetheless is a quality site about python that will likely be worthwhile to review. Once there, you will find more useful information. 
 
 
 <br>
@@ -304,7 +304,7 @@ Use one of the two most efficient ways to obtain information
 
 
 ```{python}
-help(print)   # One way to get the info
+help(print) # One way to get the info
 ```
 
 
