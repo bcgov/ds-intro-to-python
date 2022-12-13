@@ -332,7 +332,7 @@ m_health['self_employed'].replace(['No'], '0', inplace=True)
 m_health['self_employed'].value_counts()
 ```
 
-Although the content is still in object form, the pandas `to_numeric()` function is able to interpret the 1s and 0s as integers and transform the series into an int64 datatype.
+The pandas `to_numeric()` function is able to interpret the 1s and 0s as integers and transform the series into an int64 datatype.
 
 
 ```{python}
@@ -341,11 +341,43 @@ m_health.head()
 m_health.info()
 ```
 
-Here are a couple more pandas functions to mention:
+Here are two more pandas functions that can be used to transform categorical variables:
 
-* `get_dummies()` converts categorical variable into dummy/indicator variables. It 
+* `get_dummies()` converts categorical variable into dummy/indicator variables.
 
-* `factorize()` encodes the object as an enumerated type or cateogorical variable
+* `factorize()` encodes the object as an enumerated type or categorical variable.
 
-And from the world of machine learning, from the sci-kit learn library, called `onehotencoder()`, which is also widely used. 
+And from the world of machine learning, specifically from the sci-kit learn library, called `onehotencoder()`, which is also widely used. 
 
+<br>
+
+:::{.callout-warning icon="false"}
+## Challenge 2
+
+You are tasked with converting the survey scale responses from their category labels to integers. Review the survey content and 
+
+
+```{python}
+temps = "https://raw.githubusercontent.com/bcgov/" \
+        "ds-intro-to-python/main/data/citytemps.csv"
+city_temps = pd.read_csv(temps)
+city_temps.head(10)
+```
+
+Unfortunately you notice that several of the days have data missing.  Write code that leverages the interpolate() function to fill in the missing data. Run the code. Is this an appropriate solution for the problem? What are the pros and cons to this approach. 
+
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 2
+
+Code you would write is below.
+
+```{python}
+interpolate_temps = city_temps.interpolate()
+interpolate_temps.head(11)
+```
+
+Here we can see how the values "smooth" out the data. Were we to go ahead and plot the data, it would make more sense. 
+
+:::
