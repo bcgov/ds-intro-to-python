@@ -70,7 +70,7 @@ In pandas, there is a widely used method named `isna()` which can be applied to 
 Below we apply it to the entire dataframe to get a cell by cell view of whether the cell data is missing or not (True means it is missing, False means it is not):
 
 ```{python}
-#list out the missing values
+#find the missing values
 movie_ratings.isna()
 ```
 
@@ -83,9 +83,9 @@ To get a better summary overview (i.e. one that summarizes with numbers) of how 
 movie_ratings.isna().sum()
 ```
 
-The reason that this works is because value of True is represented in pandas by the value of 1, while False is represented by a 0. Therefore, we can apply the `sum() `method to the whole dataframe with series being returned that contains the counts of missing items in each column.
+The reason that this works is because a boolean value of True is represented in pandas by the value of 1, while False is represented by a 0. Therefore, we can apply the `sum() `method to the dataframe with series being returned that contains the counts of missing items in each column.
 
-Now we see no missing data for Rater, but missing data for each of the movies. For our use case, missing data is a real problem. With pandas, we can deal with this in many different ways. 
+Now we see no missing data for Rater, but missing data for each of the movies. For our use case, missing data is a real challenge. With pandas, we can deal with this in many different ways. 
 
 
 ### Dropping rows and columns
@@ -105,7 +105,7 @@ reduced_rows.head(11)
 
 We still have three raters who have given us ratings for each movie. The dataset is nice and clean now, although it has come at a pretty big cost, losing seven rows of data! If we go in the other direction, and insert a parameter of `how='all'`, then we have the opposite problem, with *no rows* being eliminated (as there were no instances where all of the columns contained missing data for a given row)! 
 
-Another option is to use subset to eliminate rows on the basis of whether values are missing in a specified subset. Let's say we want to have just the rows of data where there is not missing ratings data for the film "Parasite". We would use `subset()` and identify the column we want to clean up: 
+Another option is to use subset to eliminate rows on the basis of whether values are missing in a specified subset. Let's say we want to have just the rows of data where there is not missing ratings data for the film "Parasite". We would use `subset=` parameter and identify the column we want to clean up: 
 
 ```{python}
 par_df = movie_ratings.dropna(subset='Parasite')
@@ -128,7 +128,7 @@ We see that we pretty much all the movie columns have been removed, as each of t
 
 ### Saving the dataframe "inplace"
 
-`Inplace` is an argument used in different functions such as `dropna()` that we have just looked at. The default value of this attribute is `False` and which means whatever the function does to the dataframe, it does so as a *copy* of the object. When the argument is `inplace=True`, however, whatever changes are made by the given function are made to the original object, not just to a copy of it!
+`Inplace` is an argument used in different functions such as `dropna()` that we have just looked at. The default value of this attribute is `False`, which means whatever the function does to the dataframe, it does so as a *copy* of the object. When the argument is `inplace=True`, however, whatever changes are made by the given function are made to the original object *inplace*, not just to a copy of it!
 
 Let's look at how this works starting with fetching the data from the source:
 
@@ -143,7 +143,7 @@ movie_ratings.head()
 Now let's "modify" the frame with `inplace=False` with the code below and see what happens:
 
 ```{python}
-# Making change to one with inplace=False
+# Making change to dataframe with inplace=False
 movie_ratings.dropna(how='any', inplace=False)
 
 # Looking at the dataframe
@@ -155,14 +155,14 @@ Ok, it kind of looks like "nothing happened"!  And in a way, with the code we ra
 When we run exactly the same code except with the parameter `inplace` set to `'True'`, the dropped data is actually gone!
 
 ```{python}
-# Making change to one with inplace=False
+# Making change to dataframe with inplace=False
 movie_ratings.dropna(how='any', inplace=True)
 
 # Looking at the dataframe
 movie_ratings.head()
 ```
 
-So now if we want to work with the "movie_ratings" object without the columns we just dropped, we would have to go back and rerun the `read_csv()` function!  It is therefore important when writing your cleaning code that you use this parameter carefully. 
+So now if we want to work with the "movie_ratings" object without the columns we just dropped, we would have to go back and rerun the `read_csv()` function and fetch the original data again!  It is therefore important when writing your cleaning code that you use this parameter carefully. 
 
 
 
@@ -177,8 +177,10 @@ Take the example of our movie ratings dataframe. The basic way to fill in missin
 mr = "https://raw.githubusercontent.com/bcgov/" \
         "ds-intro-to-python/main/data/movieratings.csv"
 movie_ratings = pd.read_csv(mr)
+
+# using fillna and a passing in a constant
 filled_385 = movie_ratings.fillna(3.85)
-filled_385.head(11)
+filled_385.head(10)
 ```
 
 Ok, that's good. Good, but not great for our use case! Maybe we could avail ourselves to some options within the `method=` parameter with the parentheses the `fillna()` function. With a specification of `bfill` we can fill a NaN value with the preceding valid value in that column. `ffill` fills with the value after it. 
@@ -187,10 +189,10 @@ What would that look like for our dataset?
 
 ```{python}
 bfilled_mr = movie_ratings.fillna(method='bfill')
-bfilled_mr.head(11)
+bfilled_mr.head(10)
 ```
 
-For our use case, admittedly `bfill` and `ffill` probably are sub-optimal solutions. 
+Notice that the bottom row stays NaN when we use bfill. That's because it can not find a value to backfill with for this row! Using forward fill creates the same issue for the first row. For our use case, admittedly `bfill` and `ffill` probably are sub-optimal solutions. 
 
 Since we have some ratings data already for each movie, one approach would be to fill in the missing data with the mean rating for that movie from the valid data. 
 
@@ -199,14 +201,14 @@ Let's try that approach on a single column. For the movie Parasite, we fill in t
 ```{python}
 movie_ratings['Parasite'] = movie_ratings['Parasite']. \
   fillna(movie_ratings['Parasite'].mean())
-movie_ratings.head(11)
+movie_ratings.head(10)
 ```
 
 And we can extend that for all numeric columns at once! 
 
 ```{python}
 movie_ratings = movie_ratings.fillna(movie_ratings.mean(numeric_only=True))
-movie_ratings.head(11)
+movie_ratings.head(10)
 ```
 
 While far from perfect, now we have some filled in data that has some reasonable chance of adding value. 
@@ -239,26 +241,25 @@ Code you would write is below.
 
 ```{python}
 interpolate_temps = city_temps.interpolate()
-interpolate_temps.head(11)
+interpolate_temps.head(10)
 ```
 
 Here we can see how the values "smooth" out the data. Were we to go ahead and plot the data, it would make more sense. 
 
 :::
 
-Dealing with missing data is one normal task in cleaning, changing data content and structure is another, let's take a look at that next.  
+Dealing with missing data is one normal task in cleaning, changing data and header content is another, let's take a look at that next.  
 
 
 ## Modifying existing data
 
 
-Now let's grad a different dataset, this one is quite redacted version of the 2014 Mental Health in Tech Survey https://www.kaggle.com/datasets/osmi/mental-health-in-tech-survey.
+Now let's grad a different dataset, this one is quite redacted snip of the 2014 Mental Health in Tech Survey https://www.kaggle.com/datasets/osmi/mental-health-in-tech-survey.
 
 ```{python}
 techhealth = "https://raw.githubusercontent.com/bcgov/" \
         "ds-intro-to-python/main/data/techhealth.csv"
 m_health = pd.read_csv(techhealth)
-m_health.head()
 m_health.head()
 ```
 
@@ -289,6 +290,7 @@ A good practice, both in terms of ensuring a consistent convention for column na
 m_health.columns = m_health.columns.str.replace(' ', '_')
 m_health.columns = m_health.columns.str.lower()
 m_health.head(10)
+m_health.info()
 ```
 
 The other thing to notice that there are no missing values! So we can just concentrate on other cleaning tasks. 
@@ -297,13 +299,13 @@ The other thing to notice that there are no missing values! So we can just conce
 
 ### Ensuring the right datatypes
 
-Another good practice is to notice whether there are series in the dataframe that are improperly datatyped (that is, where the "Dtype" indicated does not correspond to the datatype that it should). 
+A good practice is to notice whether there are series in the dataframe that are improperly datatyped (that is, where the "Dtype" indicated does not correspond to the datatype that it should be). 
 
-Taking a look at the data, we notice that "Timestamp" is datatyped as an "object", which in this context means essentially like a "string". However, that is sub-optimal because the content is time-oriented, and by coding it as a string, we lose a lot of its value. If we identify datatype as a time oriented one, that can give us advantages downstream in being able to work with the data efficiently.  
+Taking a look at the data, we notice that "Timestamp" is datatyped as an "object", which in this context means a "string". However, that is sub-optimal because the content is time-oriented, and by coding it as an object/string, we limit a lot of its value. If we identify datatype as a time oriented one, that can give us advantages downstream in being able to work with the data more elegantly.  
 
 Pandas has functions specifically designed to cast datatypes from one to another, as was covered in the previous section with the `astype()` function.  
 
-To cast a variable as a datetime datatype, use the pandas `to_datetime()` function and pass in the pandas series you want to modify:
+To cast a variable as a datetime datatype, we can use the pandas `to_datetime()` function and pass in the pandas series you want to modify:
 
 ```{python}
 m_health['timestamp'] = pd.to_datetime(m_health['timestamp'])
@@ -311,7 +313,7 @@ m_health.head()
 m_health.info()
 ```
 
-Et voila! Were we wanting to leverage timestamp's date time qualities, we could now do so with minimum effort. 
+Et voila - timestamp is now of the datatime64 datatype! Were we wanting to leverage timestamp's date time qualities, we could now do so more easily. 
 
 
 ### Recoding values
@@ -359,22 +361,12 @@ m_health['self_employed'] = m_health['self_employed'] \
 m_health.head()
 ```
 
-Below are two more pandas functions that can be used to transform categorical variables:
-
-* `get_dummies()` converts categorical variable into dummy/indicator variables.
-
-* `factorize()` encodes the object as an enumerated type or categorical variable.
-
-And from the world of machine learning, specifically from the sci-kit learn library (sklearn), called `onehotencoder()`, which is also widely used. 
-
+Now we see that variable as a series of int-typed 0s and 1s.
 <br>
 
 :::{.callout-warning icon="false"}
 ## Challenge 2
-
 You would like to clean up the scale used in the question about whether one's mental illness affects one's work. 
-
-
 
 1. Find the column (pandas series) that needs to be transformed and transform its values using `replace()` with numerical values that make sense. 
 
@@ -406,6 +398,7 @@ Distribution of values looks good. Let's take a look at the datatypes for the da
 m_health.info()
 ```
 
+But it is still typed as an object. So change datatype to int. 
 
 ```{python}
 m_health['work_interfere'] = m_health['work_interfere'] \
