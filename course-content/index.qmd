@@ -1,16 +1,76 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+This is a repository to house materials for a 2 day course introducing participants to data science using Python.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+The goal of this workshop is to teach new-to-programming data professionals to import data, clean up and summarize a data set, and make some static data visualizations using Python. This is an introductory course to programming, specifically programming with Python. Python is a popular computer language for statistics and other scientific disciplines. It is commonly used for statistical analysis, machine-learning, generating high quality visualzations, and automating data workflows. 
 
-![The Messy Side of Data](images/introduction-to-python/reproducible.jpeg){width=300}
+The workshop content will follow best practices for Python for data analysis, giving attendees a foundation in the fundamentals of Python and scientific computing.
 
-<center>
-    <img src="images/introduction-to-python/reproducible.jpeg" height=300 style="margin:auto"/>
-    <p style="text-align: center">
-        The Messy Side of Data
-    </p>
-</center>
+## Who should take this course?
 
-This is a test for the gh action... please work.
+ * Anyone who works with data or who is interested in learning efficient ways to make meaning from data
+ * Anyone keen to learn a programming language (**no prior experience necessary!**)
+
+## Workshop Schedule
+
+### Daily Schedule
+
+| Activity      | Start Time | End Time |
+| ------------- | ---------- | -------- |
+| **Session 1** | 9:00       | 10:30    |
+| Break         | 10:30      | 10:45    |
+| **Session 2** | 10:45      | 12:00    |
+| Lunch         | 12:00      | 1:00     |
+| **Session 3** | 1:00       | 2:30     |
+| Break         | 2:30       | 2:45     |
+| **Session 4** | 2:45       | 4:30     |
+
+#### Pre-Course Work
+
+:::{.callout-important}
+## Important!
+
+Before the course starts, we ask that all attendees install Python and its associated packages required for data analysis! Instructions for how to do so are found on the [next page](00_introduction_to_python.qmd#before-starting). If anyone is having troubles getting Python up and running, please contact us **before** the course starts so that we can hit the ground running during the workshop. 
+:::
+
+#### Day 1
+
+ * Course Introduction (20 min)
+ * [Getting Up and Running](00_introduction_to_python.qmd) (60 min) (Lindsay)
+ * BREAK ☕
+ * [Working with Code](13_working_with_code.qmd) (90 min) (Stuart) 
+ * LUNCH 🍍
+ * [Core Data Structure Concepts](02_core_data_structure_concepts.qmd) (90 min) (Lindsay)
+ * BREAK 🍩
+ * [Getting Data](21_getting_data_with_pandas.qmd) (90 min) (Lindsay)
+
+#### Day 2
+
+ * Data Cleaning (90 min) (Stuart)
+ * BREAK ☕
+ * [Exploring Data with Pandas](31_exploring_data_structures.qmd) (90 min) (Stuart)
+ * LUNCH 🍍
+ * [Graphical Depictions of Data](32_graphical_depictions_of_data.qmd) (90 min) (Lindsay)
+ * BREAK 🍩
+ * Bonus Content: TBD (90 min) (TBD)
+    * [Fill in this poll to choose our final topic!](link-to-poll)
+
+## Acknowledgements    
+
+This course has been developed and is being given on the traditional territory of the lək̓ʷəŋən speaking peoples, today known as the Esquimalt and Songhees Nations. As this is a data oriented course, we encourage you to check out some of these resources to learn more about these lands, or the lands that you yourself live, work and play on:
+
+ * [First Nations in B.C.](https://www.bcafn.ca/first-nations-bc/interactive-map)
+ * [Global Territories Map](https://native-land.ca/)
+ * [More on the Songhees Nation](https://www.songheesnation.ca/community/l-k-ng-n-traditional-territory)
+
+Parts of the above lesson material are sourced or adapted from [Software Carpentry](https://software-carpentry.org/) python courses:
+
+ * [Plotting and Programming in Python](http://swcarpentry.github.io/python-novice-gapminder/), @SC1
+ * [Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/), @SC2
+
+Original Work Copyright © [Software Carpentry](http://software-carpentry.org/), content modified by the Province of British Columbia.
+
+This work is licensed under the Creative Commons Attribution 4.0 International License.
+To view a copy of this license, visit [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+
+[![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/). 
