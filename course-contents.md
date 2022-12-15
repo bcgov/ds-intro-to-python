@@ -80,9 +80,11 @@
 
 *Content:*
 
-4.1. Publishing/Reporting **(Lindsay)**
+4.1. Publishing/Reporting **(Lindsay)** 
 
 4.2. Fetching data from bcdata **(Lindsay)**
+
+4.3. Advanced Pandas **(Lindsay)**
 
 4.3. Machine Learning use cases – Scikit-learn **(Stu)**
 

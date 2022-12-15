@@ -7,6 +7,9 @@ name: Render and Publish
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    # defaults:
+    #  run:
+    #    shell: bash -l {0}
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -20,12 +23,25 @@ jobs:
           # version: 0.9.600
       
       # add software dependencies here
-      - name: Install dependencies
+      - name: Install python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           cache: 'pip'
+
+      - name: Install jupyter
+        run: pip install jupyter
+
+      - name: Install dependencies
         run: pip install -r requirements.txt
+
+      #- name: Install dependencies
+      #  uses: conda-incubator/setup-miniconda@v2
+      #  with:
+      #    python-version: 3.9
+      #    channels: defaults
+      #    activate-environment: ds-env
+      #    environment-file: environment.yml
 
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
