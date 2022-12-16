@@ -254,6 +254,7 @@ But wait, there's more! In VSCode we can run individual lines of code within a f
 
 Note the difference here. Instead of running the entire file, VSCode actually opened up a python window inside our terminal, and ran the single line of code, just like we did before. 
 
+### Challenge 1
 :::{.callout-warning icon="false"}
 ## Challenge 1
 
@@ -273,6 +274,7 @@ print("C'mon son! You know the best show is Psych!")
 Save the file, and again press <kbd>Shift</kbd>+<kbd>Enter</kbd> while on this line.
 :::
 
+### Challenge 2
 :::{.callout-warning icon="false"}
 ## Challenge 2
 
@@ -338,6 +340,7 @@ We will be using the JupyterLab interface quite a bit, so let's get used to the 
 
   Let's open up a notebook (click the `Python 3` icon underneath the Notebook heading). This will open up a new tab called `Untitled.ipynb`. 
 
+### Challenge 3
 :::{.callout-warning icon="false"}
 ## Challenge 3
 
