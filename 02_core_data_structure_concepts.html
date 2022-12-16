@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.280">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -1340,10 +1340,7 @@ Solution to Challenge 7
 <span id="cb77-16"><a href="#cb77-16" aria-hidden="true" tabindex="-1"></a>    pen <span class="op">=</span> pen.rjust(<span class="dv">9</span>, <span class="st">'0'</span>)</span>
 <span id="cb77-17"><a href="#cb77-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'This PEN is valid:'</span>, pen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>This PEN is valid:</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> 000123456</code></pre>
+<pre><code>This PEN is valid: 000123456</code></pre>
 </div>
 </div>
 </div>
@@ -1369,8 +1366,8 @@ Import Packages
 <div class="code-with-filename-file">
 <pre><strong>Anaconda Powershell Prompt</strong></pre>
 </div>
-<div class="sourceCode" id="cb80"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="ex">activate</span> ds-env</span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="fu">install</span> <span class="op">&lt;</span>package<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="ex">activate</span> ds-env</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="fu">install</span> <span class="op">&lt;</span>package<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -1389,10 +1386,10 @@ To Pip or not to Pip?
 <p>Okay great, we have all these awesome libraries that have been built out by others. How do we actually use them? In Python, it is actually fairly simple!</p>
 <p>Option 1: Use <code>import</code> to load an entire library module into a program’s memory. Refer to things from the module as <code>module_name.thing_name</code></p>
 <div class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a> <span class="im">import</span> math</span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a> <span class="bu">print</span>(<span class="st">'pi is'</span>, math.pi)</span>
-<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a> <span class="bu">print</span>(<span class="st">'cos(pi) is'</span>, math.cos(math.pi))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a> <span class="im">import</span> math</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a> <span class="bu">print</span>(<span class="st">'pi is'</span>, math.pi)</span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a> <span class="bu">print</span>(<span class="st">'cos(pi) is'</span>, math.cos(math.pi))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>pi is 3.141592653589793
 cos(pi) is -1.0</code></pre>
@@ -1400,18 +1397,18 @@ cos(pi) is -1.0</code></pre>
 </div>
 <p>Option 2: If we only need a specific function or tool from the library, use <code>from module import thing</code></p>
 <div class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> cos, pi</span>
-<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'cos(pi) is'</span>, cos(pi))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> cos, pi</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'cos(pi) is'</span>, cos(pi))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>cos(pi) is -1.0</code></pre>
 </div>
 </div>
 <p>Option 3: If we really do need the entire library, but we do not want to type the entire long name over and over, create an alias</p>
 <div class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math <span class="im">as</span> m</span>
-<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'cos(pi) is'</span>, m.cos(m.pi))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math <span class="im">as</span> m</span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'cos(pi) is'</span>, m.cos(m.pi))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>cos(pi) is -1.0</code></pre>
 </div>

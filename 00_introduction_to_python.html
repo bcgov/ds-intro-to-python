@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.280">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -400,7 +400,7 @@ Important
 </div>
 </div>
 <ul>
-<li>Anaconda/Miniconda is used to download, install, and organize both python and any packages/libraries we use within python. The actual program doing the organizing is <code>conda</code>, while we will use an <code>anaconda powershell</code> to do the installs and interface with python.</li>
+<li>Anaconda/Miniconda is used to download, install, and organize both python and any packages/libraries we use within python. The actual program doing the organizing is <code>conda</code>, while we will use an <code>anaconda prompt</code> (<strong>not</strong> the <code>anaconda powershell prompt</code>!) to do the installs and interface with python.</li>
 <li>VSCode is a tool used to write, edit and test code known as an IDE (Integrated Development Environment). It is available for more languages than just python, and its versatility has made it a widespread tool within the BCPS.</li>
 </ul>
 <section id="install-our-python-tools" class="level3">
@@ -424,24 +424,75 @@ Important
 <h3 class="anchored" data-anchor-id="install-some-python-packages">Install some Python Packages</h3>
 <p>Most of the time, when using python we are not using it by itself, but in conjunction with powerful libraries that have already been built to make our data analysis easier. In order to use these tools, we have to install them as well. Using a package manager such as <code>conda</code> makes our life much easier, as we can safely install tools into local environments where every library installed is checked for compatability with every other library. By utilizing the local conda environments, we maintain clean working spaces that can be easily reproduced between workstations.</p>
 <p>Let’s run through the basic steps of setting up a conda environment, installing python and some packages, and testing that it worked!</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Prompt not Powershell!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In order to get anaconda to play nicely with VS Code later, it is important that we do the following set of steps inside an <code>Anconda Prompt</code> and not the <code>Anaconda Powershell Prompt</code>! These are similar but not identical environments.</p>
+</div>
+</div>
 <ol type="1">
-<li>Open an <code>anaconda powershell prompt</code> from your search bar.</li>
+<li>Open an <code>anaconda prompt</code> from your search bar.</li>
 </ol>
 <center>
-<img src="images/introduction-to-python/anaconda_powershell_prompt.png" style="margin:auto">
+<img src="images/introduction-to-python/anaconda_prompt.png" style="margin:auto">
 <p style="text-align: center">
-Powershell Prompt
+Anaconda Prompt
 </p>
 </center>
 <ol start="2" type="1">
-<li>Inside the <code>anaconda powershell prompt</code>, create a new local conda environment named <code>ds-env</code> using the following commands (hit <kbd>Enter</kbd> or type <kbd>Y</kbd> and hit <kbd>Enter</kbd> when asked to proceed):</li>
+<li>Make sure that we have an appropriate version of <code>conda</code> installed. If this is already the installed version, great! If not, press <kbd>Enter</kbd> or type <kbd>Y</kbd> and hit <kbd>Enter</kbd> when asked to proceed (which will apply throughout all of these steps).</li>
 </ol>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>Anaconda Powershell Prompt</strong></pre>
+<pre><strong>Anaconda Prompt</strong></pre>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="ex">create</span> <span class="at">--name</span> ds-env</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="ex">activate</span> ds-env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="fu">install</span> conda=4.12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<center>
+<img src="images/introduction-to-python/update_conda.png" width="700" style="margin:auto">
+<p style="text-align: center">
+Setting the Conda Version
+</p>
+<br>
+</center>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Please update conda?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The command prompt might give instructions to update conda to a newer version at this point. <strong>Ignore this</strong>: as of right now the most recent version has an issue that is not worth working around!</p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>To make conda play nicely with VSCode later on, type the following command in the prompt window as well:</li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Anaconda Prompt</strong></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="ex">init</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Inside the <code>anaconda prompt</code>, create a new local conda environment named <code>ds-env</code> using the following commands:</li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Anaconda Prompt</strong></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="ex">create</span> <span class="at">--name</span> ds-env</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="ex">activate</span> ds-env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <center>
 <img src="images/introduction-to-python/create_env.png" width="100%" style="margin:auto">
@@ -451,22 +502,22 @@ Creating a Conda Environment
 <br>
 </center>
 <p>You should notice that running this second command switches the name in brackets at the beginning of your prompt from <code>(base)</code> to <code>(ds-env)</code>. This means we have successfully created a new, empty environment to work in.</p>
-<ol start="3" type="1">
-<li>Install <code>python</code> and some useful datascience packages by typing the following commands into the same powershell prompt window:</li>
+<ol start="5" type="1">
+<li>Install <code>python</code> and some useful datascience packages by typing the following commands into the same prompt window:</li>
 </ol>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>Anaconda Powershell Prompt</strong></pre>
+<pre><strong>Anaconda Prompt</strong></pre>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="fu">install</span> python=3.9</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="fu">install</span> notebook jupyterlab ipywidgets matplotlib seaborn numpy scikit-learn pandas openpyxl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="fu">install</span> python=3.9</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="fu">install</span> notebook jupyterlab ipywidgets matplotlib seaborn numpy scikit-learn pandas openpyxl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="4" type="1">
-<li>Make sure that <code>python</code> installed successfully. From the same <code>anaconda powershell prompt</code>, simply type <code>python</code>. If this causes no error, success! Try typing this command in the python environment that started to make sure the packages installed as well:</li>
+<ol start="6" type="1">
+<li>Make sure that <code>python</code> installed successfully. From the same <code>anaconda prompt</code>, simply type <code>python</code>. If this causes no error, success! Try typing this command in the python environment that started to make sure the packages installed as well:</li>
 </ol>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pandas.__version__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pandas.__version__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <center>
 <img src="images/introduction-to-python/check_python.png" width="100%" style="margin:auto">
@@ -567,7 +618,7 @@ Conda Environments
 <h3 class="anchored" data-anchor-id="from-the-command-lineterminal">From the command line/terminal</h3>
 <p>Let’s start with an easy one. To start a python session from a terminal, simply type <code>python</code> at the command line, and the terminal will automatically open a python interface. You will know you are inside the python interface if your command lines now start with <code>&gt;&gt;&gt;</code>. Now, let’s do the classic <code>Hello World</code> command for python:</p>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello World!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello World!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello World!</code></pre>
 </div>
@@ -581,8 +632,8 @@ Conda Environments
 <div class="code-with-filename-file">
 <pre><strong>hello_world.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World!"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Otters are the best animal."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World!"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Otters are the best animal."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To run this code, first save the file, and then simply click the play button (triangle in the top right!). Note that this will display an output in a terminal at the bottom of VSCode. VSCode takes the python file you told it to run, and will run every line of code individually. Thus, we get two lines of output for the two print statements.</p>
 <p>But wait, there’s more! In VSCode we can run individual lines of code within a file as well. Simply move your cursor to the line you wish to run, and hit <kbd>Shift</kbd>+<kbd>Enter</kbd>.</p>
@@ -601,7 +652,7 @@ Challenge 1
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -610,11 +661,11 @@ Solution to Challenge 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Press <kbd>Shift</kbd>+<kbd>Enter</kbd> while the cursor is on the other line of code.</p>
 <p>Add a line of code such as:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"C'mon son! You know the best show is Psych!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"C'mon son! You know the best show is Psych!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Save the file, and again press <kbd>Shift</kbd>+<kbd>Enter</kbd> while on this line.</p>
 </div>
 </div>
@@ -633,7 +684,7 @@ Challenge 2
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -642,7 +693,7 @@ Solution to Challenge 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>An error will occur in the terminal.</p>
 <p>This is because VSCode tried to run the entire program again, but from inside an already open python program (which we opened when we ran a single line using the <kbd>Shift</kbd>+<kbd>Enter</kbd> method).</p>
@@ -673,7 +724,7 @@ Conda Reminder!
 <div class="code-with-filename-file">
 <pre><strong>terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> jupyter <span class="ex">lab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> jupyter <span class="ex">lab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This should open up a screen that looks something like this:</p>
 <center>
@@ -723,7 +774,7 @@ Challenge 3
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -732,7 +783,7 @@ Solution to Challenge 3
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>On either the tab to the top, or the filename that popped up on the left panel, right click the file <code>Untitled.ipynb</code> and click <code>Rename notebook...</code>. Enter your new name here.</p>
 </div>
@@ -753,7 +804,7 @@ Challenge 4
 </div>
 </div>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -762,10 +813,10 @@ Solution to Challenge 4
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Inside the blue box, write the python code:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello World!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello World!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>While still on this cell (highlighted in blue), press <kbd>Shift</kbd>+<kbd>Enter</kbd>. We should see the output directly below!</p>
 </div>
 </div>
