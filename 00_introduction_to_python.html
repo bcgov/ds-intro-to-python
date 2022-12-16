@@ -174,7 +174,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-get-and-clean-data">    
         <li>
-    <a class="dropdown-item" href="./21_getting_data_with_pandas.html">
+    <a class="dropdown-item" href="./11_getting_data_with_pandas.html">
  <span class="dropdown-text">Getting Data With Pandas</span></a>
   </li>  
     </ul>
@@ -185,11 +185,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-understand-and-analyze-data">    
         <li>
-    <a class="dropdown-item" href="./31_exploring_data_structures.html">
+    <a class="dropdown-item" href="./21_exploring_data_structures.html">
  <span class="dropdown-text">Exploring Data Structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./32_graphical_depictions_of_data.html">
+    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html">
  <span class="dropdown-text">Graphical Depictions of Data</span></a>
   </li>  
     </ul>
@@ -202,6 +202,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li>
     <a class="dropdown-item" href="./30_bcdata.html">
  <span class="dropdown-text">bcdata package</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./31_advanced_pandas.html">
+ <span class="dropdown-text">Advanced Pandas</span></a>
   </li>  
     </ul>
   </li>
@@ -290,22 +294,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
+  <a href="./11_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_exploring_data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
+  <a href="./21_exploring_data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
+  <a href="./22_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -334,7 +343,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#step-0" id="toc-step-0" class="nav-link" data-scroll-target="#step-0">Step 0</a></li>
   <li><a href="#from-the-command-lineterminal" id="toc-from-the-command-lineterminal" class="nav-link" data-scroll-target="#from-the-command-lineterminal">From the command line/terminal</a></li>
   <li><a href="#from-a-file-in-vscode" id="toc-from-a-file-in-vscode" class="nav-link" data-scroll-target="#from-a-file-in-vscode">From a file (in VSCode)</a></li>
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
+  <li><a href="#challenge-2" id="toc-challenge-2" class="nav-link" data-scroll-target="#challenge-2">Challenge 2</a></li>
   <li><a href="#from-jupyterlab" id="toc-from-jupyterlab" class="nav-link" data-scroll-target="#from-jupyterlab">From JupyterLab</a></li>
+  <li><a href="#challenge-3" id="toc-challenge-3" class="nav-link" data-scroll-target="#challenge-3">Challenge 3</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/00_introduction_to_python.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/00_introduction_to_python.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -638,6 +650,9 @@ Conda Environments
 <p>To run this code, first save the file, and then simply click the play button (triangle in the top right!). Note that this will display an output in a terminal at the bottom of VSCode. VSCode takes the python file you told it to run, and will run every line of code individually. Thus, we get two lines of output for the two print statements.</p>
 <p>But wait, there’s more! In VSCode we can run individual lines of code within a file as well. Simply move your cursor to the line you wish to run, and hit <kbd>Shift</kbd>+<kbd>Enter</kbd>.</p>
 <p>Note the difference here. Instead of running the entire file, VSCode actually opened up a python window inside our terminal, and ran the single line of code, just like we did before.</p>
+</section>
+<section id="challenge-1" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-1">Challenge 1</h3>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -670,6 +685,9 @@ Solution to Challenge 1
 </div>
 </div>
 </div>
+</section>
+<section id="challenge-2" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-2">Challenge 2</h3>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -760,6 +778,9 @@ Fun Fact
 <li>Plotting the number with other numbers, and then looking at all of those numbers.</li>
 </ul>
 <p>Let’s open up a notebook (click the <code>Python 3</code> icon underneath the Notebook heading). This will open up a new tab called <code>Untitled.ipynb</code>.</p>
+</section>
+<section id="challenge-3" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-3">Challenge 3</h3>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

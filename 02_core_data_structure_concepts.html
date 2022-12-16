@@ -174,7 +174,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-get-and-clean-data">    
         <li>
-    <a class="dropdown-item" href="./21_getting_data_with_pandas.html">
+    <a class="dropdown-item" href="./11_getting_data_with_pandas.html">
  <span class="dropdown-text">Getting Data With Pandas</span></a>
   </li>  
     </ul>
@@ -185,11 +185,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-understand-and-analyze-data">    
         <li>
-    <a class="dropdown-item" href="./31_exploring_data_structures.html">
+    <a class="dropdown-item" href="./21_exploring_data_structures.html">
  <span class="dropdown-text">Exploring Data Structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./32_graphical_depictions_of_data.html">
+    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html">
  <span class="dropdown-text">Graphical Depictions of Data</span></a>
   </li>  
     </ul>
@@ -202,6 +202,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li>
     <a class="dropdown-item" href="./30_bcdata.html">
  <span class="dropdown-text">bcdata package</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./31_advanced_pandas.html">
+ <span class="dropdown-text">Advanced Pandas</span></a>
   </li>  
     </ul>
   </li>
@@ -290,22 +294,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
+  <a href="./11_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_exploring_data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
+  <a href="./21_exploring_data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
+  <a href="./22_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -322,20 +331,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#variables-assignment" id="toc-variables-assignment" class="nav-link active" data-scroll-target="#variables-assignment"><span class="toc-section-number">2.1</span>  Variables &amp; Assignment</a></li>
+  <li><a href="#variables-assignment" id="toc-variables-assignment" class="nav-link active" data-scroll-target="#variables-assignment"><span class="toc-section-number">2.1</span>  Variables &amp; Assignment</a>
+  <ul>
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
+  <li><a href="#challenge-2" id="toc-challenge-2" class="nav-link" data-scroll-target="#challenge-2">Challenge 2</a></li>
+  </ul></li>
   <li><a href="#lists-indexing" id="toc-lists-indexing" class="nav-link" data-scroll-target="#lists-indexing"><span class="toc-section-number">2.2</span>  Lists &amp; Indexing</a>
   <ul>
   <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a></li>
   <li><a href="#indexing" id="toc-indexing" class="nav-link" data-scroll-target="#indexing">Indexing</a></li>
+  <li><a href="#challenge-3" id="toc-challenge-3" class="nav-link" data-scroll-target="#challenge-3">Challenge 3</a></li>
   <li><a href="#dictionaries" id="toc-dictionaries" class="nav-link" data-scroll-target="#dictionaries">Dictionaries</a></li>
   </ul></li>
   <li><a href="#data-types-operations" id="toc-data-types-operations" class="nav-link" data-scroll-target="#data-types-operations"><span class="toc-section-number">2.3</span>  Data Types &amp; Operations</a>
   <ul>
   <li><a href="#basic-arithmetic" id="toc-basic-arithmetic" class="nav-link" data-scroll-target="#basic-arithmetic">Basic Arithmetic</a></li>
   <li><a href="#built-in-functions" id="toc-built-in-functions" class="nav-link" data-scroll-target="#built-in-functions">Built in Functions</a></li>
+  <li><a href="#challenge-4" id="toc-challenge-4" class="nav-link" data-scroll-target="#challenge-4">Challenge 4</a></li>
   <li><a href="#a-quick-intro-to-boolean-logic" id="toc-a-quick-intro-to-boolean-logic" class="nav-link" data-scroll-target="#a-quick-intro-to-boolean-logic">A Quick Intro to Boolean Logic</a></li>
+  <li><a href="#challenge-5" id="toc-challenge-5" class="nav-link" data-scroll-target="#challenge-5">Challenge 5</a></li>
   </ul></li>
-  <li><a href="#methods-chaining" id="toc-methods-chaining" class="nav-link" data-scroll-target="#methods-chaining"><span class="toc-section-number">2.4</span>  Methods &amp; Chaining</a></li>
+  <li><a href="#methods-chaining" id="toc-methods-chaining" class="nav-link" data-scroll-target="#methods-chaining"><span class="toc-section-number">2.4</span>  Methods &amp; Chaining</a>
+  <ul>
+  <li><a href="#challenge-6" id="toc-challenge-6" class="nav-link" data-scroll-target="#challenge-6">Challenge 6</a></li>
+  <li><a href="#challenge-7" id="toc-challenge-7" class="nav-link" data-scroll-target="#challenge-7">Challenge 7</a></li>
+  </ul></li>
   <li><a href="#accessing-other-packages" id="toc-accessing-other-packages" class="nav-link" data-scroll-target="#accessing-other-packages"><span class="toc-section-number">2.5</span>  Accessing Other Packages</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/02_core_data_structure_concepts.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/02_core_data_structure_concepts.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -392,6 +412,8 @@ Adding tools to our Python toolkit
 <pre><code>Loki is 1054 Earth years old.</code></pre>
 </div>
 </div>
+<section id="challenge-1" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-1">Challenge 1</h3>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -439,6 +461,9 @@ Solution to Challenge 1
 </div>
 </div>
 </div>
+</section>
+<section id="challenge-2" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-2">Challenge 2</h3>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -566,6 +591,7 @@ Jupyter Notebooks: Order of Execution
 </div>
 </div>
 </section>
+</section>
 <section id="lists-indexing" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="lists-indexing"><span class="header-section-number">2.2</span> Lists &amp; Indexing</h2>
 <center>
@@ -688,6 +714,9 @@ Just 1 and 4: [1, 4]
 Reversed:  [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]</code></pre>
 </div>
 </div>
+</section>
+<section id="challenge-3" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-3">Challenge 3</h3>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -932,6 +961,9 @@ c</code></pre>
 </div>
 </div>
 <p>While others have default values that do not need to be provided at all.</p>
+</section>
+<section id="challenge-4" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-4">Challenge 4</h3>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1101,6 +1133,9 @@ Multiple Conditions Cause Confusion
 <p>Just like with arithmetic, you can and should use parentheses whenever there is possible ambiguity. A good general rule is to always use parentheses when mixing <code>and</code> and <code>or</code> in the same condition.</p>
 </div>
 </div>
+</section>
+<section id="challenge-5" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-5">Challenge 5</h3>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1239,6 +1274,8 @@ METER MIMER MICKED A MECK OF MICKLED MEMMERS
 METER MIMER MICKED A MECK OF MICKLED MEMMERS</code></pre>
 </div>
 </div>
+<section id="challenge-6" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-6">Challenge 6</h3>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1284,6 +1321,9 @@ Solution to Challenge 6
 </div>
 </div>
 </div>
+</section>
+<section id="challenge-7" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-7">Challenge 7</h3>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1346,6 +1386,7 @@ Solution to Challenge 7
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="accessing-other-packages" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="accessing-other-packages"><span class="header-section-number">2.5</span> Accessing Other Packages</h2>

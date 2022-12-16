@@ -93,8 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./32_graphical_depictions_of_data.html" rel="prev">
+<link href="./31_advanced_pandas.html" rel="next">
+<link href="./22_graphical_depictions_of_data.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -177,7 +177,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-get-and-clean-data">    
         <li>
-    <a class="dropdown-item" href="./21_getting_data_with_pandas.html">
+    <a class="dropdown-item" href="./11_getting_data_with_pandas.html">
  <span class="dropdown-text">Getting Data With Pandas</span></a>
   </li>  
     </ul>
@@ -188,11 +188,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-understand-and-analyze-data">    
         <li>
-    <a class="dropdown-item" href="./31_exploring_data_structures.html">
+    <a class="dropdown-item" href="./21_exploring_data_structures.html">
  <span class="dropdown-text">Exploring Data Structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./32_graphical_depictions_of_data.html">
+    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html">
  <span class="dropdown-text">Graphical Depictions of Data</span></a>
   </li>  
     </ul>
@@ -205,6 +205,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li>
     <a class="dropdown-item" href="./30_bcdata.html">
  <span class="dropdown-text">bcdata package</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./31_advanced_pandas.html">
+ <span class="dropdown-text">Advanced Pandas</span></a>
   </li>  
     </ul>
   </li>
@@ -293,22 +297,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
+  <a href="./11_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_exploring_data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
+  <a href="./21_exploring_data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
+  <a href="./22_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_bcdata.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -330,6 +339,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#introduction-to-the-catalogue" id="toc-introduction-to-the-catalogue" class="nav-link" data-scroll-target="#introduction-to-the-catalogue">Introduction to the Catalogue</a></li>
   <li><a href="#getting-the-data-into-python" id="toc-getting-the-data-into-python" class="nav-link" data-scroll-target="#getting-the-data-into-python">Getting the Data into Python</a></li>
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
   <li><a href="#pre-filtering-the-data" id="toc-pre-filtering-the-data" class="nav-link" data-scroll-target="#pre-filtering-the-data">Pre-Filtering the Data</a></li>
   </ul></li>
   <li><a href="#geospatial-plots" id="toc-geospatial-plots" class="nav-link" data-scroll-target="#geospatial-plots"><span class="toc-section-number">7.3</span>  Geospatial Plots</a></li>
@@ -591,6 +601,9 @@ Geographic Download Options
 <p><br></p>
 <p>Success! We have our data. Notice, in particular that we have a column called <code>geometry</code>. This is a special column for spatial datasets that will hold different types of geography depending on what the dataset is. In this case, we have specific locations of hospitals, so the geometry is a list of point objects that contain latitude/longitude coordinates.</p>
 <p>Let’s try a different dataset that will give us <em>area</em> geometries. Area geometries will show up as ‘(multi)polygons’ in the datset, meaning that they are a list of points that define the boundary of some area. This could be school district boundaries, health authority areas, or any other region we might be interested in. For fun, let’s look at the <a href="https://catalogue.data.gov.bc.ca/dataset/bc-wildfire-fire-zones">B.C. Wildfire Fire Zones</a>.</p>
+</section>
+<section id="challenge-1" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-1">Challenge 1</h3>
 <div class="callout-warning callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1273,13 +1286,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./32_graphical_depictions_of_data.html" class="pagination-link">
+      <a href="./22_graphical_depictions_of_data.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./31_advanced_pandas.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
