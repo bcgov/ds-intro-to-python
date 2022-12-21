@@ -28,6 +28,7 @@ book:
     - 22_graphical_depictions_of_data.qmd
     - 30_bcdata.qmd
     - 31_advanced_pandas.qmd
+    - 32_create_reports.qmd
     - references.qmd
 
   sidebar:
@@ -66,6 +67,8 @@ book:
             href: 30_bcdata.qmd
           - text: "Advanced Pandas"
             href: 31_advanced_pandas.qmd
+          - text: "Creating Reports"
+            href: 32_create_reports.qmd
       - text: "References"
         href: references.qmd
     right:
