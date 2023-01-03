@@ -44,7 +44,7 @@ So that we can hit the ground running with this workshop, we are asking that eve
 If you are having issues installing anything we have requested prior to the start of the workshop, please let us know so we can work with you so that we can hit the ground running!
 :::
 
-   * Anaconda/Miniconda is used to download, install, and organize both python and any packages/libraries we use within python. The actual program doing the organizing is `conda`, while we will use an `anaconda powershell` to do the installs and interface with python. 
+   * Anaconda/Miniconda is used to download, install, and organize both python and any packages/libraries we use within python. The actual program doing the organizing is `conda`, while we will use an `anaconda prompt` (**not** the `anaconda powershell prompt`!) to do the installs and interface with python. 
    * VSCode is a tool used to write, edit and test code known as an IDE (Integrated Development Environment). It is available for more languages than just python, and its versatility has made it a widespread tool within the BCPS. 
 
 ### Install our Python Tools
@@ -69,18 +69,50 @@ Most of the time, when using python we are not using it by itself, but in conjun
 
 Let's run through the basic steps of setting up a conda environment, installing python and some packages, and testing that it worked! 
 
-1. Open an `anaconda powershell prompt` from your search bar. 
+:::{.callout-tip}
+## Prompt not Powershell!
+
+In order to get anaconda to play nicely with VS Code later, it is important that we do the following set of steps inside an `Anconda Prompt` and not the `Anaconda Powershell Prompt`! These are similar but not identical environments. 
+:::
+
+1. Open an `anaconda prompt` from your search bar. 
 
 <center>
-    <img src="images/introduction-to-python/anaconda_powershell_prompt.png" style="margin:auto"/>
+    <img src="images/introduction-to-python/anaconda_prompt.png" style="margin:auto"/>
     <p style="text-align: center">
-        Powershell Prompt
+        Anaconda Prompt
     </p>
 </center>
 
-2. Inside the `anaconda powershell prompt`, create a new local conda environment named `ds-env` using the following commands (hit <kbd>Enter</kbd> or type <kbd>Y</kbd> and hit <kbd>Enter</kbd> when asked to proceed):
+2. Make sure that we have an appropriate version of `conda` installed. If this is already the installed version, great! If not, press <kbd>Enter</kbd> or type <kbd>Y</kbd> and hit <kbd>Enter</kbd> when asked to proceed (which will apply throughout all of these steps). 
 
-```{.bash filename='Anaconda Powershell Prompt'}
+```{.bash filename='Anaconda Prompt'}
+> conda install conda=4.12
+```
+
+<center>
+    <img src="images/introduction-to-python/update_conda.png" width=700 style="margin:auto"/>
+    <p style="text-align: center">
+        Setting the Conda Version
+    </p>
+    <br/>
+</center>
+
+:::callout-important
+## Please update conda?
+
+The command prompt might give instructions to update conda to a newer version at this point. **Ignore this**: as of right now the most recent version has an issue that is not worth working around! 
+:::
+
+3. To make conda play nicely with VSCode later on, type the following command in the prompt window as well:
+
+```{.bash filename='Anaconda Prompt'}
+> conda init
+```
+
+4. Inside the `anaconda prompt`, create a new local conda environment named `ds-env` using the following commands:
+
+```{.bash filename='Anaconda Prompt'}
 > conda create --name ds-env
 > conda activate ds-env
 ```
@@ -95,14 +127,14 @@ Let's run through the basic steps of setting up a conda environment, installing 
     
 You should notice that running this second command switches the name in brackets at the beginning of your prompt from `(base)` to `(ds-env)`. This means we have successfully created a new, empty environment to work in. 
 
-3. Install `python` and some useful datascience packages by typing the following commands into the same powershell prompt window:
+5. Install `python` and some useful datascience packages by typing the following commands into the same prompt window:
 
-```{.bash filename='Anaconda Powershell Prompt'}
+```{.bash filename='Anaconda Prompt'}
 > conda install python=3.9
 > conda install notebook jupyterlab ipywidgets matplotlib seaborn numpy scikit-learn pandas openpyxl
 ```
-    
-4. Make sure that `python` installed successfully. From the same `anaconda powershell prompt`, simply type `python`. If this causes no error, success! Try typing this command in the python environment that started to make sure the packages installed as well: 
+
+6. Make sure that `python` installed successfully. From the same `anaconda prompt`, simply type `python`. If this causes no error, success! Try typing this command in the python environment that started to make sure the packages installed as well: 
 
 ```{python}
 #| output: false
@@ -222,6 +254,7 @@ But wait, there's more! In VSCode we can run individual lines of code within a f
 
 Note the difference here. Instead of running the entire file, VSCode actually opened up a python window inside our terminal, and ran the single line of code, just like we did before. 
 
+### Challenge 1
 :::{.callout-warning icon="false"}
 ## Challenge 1
 
@@ -241,6 +274,7 @@ print("C'mon son! You know the best show is Psych!")
 Save the file, and again press <kbd>Shift</kbd>+<kbd>Enter</kbd> while on this line.
 :::
 
+### Challenge 2
 :::{.callout-warning icon="false"}
 ## Challenge 2
 
@@ -306,6 +340,7 @@ We will be using the JupyterLab interface quite a bit, so let's get used to the 
 
   Let's open up a notebook (click the `Python 3` icon underneath the Notebook heading). This will open up a new tab called `Untitled.ipynb`. 
 
+### Challenge 3
 :::{.callout-warning icon="false"}
 ## Challenge 3
 
