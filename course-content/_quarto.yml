@@ -21,11 +21,16 @@ book:
   chapters:
     - index.qmd
     - 00_introduction_to_python.qmd
-    - 02_core_data_structure_concepts.qmd
     - 13_working_with_code.qmd 
+    - 02_core_data_structure_concepts.qmd
     - 11_getting_data_with_pandas.qmd
+    - 22_cleaning_it_up.qmd
+    
+    
     - 21_exploring_data_structures.qmd
     - 22_graphical_depictions_of_data.qmd
+    
+    
     - 30_bcdata.qmd
     - 31_advanced_pandas.qmd
     - 32_create_reports.qmd
@@ -47,20 +52,22 @@ book:
         menu:
           - text: Getting Up and Running
             href: 00_introduction_to_python.qmd
-          - text: Core Concepts
-            href: 02_core_data_structure_concepts.qmd
           - text: Working with Code
             href: 13_working_with_code.qmd
+          - text: Core Concepts
+            href: 02_core_data_structure_concepts.qmd
       - text: "Get and Clean Data"
-        menu:
-          - text: Getting Data With Pandas
+        menu:    
+          - text: Getting Data with Pandas
             href: 11_getting_data_with_pandas.qmd
+          - text: Cleaning Data with Pandas
+            href: 22_cleaning_it_up.qmd
       - text: "Understand and Analyze Data"
         menu:
-          - text: "Exploring Data Structures"
+          - text: Exploring Data Structures
             href: 21_exploring_data_structures.qmd
-          - text: "Graphical Depictions of Data"
-            href: 22_graphical_depictions_of_data.qmd
+          - text: Graphical Depictions of Data
+            href: 22_graphical_depictions_of_data.qmd      
       - text: "Advanced Topics"
         menu:
           - text: "bcdata package"
@@ -81,8 +88,8 @@ book:
     center: 
       - text: "License"
         href: license.qmd
-      - text: "R Course"
-        href: https://bcgov.github.io/ds-intro-to-r-2-day/index.html
+      - text: "Python for Data Science Course"
+        href: https://bcgov.github.io/ds-intro-to-python/index.html
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
 
