@@ -46,9 +46,9 @@ Before the course starts, we ask that all attendees install Python and its assoc
 
 #### Day 2
 
- * Data Cleaning (90 min) (Stuart)
+ * [Data Cleaning](22_cleaning_it_up.qmd) (90 min) (Stuart)
  * BREAK ☕
- * [Exploring Data with Pandas](31_exploring_data_structures.qmd) (90 min) (Stuart)
+ * [Exploring Data with Pandas](21_exploring_data_structures.qmd) (90 min) (Stuart)
  * LUNCH 🍍
  * [Graphical Depictions of Data](22_graphical_depictions_of_data.qmd) (90 min) (Lindsay)
  * BREAK 🍩

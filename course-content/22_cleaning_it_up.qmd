@@ -315,6 +315,7 @@ m_health.info()
 Et voila - timestamp is now of the datatime64 datatype! Were we wanting to leverage timestamp's date time qualities, we could now do so more easily. It should be added, that this example works well because the existing data is nicely formatted to be understood as data/time datatype data.  In the real world, if the timestamp column has different date types, or isn't actually a date column at all, the method raises exceptions that you will have to work through. For example, look at what happens if we try to force a different variable into a data/time data type:
 
 ```{python}
+#| error: true
 m_health['tech_company'] = pd.to_datetime(m_health['tech_company'])
 m_health.head()
 m_health.info()
