@@ -17,7 +17,7 @@ jupyter: python3
 
 Imagine you have finally gotten that dataset that you need to work with to answer those questions you've been asked to clear up. But wait! Before you get started in earnest working away with generating insights, it is important that you take a closer look at the "quality" of the data. 
 
-There is much to look and and consider when it comes to the topic of data cleaning. You probably have heard it said that 80% (or some high percentage) of a data scientist's time is spent cleaning data, that is, putting it in a form that will better suit its downstream uses.  
+There is much to look at and consider when it comes to the topic of data cleaning. You probably have heard it said that 80% (or some high percentage) of a data scientist's time is spent cleaning data, that is, putting it in a form that will better suit its downstream uses.  
 
 Not surprisingly, data cleaning is a topic difficult to cover systematically in an introductory course. 
 
@@ -43,15 +43,14 @@ One of the most common issues in data cleaning has to do with data that is missi
 The best way to learn about these concepts is to see them in action with real (or real-ish) data! Before we get started with fetching the data, let's go ahead and get pandas for today's session. 
 
 ```{python}
-##import pandas
+# import pandas
 import pandas as pd 
 ```
 
-Now, imagine we had out own online streaming service. We have access to some data that will help us predict what our users would like to see. To fetch it, run the code below:
+Now, imagine we had our own online streaming service. We have access to some data that will help us predict what our users would like to see. To fetch it, run the code below:
 
 ```{python}
 # import data
-
 mr = "https://raw.githubusercontent.com/bcgov/" \
         "ds-intro-to-python/main/data/movieratings.csv"
 movie_ratings = pd.read_csv(mr)
@@ -74,7 +73,7 @@ Below we apply it to the entire dataframe to get a cell by cell view of whether 
 movie_ratings.isna()
 ```
 
-It is probably helpful to note there is a similar function called `isnull()` that is simply the mask of `isna()`. You may run into both, and both will return the same results. There is also a `notnull()` function, which is inverse function of `isnull()`, returning True for values that are not NA. And to round things out, `isna()` also has a companinion inverse function called `notna()`. For simplicity, let's just stick with `isna()` in this tutorial.
+It is probably helpful to note there is a similar function called `isnull()` that is an alias for `isna()`. You may run into both, and both will return the same results. There is also a `notna()`(`notnull()`) function, which is the inverse function of `isna()`(`isnull()`), returning True for values that are not NA. For simplicity, let's just stick with `isna()` in this tutorial.
 
 To get a better summary overview (i.e. one that summarizes with numbers) of how many missing values there are per column, then we need to chain togther a `.sum()` function to the line of code like so:  
 
@@ -313,12 +312,20 @@ m_health.head()
 m_health.info()
 ```
 
-Et voila - timestamp is now of the datatime64 datatype! Were we wanting to leverage timestamp's date time qualities, we could now do so more easily. 
+Et voila - timestamp is now of the datatime64 datatype! Were we wanting to leverage timestamp's date time qualities, we could now do so more easily. It should be added, that this example works well because the existing data is nicely formatted to be understood as data/time datatype data.  In the real world, if the timestamp column has different date types, or isn't actually a date column at all, the method raises exceptions that you will have to work through. For example, look at what happens if we try to force a different variable into a data/time data type:
+
+```{python}
+m_health['tech_company'] = pd.to_datetime(m_health['tech_company'])
+m_health.head()
+m_health.info()
+```
+
+The error let's us know that this data typing conversion will not work as coded. 
 
 
 ### Recoding values
 
-Value recoding is a data cleaning task is to put these values into more manageable categories. This is a common data recoding task that most data analyst type folks will be familiar with. Pandas alone has many functions that solve recoding issues in different ways. We will just highlight a few in this tutorial.  
+Value recoding is a data cleaning task to put the column values into more manageable categories. This is a common data recoding task that most data analyst type folks will be familiar with. Pandas alone has many functions that solve recoding issues in different ways. We will just highlight a few in this tutorial.  
 
 With this dataset we've called there are a few columns that we would like to make changes to so that it will be easier to analyze the data in the way we want. The `value_counts()` method shows the range of responses and their frequency in the dataframe. 
 
@@ -342,7 +349,7 @@ Another task is to put categorical objects into a form that is more amenable to 
 m_health['self_employed'].value_counts()
 ```
 
-If we want to leverage this data purely as a segment to split other metrics with, we would probably leave as is. But perhaps we would like to treat it as a dummy variable also so we can do more sophisticated math with it. 
+If we want to leverage this data purely as a segment to split other metrics with, we would probably leave as is. But perhaps we would like to treat it as a dummy variable so we can do more sophisticated math with it. 
 
 For our self-employed variable, we begin by implementing `replace()` to transform the existing content to numbers as shown below:
 
@@ -353,7 +360,7 @@ m_health['self_employed'].replace(['No'], '0', inplace=True)
 m_health['self_employed'].value_counts()
 ```
 
-The pandas `astype()` function is able to interpret the 1s and 0s as integers and transform the series into an `int` datatype.
+The pandas `astype()` function is able to interpret the 1s and 0s as integers and so we can transform the series into an `int` datatype.
 
 ```{python}
 m_health['self_employed'] = m_health['self_employed'] \
@@ -382,7 +389,7 @@ First, find the distribution of cases per value label:
 m_health['work_interfere'].value_counts()
 ```
 
-Then show how to use replace:
+Then show how to use replace to transform the scale into a numeric one:
 
 ```{python}
 m_health['work_interfere'].replace(['Never'], '0', inplace=True)
@@ -406,5 +413,10 @@ m_health['work_interfere'] = m_health['work_interfere'] \
 m_health.info()
 ```
 
+Finally, show the dataframe itself.
+
+```{python}
+m_health
+```
 
 :::
