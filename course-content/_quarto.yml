@@ -24,6 +24,7 @@ book:
     - 02_core_data_structure_concepts.qmd
     - 13_working_with_code.qmd 
     - 21_getting_data_with_pandas.qmd
+    - 22_cleaning_it_up.qmd
     - 31_exploring_data_structures.qmd
     - 32_graphical_depictions_of_data.qmd
     - 30_bcdata.qmd
@@ -53,6 +54,8 @@ book:
         menu:
           - text: Getting Data With Pandas
             href: 21_getting_data_with_pandas.qmd
+          - text: Cleaning Data with Pandas
+            href: 22_cleaning_it_up.qmd
       - text: "Understand and Analyze Data"
         menu:
           - text: "Exploring Data Structures"
