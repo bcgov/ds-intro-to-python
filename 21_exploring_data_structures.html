@@ -8,7 +8,7 @@
 
 <meta name="author" content="Stuart Hemerling">
 
-<title>Introduction to Data Science using Python - 5&nbsp; Exploring Data Structures</title>
+<title>Introduction to Data Science using Python - 6&nbsp; Exploring Data Structures</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,7 +95,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./22_graphical_depictions_of_data.html" rel="next">
-<link href="./11_getting_data_with_pandas.html" rel="prev">
+<link href="./22_cleaning_it_up.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -163,12 +163,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="dropdown-text">Getting Up and Running</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./02_core_data_structure_concepts.html">
- <span class="dropdown-text">Core Concepts</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./13_working_with_code.html">
  <span class="dropdown-text">Working with Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./02_core_data_structure_concepts.html">
+ <span class="dropdown-text">Core Concepts</span></a>
   </li>  
     </ul>
   </li>
@@ -179,7 +179,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul class="dropdown-menu" aria-labelledby="nav-menu-get-and-clean-data">    
         <li>
     <a class="dropdown-item" href="./11_getting_data_with_pandas.html">
- <span class="dropdown-text">Getting Data With Pandas</span></a>
+ <span class="dropdown-text">Getting Data with Pandas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./22_cleaning_it_up.html">
+ <span class="dropdown-text">Cleaning Data with Pandas</span></a>
   </li>  
     </ul>
   </li>
@@ -253,7 +257,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -288,12 +292,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_core_data_structure_concepts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Core Concepts</span></a>
+  <a href="./13_working_with_code.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_working_with_code.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with Code</span></a>
+  <a href="./02_core_data_structure_concepts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Core Concepts</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -303,22 +307,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_exploring_data_structures.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
+  <a href="./22_cleaning_it_up.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
+  <a href="./21_exploring_data_structures.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./30_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
+  <a href="./22_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
+  <a href="./30_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -335,14 +344,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exploring-and-understanding-data" id="toc-exploring-and-understanding-data" class="nav-link active" data-scroll-target="#exploring-and-understanding-data"><span class="toc-section-number">5.1</span>  Exploring and Understanding Data</a></li>
-  <li><a href="#selecting-columns-variables" id="toc-selecting-columns-variables" class="nav-link" data-scroll-target="#selecting-columns-variables"><span class="toc-section-number">5.2</span>  Selecting columns (variables)</a></li>
-  <li><a href="#selecting-rows" id="toc-selecting-rows" class="nav-link" data-scroll-target="#selecting-rows"><span class="toc-section-number">5.3</span>  Selecting rows</a></li>
-  <li><a href="#sorting-rows" id="toc-sorting-rows" class="nav-link" data-scroll-target="#sorting-rows"><span class="toc-section-number">5.4</span>  Sorting rows</a></li>
-  <li><a href="#putting-multiple-methods-together" id="toc-putting-multiple-methods-together" class="nav-link" data-scroll-target="#putting-multiple-methods-together"><span class="toc-section-number">5.5</span>  Putting multiple methods together</a></li>
-  <li><a href="#creating-new-columns-of-data" id="toc-creating-new-columns-of-data" class="nav-link" data-scroll-target="#creating-new-columns-of-data"><span class="toc-section-number">5.6</span>  Creating new columns of data</a></li>
-  <li><a href="#joining-datasets-together" id="toc-joining-datasets-together" class="nav-link" data-scroll-target="#joining-datasets-together"><span class="toc-section-number">5.7</span>  Joining datasets together</a></li>
-  <li><a href="#grouping-and-summarizing" id="toc-grouping-and-summarizing" class="nav-link" data-scroll-target="#grouping-and-summarizing"><span class="toc-section-number">5.8</span>  Grouping and summarizing</a></li>
+  <li><a href="#exploring-and-understanding-data" id="toc-exploring-and-understanding-data" class="nav-link active" data-scroll-target="#exploring-and-understanding-data"><span class="toc-section-number">6.1</span>  Exploring and Understanding Data</a></li>
+  <li><a href="#selecting-columns-variables" id="toc-selecting-columns-variables" class="nav-link" data-scroll-target="#selecting-columns-variables"><span class="toc-section-number">6.2</span>  Selecting columns (variables)</a></li>
+  <li><a href="#selecting-rows" id="toc-selecting-rows" class="nav-link" data-scroll-target="#selecting-rows"><span class="toc-section-number">6.3</span>  Selecting rows</a></li>
+  <li><a href="#sorting-rows" id="toc-sorting-rows" class="nav-link" data-scroll-target="#sorting-rows"><span class="toc-section-number">6.4</span>  Sorting rows</a></li>
+  <li><a href="#putting-multiple-methods-together" id="toc-putting-multiple-methods-together" class="nav-link" data-scroll-target="#putting-multiple-methods-together"><span class="toc-section-number">6.5</span>  Putting multiple methods together</a></li>
+  <li><a href="#creating-new-columns-of-data" id="toc-creating-new-columns-of-data" class="nav-link" data-scroll-target="#creating-new-columns-of-data"><span class="toc-section-number">6.6</span>  Creating new columns of data</a></li>
+  <li><a href="#joining-datasets-together" id="toc-joining-datasets-together" class="nav-link" data-scroll-target="#joining-datasets-together"><span class="toc-section-number">6.7</span>  Joining datasets together</a></li>
+  <li><a href="#grouping-and-summarizing" id="toc-grouping-and-summarizing" class="nav-link" data-scroll-target="#grouping-and-summarizing"><span class="toc-section-number">6.8</span>  Grouping and summarizing</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/21_exploring_data_structures.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/21_exploring_data_structures.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -351,7 +360,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></h1>
 </div>
 
 
@@ -372,8 +381,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="exploring-and-understanding-data" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="exploring-and-understanding-data"><span class="header-section-number">5.1</span> Exploring and Understanding Data</h2>
+<section id="exploring-and-understanding-data" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="exploring-and-understanding-data"><span class="header-section-number">6.1</span> Exploring and Understanding Data</h2>
 <p>Getting a high level summary of the data is important but data is particularly valuable when refined. Your analysis will start to come alive when we start to do some slicing and dicing and grouping of data or even creating additional variables. In an Excel world, this is like when you use filter options for columns, or create pivot tables, or when you create a formula in a new column to create a new variable. In data science parlance, this is the kind of thing that is referred to as <code>data wrangling</code> - getting the data you want in the form you want it in.</p>
 <p>In the world of python, this usually means working with a library or package you have already been introduced to called pandas. It lets you do so much!</p>
 <p>The first dataset we’ll look at is one that looks at data for countries around the world and shows population counts, life expectancy and GDP per capita over a number of years. Let’s import the pandas library and then use the <code>.read_csv()</code> function to get some population by country data. We will read the data into an object that will call <code>country_metrics</code>, so that it is easier for us to remember what it consists of.</p>
@@ -462,8 +471,8 @@ memory usage: 80.0+ KB</code></pre>
 <p>While we don’t learn too too much from this look, but we do see some sample data to see and start getting familiar with visually.<br>
 <br></p>
 </section>
-<section id="selecting-columns-variables" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="selecting-columns-variables"><span class="header-section-number">5.2</span> Selecting columns (variables)</h2>
+<section id="selecting-columns-variables" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="selecting-columns-variables"><span class="header-section-number">6.2</span> Selecting columns (variables)</h2>
 <p>In the “real world” of data it is not uncommon to see hundreds or even thousands of columns in a single dataframe, so knowing how to pare down our dataset so it is not overly bloated is important.</p>
 <center>
 <img src="images/exploring-data-structures/select_columns.png" width="60%" style="margin:auto">
@@ -683,8 +692,8 @@ Solution to Challenge 1
 </div>
 </div>
 </section>
-<section id="selecting-rows" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="selecting-rows"><span class="header-section-number">5.3</span> Selecting rows</h2>
+<section id="selecting-rows" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="selecting-rows"><span class="header-section-number">6.3</span> Selecting rows</h2>
 <p>Of course, in data analysis we are usually interested in looking at just some rows of data, not <em>all</em> rows <em>all</em> the time.</p>
 <center>
 <img src="images/exploring-data-structures/select_rows.png" width="60%" style="margin:auto">
@@ -1052,8 +1061,8 @@ Name: 5, dtype: object</code></pre>
 </div>
 <p>It is a flexible tool that can be very helpful as you build and review your code. <br></p>
 </section>
-<section id="sorting-rows" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="sorting-rows"><span class="header-section-number">5.4</span> Sorting rows</h2>
+<section id="sorting-rows" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sorting-rows"><span class="header-section-number">6.4</span> Sorting rows</h2>
 <p>So now you’ve mastered how to select rows and columns you want, congratulations! Instead of hunting and pecking for insights, one way to quickly make some sense of the data is to sort it - something you probably do in Excel all the time.</p>
 <p>Let’s say we wanted to know more about Asian countries since 2002. First we should go ahead and create a dataframe that consists of just the data we are wanting to look at.</p>
 <div class="cell" data-execution_count="18">
@@ -1413,8 +1422,8 @@ Name: 5, dtype: object</code></pre>
 </div>
 <p><br></p>
 </section>
-<section id="putting-multiple-methods-together" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="putting-multiple-methods-together"><span class="header-section-number">5.5</span> Putting multiple methods together</h2>
+<section id="putting-multiple-methods-together" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="putting-multiple-methods-together"><span class="header-section-number">6.5</span> Putting multiple methods together</h2>
 <p>The next step is usually to bring several of these commands together to get a nicely refined look at the data. Essentially you will need to invoke a number of calls sequentially to some object, with each one in turn performing some action on it.</p>
 <p>A common approach is to put the object name on each sucessive line of code along with the <code>=</code> operator as well as the modifying code to the right. Imagine we were given the following task:</p>
 <ol type="1">
@@ -1726,8 +1735,8 @@ Solution to Challenge 3
 </div>
 </div>
 </section>
-<section id="creating-new-columns-of-data" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="creating-new-columns-of-data"><span class="header-section-number">5.6</span> Creating new columns of data</h2>
+<section id="creating-new-columns-of-data" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="creating-new-columns-of-data"><span class="header-section-number">6.6</span> Creating new columns of data</h2>
 <p>Very often we have some data in our dataset that we want to transform to give us additional information. In Excel this is something that is done all the time by creating a formula in a cell that refers to other columns and applies some sort of logic or mathematical expression to it.</p>
 <p>There are different ways you can go about this in pandas. The most straightforward way is to define a new column on the left of the <code>=</code> and then reference the existing column and whatever additional conditions you would like on the right. In the example below, the existing population variable “pop” is converted to a value that shows population in millions.</p>
 <div class="cell" data-execution_count="27">
@@ -1801,59 +1810,59 @@ Solution to Challenge 3
   </thead>
   <tbody>
     <tr>
-      <th>754</th>
-      <td>Ireland</td>
+      <th>67</th>
+      <td>Australia</td>
+      <td>1987</td>
+      <td>16257249.0</td>
+      <td>Oceania</td>
+      <td>76.320</td>
+      <td>21888.889030</td>
+      <td>16.257249</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>Benin</td>
       <td>2002</td>
-      <td>3879155.0</td>
+      <td>7026113.0</td>
+      <td>Africa</td>
+      <td>54.406</td>
+      <td>1372.877931</td>
+      <td>7.026113</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1583</th>
+      <td>Turkey</td>
+      <td>2007</td>
+      <td>71158647.0</td>
       <td>Europe</td>
-      <td>77.783</td>
-      <td>34077.049390</td>
-      <td>3.879155</td>
+      <td>71.777</td>
+      <td>8458.276384</td>
+      <td>71.158647</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Algeria</td>
+      <td>1962</td>
+      <td>11000948.0</td>
+      <td>Africa</td>
+      <td>48.303</td>
+      <td>2550.816880</td>
+      <td>11.000948</td>
       <td>7</td>
     </tr>
     <tr>
-      <th>907</th>
-      <td>Libya</td>
-      <td>1987</td>
-      <td>3799845.0</td>
-      <td>Africa</td>
-      <td>66.234</td>
-      <td>11770.589800</td>
-      <td>3.799845</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>1209</th>
-      <td>Peru</td>
-      <td>1997</td>
-      <td>24748122.0</td>
-      <td>Americas</td>
-      <td>68.386</td>
-      <td>5838.347657</td>
-      <td>24.748122</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>262</th>
-      <td>Central African Republic</td>
+      <th>166</th>
+      <td>Botswana</td>
       <td>2002</td>
-      <td>4048013.0</td>
+      <td>1630347.0</td>
       <td>Africa</td>
-      <td>43.308</td>
-      <td>738.690607</td>
-      <td>4.048013</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>1070</th>
-      <td>Nepal</td>
-      <td>1962</td>
-      <td>10332057.0</td>
-      <td>Asia</td>
-      <td>39.393</td>
-      <td>652.396859</td>
-      <td>10.332057</td>
-      <td>5</td>
+      <td>46.634</td>
+      <td>11003.605080</td>
+      <td>1.630347</td>
+      <td>8</td>
     </tr>
   </tbody>
 </table>
@@ -1953,8 +1962,8 @@ Solution to Challenge 3
 <p>So now we can see the newly created column “GDP” and see the value for each country in our new object. Notice that the GDP data is in scientific notation (i.e.&nbsp;the decimal number times x number of zeros), so it’s a bit hard to read. If we wanted readers to consume that data we would go ahead and change the data type for it. But for current purposes we’ll leave that alone.</p>
 <p><br></p>
 </section>
-<section id="joining-datasets-together" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="joining-datasets-together"><span class="header-section-number">5.7</span> Joining datasets together</h2>
+<section id="joining-datasets-together" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="joining-datasets-together"><span class="header-section-number">6.7</span> Joining datasets together</h2>
 <p>One of the most important tasks in data analysis is to be able to join multiple datasets together. With pandas, there are functions called <code>.merge()</code> and <code>.join()</code> that are similar to each other. As <code>.merge()</code> is perhaps the more used, intuitive, and powerful of the two, we will introduce that method in this tutorial in some depth. There is also a cool function called <code>.concat()</code> that will be introduced below as well.</p>
 <p>But first, let’s get a second file that gives us country size in square kilometers by country. We will use this data to put together with our <code>country_metrics</code> dataframe.</p>
 <div class="cell" data-execution_count="30">
@@ -1988,14 +1997,14 @@ memory usage: 3.8+ KB</code></pre>
   </thead>
   <tbody>
     <tr>
-      <th>218</th>
-      <td>British Virgin Islands</td>
-      <td>151</td>
+      <th>76</th>
+      <td>Gabon</td>
+      <td>267668</td>
     </tr>
     <tr>
-      <th>230</th>
-      <td>Tokelau</td>
-      <td>12</td>
+      <th>3</th>
+      <td>United States</td>
+      <td>9372610</td>
     </tr>
   </tbody>
 </table>
@@ -2396,8 +2405,8 @@ Ways to stack data
 <p>This introduction only scratches the surface of how to leverage this way of joining datasets together. But it can be a powerful tool in the toolkit for the right use case. <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.concat.html">More detail found here.</a></p>
 <p><br></p>
 </section>
-<section id="grouping-and-summarizing" class="level2" data-number="5.8">
-<h2 data-number="5.8" class="anchored" data-anchor-id="grouping-and-summarizing"><span class="header-section-number">5.8</span> Grouping and summarizing</h2>
+<section id="grouping-and-summarizing" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="grouping-and-summarizing"><span class="header-section-number">6.8</span> Grouping and summarizing</h2>
 <p>Sometimes of course one would prefer to group rows together for the purpose of summarizing them in various ways.</p>
 <p>In pandas, we can accomplish this using the <code>.groupby()</code> method. A <code>.groupby()</code> operation involves some combination of splitting the object, applying a function, and combining the results. It is used together with one or more aggregation functions:</p>
 <ul>
@@ -3459,13 +3468,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./11_getting_data_with_pandas.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></span>
+      <a href="./22_cleaning_it_up.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./22_graphical_depictions_of_data.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -3479,7 +3488,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <a class="nav-link" href="./license.qmd">License</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://bcgov.github.io/ds-intro-to-r-2-day/index.html">R Course</a>
+    <a class="nav-link" href="https://bcgov.github.io/ds-intro-to-python/index.html">Python for Data Science Course</a>
   </li>  
 </ul>
       </div>
