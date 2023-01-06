@@ -1,0 +1,185 @@
+---
+title: Machine Learning
+teaching: 45
+author: Stuart Hemerling
+exercises: 4
+objectives:
+  - to understand what machine learning is and how python relates to it
+  - to be able to describe what the methods .fit() and .predict() will do in basic sklearn use case
+  - to see and follow along with a simple use case
+keypoints: null
+jupyter: python3
+---
+
+## Intro to Machine Learning and Scikit Learn
+
+This is primarily a course about Python and not machine learning. While we don't want to dive too deeply into what machine learning is and why it is popular, presenting an overview will help set the context ahead of the use case we'll walk through. 
+
+Machine learning is a method of teaching computers to learn and make decisions on their own, without being explicitly programmed. It involves feeding a computer system a large amount of data and allowing the system to discover patterns and relationships in the data, and to use these patterns to make predictions or decisions. Machine learning is used in a wide range of applications, including image and speech recognition, natural language processing, and autonomous vehicles.
+
+The above paragraph is itself an instance of AI at work! I asked the ChatGPT bot to "summarize machine learning in 100 words". While one can quibble with parts of it, the essence is quite good. It is all around us already, mostly without our awareness of it.  The image below shows the wide range of use cases that machine learning impacts today.
+
+
+<center>
+    <img src="images/machine-learning/ml_use_cases.PNG" width=100% style="margin:auto" border=1/>
+    <p style="text-align: center">
+    Types of machine learning use cases
+    </p>
+</center>
+
+
+Scikit-learn - also known as sklearn - is an open-source machine learning library for the Python programming language. It is built on top of other popular Python libraries such as NumPy and pandas, and it provides a wide range of tools and algorithms for tasks such as classification, regression, clustering, and dimensionality reduction. 
+
+While there are other libraries outside of sklearn that support machine learning in Python (e.g. PyTorch, Tensorflow), it is widely used in the data science community and is known for its ease of use and efficient implementation of algorithms. 
+
+Now that you know some of the basics, the best way to see how machine learning is done is through tackling a meaningful problem with some real data. 
+
+
+## Defining a Problem and Getting some Data
+
+Imagine you are a server at a restaurant and want to maximize your tip-earning potential. Being able to predict which customers are more likely to leave you a big tip would definitely be useful!  This is a nice, if simple, use case that machine learning can help us with.  
+
+It is also a classic "supervised" use case. By supervised, we mean that in our data we have the target data that we want to be able to predict (see workflow for a supervised use case in the image below).  This is in contrast to "unsupervised" use cases, such as clustering, where the task is for the model to discover patterns and relationships in the data on its own without prejudice.
+
+<center>
+    <img src="images/machine-learning/supervised_learning_workflow.PNG" width=100% style="margin:auto" border=1/>
+    <p style="text-align: center">
+        Supervised machine learning workflow
+    </p>
+</center>
+
+We find out that there is a small, but thankfully clean and available dataset. It contains restaurant visit data from 244 parties of customers to a given restaurant. Each row of data represents a restaurant visit by one party of one or more people. Below are the fields included in the dataset:
+
+- tip in dollars <-- our target variable
+- bill in dollars
+- sex of the bill payer
+- whether there were smokers in the party
+- day of the week
+- time of day
+- size of the party
+
+ You already know that there is no missing data, so that's great.  Let's run the `sample()` method to get a good balanced initial feel for the data in the dataframe. 
+
+```{python}
+# importing libraries for getting the data and pre-processing it
+
+import seaborn as sb
+import pandas as pd
+
+tips_df = sb.load_dataset('tips')
+tips_df.sample(10)
+```
+
+## Choosing between Regression and Classification Approaches
+
+With our tip predictor project, there are two approaches we could take and we must decide which one to take at the outset. One is to predict the *actual size of the tip* you would expect to get. This is what would be known as a regression type problem. The other way is to define *what constitutes a bigger tip* from the outset and to predict how likely you would be to get that. This is called a classification type of problem. There is no correct answer and each have their pros and cons. 
+
+For this tutorial, we will structure the problem as a classification problem. That means we will create a binary classifier variable, which consists of a positive class and a negative class of the outcome we are wanting to predict. 
+
+## Pre-processing the Data
+
+ Let's first take a look at a summary of the numeric data in the dataset, with a particular eye on the "tip" column, as that is the data we will want to transform:
+
+
+```{python}
+tips_df.describe()
+```
+
+We see that the median tip is $2.90, so we will define anything above that amount as a big tip (positive class) and anything below as a small tip (negative class). That creates a nice balance, with roughly 50% of cases containing big tippers and the remaining 50% not. 
+
+To accomplish this, let's run some code using `lambda` and `apply()` to compute a big tipper variable and then take another look at the dataframe. 
+
+```{python}
+tips_df['big_tipper'] = tips_df['tip'].apply(lambda x: 0 if x < 2.9 else 1)
+tips_df.sample(5)
+```
+
+Well that seemed to work fine! The machine learning classification model that we will use can only use numeric data. You probably know from statistics that you can convert categorial variables into numeric ones by turning them into dummy variables.
+
+Fortunately, there is a method called `get_dummies()` in pandas that can do transform lots of non-numeric variables all at once. In the code below, we pass in the whole dataframe. 
+
+```{python}
+tips_df = pd.get_dummies(tips_df)
+tips_df.head()
+```
+
+In theory, we could eliminate some of these newly created columns. For example, we could drop "sex_Male" as this is essentially computationally redundant to "sex_Female", just the exact obverse. But we'll leave that for now, they will not harm the model.
+
+## Identifying Target Variable and Features
+
+The next step is to define which variables are to be considered the independent variables (or features, in machine learning terms) and what singular variable is the target variable that we want to predict. Otherwise, the program won't know what variables are used to predict what. 
+
+Independent variables are usually best thought of as those which are known at the point of decision. In our use case, we want to predict whether a party is likely to be a big tipper when they arrive at the restauarant.  At that point we likely know the number of people in the party, but not the total bill amount. So let's identify the independent variables or features by dropping the variables 'tip', 'total_bill', and 'big_tipper' from an object we will call "X". The dependent or target variable is easier to identify. That is simply "big_tipper". We will assign that a "y". Both "X" (capital X) and "y" (small y) are widely used conventions in Python for these concepts. 
+
+Let's use what we learned about the `drop()` method to create these objects. 
+
+```{python}
+X = tips_df.drop(['tip', 'total_bill', 'big_tipper'], axis=1)
+y = tips_df['big_tipper']
+```
+
+One of the key requirements of supervised machine learning methods is to split the dataset up into training and test samples. For the training set, the "machine" will "learn" which restaurant parties are more likely to be big tippers and use that knowledge to create an algorithm that can be applied to the test set. 
+
+Scikit-Learn makes it easy with its famous `train_test_split()` method:
+
+
+```{python}
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=155, test_size=0.409)
+```
+
+The `train_test_split()` method takes the X and y that we defined above, and splits it according to the relative size we want the test sample to be compared to the training sample. In our example, we have chosen for the test sample to be 40.9% of the entire dataset. 
+
+We now have four separate objects. The training objects have 144 rows of the original dataframe and the test objects have 100 rows.  The X objects have 11 feature variables and the y objects have none. 
+
+```{python}
+X_train.shape, y_train.shape, X_test.shape, y_test.shape
+```
+
+
+### Fitting and Predicting 
+
+With these preprocessing steps now complete we can apply a classifier method to the training data. Scikit-learn has many classifier methods. For our example, we will use a machine learning algorithm called `LogisticRegression()`. Despite its name, it is implemented here for classification rather than regression. In logistic regression, the dependent variable is a binary variable that contains data coded as 1 (yes, success, etc.) or 0 (no, failure, etc.). In other words, the logistic regression model predicts P(Y=1) as a function of X.
+
+In our code, we first call `LogisticRegression()` and then `fit()` method then attempts to fit the independent variables to the target variable in the training dataset. In the code below, we run the fitting process and then take that fitted algorithm to product predictions for our test data. 
+
+
+```{python}
+from sklearn.linear_model import LogisticRegression
+
+reg = LogisticRegression(max_iter = 200)
+reg.fit(X_train, y_train)
+```
+
+Now our we have a trained model and we can run that model on our test dataset. We enter X_test as an argument following the `predict()` and `predict_proba()` methods as in the code below. 
+
+```{python}
+y_predict_proba =  reg.predict_proba(X_test) # computes a probability per case
+y_predict =  reg.predict(X_test) # makes a decision based on probability
+```
+
+We can see that these predict objects contain actual predictions! 
+
+```{python}
+y_predict # yes or no prediction
+y_predict_proba # estimated probability
+```
+
+
+
+The logistic regression model is trained using a variant of the gradient descent algorithm, which iteratively updates the model's parameters in order to minimize the error between the predicted probability and the true label of the training instances. The predicted probability is then transformed into a binary prediction using a threshold value. For example, a threshold value of 0.5 would mean that an instance is predicted to belong to the positive class if the predicted probability is greater than 0.5, and to the negative class otherwise.
+
+
+Ok. Are the predictions any good? Of course, "good" needs to be defined. There are many performance measures in data science and there are considerations based on the use cases themselves. How we would evaluate performace of an algorithm that attempts to diagnose serious disease would be differnt than if we were evaluating one that identified whether an email was spam or not. 
+
+We will introduce a few tools here so you can get a taste for what is possible. 
+
+One of the most common and useful peformance scores is 
+
+```{python}
+from sklearn.metrics import accuracy_score
+print(accuracy_score(y_test,y_predict))
+```
+
+
+
