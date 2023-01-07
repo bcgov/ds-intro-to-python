@@ -50,7 +50,7 @@ Imagine you are a server at a restaurant and want to maximize your tip-earning p
 It is also a classic "supervised" machine learning use case, where we will need to have both input and output data available to analyze. By supervised, we mean that in our data we have the target data that we want to be able to predict (see workflow for a supervised use case in the image below). You can also think of the workflow as a high level pipeline. 
 
 <center>
-    <img src="images/machine-learning/supervised_learning_workflow.PNG" width=60% style="margin:auto" border=1/>
+    <img src="images/machine-learning/supervised_learning_workflow.PNG" width=70% style="margin:auto" border=1/>
     <p style="text-align: center">
         Supervised machine learning workflow
     </p>
@@ -209,7 +209,7 @@ print(confusion_matrix(y_test, y_predict))
 
 
 <center>
-    <img src="images/machine-learning/confusion_matrix.PNG" width=80% style="margin:auto" border=1/>
+    <img src="images/machine-learning/confusion_matrix.PNG" width=70% style="margin:auto" border=1/>
     <p style="text-align: center">
     Four quadrants of the confusion matrix
     </p>
@@ -225,7 +225,7 @@ from sklearn.metrics import classification_report
 print(classification_report(y_test, y_predict))
 ```
 
-Precision = True Positives / True Positives + False Positives <br>
-Recall (Sensitivity) = True Positives / True Positives + False Negatives
+**Precision **= True Positives / True Positives + False Positives <br>
+**Recall (Sensitivity)** = True Positives / True Positives + False Negatives
 
-
+So there we go, we have nice small proof of concept that we can likely develop a tool that will be helpful to meeting our needs. The next step might be to refine some of the code (e.g. to eliminate redundent columns) and to "tune the parameters" of the model, also creating test and train datasets of different sizes to optimize it. We might also want to improve the model using different estimators (e.g. something other than LogisticRegression) or perhaps several models together! The development and refinement can go on for some time before ultimately the development of a new data ipeline to automate the process and make it usable for end users. 
