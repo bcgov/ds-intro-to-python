@@ -4,9 +4,10 @@ teaching: 45
 author: Stuart Hemerling
 exercises: 4
 objectives:
-  - to be able to understand and use some basic tools to manipulate dataframes
-  - to be able to understand and use tools to create a subset of data based on logical filtering
-  - to reinforce use of basic summarizing methods with the data
+  - 
+  - to understand what machine learning is and how python relates to it
+  - to be able to describe what the methods .fit() and .predict() will do in basic sklearn use case
+  - to see and follow along with a simple use case
 keypoints: null
 jupyter: python3
 ---
