@@ -2,7 +2,7 @@
 title: Machine Learning
 teaching: 45
 author: Stuart Hemerling
-exercises: 4
+exercises: 1
 objectives:
   - to understand what machine learning is and how python relates to it
   - to be able to describe what the methods .fit() and .predict() will do in basic sklearn use case
@@ -28,7 +28,7 @@ The above paragraph is itself an instance of AI at work! I asked the ChatGPT bot
 </center>
 
 
-Scikit-learn - also known as sklearn - is an open-source machine learning library for the Python programming language and is the library we will look at in this tutorial. It is built on top of other popular Python libraries such as NumPy and pandas, and it provides a wide range of tools and algorithms for tasks such as classification, regression, clustering, and dimensionality reduction. 
+Scikit-learn - also known as sklearn - is an open-source machine learning library for the Python programming language and is the new library we will access in this tutorial. It is built on top of other popular Python libraries such as NumPy and pandas, and it provides a wide range of tools and algorithms for tasks such as classification, regression, clustering, and dimensionality reduction. 
 
 While there are other libraries outside of sklearn that support machine learning in Python (e.g. PyTorch, Tensorflow), it is widely used in the data science community and is known for its ease of use and efficient implementation of algorithms. 
 
@@ -69,7 +69,7 @@ We find out that there is a small, but thankfully clean and available dataset, m
 - time of day
 - size of the party
 
- We already know that there is no missing data, so that's great.  Let's run the `sample()` method to get a good balanced initial feel for the data in the dataframe. 
+ We already know that there is no missing data, so that's great.  Let's run the `sample()` method on the dataframe to get a good balanced initial feel for the data. 
 
 ```{python}
 # importing libraries for getting the data and pre-processing it
@@ -86,7 +86,7 @@ tips_df.sample(10)
 
 ## Choosing between Regression and Classification 
 
-With our tip predictor project, there are two approaches we could take and we must decide which one to take at the outset. One is to predict the *actual size of the tip* one would expect to get. This is what would be known as a regression type problem. The other way is to define *what constitutes a bigger tip* from the outset and to predict how likely you would be to get that. This is called a classification type of problem. There is no correct answer, is use-case dependent, and each have their pros and cons. 
+With our tip predictor project, there are two approaches we could take and we must decide which one to take at the outset. One approach is to predict the *actual size of the tip* one would expect to get. This is what would be known as a regression type problem. The other way is to define *what constitutes a bigger tip* from the outset and to predict how likely you would be to get that. This is called a classification type of problem. There is no correct answer, is use-case dependent, and each have their pros and cons. 
 
 For this tutorial, we will structure the problem as a classification problem. One of the requirements of this is to have a binary classifier variable, which consists of a positive class and a negative class of the outcome we are wanting to predict. Time to start rolling up our coding sleeves and get into the pre-processing!
 
@@ -99,7 +99,7 @@ For this tutorial, we will structure the problem as a classification problem. On
 tips_df.describe()
 ```
 
-We see that the median tip is $2.90, so we will define anything above that amount as a big tip (positive class) and anything below as a small tip (negative class). That creates a nice balance, with roughly 50% of cases containing big tippers and the remaining 50% not. 
+We see that the median tip is $2.90, so we will define anything above that amount as a big tip (positive class) and anything below as essentially not a big tip (negative class). That creates a nice balance, with roughly 50% of cases containing big tippers and the remaining 50% not. 
 
 To accomplish this, let's run some code using `lambda` and `apply()` to compute a big tipper variable and then take another look at the dataframe. 
 
@@ -108,9 +108,9 @@ tips_df['big_tipper'] = tips_df['tip'].apply(lambda x: 0 if x < 2.9 else 1)
 tips_df.sample(5)
 ```
 
-Well that seemed to work fine! The machine learning classification model that we will use can only use numeric data. You probably know from statistics that you can convert categorial variables into numeric ones by turning each of the subsets into discrete columns consisting of 1s and 0s. They are widely referred to as dummy variables. Dummies are like flags in the data, where 1 means a certain subset is "observed" and 0 means that particular subset is "absent". 
+Well that seemed to work fine! The machine learning classification model that we will use can only use numeric data. You probably know from statistics that you can convert categorical variables into numeric ones by turning each of the subsets into discrete columns consisting of 1s and 0s. They are widely referred to as dummy variables. Dummies are like flags in the data, where 1 means a certain subset is "observed" and 0 means that particular subset is "absent". 
 
-Fortunately, there is a method called `get_dummies()` in pandas that can transform all non-numeric variables easily. In the code below, we pass in the whole dataframe. 
+Fortunately, there is a method called `get_dummies()` in pandas that can transform all non-numeric variables easily. In the code below, we pass in the whole dataframe and it will do its thing.
 
 ```{python}
 tips_df = pd.get_dummies(tips_df)
@@ -121,7 +121,7 @@ At this point, we could go ahead and eliminate some of these newly created colum
 
 ## Identifying Target Variable and Features
 
-The next step is to define which variables are to be considered the independent variables (or features, in machine learning terms) and which singular variable is the target variable that we want to predict. Otherwise, the program won't know what variables are used to predict what. 
+The next step is to define which variables are to be considered the independent variables (or features, in machine learning terms) and which singular dependent variable is the target variable that we want to predict. Otherwise, the program won't know what variables are used to predict what. 
 
 Independent variables are usually best thought of as those which are known at the point of decision. In our use case, we want to predict whether a party is likely to be a big tipper when they arrive at the restauarant.  At that point we likely know the number of people in the party, but not the total bill amount. So let's identify the independent variables or features by dropping the variables 'tip', 'total_bill', and 'big_tipper' from an object we will call "X". The dependent or target variable is easier to identify. That is simply "big_tipper". We will assign that a "y". Both "X" (typed usually as upper case X) and "y" (typed usually as lower case y) are widely used conventions in Python for these concepts. 
 
@@ -142,7 +142,7 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=155, test_size=0.409)
 ```
 
-The `train_test_split()` method takes the X and y that we defined above, and splits it randomly according to the relative size we want the test sample to be compared to the total sample size. In our example, we have chosen for the test sample to be 40.9% of the entire dataset.  
+The `train_test_split()` method takes the X and y that we defined above, and splits it randomly according to the relative size we want the test sample to be compared to the total sample size. In our example, we have chosen for the test sample to be 40.9% of the entire dataset.  The percentage size you will choose will depend on a number of factors relating to the use case. 
 
 We now have four separate objects: train and test versions of X and train and test versions of y. It is a good idea to look at their shapes at this point so we can confirm that the sizes look correct.
 
@@ -153,38 +153,9 @@ X_train.shape, y_train.shape, X_test.shape, y_test.shape
 The training objects have 144 rows of the original dataframe and the test objects have 100 rows.  The X objects have 11 feature variables and the y objects consist of one-dimensional arrays, which show  as "blank" to the right of the comma when reviewing object `shape`.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Fitting and Predicting 
 
-With these preprocessing steps now complete we can apply a classifier method to the training data. Scikit-learn has many classifier methods. For our example, we will use a machine learning algorithm called `LogisticRegression()`. Despite its name, it is implemented here for classification rather than regression. In logistic regression, the dependent variable is a binary variable that contains data coded as 1 (yes, success, etc.) or 0 (no, failure, etc.). 
+With these preprocessing steps now complete we can apply a classifier method to the training data. Scikit-learn has many classifier methods. For our example, we will use a machine learning algorithm called `LogisticRegression()`. Despite it having "regression" in the name, it is implemented here for classification rather than regression. In logistic regression, the dependent variable is a binary variable that contains data coded as 1 (yes, success, etc.) or 0 (no, failure, etc.). 
 
 In our code, we first call `LogisticRegression()` and then `fit()` method then attempts to fit the independent variables to the target variable in the training dataset. In the code below, we run the fitting process and then take that fitted algorithm to product predictions for our test data. 
 
@@ -267,8 +238,8 @@ Given this use case, what do you think is a more appropriate measure to use, pre
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 1
 
-It depends! If your goal is to try to make sure you can get a big tip each time you choose a customer, then precision is better. If your goal is wanting to avoid missing out on getting a big tipper, then recall is likely better. 
+It depends! If your goal is to try to make sure you can get a big tip each time you choose a customer, then precision is better. If your goal is wanting to avoid missing out on getting a big tipper, then recall is better. 
 :::
 
 
-So there we go, we have nice small proof of concept that we can likely develop a tool that will be helpful to meeting our needs. The next step could be to refine some of the code (e.g. to eliminate redundent columns) and to "tune the parameters" of the model, also creating test and train datasets of different sizes to optimize it. We might also want to improve the model using different estimators (e.g. something other than LogisticRegression) or perhaps several models together! The development and refinement process can go on for some time before ultimately the development of a new data pipeline to automate the process and make it usable for end users. 
+So there we go, we have nice small proof of concept that we can likely develop a tool that will be helpful to meeting our needs. The next step could be to refine some of the code (e.g. to eliminate redundent columns) and to "tune the parameters" of the model, also creating test and train datasets of different sizes to optimize it. We might also want to improve the model using different estimators (e.g. something other than LogisticRegression) or perhaps several models together! And we ultimately will want to test how the model performs agains out of sample data as well. The development and refinement process can go on for some time before ultimately the development of a new data pipeline to automate the process and make it usable for end users. 
