@@ -216,7 +216,7 @@ print(confusion_matrix(y_test, y_predict))
     </p>
 </center>
 
-The confusion matrix shows how many guesses the model gets "right", that is, the actual is true when we guess true (TP) and false when we guess false (TN). The remaining two quadrants show the errors. Type I error is the false positive error (FP), where the model guesses true but reality is false. Type II error is where where the model guesses false but the reality is true (FN).
+The confusion matrix shows how many guesses the model gets "right", that is, the actual is true when we guess true (TP - True Positive) and false when we guess false (TN - True Negative). The remaining two quadrants show the errors. Type I error is the false positive error (FP - False Positive), where the model guesses true but reality is false. Type II error is where where the model guesses false but the reality is true (FN - False Negative).
 <br>
 <br>
 Another widely used report is the classification report, which shows precision and recall, two widely reported metrics in machine learning. 
