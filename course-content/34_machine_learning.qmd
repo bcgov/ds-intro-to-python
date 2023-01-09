@@ -170,20 +170,19 @@ reg.fit(X_train, y_train)
 Now our we have a trained model and we can run that model on our test dataset. We enter X_test as an argument following the `predict()` and `predict_proba()` methods as in the code below. Let us look at the first five cases in our array of predictions:
 
 ```{python}
-y_predict_proba =  reg.predict_proba(X_test) # computes a probability per case
 y_predict =  reg.predict(X_test) # makes a decision based on probability
-y_predict[:5]
+y_predict[:5] # first 5 prediction decisions in test dataset
 ```
-<br>
-From the code above, we can see that the 1 means that the model predicts the case to be a big tipper and 0 predicts that the case will not be a big tipper.  
+The output gives us an array of predictions for the first five cases in sequence in the test dataset. A value of 1 means that the model predicts the party to be a big tipper, and 0 predicts that it will not be a big tipper. 
 
-Each of the predictions is based on a discrete probability:
+Each of the predictions is based on a discrete probability. The `predict_proba()` method returns the class probabilities for each data point.  The number of probabilities for each row is equal to the number of categories in target variable (2 in our case).
 
 ```{python}
-y_predict_proba[:5] # estimated probability
+y_predict_proba =  reg.predict_proba(X_test) # computes a probability per case
+y_predict_proba[:5] # first 5 predictions in test dataset
 ```
 
-We can see that for a prediction to be 1, it has to have a probability of .5 or greater.
+We can see for each case a pair of probabilities, one for "0" and the other for "1". This detail helps us understand how the decisions with the `predict()` method were made. 
 
 
 ## Evaluating
