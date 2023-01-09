@@ -139,7 +139,7 @@ Scikit-Learn makes it easy with its famous `train_test_split()` method:
 
 ```{python}
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=155, test_size=0.409)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=155, test_size=0.409)
 ```
 
 The `train_test_split()` method takes the X and y that we defined above, and splits it randomly according to the relative size we want the test sample to be compared to the total sample size. In our example, we have chosen for the test sample to be 40.9% of the entire dataset.  
@@ -151,6 +151,36 @@ X_train.shape, y_train.shape, X_test.shape, y_test.shape
 ```
 
 The training objects have 144 rows of the original dataframe and the test objects have 100 rows.  The X objects have 11 feature variables and the y objects consist of one-dimensional arrays, which show  as "blank" to the right of the comma when reviewing object `shape`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Fitting and Predicting 
 
@@ -225,7 +255,20 @@ from sklearn.metrics import classification_report
 print(classification_report(y_test, y_predict))
 ```
 
-**Precision **= True Positives / True Positives + False Positives <br>
-**Recall (Sensitivity)** = True Positives / True Positives + False Negatives
+**Precision** = True Positives / (True Positives + False Positives) <br>
+**Recall (Sensitivity)** = True Positives / (True Positives + False Negatives)
 
-So there we go, we have nice small proof of concept that we can likely develop a tool that will be helpful to meeting our needs. The next step might be to refine some of the code (e.g. to eliminate redundent columns) and to "tune the parameters" of the model, also creating test and train datasets of different sizes to optimize it. We might also want to improve the model using different estimators (e.g. something other than LogisticRegression) or perhaps several models together! The development and refinement can go on for some time before ultimately the development of a new data ipeline to automate the process and make it usable for end users. 
+
+:::{.callout-warning icon="false"}
+## Challenge 1
+Given this use case, what do you think is a more appropriate measure to use, precision or recall? 
+:::
+
+:::{.callout-note icon="false" collapse="true"}
+## Solution to Challenge 1
+
+It depends! If your goal is to try to make sure you can get a big tip each time you choose a customer, then precision is better. If your goal is wanting to avoid missing out on getting a big tipper, then recall is likely better. 
+:::
+
+
+So there we go, we have nice small proof of concept that we can likely develop a tool that will be helpful to meeting our needs. The next step could be to refine some of the code (e.g. to eliminate redundent columns) and to "tune the parameters" of the model, also creating test and train datasets of different sizes to optimize it. We might also want to improve the model using different estimators (e.g. something other than LogisticRegression) or perhaps several models together! The development and refinement process can go on for some time before ultimately the development of a new data pipeline to automate the process and make it usable for end users. 
