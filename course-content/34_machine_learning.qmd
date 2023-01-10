@@ -77,7 +77,7 @@ We find out that there is a small, but thankfully clean and available dataset, m
 import seaborn as sns
 import pandas as pd
 
-tips_df = sb.load_dataset('tips')
+tips_df = sns.load_dataset('tips')
 tips_df.sample(10)
 ```
 
