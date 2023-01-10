@@ -74,7 +74,7 @@ We find out that there is a small, but thankfully clean and available dataset, m
 ```{python}
 # importing libraries for getting the data and pre-processing it
 
-import seaborn as sb
+import seaborn as sns
 import pandas as pd
 
 tips_df = sb.load_dataset('tips')
