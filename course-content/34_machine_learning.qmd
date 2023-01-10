@@ -86,7 +86,7 @@ tips_df.sample(10)
 
 ## Choosing between Regression and Classification 
 
-With our tip predictor project, there are two approaches we could take and we must decide which one to take at the outset. One approach is to predict the *actual size of the tip* one would expect to get. This is what would be known as a regression type problem. The other way is to define *what constitutes a bigger tip* from the outset and to predict how likely you would be to get that. This is called a classification type of problem. There is no correct answer, is use-case dependent, and each have their pros and cons. 
+With our tip predictor project, there are two approaches we could take and we must decide which one to take at the outset. One approach is to predict the *actual size of the tip* one would expect to get. This is what would be known as a regression type problem. The other way is to define *what constitutes a bigger tip* from the outset and to predict how likely you would be to get that. This is called a classification type of problem. There is no correct answer: the model used is use-case dependent, and each will have their own pros and cons. 
 
 For this tutorial, we will structure the problem as a classification problem. One of the requirements of this is to have a binary classifier variable, which consists of a positive class and a negative class of the outcome we are wanting to predict. Time to start rolling up our coding sleeves and get into the pre-processing!
 
