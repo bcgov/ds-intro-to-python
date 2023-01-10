@@ -47,7 +47,7 @@ Imagine you are a server at a restaurant and want to maximize your tip-earning p
 </center>
 
 
-It is also a classic "supervised" machine learning use case, where we will need to have both input and output data available to analyze. By supervised, we mean that in our data we have the target data that we want to be able to predict (see workflow for a supervised use case in the image below). You can also think of the workflow as a high level pipeline. 
+It is also a classic "supervised" machine learning use case, where we will need to have both input and output data available to analyze. By **supervised**, we mean that in our data we have the target data, or outputs, that we want to be able to predict (see workflow for a supervised use case in the image below). You can also think of the workflow as a high level pipeline. 
 
 <center>
     <img src="images/machine-learning/supervised_learning_workflow.PNG" width=70% style="margin:auto" border=1/>
