@@ -12,6 +12,7 @@ for some reason the no-cite doesn't work for github
 @SNS 
 @PGG
 @SC3
+@quarto
 :::
 
 ## References

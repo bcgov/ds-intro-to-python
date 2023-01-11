@@ -20,19 +20,21 @@ book:
 
   chapters:
     - index.qmd
+
     - 00_introduction_to_python.qmd
-    - 13_working_with_code.qmd 
+    - 01_working_with_code.qmd 
     - 02_core_data_structure_concepts.qmd
+
     - 11_getting_data_with_pandas.qmd
-    - 22_cleaning_it_up.qmd
-    
-    
+    - 12_cleaning_it_up.qmd
+
     - 21_exploring_data_structures.qmd
     - 22_graphical_depictions_of_data.qmd
-    
-    
-    - 30_bcdata.qmd
-    - 31_advanced_pandas.qmd
+
+    - 31_bcdata.qmd
+    - 32_advanced_pandas.qmd
+    - 33_create_reports.qmd
+
     - references.qmd
 
   sidebar:
@@ -52,7 +54,7 @@ book:
           - text: Getting Up and Running
             href: 00_introduction_to_python.qmd
           - text: Working with Code
-            href: 13_working_with_code.qmd
+            href: 01_working_with_code.qmd
           - text: Core Concepts
             href: 02_core_data_structure_concepts.qmd
       - text: "Get and Clean Data"
@@ -60,7 +62,7 @@ book:
           - text: Getting Data with Pandas
             href: 11_getting_data_with_pandas.qmd
           - text: Cleaning Data with Pandas
-            href: 22_cleaning_it_up.qmd
+            href: 12_cleaning_it_up.qmd
       - text: "Understand and Analyze Data"
         menu:
           - text: Exploring Data Structures
@@ -70,9 +72,11 @@ book:
       - text: "Advanced Topics"
         menu:
           - text: "bcdata package"
-            href: 30_bcdata.qmd
+            href: 31_bcdata.qmd
           - text: "Advanced Pandas"
-            href: 31_advanced_pandas.qmd
+            href: 32_advanced_pandas.qmd
+          - text: "Creating Reports"
+            href: 33_create_reports.qmd
       - text: "References"
         href: references.qmd
     right:
