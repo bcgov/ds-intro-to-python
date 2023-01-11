@@ -182,7 +182,7 @@ y_predict_proba =  reg.predict_proba(X_test) # computes a probability per case
 y_predict_proba[:5] # first 5 predictions in test dataset
 ```
 
-We can see for each case a pair of probabilities, one for "0" and the other for "1". This detail helps us understand how the decisions with the `predict()` method were made. 
+We can see for each case a pair of probabilities, one for "0" and the other for "1". For example, for the first set of diners in our test dataset, they had a 48% probability of leaving a low tip, while a 52% probability of leaving a large tip. This detail helps us understand how the decisions with the `predict()` method were made. 
 
 
 ## Evaluating
