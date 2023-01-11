@@ -107,8 +107,8 @@ Some useful extra markdown pieces include:
 
 * Create a hyperlink like this: `[text to show](https://xkcd.com/1051)`
     * [text to show](https://xkcd.com/1051)
-* Include an image for a file or URL like this: `![caption](https://imgs.xkcd.com/comics/photos.png)`
-    * ![caption](https://imgs.xkcd.com/comics/photos.png)
+* Include an image for a file or URL like this: `![caption](https://imgs.xkcd.com/comics/tasks.png)`
+    * ![caption](https://imgs.xkcd.com/comics/tasks.png)
 * Create `sub~scripts~` or `super^scripts^`:
     * sub~scripts~ or super^scripts^
 * Include LaTeX math equations using `$`, such as `$G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4}T_{\mu\nu}$`:
@@ -134,12 +134,62 @@ Some useful extra markdown pieces include:
 :::{.callout-warning icon="false"}
 ## Challenge 1
 
+Within a Jupyter notebook, create a markdown cell that has the following:
+
+* A title 
+* A subsection
+* A table with 3 columns
+* A list with at least 3 bullets and 2 sub-bullets
+* Something of significance highlighted bold
+
 :::
 
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 1
 
+Feel free to use any of the above pieces of information regarding markdown to complete this challenge. Ultimately there is no wrong answer! 
 
+```
+# Otters are the best animal
+
+## A thesis on otters being cute
+
+We all know this is true, so this is going to be a very short section, but to sum up, **otters** are the best.
+
+| Animal | Rank | Cute Factor |
+| ------ | ---- | ----------- |
+| Otter | 1 | 1000 |
+| Polar Bear | 2 | 42 - higher if a cub |
+| Tarantula | 99 | -1 |
+
+* Otters come in two different kinds:
+   * River
+   * Sea
+* Otters are extremely smart
+* Otters like to play
+* Who doesn't want an otter
+```
+
+Would display as:
+
+# Otters are the best animal
+
+## A thesis on otters being cute
+
+We all know this is true, so this is going to be a very short section, but to sum up, **otters** are the best.
+
+| Animal | Rank | Cute Factor |
+| ------ | ---- | ----------- |
+| Otter | 1 | 1000 |
+| Polar Bear | 2 | 42 - higher if a cub |
+| Tarantula | 99 | -1 |
+
+* Otters come in two different kinds:
+   * River
+   * Sea
+* Otters are extremely smart
+* Otters like to play
+* Who doesn't want an otter
 :::
 
 ## Quarto
@@ -250,7 +300,7 @@ Here's a list of all the standard execution options we can pass to a codeblock u
 | ------ | ----------- |
 | `eval` | Evaluate the code chunk (if false, just echos the code into the output). |
 | `echo` | Include the source code in output. |
-| `output` | Include the results of executing the code in the output (true, false, or asis to indicate that the output is raw markdown and should not have any of Quarto’s standard enclosing markdown). |
+| `output` | Include the results of executing the code in the output (`true`, `false`, or `asis` to indicate that the output is raw markdown and should not have any of Quarto’s standard enclosing markdown). |
 | `warning` | Include warnings in the output. |
 | `error` | Include errors in the output (note that this implies that errors executing code will not halt processing of the document). |
 | `include` | Catch all for preventing any output (code or results) from being included (e.g. include: false suppresses all output from the code block). |
@@ -421,11 +471,67 @@ Notice how the options were applied individually to each format. HTML has a tabl
 :::{.callout-warning icon="false"}
 ## Challenge 2
 
+Using the penguins dataset we have discussed throughout the course, create a short html report that highlights:
+
+* Which penguin is the heaviest
+* Which penguins live where
+* At least one other interesting fact about penguins
 :::
 
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 2
 
+My notebook might look something like this, after which I could use `quarto render penguins_notebook.ipynb` to produce an html report: 
 
+```
+---
+title: "My Document"
+author: Lindsay Forestell
+date: 2022-12-20
+format: 
+  html:
+    toc: true
+    execute:
+      echo: false
+---
+```
+
+## The Wonderful World of Penguins
+
+```{python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+penguins = sns.load_dataset('penguins')
+penguins.head()
+```
+
+## Where do penguins live?
+
+We can see from the following image that:
+
+* Adelie penguins live on all three islands
+* Most penguins live on Biscoe island
+* Chinstrap penguins only live on Dream island
+
+```{python}
+sns.catplot(data=penguins, x='island', hue='species', kind='count')
+plt.show()
+```
+
+## Who is the biggest?
+
+```{python}
+sns.catplot(data=penguins, x='species', y='body_mass_g', kind='bar')
+plt.show()
+```
+
+From the above plot, Gentoo penguins are by far the largest!
+
+## Neat fact...
+
+Did you know that Gentoo penguins can swim faster than **22 MILES PER HOUR??** that's crazy! Learn more neat facts about [Antarctic penguins here!](https://www.savacations.com/10-cool-facts-penguins-antarctica/)
 :::
+
+
 
