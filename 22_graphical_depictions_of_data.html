@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./30_bcdata.html" rel="next">
+<link href="./31_bcdata.html" rel="next">
 <link href="./21_exploring_data_structures.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -163,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="dropdown-text">Getting Up and Running</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./13_working_with_code.html">
+    <a class="dropdown-item" href="./01_working_with_code.html">
  <span class="dropdown-text">Working with Code</span></a>
   </li>  
         <li>
@@ -182,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="dropdown-text">Getting Data with Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./22_cleaning_it_up.html">
+    <a class="dropdown-item" href="./12_cleaning_it_up.html">
  <span class="dropdown-text">Cleaning Data with Pandas</span></a>
   </li>  
     </ul>
@@ -208,12 +208,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced-topics">    
         <li>
-    <a class="dropdown-item" href="./30_bcdata.html">
+    <a class="dropdown-item" href="./31_bcdata.html">
  <span class="dropdown-text">bcdata package</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./31_advanced_pandas.html">
+    <a class="dropdown-item" href="./32_advanced_pandas.html">
  <span class="dropdown-text">Advanced Pandas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./33_create_reports.html">
+ <span class="dropdown-text">Creating Reports</span></a>
   </li>  
     </ul>
   </li>
@@ -292,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_working_with_code.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></a>
+  <a href="./01_working_with_code.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -307,7 +311,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_cleaning_it_up.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a>
+  <a href="./12_cleaning_it_up.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -322,12 +326,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./30_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
+  <a href="./31_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
+  <a href="./32_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33_create_reports.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Creating Reports</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -496,96 +505,6 @@ plt.show()
   </thead>
   <tbody>
     <tr>
-      <th>228</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>43.3</td>
-      <td>13.4</td>
-      <td>209.0</td>
-      <td>4400.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>258</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>44.0</td>
-      <td>13.6</td>
-      <td>208.0</td>
-      <td>4350.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>328</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>43.3</td>
-      <td>14.0</td>
-      <td>208.0</td>
-      <td>4575.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>283</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>54.3</td>
-      <td>15.7</td>
-      <td>231.0</td>
-      <td>5650.0</td>
-      <td>Male</td>
-    </tr>
-    <tr>
-      <th>273</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>50.1</td>
-      <td>15.0</td>
-      <td>225.0</td>
-      <td>5000.0</td>
-      <td>Male</td>
-    </tr>
-    <tr>
-      <th>264</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>50.5</td>
-      <td>15.9</td>
-      <td>222.0</td>
-      <td>5550.0</td>
-      <td>Male</td>
-    </tr>
-    <tr>
-      <th>175</th>
-      <td>Chinstrap</td>
-      <td>Dream</td>
-      <td>50.6</td>
-      <td>19.4</td>
-      <td>193.0</td>
-      <td>3800.0</td>
-      <td>Male</td>
-    </tr>
-    <tr>
-      <th>322</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>47.2</td>
-      <td>15.5</td>
-      <td>215.0</td>
-      <td>4975.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>317</th>
-      <td>Gentoo</td>
-      <td>Biscoe</td>
-      <td>46.9</td>
-      <td>14.6</td>
-      <td>222.0</td>
-      <td>4875.0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
       <th>74</th>
       <td>Adelie</td>
       <td>Torgersen</td>
@@ -594,6 +513,96 @@ plt.show()
       <td>190.0</td>
       <td>3700.0</td>
       <td>Female</td>
+    </tr>
+    <tr>
+      <th>217</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>49.6</td>
+      <td>18.2</td>
+      <td>193.0</td>
+      <td>3775.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>234</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>45.8</td>
+      <td>14.6</td>
+      <td>210.0</td>
+      <td>4200.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>271</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>48.5</td>
+      <td>14.1</td>
+      <td>220.0</td>
+      <td>5300.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>161</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>51.3</td>
+      <td>19.9</td>
+      <td>198.0</td>
+      <td>3700.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>38.2</td>
+      <td>20.0</td>
+      <td>190.0</td>
+      <td>3900.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>210</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>50.2</td>
+      <td>18.8</td>
+      <td>202.0</td>
+      <td>3800.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>268</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>44.9</td>
+      <td>13.3</td>
+      <td>213.0</td>
+      <td>5100.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>34.4</td>
+      <td>18.4</td>
+      <td>184.0</td>
+      <td>3325.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>55.8</td>
+      <td>19.8</td>
+      <td>207.0</td>
+      <td>4000.0</td>
+      <td>Male</td>
     </tr>
   </tbody>
 </table>
@@ -1834,7 +1843,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./30_bcdata.html" class="pagination-link">
+      <a href="./31_bcdata.html" class="pagination-link">
         <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

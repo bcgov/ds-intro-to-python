@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./22_cleaning_it_up.html" rel="next">
+<link href="./12_cleaning_it_up.html" rel="next">
 <link href="./02_core_data_structure_concepts.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="dropdown-text">Getting Up and Running</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./13_working_with_code.html">
+    <a class="dropdown-item" href="./01_working_with_code.html">
  <span class="dropdown-text">Working with Code</span></a>
   </li>  
         <li>
@@ -181,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="dropdown-text">Getting Data with Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./22_cleaning_it_up.html">
+    <a class="dropdown-item" href="./12_cleaning_it_up.html">
  <span class="dropdown-text">Cleaning Data with Pandas</span></a>
   </li>  
     </ul>
@@ -207,12 +207,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced-topics">    
         <li>
-    <a class="dropdown-item" href="./30_bcdata.html">
+    <a class="dropdown-item" href="./31_bcdata.html">
  <span class="dropdown-text">bcdata package</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./31_advanced_pandas.html">
+    <a class="dropdown-item" href="./32_advanced_pandas.html">
  <span class="dropdown-text">Advanced Pandas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./33_create_reports.html">
+ <span class="dropdown-text">Creating Reports</span></a>
   </li>  
     </ul>
   </li>
@@ -291,7 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_working_with_code.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></a>
+  <a href="./01_working_with_code.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -306,7 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_cleaning_it_up.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a>
+  <a href="./12_cleaning_it_up.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -321,12 +325,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./30_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
+  <a href="./31_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
+  <a href="./32_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33_create_reports.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Creating Reports</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -1187,67 +1196,67 @@ Solution to Challenge 1
   </thead>
   <tbody>
     <tr>
-      <th>989</th>
-      <td>Mexico</td>
+      <th>725</th>
+      <td>Iran</td>
       <td>1977</td>
-      <td>63759976.0</td>
-      <td>Americas</td>
-      <td>65.032</td>
-      <td>7674.929108</td>
-    </tr>
-    <tr>
-      <th>63</th>
-      <td>Australia</td>
-      <td>1967</td>
-      <td>11872264.0</td>
-      <td>Oceania</td>
-      <td>71.100</td>
-      <td>14526.124650</td>
-    </tr>
-    <tr>
-      <th>798</th>
-      <td>Japan</td>
-      <td>1982</td>
-      <td>118454974.0</td>
+      <td>35480679.0</td>
       <td>Asia</td>
-      <td>77.110</td>
-      <td>19384.105710</td>
+      <td>57.702</td>
+      <td>11888.595080</td>
     </tr>
     <tr>
-      <th>287</th>
-      <td>Chile</td>
+      <th>594</th>
+      <td>Greece</td>
+      <td>1982</td>
+      <td>9786480.0</td>
+      <td>Europe</td>
+      <td>75.240</td>
+      <td>15268.420890</td>
+    </tr>
+    <tr>
+      <th>1436</th>
+      <td>Sri Lanka</td>
+      <td>1992</td>
+      <td>17587060.0</td>
+      <td>Asia</td>
+      <td>70.379</td>
+      <td>2153.739222</td>
+    </tr>
+    <tr>
+      <th>1365</th>
+      <td>Singapore</td>
+      <td>1997</td>
+      <td>3802309.0</td>
+      <td>Asia</td>
+      <td>77.158</td>
+      <td>33519.476600</td>
+    </tr>
+    <tr>
+      <th>227</th>
+      <td>Cambodia</td>
       <td>2007</td>
-      <td>16284741.0</td>
-      <td>Americas</td>
-      <td>78.553</td>
-      <td>13171.638850</td>
+      <td>14131858.0</td>
+      <td>Asia</td>
+      <td>59.723</td>
+      <td>1713.778686</td>
     </tr>
     <tr>
-      <th>58</th>
-      <td>Argentina</td>
-      <td>2002</td>
-      <td>38331121.0</td>
-      <td>Americas</td>
-      <td>74.340</td>
-      <td>8797.640716</td>
+      <th>464</th>
+      <td>Egypt</td>
+      <td>1992</td>
+      <td>59402198.0</td>
+      <td>Africa</td>
+      <td>63.674</td>
+      <td>3794.755195</td>
     </tr>
     <tr>
-      <th>1369</th>
-      <td>Slovak Republic</td>
-      <td>1957</td>
-      <td>3844277.0</td>
-      <td>Europe</td>
-      <td>67.450</td>
-      <td>6093.262980</td>
-    </tr>
-    <tr>
-      <th>1009</th>
-      <td>Montenegro</td>
-      <td>1957</td>
-      <td>442829.0</td>
-      <td>Europe</td>
-      <td>61.448</td>
-      <td>3682.259903</td>
+      <th>738</th>
+      <td>Iraq</td>
+      <td>1982</td>
+      <td>14173318.0</td>
+      <td>Asia</td>
+      <td>62.038</td>
+      <td>14517.907110</td>
     </tr>
   </tbody>
 </table>
@@ -1442,52 +1451,52 @@ Solution to Challenge 2
     </tr>
     <tr>
       <th>mean</th>
-      <td>1980.452381</td>
-      <td>1.486846e+07</td>
-      <td>59.704595</td>
-      <td>7244.834637</td>
+      <td>1978.428571</td>
+      <td>2.434343e+07</td>
+      <td>58.949524</td>
+      <td>7895.821854</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>18.329241</td>
-      <td>2.234070e+07</td>
-      <td>13.409214</td>
-      <td>9081.995419</td>
+      <td>17.046769</td>
+      <td>8.735625e+07</td>
+      <td>11.864479</td>
+      <td>18150.183384</td>
     </tr>
     <tr>
       <th>min</th>
       <td>1952.000000</td>
-      <td>1.788480e+05</td>
-      <td>33.779000</td>
-      <td>380.995843</td>
+      <td>2.128460e+05</td>
+      <td>31.997000</td>
+      <td>464.099504</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>1963.250000</td>
-      <td>3.617754e+06</td>
-      <td>47.463750</td>
-      <td>1621.618005</td>
+      <td>1962.000000</td>
+      <td>2.792202e+06</td>
+      <td>50.156500</td>
+      <td>1776.690050</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>1982.000000</td>
-      <td>5.281828e+06</td>
-      <td>61.348500</td>
-      <td>3455.584349</td>
+      <td>1974.500000</td>
+      <td>5.470376e+06</td>
+      <td>59.531500</td>
+      <td>2603.898663</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>1997.000000</td>
-      <td>1.576996e+07</td>
-      <td>71.400000</td>
-      <td>7917.584161</td>
+      <td>1992.000000</td>
+      <td>1.039289e+07</td>
+      <td>70.314750</td>
+      <td>6780.249270</td>
     </tr>
     <tr>
       <th>max</th>
       <td>2007.000000</td>
-      <td>8.645902e+07</td>
-      <td>80.884000</td>
-      <td>36797.933320</td>
+      <td>5.670000e+08</td>
+      <td>79.829000</td>
+      <td>113523.132900</td>
     </tr>
   </tbody>
 </table>
@@ -1523,52 +1532,52 @@ Solution to Challenge 2
     </tr>
     <tr>
       <th>mean</th>
-      <td>1982.357143</td>
-      <td>3.719869e+07</td>
-      <td>59.541786</td>
-      <td>6275.476615</td>
+      <td>1985.809524</td>
+      <td>2.051923e+07</td>
+      <td>60.730952</td>
+      <td>6500.272473</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>15.979898</td>
-      <td>1.702401e+08</td>
-      <td>13.083672</td>
-      <td>6692.722794</td>
+      <td>15.214303</td>
+      <td>3.477885e+07</td>
+      <td>12.894598</td>
+      <td>7588.105053</td>
     </tr>
     <tr>
       <th>min</th>
       <td>1952.000000</td>
-      <td>1.820530e+05</td>
-      <td>39.327000</td>
-      <td>430.070692</td>
+      <td>6.848100e+05</td>
+      <td>30.332000</td>
+      <td>531.482368</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>1972.000000</td>
-      <td>3.837270e+06</td>
-      <td>46.901000</td>
-      <td>875.022540</td>
+      <td>1977.000000</td>
+      <td>3.471883e+06</td>
+      <td>49.419250</td>
+      <td>1423.096601</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>1982.000000</td>
-      <td>6.993469e+06</td>
-      <td>61.347000</td>
-      <td>4064.876223</td>
+      <td>1989.500000</td>
+      <td>8.774427e+06</td>
+      <td>62.238500</td>
+      <td>4061.365922</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>1992.000000</td>
-      <td>1.068234e+07</td>
-      <td>71.711750</td>
-      <td>8302.843684</td>
+      <td>1997.000000</td>
+      <td>1.914263e+07</td>
+      <td>71.567500</td>
+      <td>7342.996837</td>
     </tr>
     <tr>
       <th>max</th>
       <td>2007.000000</td>
-      <td>1.110396e+09</td>
-      <td>78.123000</td>
-      <td>24703.796150</td>
+      <td>1.865380e+08</td>
+      <td>79.110000</td>
+      <td>30246.130630</td>
     </tr>
   </tbody>
 </table>
@@ -1938,7 +1947,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./22_cleaning_it_up.html" class="pagination-link">
+      <a href="./12_cleaning_it_up.html" class="pagination-link">
         <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

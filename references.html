@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -50,7 +50,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./31_advanced_pandas.html" rel="prev">
+<link href="./33_create_reports.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +115,7 @@ div.csl-indent {
  <span class="dropdown-text">Getting Up and Running</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./13_working_with_code.html">
+    <a class="dropdown-item" href="./01_working_with_code.html">
  <span class="dropdown-text">Working with Code</span></a>
   </li>  
         <li>
@@ -134,7 +134,7 @@ div.csl-indent {
  <span class="dropdown-text">Getting Data with Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./22_cleaning_it_up.html">
+    <a class="dropdown-item" href="./12_cleaning_it_up.html">
  <span class="dropdown-text">Cleaning Data with Pandas</span></a>
   </li>  
     </ul>
@@ -160,12 +160,16 @@ div.csl-indent {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced-topics">    
         <li>
-    <a class="dropdown-item" href="./30_bcdata.html">
+    <a class="dropdown-item" href="./31_bcdata.html">
  <span class="dropdown-text">bcdata package</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./31_advanced_pandas.html">
+    <a class="dropdown-item" href="./32_advanced_pandas.html">
  <span class="dropdown-text">Advanced Pandas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./33_create_reports.html">
+ <span class="dropdown-text">Creating Reports</span></a>
   </li>  
     </ul>
   </li>
@@ -244,7 +248,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_working_with_code.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></a>
+  <a href="./01_working_with_code.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -259,7 +263,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_cleaning_it_up.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a>
+  <a href="./12_cleaning_it_up.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -274,12 +278,17 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./30_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
+  <a href="./31_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
+  <a href="./32_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33_create_reports.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Creating Reports</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -322,7 +331,7 @@ div.csl-indent {
 </header>
 
 <div class="hidden">
-<p>Include this hidden section to get extra references to show up, for some reason the no-cite doesn’t work for github <span class="citation" data-cites="bcdata">Norris (<a href="references.html#ref-bcdata" role="doc-biblioref">2022</a>)</span> <span class="citation" data-cites="SNS">Waskom (<a href="references.html#ref-SNS" role="doc-biblioref">2012</a>)</span> <span class="citation" data-cites="PGG">Holtz (<a href="references.html#ref-PGG" role="doc-biblioref">2018</a>)</span> <span class="citation" data-cites="SC3">Ivan Gonzalez (<a href="references.html#ref-SC3" role="doc-biblioref">2019</a>)</span></p>
+<p>Include this hidden section to get extra references to show up, for some reason the no-cite doesn’t work for github <span class="citation" data-cites="bcdata">Norris (<a href="references.html#ref-bcdata" role="doc-biblioref">2022</a>)</span> <span class="citation" data-cites="SNS">Waskom (<a href="references.html#ref-SNS" role="doc-biblioref">2012</a>)</span> <span class="citation" data-cites="PGG">Holtz (<a href="references.html#ref-PGG" role="doc-biblioref">2018</a>)</span> <span class="citation" data-cites="SC3">Ivan Gonzalez (<a href="references.html#ref-SC3" role="doc-biblioref">2019</a>)</span> <span class="citation" data-cites="quarto"><span>“Quarto Guides”</span> (<a href="references.html#ref-quarto" role="doc-biblioref">2022</a>)</span></p>
 </div>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
@@ -347,6 +356,9 @@ Carpentry: Version Control with Git.”</span> Version 2019.06.1,
 <div id="ref-bcdata" class="csl-entry" role="doc-biblioentry">
 Norris, Simon. 2022. <span>“<span class="nocase">bcdata</span> Python
 Package.”</span> <a href="https://pypi.org/project/bcdata/#description">https://pypi.org/project/bcdata/#description</a>.
+</div>
+<div id="ref-quarto" class="csl-entry" role="doc-biblioentry">
+<span>“Quarto Guides.”</span> 2022. <a href="https://quarto.org/docs/guide/">https://quarto.org/docs/guide/</a>.
 </div>
 <div id="ref-SNS" class="csl-entry" role="doc-biblioentry">
 Waskom, Michael. 2012. <span>“Seaborn Tutorials.”</span> <a href="https://seaborn.pydata.org/tutorial.html">https://seaborn.pydata.org/tutorial.html</a>.
@@ -618,8 +630,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./31_advanced_pandas.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></span>
+      <a href="./33_create_reports.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Creating Reports</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
