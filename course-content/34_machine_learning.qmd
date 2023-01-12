@@ -132,9 +132,11 @@ X = tips_df.drop(['tip', 'total_bill', 'big_tipper'], axis=1)
 y = tips_df['big_tipper']
 ```
 
-One of the key requirements of supervised machine learning methods is to split the dataset up into training and test samples. For the training set, the "machine" will "learn" which restaurant parties are more likely to be big tippers and use that knowledge to create an algorithm that can be applied to the test set. 
+One of the key requirements of supervised machine learning methods is to split the dataset up into training and test samples. Data splitting is an important part of data science as it helps us have confidence that the data predictions can be relied on. This is one of the things that separates machine learning from much traditional statistical analysis, where the focus is more on *explaining*, not *predicting*.  
 
-Scikit-Learn makes it easy with its famous `train_test_split()` method:
+In the training set, the "machine" or "estimator" will "learn" which restaurant parties are more likely to be big tippers based on the set of features that come with it.  Then that trained model will be applied to the set of features in the test set, predictions can be made, and how accurate they are can be analyzed. 
+
+Scikit-Learn makes it easy with its famous `train_test_split()` method. We apply it to our use case below:
 
 
 ```{python}
@@ -142,7 +144,9 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=155, test_size=0.409)
 ```
 
-The `train_test_split()` method takes the X and y that we defined above, and splits it randomly according to the relative size we want the test sample to be compared to the total sample size. In our example, we have chosen for the test sample to be 40.9% of the entire dataset.  The percentage size you will choose will depend on a number of factors relating to the use case. 
+The `train_test_split()` method takes the X and y that we defined above, and splits it randomly according to the relative size we want the test sample to be compared to the total sample size. The `random_state` parameter controls the shuffling applied to the data before applying the split. By changing the number, you will create a different mix of rows assigned to each train and test datasets. The `test_size` parameter specifies the size (as a percent, expressed as a decimal) that you want the test sample to be compared to the total data object. 
+
+In our example, we have chosen for the test sample to be 40.9% of the entire dataset.  The percentage size you will choose will depend on a number of factors relating to the use case. 
 
 We now have four separate objects: train and test versions of X and train and test versions of y. It is a good idea to look at their shapes at this point so we can confirm that the sizes look correct.
 
@@ -182,23 +186,21 @@ y_predict_proba =  reg.predict_proba(X_test) # computes a probability per case
 y_predict_proba[:5] # first 5 predictions in test dataset
 ```
 
-We can see for each case a pair of probabilities, one for "0" and the other for "1". For example, for the first set of diners in our test dataset, they had a 48% probability of leaving a low tip, while a 52% probability of leaving a large tip. This detail helps us understand how the decisions with the `predict()` method were made. 
+We can see for each case a pair of probabilities, one for "0" and the other for "1". For example, for the first set of diners in our test dataset, they had a 48.2% probability of leaving a low tip and a 51.7% chance of leaving a big tip. Because .517 is > .5, the model assigns a prediction to the "1" class. This detail helps us understand how the decisions with the `predict()` method are made. 
 
 
 ## Evaluating
 
-Ok. We have our predictions... but are they good? Of course, what "good" means needs a bit of thought. There are many performance measures in data science and there are considerations based on the use cases themselves. How we would evaluate performance of an algorithm that attempts to diagnose serious disease would be different than if we were evaluating one that identified whether an email was spam or not. In the case of disease classification, we would not want a high false negative rate, and thus missing out on important treatment for people who actually have the disease. On the other hand with spam filters, it would be okay to miss some spam, but it would be worse to have a high false positive rate, and start chucking out real emails with possible spam. 
+Ok. We have our predictions... but are they good? Of course, what "good" means needs a bit of thought. There are many performance measures in data science and there are considerations based on the use cases themselves. There are a number of standard evaluation tools that are commonly used, however, and we will introduce a few in this tutorial. 
 
-There are a number of standard evaluation tools that are commonly used, however, and we will introduce a few here. 
-
-One of the most common and useful peformance scores is `accuracy_score()`, and it is fairly easy to interpret. It reflects that percentage of cases where the prediction of the model matches exactly the true labels of the sample.
+One of the most common and useful performance scores is `accuracy_score()`, and it is fairly easy to interpret. It reflects that percentage of cases where the prediction of the model matches exactly the true labels of the sample.
 
 ```{python}
 from sklearn.metrics import accuracy_score
 print(accuracy_score(y_test,y_predict))
 ```
 
-In our case, it shows that 68% of the models guesses are correct. A standard comparison is to refer to the percentage of the most frequently occuring response in the training set. In our example, we designed that to be 50%. And since 68% > 50%, the model is doing something right!
+In our case, it shows that 68% of the model's 100 guesses in the test set (because there were 100 cases in the test set) were correct. A standard baseline comparison is to refer to the percentage of the most frequently occuring response. In our example, we designed it for there to be a 50% chance of a party being a big tipper in the overall dataset. In our test dataset, which was randomly created, there were 54% in that sample who were big tippers. We will use that percentage from our test sample as our baseline comparison. And since 68% > 54%, it appears that the model is definitely helping us make better predictions than just guessing would!
 
 Another common performance measuring tool is the so-called "confusion matrix". 
 
@@ -215,10 +217,10 @@ print(confusion_matrix(y_test, y_predict))
     </p>
 </center>
 
-The confusion matrix shows how many guesses the model gets "right", that is, the actual is true when we guess true (TP - True Positive) and false when we guess false (TN - True Negative). The remaining two quadrants show the errors. Type I error is the false positive error (FP - False Positive), where the model guesses true but reality is false. Type II error is where where the model guesses false but the reality is true (FN - False Negative).
+The confusion matrix shows how many guesses the model gets "right", that is, the actual is true when it guesses true (TP - True Positive), and false when it guesses false (TN - True Negative). The remaining two quadrants show the errors. Type I error is the false positive error (FP - False Positive), where the model guesses true but reality is false. Type II error is where where the model guesses false but the reality is true (FN - False Negative).
 <br>
 <br>
-Another widely used report is the classification report, which shows precision and recall, which are two widely reported metrics in machine learning. 
+Another widely used report is the classification report, which shows precision and recall, which are two widely reported metrics in machine learning and particularly helpful when examined together. 
 
 ```{python}
 from sklearn.metrics import classification_report
@@ -226,18 +228,21 @@ print(classification_report(y_test, y_predict))
 ```
 
 **Precision** = True Positives / (True Positives + False Positives) <br>
+A higher precision score is most valuable when you have the luxury of "cherry-picking" a potentially a small sub-sample of cases you want to be correct on. Say you were wanting to pick the winner of a sporting match. If you had a predictive model with high precision and the game you were interested in was chosen by your model, you would have confidence you were placing a good bet. It does not matter to you that your model is not great at picking *all* games correctly as you are happy to simply avoid ones you don't have confidence in.
+
 **Recall (Sensitivity)** = True Positives / (True Positives + False Negatives)
+High recall is important when your task needs to avoid mistakes that could be costly. A good example is disease detection. You are more concerned with avoiding failing to identify cases where a disease is present than you are concerned with mistakely identifying a disease to be present when it is not. You are ok with some false positives. But false negatives must be avoided!
 
 
 :::{.callout-warning icon="false"}
 ## Challenge 1
-Given this use case, what do you think is a more appropriate measure to use, precision or recall? 
+Given the tipping use case in this tutorial, which do you think is a more appropriate measure to use, precision or recall? 
 :::
 
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 1
 
-It depends! If your goal is to try to make sure you can get a big tip each time you choose a customer, then precision is better. If your goal is wanting to avoid missing out on getting a big tipper, then recall is better. 
+It depends! If your goal is to try to make sure you can get a big tip each time you choose a customer, then precision is better. If your goal is wanting to avoid missing out on getting a big tipper, then recall is better.  
 :::
 
 
