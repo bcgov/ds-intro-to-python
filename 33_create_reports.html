@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./34_machine_learning.html" rel="next">
 <link href="./32_advanced_pandas.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -219,6 +219,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="dropdown-item" href="./33_create_reports.html">
  <span class="dropdown-text">Creating Reports</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./34_machine_learning.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -341,6 +345,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./34_machine_learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Machine Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
@@ -360,7 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#useful-extras" id="toc-useful-extras" class="nav-link" data-scroll-target="#useful-extras">Useful Extras</a></li>
   <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
   </ul></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="toc-section-number">11.2</span>  Quarto</a>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="toc-section-number">10.2</span>  Quarto</a>
   <ul>
   <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
   <li><a href="#initating" id="toc-initating" class="nav-link" data-scroll-target="#initating">Initating</a></li>
@@ -605,10 +614,10 @@ We all know this is true, so this is going to be a very short section, but to su
 * Otters like to play
 * Who doesn't want an otter</code></pre>
 <p>Would display as:</p>
-<section id="otters-are-the-best-animal" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Otters are the best animal</h1>
-<section id="a-thesis-on-otters-being-cute" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="a-thesis-on-otters-being-cute"><span class="header-section-number">11.1</span> A thesis on otters being cute</h2>
+<section id="otters-are-the-best-animal" class="level1 unnumbered">
+<h1 class="unnumbered">Otters are the best animal</h1>
+<section id="a-thesis-on-otters-being-cute" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="a-thesis-on-otters-being-cute">A thesis on otters being cute</h2>
 <p>We all know this is true, so this is going to be a very short section, but to sum up, <strong>otters</strong> are the best.</p>
 <table class="table">
 <thead>
@@ -653,8 +662,8 @@ We all know this is true, so this is going to be a very short section, but to su
 </div>
 </section>
 </section>
-<section id="quarto" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="quarto"><span class="header-section-number">11.2</span> Quarto</h2>
+<section id="quarto" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="quarto"><span class="header-section-number">10.2</span> Quarto</h2>
 <p>Now that we have the basics of markdown down, we can move on to producing formats that we typically wish to see for ‘end products’. As a government worker, this often includes a word document, PDF, or a powerpoint, but html files are becoming more popular as well (especially in an age of easily accessible interactive visuals). We won’t dive deeply into this topic, but will cover the basics of converting our <code>.ipynb</code> format to <code>.html</code>, <code>.pptx</code>, <code>.docx</code>, and <code>.pdf</code>.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -991,8 +1000,8 @@ format:
     execute:
       echo: false
 ---</code></pre>
-<section id="the-wonderful-world-of-penguins" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="the-wonderful-world-of-penguins"><span class="header-section-number">11.3</span> The Wonderful World of Penguins</h2>
+<section id="the-wonderful-world-of-penguins" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="the-wonderful-world-of-penguins"><span class="header-section-number">10.3</span> The Wonderful World of Penguins</h2>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1073,8 +1082,8 @@ format:
 </div>
 </div>
 </section>
-<section id="where-do-penguins-live" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="where-do-penguins-live"><span class="header-section-number">11.4</span> Where do penguins live?</h2>
+<section id="where-do-penguins-live" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="where-do-penguins-live"><span class="header-section-number">10.4</span> Where do penguins live?</h2>
 <p>We can see from the following image that:</p>
 <ul>
 <li>Adelie penguins live on all three islands</li>
@@ -1089,8 +1098,8 @@ format:
 </div>
 </div>
 </section>
-<section id="who-is-the-biggest" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="who-is-the-biggest"><span class="header-section-number">11.5</span> Who is the biggest?</h2>
+<section id="who-is-the-biggest" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="who-is-the-biggest"><span class="header-section-number">10.5</span> Who is the biggest?</h2>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'species'</span>, y<span class="op">=</span><span class="st">'body_mass_g'</span>, kind<span class="op">=</span><span class="st">'bar'</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1100,8 +1109,8 @@ format:
 </div>
 <p>From the above plot, Gentoo penguins are by far the largest!</p>
 </section>
-<section id="neat-fact" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="neat-fact"><span class="header-section-number">11.6</span> Neat fact…</h2>
+<section id="neat-fact" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="neat-fact"><span class="header-section-number">10.6</span> Neat fact…</h2>
 <p>Did you know that Gentoo penguins can swim faster than <strong>22 MILES PER HOUR??</strong> that’s crazy! Learn more neat facts about <a href="https://www.savacations.com/10-cool-facts-penguins-antarctica/">Antarctic penguins here!</a></p>
 </section>
 </div>
@@ -1368,8 +1377,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./34_machine_learning.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Machine Learning</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
