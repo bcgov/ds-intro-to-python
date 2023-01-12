@@ -231,7 +231,7 @@ print(classification_report(y_test, y_predict))
 A higher precision score is most valuable when you have the luxury of "cherry-picking" a potentially a small sub-sample of cases you want to be correct on. Say you were wanting to pick the winner of a sporting match. If you had a predictive model with high precision and the game you were interested in was chosen by your model, you would have confidence you were placing a good bet. It does not matter to you that your model is not great at picking *all* games correctly as you are happy to simply avoid ones you don't have confidence in.
 
 **Recall (Sensitivity)** = True Positives / (True Positives + False Negatives)
-High recall is important when your task needs to avoid mistakes that could be costly. A good example is disease detection. You are more concerned with avoiding failing to identify cases where a disease is present than you are concerned with mistakely identifying a disease to be present when it is not. You are ok with some false positives. But false negatives must be avoided!
+High recall is important when your task needs to avoid mistakes that could be costly. A good example is disease detection. You are more concerned with avoiding failing to identify cases where a disease is present than you are concerned with mistakely identifying a disease to be present when it is not. You are ok with some false positives, but in this scenario, false negatives must be avoided!
 
 
 :::{.callout-warning icon="false"}
