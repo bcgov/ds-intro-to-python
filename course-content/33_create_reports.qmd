@@ -172,9 +172,9 @@ We all know this is true, so this is going to be a very short section, but to su
 
 Would display as:
 
-# Otters are the best animal
+# Otters are the best animal {.unnumbered}
 
-## A thesis on otters being cute
+## A thesis on otters being cute {.unnumbered}
 
 We all know this is true, so this is going to be a very short section, but to sum up, **otters** are the best.
 
