@@ -246,6 +246,7 @@ When reading data into a dataframe from a csv (or an excel file), there are mult
  * `index_col`: name of the column we might wish to use for the index of the dataframe instead of the default integer list. 
  * `usecols`: list of columns we wish to use. If the dataset is large with many columns that we do not care about, we can pull in only those of interest! 
  
+### Challenge 1
 :::{.callout-warning icon="false"}
 ## Challenge 1
 
@@ -319,6 +320,7 @@ Finally, if we want basic information about the non-numerical columns, we can us
 df.country.value_counts()
 ```
 
+### Challenge 2
 :::{.callout-warning icon="false"}
 ## Challenge 2
 
@@ -395,6 +397,7 @@ help(df.read_csv)
 
 :::
 
+### Challenge 3
 :::{.callout-warning icon="false"}
 ## Challenge 3
 

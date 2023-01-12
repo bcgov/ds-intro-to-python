@@ -44,7 +44,7 @@ To display the value we have previously assigned to a variable, we can use the `
 print(first_name, 'is', age, 'Earth years old.')
 ```
 
-
+### Challenge 1
 :::{.callout-warning icon="false"}
 ## Challenge 1
 
@@ -77,7 +77,7 @@ print(last_name)
 ```
 :::
 
-
+### Challenge 2
 :::{.callout-warning icon="false"}
 ## Challenge 2
 
@@ -200,6 +200,7 @@ print('Just 1 and 4:', number_list[1:5:3])
 print('Reversed: ', number_list[-1::-1])
 ```
 
+### Challenge 3
 :::{.callout-warning icon="false"}
 ## Challenge 3
 
@@ -385,6 +386,7 @@ Some functions, such as `min()` and `max()` take a variable number of arguments:
 
 While others have default values that do not need to be provided at all. 
 
+### Challenge 4
 :::{.callout-warning icon="false"}
 ## Challenge 4
 
@@ -500,6 +502,7 @@ else:
 Just like with arithmetic, you can and should use parentheses whenever there is possible ambiguity. A good general rule is to always use parentheses when mixing `and` and `or` in the same condition.
 :::
 
+### Challenge 5
 :::{.callout-warning icon="false"}
 ## Challenge 5
 
@@ -625,6 +628,7 @@ print(chain_1)
 print(chain_2)
 ```
 
+### Challenge 6
 :::{.callout-warning icon="false"}
 ## Challenge 6
 
@@ -652,7 +656,7 @@ print(type(my_string.isnumeric()))
 ```
 :::
 
-
+### Challenge 7
 :::{.callout-warning icon="false"}
 ## Challenge 7
 

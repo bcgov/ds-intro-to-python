@@ -101,6 +101,7 @@ Success! We have our data. Notice, in particular that we have a column called `g
 
 Let's try a different dataset that will give us *area* geometries. Area geometries will show up as '(multi)polygons' in the datset, meaning that they are a list of points that define the boundary of some area. This could be school district boundaries, health authority areas, or any other region we might be interested in. For fun, let's look at the [B.C. Wildfire Fire Zones](https://catalogue.data.gov.bc.ca/dataset/bc-wildfire-fire-zones). 
 
+### Challenge 1
 :::{.callout-warning icon="false"}
 ## Challenge 1
 
