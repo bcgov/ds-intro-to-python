@@ -53,7 +53,7 @@ Before the course starts, we ask that all attendees install Python and its assoc
  * [Graphical Depictions of Data](22_graphical_depictions_of_data.qmd) (90 min) (Lindsay)
  * BREAK 🍩
  * Bonus Content: TBD (90 min) (TBD)
-    * [Fill in this poll to choose our final topic!](link-to-poll)
+    * [Fill in this poll to choose our final topic!](https://forms.gle/9xwwUMgYMxmx3UhQ6)
 
 ## Acknowledgements    
 
