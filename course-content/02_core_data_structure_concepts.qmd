@@ -721,7 +721,7 @@ Most of the power of Python lies in its ability to use libraries, or external pa
 
 When we set up our Python environment, we already installed many of the packages we will need directly into the conda environment we produced. If you ever need another package, it is simple enough to install again using conda:
 
-```{.bash filename='Anaconda Powershell Prompt'}
+```{.bash filename='Anaconda Prompt'}
 > conda activate ds-env
 > conda install <package>
 ```
