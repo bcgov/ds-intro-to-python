@@ -355,6 +355,7 @@ On either the tab to the top, or the filename that popped up on the left panel, 
 
 In this new file, we have a single blue box (this is a single `cell`). We can type multiple lines of code inside a single cell. Within the blue box, pressing <kbd>Enter</kbd> will let you add a new line to the cell. To execute a cell, we press <kbd>Shift</kbd>+<kbd>Enter</kbd>. This will execute every line of code within that cell. If there is output to display, it will display in the space directly below the cell. Pressing the `+` at the top of the tab will add a new cell (as will running the bottom-most cell). The 'active' cell will always be the one that is highlighted with a blue box. 
 
+### Challenge 4
 :::{.callout-warning icon="false"}
 ## Challenge 4
 Print 'Hello World' inside the Jupyter Notebook.
