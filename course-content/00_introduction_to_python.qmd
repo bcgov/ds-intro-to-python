@@ -203,9 +203,9 @@ It's worth pointing out that the methods that we will focus on in this course wi
 :::
 
 ### Step 0
-In all cases, we will want to have a folder from which we wish to work out of. Take some time to set up a folder somewhere you won't lose it. For me, I've simply made a folder called `Intro to Python` on my C: drive that will hold any course materials we use/create here. 
+In all cases, we will want to have a folder from which we wish to work out of. Take some time to set up a folder somewhere you won't lose it. For me, I've simply made a folder called `intro_to_python` on my C: drive that will hold any course materials we use/create here. 
 
-Next, to make any interactions with python, we will want to open VSCode and work from here. When we first open VSCode, you should be prompted to open a folder. We are going to work out of that `Intro to Python` folder, so open it here. After doing this, we should now have a VSCode screen open that will look something like this: 
+Next, to make any interactions with python, we will want to open VSCode and work from here. When we first open VSCode, you should be prompted to open a folder. We are going to work out of that `intro_to_python` folder, so open it here. After doing this, we should now have a VSCode screen open that will look something like this: 
 
 <center>
     <img src="images/introduction-to-python/vscode.png" width="100%" style="margin:auto"/>
