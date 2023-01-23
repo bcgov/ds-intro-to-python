@@ -527,7 +527,7 @@ else:
     num = 19
     animal = 'kangaroo'
 
-print('The end result is the number', number, 'and animal', animal)
+print('The end result is the number', num, 'and animal', animal)
 ```
 :::
 
