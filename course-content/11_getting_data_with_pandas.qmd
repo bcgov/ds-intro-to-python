@@ -181,11 +181,9 @@ As an example, my directory structure looks like:
 ```
 /ds_intro_to_python
 │
-└───/introduction_to_python
+└───/src
 │   │   hello_world.ipynb
 │   │   hello_world.py
-│   
-└───/introduction_to_pandas
 │   │   intro_to_pandas.ipynb  <------ (THIS FILE!)
 │
 └───/data
