@@ -179,7 +179,7 @@ The `..` used in the above path tells python to look in the directory directly a
 
 As an example, my directory structure looks like:
 ```
-/ds_intro_to_python
+/intro_to_python
 │
 └───/src
 │   │   hello_world.ipynb
@@ -406,7 +406,7 @@ Save a copy of all of the summary statistics for the gapfinder dataset. Only inc
 :::{.callout-note icon="false" collapse="true"}
 ## Solution to Challenge 3
 
-First, we want to make sure we have a folder to save our outputs to. I have made a folder called `outputs` that lives at the same level as the `data` folder. Next, we can invoke the `to_csv` method on a copy of our descriptive statistics:
+First, we want to make sure we have a folder to save our outputs to. As discussed in the [Working with Code](01_working_with_code.qmd) section, I have made a folder called `output` that lives at the same level as the `data` folder. Next, we can invoke the `to_csv` method on a copy of our descriptive statistics:
 
 ```{python}
 df_descriptive = df.describe()

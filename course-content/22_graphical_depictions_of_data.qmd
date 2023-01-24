@@ -726,7 +726,7 @@ We've now done all this work to make amazing incredible charts that produce stun
 This point is important enough that I am repeating it here. Always save your figure **before** showing it! 
 :::
 
-Let's create a plot, view it, and save it. We will save it to the same `outputs` folder we used in a prior section. 
+Let's create a plot, view it, and save it. We will save it to the `analysis` folder in our project structure. 
 
 ```{python}
 sns.catplot(
