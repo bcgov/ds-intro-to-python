@@ -733,7 +733,7 @@ sns.catplot(
     data=penguins, x='species', y='flipper_length_mm', 
     kind='bar', hue='sex'
     )
-plt.savefig('../outputs/penguins.png', bbox_inches='tight')
+plt.savefig('../analysis/penguins.png', bbox_inches='tight')
 plt.show()
 ```
 

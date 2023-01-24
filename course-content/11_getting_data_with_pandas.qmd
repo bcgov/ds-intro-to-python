@@ -410,14 +410,14 @@ First, we want to make sure we have a folder to save our outputs to. I have made
 
 ```{python}
 df_descriptive = df.describe()
-df_descriptive.to_csv('../outputs/challenge_output.csv', columns=['pop', 'lifeExp'])
+df_descriptive.to_csv('../output/challenge_output.csv', columns=['pop', 'lifeExp'])
 ```
 
 In this case, if we exclude the index, we will actually lose information about what each row represents. This is one case when keeping the index will retain valuable information! 
 
 ```{python}
 df.describe().to_csv(
-    '../outputs/challenge_output_no_index.csv', 
+    '../output/challenge_output_no_index.csv', 
     columns=['pop', 'lifeExp'],
     index=False
     )
