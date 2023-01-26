@@ -1,6 +1,6 @@
 ---
 title: "Core Concepts"
-teaching: 90
+teaching: 45
 exercises: 10
 questions:
 - "Fill this in!"

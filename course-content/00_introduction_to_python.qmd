@@ -1,6 +1,6 @@
 ---
 title: "Getting Up and Running"
-teaching: 60
+teaching: 45
 exercises: 10
 questions:
 - "Fill this in!"
