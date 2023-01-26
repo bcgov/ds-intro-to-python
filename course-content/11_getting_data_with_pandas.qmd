@@ -1,6 +1,6 @@
 ---
 title: "Getting Data With Pandas"
-teaching: 45
+teaching: 60
 exercises: 10
 questions:
 - "Fill this in!"
