@@ -1,6 +1,6 @@
 ---
 title: "Graphical Depictions of Data"
-teaching: 45
+teaching: 90
 exercises: 10
 questions:
 - "Fill this in!"
