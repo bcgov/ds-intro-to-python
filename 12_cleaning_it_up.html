@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -2181,7 +2181,7 @@ Data columns (total 13 columns):
  1   age                        24 non-null     int64         
  2   gender                     24 non-null     object        
  3   country                    24 non-null     object        
- 4   self_employed              24 non-null     int32         
+ 4   self_employed              24 non-null     int64         
  5   family_history             24 non-null     object        
  6   treatment                  24 non-null     object        
  7   work_interfere             24 non-null     object        
@@ -2190,8 +2190,8 @@ Data columns (total 13 columns):
  10  benefits                   24 non-null     object        
  11  leave                      24 non-null     object        
  12  mental_health_consequence  24 non-null     object        
-dtypes: datetime64[ns](1), int32(1), int64(1), object(10)
-memory usage: 2.5+ KB</code></pre>
+dtypes: datetime64[ns](1), int64(2), object(10)
+memory usage: 2.6+ KB</code></pre>
 </div>
 </div>
 <p>But it is still typed as an object. So change datatype to int.</p>
@@ -2209,17 +2209,17 @@ Data columns (total 13 columns):
  1   age                        24 non-null     int64         
  2   gender                     24 non-null     object        
  3   country                    24 non-null     object        
- 4   self_employed              24 non-null     int32         
+ 4   self_employed              24 non-null     int64         
  5   family_history             24 non-null     object        
  6   treatment                  24 non-null     object        
- 7   work_interfere             24 non-null     int32         
+ 7   work_interfere             24 non-null     int64         
  8   remote_work                24 non-null     object        
  9   tech_company               24 non-null     object        
  10  benefits                   24 non-null     object        
  11  leave                      24 non-null     object        
  12  mental_health_consequence  24 non-null     object        
-dtypes: datetime64[ns](1), int32(2), int64(1), object(9)
-memory usage: 2.4+ KB</code></pre>
+dtypes: datetime64[ns](1), int64(3), object(9)
+memory usage: 2.6+ KB</code></pre>
 </div>
 </div>
 <p>Finally, show the dataframe itself.</p>
