@@ -29,8 +29,8 @@ jobs:
           python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           cache: 'pip'
 
-      - name: Install jupyter
-        run: pip install jupyter
+      # - name: Install jupyter
+      #   run: pip install jupyter
 
       - name: Install dependencies
         run: pip install -r requirements.txt

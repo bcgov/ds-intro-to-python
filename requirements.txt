@@ -3,3 +3,5 @@ pandas==1.4.4
 scikit-learn==1.1.2
 seaborn==0.12.0
 bcdata==0.7.4
+jupyterlab==3.4.4
+notebook==6.4.12
