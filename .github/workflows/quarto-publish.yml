@@ -35,25 +35,33 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      #- name: Install dependencies
-      #  uses: conda-incubator/setup-miniconda@v2
-      #  with:
-      #    python-version: 3.9
-      #    channels: defaults
-      #    activate-environment: ds-env
-      #    environment-file: environment.yml
+      # - name: Install dependencies
+      #   uses: conda-incubator/setup-miniconda@v2
+      #   with:
+      #     python-version: 3.9
+      #     channels: defaults
+      #     activate-environment: ds-env
+      #     environment-file: environment.yml
 
-      - name: Render Book project
-        uses: quarto-dev/quarto-actions/render@v2
-        with:
-          to: html
-          path: course-content
+      # - name: Render Book project
+      #   uses: quarto-dev/quarto-actions/render@v2
+      #   with:
+      #    to: html
+      #    path: course-content
 
-      - name: Publish to GitHub Pages
+      # - name: Publish to GitHub Pages
+      #   uses: quarto-dev/quarto-actions/publish@v2
+      #   with:
+      #     target: gh-pages
+      #     render: false
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
+
+      - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-          render: false
+          path: course-content
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
       
