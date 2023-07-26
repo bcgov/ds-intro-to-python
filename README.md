@@ -13,6 +13,10 @@ The workshop content will follow best practices for Python for data analysis, gi
  * Anyone who works with data or who is interested in learning efficient ways to make meaning from data
  * Anyone keen to learn a programming language (**no prior experience necessary!**)
 
+## Previous Offerings
+
+ * January 24-25, 2023: **Introduction to Data Science Using Python**
+
 ## Workshop Schedule
 
 ### Daily Schedule
