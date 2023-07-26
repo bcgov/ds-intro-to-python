@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -122,7 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
@@ -143,130 +115,129 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <img src="./BCID_H_rgb_rev.png" alt="" class="navbar-logo">
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Introduction to Python</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-to-python">    
         <li>
-    <a class="dropdown-item" href="./00_introduction_to_python.html">
+    <a class="dropdown-item" href="./00_introduction_to_python.html" rel="" target="">
  <span class="dropdown-text">Getting Up and Running</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./01_working_with_code.html">
+    <a class="dropdown-item" href="./01_working_with_code.html" rel="" target="">
  <span class="dropdown-text">Working with Code</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./02_core_data_structure_concepts.html">
+    <a class="dropdown-item" href="./02_core_data_structure_concepts.html" rel="" target="">
  <span class="dropdown-text">Core Concepts</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Get and Clean Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-get-and-clean-data">    
         <li>
-    <a class="dropdown-item" href="./11_getting_data_with_pandas.html">
+    <a class="dropdown-item" href="./11_getting_data_with_pandas.html" rel="" target="">
  <span class="dropdown-text">Getting Data with Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./12_cleaning_it_up.html">
+    <a class="dropdown-item" href="./12_cleaning_it_up.html" rel="" target="">
  <span class="dropdown-text">Cleaning Data with Pandas</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Understand and Analyze Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-understand-and-analyze-data">    
         <li>
-    <a class="dropdown-item" href="./21_exploring_data_structures.html">
+    <a class="dropdown-item" href="./21_exploring_data_structures.html" rel="" target="">
  <span class="dropdown-text">Exploring Data Structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html">
+    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html" rel="" target="">
  <span class="dropdown-text">Graphical Depictions of Data</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Advanced Topics</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced-topics">    
         <li>
-    <a class="dropdown-item" href="./31_bcdata.html">
+    <a class="dropdown-item" href="./31_bcdata.html" rel="" target="">
  <span class="dropdown-text">bcdata package</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./32_advanced_pandas.html">
+    <a class="dropdown-item" href="./32_advanced_pandas.html" rel="" target="">
  <span class="dropdown-text">Advanced Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./33_create_reports.html">
+    <a class="dropdown-item" href="./33_create_reports.html" rel="" target="">
  <span class="dropdown-text">Creating Reports</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./34_machine_learning.html">
+    <a class="dropdown-item" href="./34_machine_learning.html" rel="" target="">
  <span class="dropdown-text">Machine Learning</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./references.html">
+    <a class="nav-link" href="./references.html" rel="" target="">
  <span class="menu-text">References</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/bcgov/ds-intro-to-python"><i class="bi bi-github" role="img" aria-label="Source Code">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item dropdown  compact">
-    <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <i class="bi bi-share" role="img" aria-label="Share">
-</i> 
- <span class="menu-text"></span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="">    
-        <li>
-    <a class="dropdown-item" href="https://twitter.com/intent/tweet?url=|url|"><i class="bi bi-twitter" role="img">
-</i> 
- <span class="dropdown-text">Twitter</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|"><i class="bi bi-facebook" role="img">
-</i> 
- <span class="dropdown-text">Facebook</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/bcgov/ds-intro-to-python" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./31_bcdata.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -274,102 +245,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Up and Running</span></a>
+  <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Up and Running</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_working_with_code.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></a>
+  <a href="./01_working_with_code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_core_data_structure_concepts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Core Concepts</span></a>
+  <a href="./02_core_data_structure_concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Core Concepts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
+  <a href="./11_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_cleaning_it_up.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a>
+  <a href="./12_cleaning_it_up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_exploring_data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
+  <a href="./21_exploring_data_structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
+  <a href="./22_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_bcdata.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
+  <a href="./31_bcdata.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
+  <a href="./32_advanced_pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./33_create_reports.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Creating Reports</span></a>
+  <a href="./33_create_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Creating Reports</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./34_machine_learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Machine Learning</span></a>
+  <a href="./34_machine_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Machine Learning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#installing" id="toc-installing" class="nav-link active" data-scroll-target="#installing"><span class="toc-section-number">8.1</span>  Installing</a></li>
-  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link" data-scroll-target="#basic-usage"><span class="toc-section-number">8.2</span>  Basic Usage</a>
+  <li><a href="#installing" id="toc-installing" class="nav-link active" data-scroll-target="#installing"><span class="header-section-number">8.1</span> Installing</a></li>
+  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link" data-scroll-target="#basic-usage"><span class="header-section-number">8.2</span> Basic Usage</a>
   <ul>
   <li><a href="#introduction-to-the-catalogue" id="toc-introduction-to-the-catalogue" class="nav-link" data-scroll-target="#introduction-to-the-catalogue">Introduction to the Catalogue</a></li>
   <li><a href="#getting-the-data-into-python" id="toc-getting-the-data-into-python" class="nav-link" data-scroll-target="#getting-the-data-into-python">Getting the Data into Python</a></li>
   <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
   <li><a href="#pre-filtering-the-data" id="toc-pre-filtering-the-data" class="nav-link" data-scroll-target="#pre-filtering-the-data">Pre-Filtering the Data</a></li>
   </ul></li>
-  <li><a href="#geospatial-plots" id="toc-geospatial-plots" class="nav-link" data-scroll-target="#geospatial-plots"><span class="toc-section-number">8.3</span>  Geospatial Plots</a></li>
+  <li><a href="#geospatial-plots" id="toc-geospatial-plots" class="nav-link" data-scroll-target="#geospatial-plots"><span class="header-section-number">8.3</span> Geospatial Plots</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/31_bcdata.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/31_bcdata.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -378,7 +363,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></h1>
 </div>
 
 
@@ -468,159 +453,160 @@ Geographic Download Options
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>hospitals.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>geometry</th>
-      <th>CUSTODIAN_ORG_DESCRIPTION</th>
-      <th>BUSINESS_CATEGORY_CLASS</th>
-      <th>BUSINESS_CATEGORY_DESCRIPTION</th>
-      <th>OCCUPANT_TYPE_DESCRIPTION</th>
-      <th>SOURCE_DATA_ID</th>
-      <th>SUPPLIED_SOURCE_ID_IND</th>
-      <th>OCCUPANT_NAME</th>
-      <th>DESCRIPTION</th>
-      <th>PHYSICAL_ADDRESS</th>
-      <th>...</th>
-      <th>SITE_GEOCODED_IND</th>
-      <th>GEOCODING_METHOD_DESCRIPTION</th>
-      <th>HEALTH_AUTHORITY_CODE</th>
-      <th>HEALTH_AUTHORITY_NAME</th>
-      <th>HEALTH_SERVICE_DLVR_AREA_CODE</th>
-      <th>HEALTH_SERVICE_DLVR_AREA_NAME</th>
-      <th>LOCAL_HEALTH_AREA_CODE</th>
-      <th>LOCAL_HEALTH_AREA_NAME</th>
-      <th>SEQUENCE_ID</th>
-      <th>SE_ANNO_CAD_DATA</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>POINT (-120.81634 56.25604)</td>
-      <td>Ministry of Health - Provincial Health Service...</td>
-      <td>hospitals</td>
-      <td>Hospitals</td>
-      <td>Hospitals</td>
-      <td>701</td>
-      <td>Y</td>
-      <td>Fort St. John General Hospital &amp; Peace Villa</td>
-      <td>Hospital</td>
-      <td>8407 112 Avenue , Fort St. John, BC, Peace Riv...</td>
-      <td>...</td>
-      <td>None</td>
-      <td>Air Photo</td>
-      <td>5</td>
-      <td>Northern Health Authority</td>
-      <td>53</td>
-      <td>Northeast</td>
-      <td>60</td>
-      <td>Fort St. John</td>
-      <td>45</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>POINT (-121.42390 49.37725)</td>
-      <td>Ministry of Health - Provincial Health Service...</td>
-      <td>hospitals</td>
-      <td>Hospitals</td>
-      <td>Hospitals</td>
-      <td>606</td>
-      <td>Y</td>
-      <td>Fraser Canyon Hospital</td>
-      <td>Hospital</td>
-      <td>1275 7th Avenue, Hope, BC, Hope, BC</td>
-      <td>...</td>
-      <td>None</td>
-      <td>Air Photo</td>
-      <td>2</td>
-      <td>Fraser Health Authority</td>
-      <td>21</td>
-      <td>Fraser East</td>
-      <td>32</td>
-      <td>Hope</td>
-      <td>47</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>POINT (-122.49954 52.98134)</td>
-      <td>Ministry of Health - Provincial Health Service...</td>
-      <td>hospitals</td>
-      <td>Hospitals</td>
-      <td>Hospitals</td>
-      <td>705</td>
-      <td>Y</td>
-      <td>G.R. Baker Memorial Hospital</td>
-      <td>Hospital</td>
-      <td>543 Front Street, Quesnel, BC, Quesnel, BC</td>
-      <td>...</td>
-      <td>None</td>
-      <td>Air Photo</td>
-      <td>5</td>
-      <td>Northern Health Authority</td>
-      <td>52</td>
-      <td>Northern Interior</td>
-      <td>28</td>
-      <td>Quesnel</td>
-      <td>49</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>POINT (-116.96655 51.29723)</td>
-      <td>Ministry of Health - Provincial Health Service...</td>
-      <td>hospitals</td>
-      <td>Hospitals</td>
-      <td>Hospitals</td>
-      <td>409</td>
-      <td>Y</td>
-      <td>Golden and District General Hospital</td>
-      <td>Hospital</td>
-      <td>835 - 9th Avenue South, Golden, BC, Golden, BC</td>
-      <td>...</td>
-      <td>None</td>
-      <td>Air Photo</td>
-      <td>1</td>
-      <td>Interior Health Authority</td>
-      <td>11</td>
-      <td>East Kootenay</td>
-      <td>18</td>
-      <td>Golden</td>
-      <td>51</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>POINT (-132.07058 53.25481)</td>
-      <td>Ministry of Health - Provincial Health Service...</td>
-      <td>hospitals</td>
-      <td>Hospitals</td>
-      <td>Hospitals</td>
-      <td>907</td>
-      <td>Y</td>
-      <td>Haida Gwaii Hospital and Health Centre - Xaayd...</td>
-      <td>Hospital</td>
-      <td>3209 Oceanview Drive, Queen Charlotte, BC, Que...</td>
-      <td>...</td>
-      <td>None</td>
-      <td>Air Photo</td>
-      <td>5</td>
-      <td>Northern Health Authority</td>
-      <td>51</td>
-      <td>Northwest</td>
-      <td>50</td>
-      <td>Queen Charlotte</td>
-      <td>53</td>
-      <td>None</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">geometry</th>
+<th data-quarto-table-cell-role="th">CUSTODIAN_ORG_DESCRIPTION</th>
+<th data-quarto-table-cell-role="th">BUSINESS_CATEGORY_CLASS</th>
+<th data-quarto-table-cell-role="th">BUSINESS_CATEGORY_DESCRIPTION</th>
+<th data-quarto-table-cell-role="th">OCCUPANT_TYPE_DESCRIPTION</th>
+<th data-quarto-table-cell-role="th">SOURCE_DATA_ID</th>
+<th data-quarto-table-cell-role="th">SUPPLIED_SOURCE_ID_IND</th>
+<th data-quarto-table-cell-role="th">OCCUPANT_NAME</th>
+<th data-quarto-table-cell-role="th">DESCRIPTION</th>
+<th data-quarto-table-cell-role="th">PHYSICAL_ADDRESS</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">SITE_GEOCODED_IND</th>
+<th data-quarto-table-cell-role="th">GEOCODING_METHOD_DESCRIPTION</th>
+<th data-quarto-table-cell-role="th">HEALTH_AUTHORITY_CODE</th>
+<th data-quarto-table-cell-role="th">HEALTH_AUTHORITY_NAME</th>
+<th data-quarto-table-cell-role="th">HEALTH_SERVICE_DLVR_AREA_CODE</th>
+<th data-quarto-table-cell-role="th">HEALTH_SERVICE_DLVR_AREA_NAME</th>
+<th data-quarto-table-cell-role="th">LOCAL_HEALTH_AREA_CODE</th>
+<th data-quarto-table-cell-role="th">LOCAL_HEALTH_AREA_NAME</th>
+<th data-quarto-table-cell-role="th">SEQUENCE_ID</th>
+<th data-quarto-table-cell-role="th">SE_ANNO_CAD_DATA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>POINT (-120.81634 56.25604)</td>
+<td>Ministry of Health - Provincial Health Service...</td>
+<td>hospitals</td>
+<td>Hospitals</td>
+<td>Hospitals</td>
+<td>701</td>
+<td>Y</td>
+<td>Fort St. John General Hospital &amp; Peace Villa</td>
+<td>Hospital</td>
+<td>8407 112 Avenue , Fort St. John, BC, Peace Riv...</td>
+<td>...</td>
+<td>None</td>
+<td>Air Photo</td>
+<td>5</td>
+<td>Northern Health Authority</td>
+<td>53</td>
+<td>Northeast</td>
+<td>60</td>
+<td>Fort St. John</td>
+<td>45</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>POINT (-121.42390 49.37725)</td>
+<td>Ministry of Health - Provincial Health Service...</td>
+<td>hospitals</td>
+<td>Hospitals</td>
+<td>Hospitals</td>
+<td>606</td>
+<td>Y</td>
+<td>Fraser Canyon Hospital</td>
+<td>Hospital</td>
+<td>1275 7th Avenue, Hope, BC, Hope, BC</td>
+<td>...</td>
+<td>None</td>
+<td>Air Photo</td>
+<td>2</td>
+<td>Fraser Health Authority</td>
+<td>21</td>
+<td>Fraser East</td>
+<td>32</td>
+<td>Hope</td>
+<td>47</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>POINT (-122.49954 52.98134)</td>
+<td>Ministry of Health - Provincial Health Service...</td>
+<td>hospitals</td>
+<td>Hospitals</td>
+<td>Hospitals</td>
+<td>705</td>
+<td>Y</td>
+<td>G.R. Baker Memorial Hospital</td>
+<td>Hospital</td>
+<td>543 Front Street, Quesnel, BC, Quesnel, BC</td>
+<td>...</td>
+<td>None</td>
+<td>Air Photo</td>
+<td>5</td>
+<td>Northern Health Authority</td>
+<td>52</td>
+<td>Northern Interior</td>
+<td>28</td>
+<td>Quesnel</td>
+<td>49</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>POINT (-116.96655 51.29723)</td>
+<td>Ministry of Health - Provincial Health Service...</td>
+<td>hospitals</td>
+<td>Hospitals</td>
+<td>Hospitals</td>
+<td>409</td>
+<td>Y</td>
+<td>Golden and District General Hospital</td>
+<td>Hospital</td>
+<td>835 - 9th Avenue South, Golden, BC, Golden, BC</td>
+<td>...</td>
+<td>None</td>
+<td>Air Photo</td>
+<td>1</td>
+<td>Interior Health Authority</td>
+<td>11</td>
+<td>East Kootenay</td>
+<td>18</td>
+<td>Golden</td>
+<td>51</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>POINT (-132.07058 53.25481)</td>
+<td>Ministry of Health - Provincial Health Service...</td>
+<td>hospitals</td>
+<td>Hospitals</td>
+<td>Hospitals</td>
+<td>907</td>
+<td>Y</td>
+<td>Haida Gwaii Hospital and Health Centre - Xaayd...</td>
+<td>Hospital</td>
+<td>3209 Oceanview Drive, Queen Charlotte, BC, Que...</td>
+<td>...</td>
+<td>None</td>
+<td>Air Photo</td>
+<td>5</td>
+<td>Northern Health Authority</td>
+<td>51</td>
+<td>Northwest</td>
+<td>50</td>
+<td>Queen Charlotte</td>
+<td>53</td>
+<td>None</td>
+</tr>
+</tbody>
 </table>
+
 <p>5 rows × 33 columns</p>
 </div>
 </div>
@@ -631,12 +617,12 @@ Geographic Download Options
 </section>
 <section id="challenge-1" class="level3">
 <h3 class="anchored" data-anchor-id="challenge-1">Challenge 1</h3>
-<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Challenge 1
 </div>
 </div>
@@ -644,12 +630,12 @@ Challenge 1
 <p>Bring the B.C. Wildfire Fire Zones dataset into python.</p>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution to Challenge 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -663,87 +649,88 @@ Solution to Challenge 1
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>fires.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>geometry</th>
-      <th>MOF_FIRE_ZONE_ID</th>
-      <th>MOF_FIRE_CENTRE_NAME</th>
-      <th>MOF_FIRE_ZONE_NAME</th>
-      <th>HEADQUARTERS_CITY_NAME</th>
-      <th>OBJECTID</th>
-      <th>SE_ANNO_CAD_DATA</th>
-      <th>FEATURE_AREA_SQM</th>
-      <th>FEATURE_LENGTH_M</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>POLYGON ((-118.37713 49.91304, -118.37772 49.9...</td>
-      <td>481</td>
-      <td>Southeast Fire Centre</td>
-      <td>Boundary Fire Zone</td>
-      <td>Grand Forks</td>
-      <td>1092</td>
-      <td>None</td>
-      <td>6.590044e+09</td>
-      <td>4.570555e+05</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>MULTIPOLYGON (((-131.15968 54.00000, -131.6926...</td>
-      <td>482</td>
-      <td>Coastal Fire Centre</td>
-      <td>Fraser Fire Zone</td>
-      <td>Abbotsford</td>
-      <td>1093</td>
-      <td>None</td>
-      <td>5.844112e+10</td>
-      <td>2.029064e+06</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>POLYGON ((-119.73636 50.20392, -119.75076 50.2...</td>
-      <td>483</td>
-      <td>Kamloops Fire Centre</td>
-      <td>Penticton Fire Zone</td>
-      <td>Penticton</td>
-      <td>1094</td>
-      <td>None</td>
-      <td>9.302814e+09</td>
-      <td>7.757480e+05</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>POLYGON ((-121.27589 50.51785, -121.27600 50.5...</td>
-      <td>484</td>
-      <td>Kamloops Fire Centre</td>
-      <td>Merritt Fire Zone</td>
-      <td>Merritt</td>
-      <td>1095</td>
-      <td>None</td>
-      <td>1.118309e+10</td>
-      <td>9.195318e+05</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>POLYGON ((-123.73771 50.84113, -123.73840 50.8...</td>
-      <td>485</td>
-      <td>Coastal Fire Centre</td>
-      <td>Pemberton Fire Zone</td>
-      <td>Pemberton</td>
-      <td>1096</td>
-      <td>None</td>
-      <td>1.098514e+10</td>
-      <td>1.024656e+06</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">geometry</th>
+<th data-quarto-table-cell-role="th">MOF_FIRE_ZONE_ID</th>
+<th data-quarto-table-cell-role="th">MOF_FIRE_CENTRE_NAME</th>
+<th data-quarto-table-cell-role="th">MOF_FIRE_ZONE_NAME</th>
+<th data-quarto-table-cell-role="th">HEADQUARTERS_CITY_NAME</th>
+<th data-quarto-table-cell-role="th">OBJECTID</th>
+<th data-quarto-table-cell-role="th">SE_ANNO_CAD_DATA</th>
+<th data-quarto-table-cell-role="th">FEATURE_AREA_SQM</th>
+<th data-quarto-table-cell-role="th">FEATURE_LENGTH_M</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>POLYGON ((-118.37713 49.91304, -118.37772 49.9...</td>
+<td>481</td>
+<td>Southeast Fire Centre</td>
+<td>Boundary Fire Zone</td>
+<td>Grand Forks</td>
+<td>1092</td>
+<td>None</td>
+<td>6.590044e+09</td>
+<td>4.570555e+05</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>MULTIPOLYGON (((-131.15968 54.00000, -131.6926...</td>
+<td>482</td>
+<td>Coastal Fire Centre</td>
+<td>Fraser Fire Zone</td>
+<td>Abbotsford</td>
+<td>1093</td>
+<td>None</td>
+<td>5.844112e+10</td>
+<td>2.029064e+06</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>POLYGON ((-119.73636 50.20392, -119.75076 50.2...</td>
+<td>483</td>
+<td>Kamloops Fire Centre</td>
+<td>Penticton Fire Zone</td>
+<td>Penticton</td>
+<td>1094</td>
+<td>None</td>
+<td>9.302814e+09</td>
+<td>7.757480e+05</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>POLYGON ((-121.27589 50.51785, -121.27600 50.5...</td>
+<td>484</td>
+<td>Kamloops Fire Centre</td>
+<td>Merritt Fire Zone</td>
+<td>Merritt</td>
+<td>1095</td>
+<td>None</td>
+<td>1.118309e+10</td>
+<td>9.195318e+05</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>POLYGON ((-123.73771 50.84113, -123.73840 50.8...</td>
+<td>485</td>
+<td>Coastal Fire Centre</td>
+<td>Pemberton Fire Zone</td>
+<td>Pemberton</td>
+<td>1096</td>
+<td>None</td>
+<td>1.098514e+10</td>
+<td>1.024656e+06</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -762,169 +749,170 @@ Solution to Challenge 1
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>hospital_filtered.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>geometry</th>
-      <th>CUSTODIAN_ORG_DESCRIPTION</th>
-      <th>BUSINESS_CATEGORY_CLASS</th>
-      <th>BUSINESS_CATEGORY_DESCRIPTION</th>
-      <th>OCCUPANT_TYPE_DESCRIPTION</th>
-      <th>SOURCE_DATA_ID</th>
-      <th>SUPPLIED_SOURCE_ID_IND</th>
-      <th>OCCUPANT_NAME</th>
-      <th>DESCRIPTION</th>
-      <th>PHYSICAL_ADDRESS</th>
-      <th>...</th>
-      <th>SITE_GEOCODED_IND</th>
-      <th>GEOCODING_METHOD_DESCRIPTION</th>
-      <th>HEALTH_AUTHORITY_CODE</th>
-      <th>HEALTH_AUTHORITY_NAME</th>
-      <th>HEALTH_SERVICE_DLVR_AREA_CODE</th>
-      <th>HEALTH_SERVICE_DLVR_AREA_NAME</th>
-      <th>LOCAL_HEALTH_AREA_CODE</th>
-      <th>LOCAL_HEALTH_AREA_NAME</th>
-      <th>SEQUENCE_ID</th>
-      <th>SE_ANNO_CAD_DATA</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>POINT (-123.50867 48.86185)</td>
-      <td>Ministry of Health - Provincial Health Service...</td>
-      <td>hospitals</td>
-      <td>Hospitals</td>
-      <td>Hospitals</td>
-      <td>206</td>
-      <td>Y</td>
-      <td>Lady Minto Gulf Islands Hospital</td>
-      <td>Hospital</td>
-      <td>135 Crofton Road, Saltspring Island, BC, Gulf ...</td>
-      <td>...</td>
-      <td>None</td>
-      <td>Air Photo</td>
-      <td>4</td>
-      <td>Vancouver Island Health Authority</td>
-      <td>41</td>
-      <td>South Vancouver Island</td>
-      <td>64</td>
-      <td>Salt Spring Island</td>
-      <td>65</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>POINT (-123.96995 49.18515)</td>
-      <td>Ministry of Health - Provincial Health Service...</td>
-      <td>hospitals</td>
-      <td>Hospitals</td>
-      <td>Hospitals</td>
-      <td>501</td>
-      <td>Y</td>
-      <td>Nanaimo Regional General Hospital</td>
-      <td>Hospital</td>
-      <td>1200 Dufferin Crescent, Nanaimo, BC, Nanaimo, BC</td>
-      <td>...</td>
-      <td>None</td>
-      <td>Air Photo</td>
-      <td>4</td>
-      <td>Vancouver Island Health Authority</td>
-      <td>42</td>
-      <td>Central Vancouver Island</td>
-      <td>68</td>
-      <td>Nanaimo</td>
-      <td>83</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>POINT (-125.24263 50.00876)</td>
-      <td>Ministry of Health - Provincial Health Service...</td>
-      <td>hospitals</td>
-      <td>Hospitals</td>
-      <td>Hospitals</td>
-      <td>508</td>
-      <td>Y</td>
-      <td>North Island Hospital, Campbell River &amp; District</td>
-      <td>Hospital</td>
-      <td>375 2nd Avenue, Campbell River, BC, Campbell R...</td>
-      <td>...</td>
-      <td>None</td>
-      <td>Air Photo</td>
-      <td>4</td>
-      <td>Vancouver Island Health Authority</td>
-      <td>43</td>
-      <td>North Vancouver Island</td>
-      <td>72</td>
-      <td>Campbell River</td>
-      <td>87</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>POINT (-125.90858 49.15142)</td>
-      <td>Ministry of Health - Provincial Health Service...</td>
-      <td>hospitals</td>
-      <td>Hospitals</td>
-      <td>Hospitals</td>
-      <td>854</td>
-      <td>Y</td>
-      <td>Tofino General Hospital</td>
-      <td>Hospital</td>
-      <td>261 Neill Street, Tofino, BC, Alberni, BC</td>
-      <td>...</td>
-      <td>None</td>
-      <td>Air Photo</td>
-      <td>4</td>
-      <td>Vancouver Island Health Authority</td>
-      <td>42</td>
-      <td>Central Vancouver Island</td>
-      <td>70</td>
-      <td>Tofino</td>
-      <td>139</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>POINT (-123.43261 48.46672)</td>
-      <td>Ministry of Health - Provincial Health Service...</td>
-      <td>hospitals</td>
-      <td>Hospitals</td>
-      <td>Hospitals</td>
-      <td>202</td>
-      <td>Y</td>
-      <td>Victoria General Hospital</td>
-      <td>Hospital</td>
-      <td>1 Hospital Way, Victoria, BC, Greater Victoria...</td>
-      <td>...</td>
-      <td>None</td>
-      <td>Air Photo</td>
-      <td>4</td>
-      <td>Vancouver Island Health Authority</td>
-      <td>41</td>
-      <td>South Vancouver Island</td>
-      <td>61</td>
-      <td>Victoria</td>
-      <td>149</td>
-      <td>None</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">geometry</th>
+<th data-quarto-table-cell-role="th">CUSTODIAN_ORG_DESCRIPTION</th>
+<th data-quarto-table-cell-role="th">BUSINESS_CATEGORY_CLASS</th>
+<th data-quarto-table-cell-role="th">BUSINESS_CATEGORY_DESCRIPTION</th>
+<th data-quarto-table-cell-role="th">OCCUPANT_TYPE_DESCRIPTION</th>
+<th data-quarto-table-cell-role="th">SOURCE_DATA_ID</th>
+<th data-quarto-table-cell-role="th">SUPPLIED_SOURCE_ID_IND</th>
+<th data-quarto-table-cell-role="th">OCCUPANT_NAME</th>
+<th data-quarto-table-cell-role="th">DESCRIPTION</th>
+<th data-quarto-table-cell-role="th">PHYSICAL_ADDRESS</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">SITE_GEOCODED_IND</th>
+<th data-quarto-table-cell-role="th">GEOCODING_METHOD_DESCRIPTION</th>
+<th data-quarto-table-cell-role="th">HEALTH_AUTHORITY_CODE</th>
+<th data-quarto-table-cell-role="th">HEALTH_AUTHORITY_NAME</th>
+<th data-quarto-table-cell-role="th">HEALTH_SERVICE_DLVR_AREA_CODE</th>
+<th data-quarto-table-cell-role="th">HEALTH_SERVICE_DLVR_AREA_NAME</th>
+<th data-quarto-table-cell-role="th">LOCAL_HEALTH_AREA_CODE</th>
+<th data-quarto-table-cell-role="th">LOCAL_HEALTH_AREA_NAME</th>
+<th data-quarto-table-cell-role="th">SEQUENCE_ID</th>
+<th data-quarto-table-cell-role="th">SE_ANNO_CAD_DATA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>POINT (-123.50867 48.86185)</td>
+<td>Ministry of Health - Provincial Health Service...</td>
+<td>hospitals</td>
+<td>Hospitals</td>
+<td>Hospitals</td>
+<td>206</td>
+<td>Y</td>
+<td>Lady Minto Gulf Islands Hospital</td>
+<td>Hospital</td>
+<td>135 Crofton Road, Saltspring Island, BC, Gulf ...</td>
+<td>...</td>
+<td>None</td>
+<td>Air Photo</td>
+<td>4</td>
+<td>Vancouver Island Health Authority</td>
+<td>41</td>
+<td>South Vancouver Island</td>
+<td>64</td>
+<td>Salt Spring Island</td>
+<td>65</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>POINT (-123.96995 49.18515)</td>
+<td>Ministry of Health - Provincial Health Service...</td>
+<td>hospitals</td>
+<td>Hospitals</td>
+<td>Hospitals</td>
+<td>501</td>
+<td>Y</td>
+<td>Nanaimo Regional General Hospital</td>
+<td>Hospital</td>
+<td>1200 Dufferin Crescent, Nanaimo, BC, Nanaimo, BC</td>
+<td>...</td>
+<td>None</td>
+<td>Air Photo</td>
+<td>4</td>
+<td>Vancouver Island Health Authority</td>
+<td>42</td>
+<td>Central Vancouver Island</td>
+<td>68</td>
+<td>Nanaimo</td>
+<td>83</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>POINT (-125.24263 50.00876)</td>
+<td>Ministry of Health - Provincial Health Service...</td>
+<td>hospitals</td>
+<td>Hospitals</td>
+<td>Hospitals</td>
+<td>508</td>
+<td>Y</td>
+<td>North Island Hospital, Campbell River &amp; District</td>
+<td>Hospital</td>
+<td>375 2nd Avenue, Campbell River, BC, Campbell R...</td>
+<td>...</td>
+<td>None</td>
+<td>Air Photo</td>
+<td>4</td>
+<td>Vancouver Island Health Authority</td>
+<td>43</td>
+<td>North Vancouver Island</td>
+<td>72</td>
+<td>Campbell River</td>
+<td>87</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>POINT (-125.90858 49.15142)</td>
+<td>Ministry of Health - Provincial Health Service...</td>
+<td>hospitals</td>
+<td>Hospitals</td>
+<td>Hospitals</td>
+<td>854</td>
+<td>Y</td>
+<td>Tofino General Hospital</td>
+<td>Hospital</td>
+<td>261 Neill Street, Tofino, BC, Alberni, BC</td>
+<td>...</td>
+<td>None</td>
+<td>Air Photo</td>
+<td>4</td>
+<td>Vancouver Island Health Authority</td>
+<td>42</td>
+<td>Central Vancouver Island</td>
+<td>70</td>
+<td>Tofino</td>
+<td>139</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>POINT (-123.43261 48.46672)</td>
+<td>Ministry of Health - Provincial Health Service...</td>
+<td>hospitals</td>
+<td>Hospitals</td>
+<td>Hospitals</td>
+<td>202</td>
+<td>Y</td>
+<td>Victoria General Hospital</td>
+<td>Hospital</td>
+<td>1 Hospital Way, Victoria, BC, Greater Victoria...</td>
+<td>...</td>
+<td>None</td>
+<td>Air Photo</td>
+<td>4</td>
+<td>Vancouver Island Health Authority</td>
+<td>41</td>
+<td>South Vancouver Island</td>
+<td>61</td>
+<td>Victoria</td>
+<td>149</td>
+<td>None</td>
+</tr>
+</tbody>
 </table>
+
 <p>5 rows × 33 columns</p>
 </div>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 SQL Syntax
 </div>
 </div>
@@ -1007,12 +995,12 @@ SQL Syntax
 <p><img src="31_bcdata_files/figure-html/cell-10-output-1.png" width="485" height="389"></p>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Advanced Tip: Managing Projections
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1205,9 +1193,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1272,6 +1274,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1327,16 +1415,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Introduction to Data Science using Python was written by <br> Lindsay Forestell and Stuart Hemerling</div>   
-      <div class="nav-footer-center">
-        <ul class="footer-items list-unstyled">
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./license.qmd">License</a>
+    <a class="nav-link" href="./license.html">License</a>
   </li>  
     <li class="nav-item">
     <a class="nav-link" href="https://bcgov.github.io/ds-intro-to-python/index.html">Python for Data Science Course</a>
   </li>  
 </ul>
-      </div>
+    </div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

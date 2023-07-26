@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -122,7 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
@@ -143,130 +115,129 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <img src="./BCID_H_rgb_rev.png" alt="" class="navbar-logo">
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Introduction to Python</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-to-python">    
         <li>
-    <a class="dropdown-item" href="./00_introduction_to_python.html">
+    <a class="dropdown-item" href="./00_introduction_to_python.html" rel="" target="">
  <span class="dropdown-text">Getting Up and Running</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./01_working_with_code.html">
+    <a class="dropdown-item" href="./01_working_with_code.html" rel="" target="">
  <span class="dropdown-text">Working with Code</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./02_core_data_structure_concepts.html">
+    <a class="dropdown-item" href="./02_core_data_structure_concepts.html" rel="" target="">
  <span class="dropdown-text">Core Concepts</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Get and Clean Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-get-and-clean-data">    
         <li>
-    <a class="dropdown-item" href="./11_getting_data_with_pandas.html">
+    <a class="dropdown-item" href="./11_getting_data_with_pandas.html" rel="" target="">
  <span class="dropdown-text">Getting Data with Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./12_cleaning_it_up.html">
+    <a class="dropdown-item" href="./12_cleaning_it_up.html" rel="" target="">
  <span class="dropdown-text">Cleaning Data with Pandas</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Understand and Analyze Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-understand-and-analyze-data">    
         <li>
-    <a class="dropdown-item" href="./21_exploring_data_structures.html">
+    <a class="dropdown-item" href="./21_exploring_data_structures.html" rel="" target="">
  <span class="dropdown-text">Exploring Data Structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html">
+    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html" rel="" target="">
  <span class="dropdown-text">Graphical Depictions of Data</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Advanced Topics</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced-topics">    
         <li>
-    <a class="dropdown-item" href="./31_bcdata.html">
+    <a class="dropdown-item" href="./31_bcdata.html" rel="" target="">
  <span class="dropdown-text">bcdata package</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./32_advanced_pandas.html">
+    <a class="dropdown-item" href="./32_advanced_pandas.html" rel="" target="">
  <span class="dropdown-text">Advanced Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./33_create_reports.html">
+    <a class="dropdown-item" href="./33_create_reports.html" rel="" target="">
  <span class="dropdown-text">Creating Reports</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./34_machine_learning.html">
+    <a class="dropdown-item" href="./34_machine_learning.html" rel="" target="">
  <span class="dropdown-text">Machine Learning</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./references.html">
+    <a class="nav-link" href="./references.html" rel="" target="">
  <span class="menu-text">References</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/bcgov/ds-intro-to-python"><i class="bi bi-github" role="img" aria-label="Source Code">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item dropdown  compact">
-    <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <i class="bi bi-share" role="img" aria-label="Share">
-</i> 
- <span class="menu-text"></span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="">    
-        <li>
-    <a class="dropdown-item" href="https://twitter.com/intent/tweet?url=|url|"><i class="bi bi-twitter" role="img">
-</i> 
- <span class="dropdown-text">Twitter</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|"><i class="bi bi-facebook" role="img">
-</i> 
- <span class="dropdown-text">Facebook</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/bcgov/ds-intro-to-python" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11_getting_data_with_pandas.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -274,103 +245,117 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Up and Running</span></a>
+  <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Up and Running</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_working_with_code.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></a>
+  <a href="./01_working_with_code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_core_data_structure_concepts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Core Concepts</span></a>
+  <a href="./02_core_data_structure_concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Core Concepts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
+  <a href="./11_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_cleaning_it_up.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a>
+  <a href="./12_cleaning_it_up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_exploring_data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
+  <a href="./21_exploring_data_structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
+  <a href="./22_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
+  <a href="./31_bcdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
+  <a href="./32_advanced_pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./33_create_reports.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Creating Reports</span></a>
+  <a href="./33_create_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Creating Reports</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./34_machine_learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Machine Learning</span></a>
+  <a href="./34_machine_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Machine Learning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-pandas" id="toc-introduction-to-pandas" class="nav-link active" data-scroll-target="#introduction-to-pandas"><span class="toc-section-number">4.1</span>  Introduction to Pandas</a></li>
-  <li><a href="#bringing-in-our-own-data" id="toc-bringing-in-our-own-data" class="nav-link" data-scroll-target="#bringing-in-our-own-data"><span class="toc-section-number">4.2</span>  Bringing in our own data</a>
+  <li><a href="#introduction-to-pandas" id="toc-introduction-to-pandas" class="nav-link active" data-scroll-target="#introduction-to-pandas"><span class="header-section-number">4.1</span> Introduction to Pandas</a></li>
+  <li><a href="#bringing-in-our-own-data" id="toc-bringing-in-our-own-data" class="nav-link" data-scroll-target="#bringing-in-our-own-data"><span class="header-section-number">4.2</span> Bringing in our own data</a>
   <ul>
   <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
   </ul></li>
-  <li><a href="#learning-about-our-data" id="toc-learning-about-our-data" class="nav-link" data-scroll-target="#learning-about-our-data"><span class="toc-section-number">4.3</span>  Learning about our data</a>
+  <li><a href="#learning-about-our-data" id="toc-learning-about-our-data" class="nav-link" data-scroll-target="#learning-about-our-data"><span class="header-section-number">4.3</span> Learning about our data</a>
   <ul>
   <li><a href="#challenge-2" id="toc-challenge-2" class="nav-link" data-scroll-target="#challenge-2">Challenge 2</a></li>
   </ul></li>
-  <li><a href="#saving-our-data" id="toc-saving-our-data" class="nav-link" data-scroll-target="#saving-our-data"><span class="toc-section-number">4.4</span>  Saving our data</a>
+  <li><a href="#saving-our-data" id="toc-saving-our-data" class="nav-link" data-scroll-target="#saving-our-data"><span class="header-section-number">4.4</span> Saving our data</a>
   <ul>
   <li><a href="#challenge-3" id="toc-challenge-3" class="nav-link" data-scroll-target="#challenge-3">Challenge 3</a></li>
   </ul></li>
@@ -382,7 +367,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></h1>
 </div>
 
 
@@ -406,12 +391,12 @@ Pandas!
 <section id="introduction-to-pandas" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="introduction-to-pandas"><span class="header-section-number">4.1</span> Introduction to Pandas</h2>
 <p>Pandas is one of the most widely-used Python libraries for statistics, and excels at processing tabular data. If you have ever had any experience with R, it is modeled extensively on the dataframes used there. In this section we aim to learn about the fundamental objects used in pandas, bring our own data into these objects, and then view basic information about it.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Did You Know?
 </div>
 </div>
@@ -575,12 +560,12 @@ a    2.0
 dtype: float64</code></pre>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Beware NaN values!
 </div>
 </div>
@@ -637,12 +622,12 @@ dtype: int64</code></pre>
 </ul>
 <p>For the purposes of this course, we are going to focus on opening up local datafiles (with the most common type being a <code>csv</code> or <code>excel</code> file), and then utilizing the data once it is in python. To bring in data from a csv or excel file, we utilize the pandas methods <code>read_csv()</code> or <code>read_excel()</code>, with the only required argument being the <code>path</code> to the datafile.</p>
 <p>But first we need some data! <a href="https://raw.githubusercontent.com/bcgov/ds-intro-to-python/main/data/gapfinder.csv">Navigate to this URL</a>, right click on the data, and save the csv as <code>gapfinder.csv</code> in a folder called <code>data</code> inside our project folder. Now that we have a dataset, let’s load it into pandas.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 The Data Folder
 </div>
 </div>
@@ -655,133 +640,134 @@ The Data Folder
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../data/gapfinder.csv'</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>country</th>
-      <th>year</th>
-      <th>pop</th>
-      <th>continent</th>
-      <th>lifeExp</th>
-      <th>gdpPercap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Afghanistan</td>
-      <td>1952</td>
-      <td>8425333.0</td>
-      <td>Asia</td>
-      <td>28.801</td>
-      <td>779.445314</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Afghanistan</td>
-      <td>1957</td>
-      <td>9240934.0</td>
-      <td>Asia</td>
-      <td>30.332</td>
-      <td>820.853030</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Afghanistan</td>
-      <td>1962</td>
-      <td>10267083.0</td>
-      <td>Asia</td>
-      <td>31.997</td>
-      <td>853.100710</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Afghanistan</td>
-      <td>1967</td>
-      <td>11537966.0</td>
-      <td>Asia</td>
-      <td>34.020</td>
-      <td>836.197138</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Afghanistan</td>
-      <td>1972</td>
-      <td>13079460.0</td>
-      <td>Asia</td>
-      <td>36.088</td>
-      <td>739.981106</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>1699</th>
-      <td>Zimbabwe</td>
-      <td>1987</td>
-      <td>9216418.0</td>
-      <td>Africa</td>
-      <td>62.351</td>
-      <td>706.157306</td>
-    </tr>
-    <tr>
-      <th>1700</th>
-      <td>Zimbabwe</td>
-      <td>1992</td>
-      <td>10704340.0</td>
-      <td>Africa</td>
-      <td>60.377</td>
-      <td>693.420786</td>
-    </tr>
-    <tr>
-      <th>1701</th>
-      <td>Zimbabwe</td>
-      <td>1997</td>
-      <td>11404948.0</td>
-      <td>Africa</td>
-      <td>46.809</td>
-      <td>792.449960</td>
-    </tr>
-    <tr>
-      <th>1702</th>
-      <td>Zimbabwe</td>
-      <td>2002</td>
-      <td>11926563.0</td>
-      <td>Africa</td>
-      <td>39.989</td>
-      <td>672.038623</td>
-    </tr>
-    <tr>
-      <th>1703</th>
-      <td>Zimbabwe</td>
-      <td>2007</td>
-      <td>12311143.0</td>
-      <td>Africa</td>
-      <td>43.487</td>
-      <td>469.709298</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">pop</th>
+<th data-quarto-table-cell-role="th">continent</th>
+<th data-quarto-table-cell-role="th">lifeExp</th>
+<th data-quarto-table-cell-role="th">gdpPercap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Afghanistan</td>
+<td>1952</td>
+<td>8425333.0</td>
+<td>Asia</td>
+<td>28.801</td>
+<td>779.445314</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Afghanistan</td>
+<td>1957</td>
+<td>9240934.0</td>
+<td>Asia</td>
+<td>30.332</td>
+<td>820.853030</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Afghanistan</td>
+<td>1962</td>
+<td>10267083.0</td>
+<td>Asia</td>
+<td>31.997</td>
+<td>853.100710</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Afghanistan</td>
+<td>1967</td>
+<td>11537966.0</td>
+<td>Asia</td>
+<td>34.020</td>
+<td>836.197138</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Afghanistan</td>
+<td>1972</td>
+<td>13079460.0</td>
+<td>Asia</td>
+<td>36.088</td>
+<td>739.981106</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1699</td>
+<td>Zimbabwe</td>
+<td>1987</td>
+<td>9216418.0</td>
+<td>Africa</td>
+<td>62.351</td>
+<td>706.157306</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1700</td>
+<td>Zimbabwe</td>
+<td>1992</td>
+<td>10704340.0</td>
+<td>Africa</td>
+<td>60.377</td>
+<td>693.420786</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1701</td>
+<td>Zimbabwe</td>
+<td>1997</td>
+<td>11404948.0</td>
+<td>Africa</td>
+<td>46.809</td>
+<td>792.449960</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1702</td>
+<td>Zimbabwe</td>
+<td>2002</td>
+<td>11926563.0</td>
+<td>Africa</td>
+<td>39.989</td>
+<td>672.038623</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1703</td>
+<td>Zimbabwe</td>
+<td>2007</td>
+<td>12311143.0</td>
+<td>Africa</td>
+<td>43.487</td>
+<td>469.709298</td>
+</tr>
+</tbody>
 </table>
+
 <p>1704 rows × 6 columns</p>
 </div>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 .. ?
 </div>
 </div>
@@ -850,12 +836,12 @@ Name: country, Length: 1704, dtype: object</code></pre>
 Name: country, Length: 1704, dtype: object</code></pre>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 No Spaces!
 </div>
 </div>
@@ -903,12 +889,12 @@ Name: life expectancy, Length: 1704, dtype: float64</code></pre>
 </ul>
 <section id="challenge-1" class="level3">
 <h3 class="anchored" data-anchor-id="challenge-1">Challenge 1</h3>
-<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Challenge 1
 </div>
 </div>
@@ -920,12 +906,12 @@ Challenge 1
 </ul>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution to Challenge 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -940,93 +926,94 @@ Solution to Challenge 1
 <span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>display(df_challenge)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>year</th>
-      <th>pop</th>
-      <th>continent</th>
-    </tr>
-    <tr>
-      <th>country</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Afghanistan</th>
-      <td>1952</td>
-      <td>8425333.0</td>
-      <td>Asia</td>
-    </tr>
-    <tr>
-      <th>Afghanistan</th>
-      <td>1957</td>
-      <td>9240934.0</td>
-      <td>Asia</td>
-    </tr>
-    <tr>
-      <th>Afghanistan</th>
-      <td>1962</td>
-      <td>10267083.0</td>
-      <td>Asia</td>
-    </tr>
-    <tr>
-      <th>Afghanistan</th>
-      <td>1967</td>
-      <td>11537966.0</td>
-      <td>Asia</td>
-    </tr>
-    <tr>
-      <th>Afghanistan</th>
-      <td>1972</td>
-      <td>13079460.0</td>
-      <td>Asia</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>Zimbabwe</th>
-      <td>1987</td>
-      <td>9216418.0</td>
-      <td>Africa</td>
-    </tr>
-    <tr>
-      <th>Zimbabwe</th>
-      <td>1992</td>
-      <td>10704340.0</td>
-      <td>Africa</td>
-    </tr>
-    <tr>
-      <th>Zimbabwe</th>
-      <td>1997</td>
-      <td>11404948.0</td>
-      <td>Africa</td>
-    </tr>
-    <tr>
-      <th>Zimbabwe</th>
-      <td>2002</td>
-      <td>11926563.0</td>
-      <td>Africa</td>
-    </tr>
-    <tr>
-      <th>Zimbabwe</th>
-      <td>2007</td>
-      <td>12311143.0</td>
-      <td>Africa</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">pop</th>
+<th data-quarto-table-cell-role="th">continent</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Afghanistan</td>
+<td>1952</td>
+<td>8425333.0</td>
+<td>Asia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Afghanistan</td>
+<td>1957</td>
+<td>9240934.0</td>
+<td>Asia</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Afghanistan</td>
+<td>1962</td>
+<td>10267083.0</td>
+<td>Asia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Afghanistan</td>
+<td>1967</td>
+<td>11537966.0</td>
+<td>Asia</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Afghanistan</td>
+<td>1972</td>
+<td>13079460.0</td>
+<td>Asia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Zimbabwe</td>
+<td>1987</td>
+<td>9216418.0</td>
+<td>Africa</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Zimbabwe</td>
+<td>1992</td>
+<td>10704340.0</td>
+<td>Africa</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Zimbabwe</td>
+<td>1997</td>
+<td>11404948.0</td>
+<td>Africa</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Zimbabwe</td>
+<td>2002</td>
+<td>11926563.0</td>
+<td>Africa</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Zimbabwe</td>
+<td>2007</td>
+<td>12311143.0</td>
+<td>Africa</td>
+</tr>
+</tbody>
 </table>
+
 <p>1704 rows × 3 columns</p>
 </div>
 </div>
@@ -1066,207 +1053,210 @@ Solution to Challenge 1
 <pre><code>The first 5 rows of data:</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>country</th>
-      <th>year</th>
-      <th>pop</th>
-      <th>continent</th>
-      <th>lifeExp</th>
-      <th>gdpPercap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Afghanistan</td>
-      <td>1952</td>
-      <td>8425333.0</td>
-      <td>Asia</td>
-      <td>28.801</td>
-      <td>779.445314</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Afghanistan</td>
-      <td>1957</td>
-      <td>9240934.0</td>
-      <td>Asia</td>
-      <td>30.332</td>
-      <td>820.853030</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Afghanistan</td>
-      <td>1962</td>
-      <td>10267083.0</td>
-      <td>Asia</td>
-      <td>31.997</td>
-      <td>853.100710</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Afghanistan</td>
-      <td>1967</td>
-      <td>11537966.0</td>
-      <td>Asia</td>
-      <td>34.020</td>
-      <td>836.197138</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Afghanistan</td>
-      <td>1972</td>
-      <td>13079460.0</td>
-      <td>Asia</td>
-      <td>36.088</td>
-      <td>739.981106</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">pop</th>
+<th data-quarto-table-cell-role="th">continent</th>
+<th data-quarto-table-cell-role="th">lifeExp</th>
+<th data-quarto-table-cell-role="th">gdpPercap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Afghanistan</td>
+<td>1952</td>
+<td>8425333.0</td>
+<td>Asia</td>
+<td>28.801</td>
+<td>779.445314</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Afghanistan</td>
+<td>1957</td>
+<td>9240934.0</td>
+<td>Asia</td>
+<td>30.332</td>
+<td>820.853030</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Afghanistan</td>
+<td>1962</td>
+<td>10267083.0</td>
+<td>Asia</td>
+<td>31.997</td>
+<td>853.100710</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Afghanistan</td>
+<td>1967</td>
+<td>11537966.0</td>
+<td>Asia</td>
+<td>34.020</td>
+<td>836.197138</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Afghanistan</td>
+<td>1972</td>
+<td>13079460.0</td>
+<td>Asia</td>
+<td>36.088</td>
+<td>739.981106</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The last 3 rows of data:</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>country</th>
-      <th>year</th>
-      <th>pop</th>
-      <th>continent</th>
-      <th>lifeExp</th>
-      <th>gdpPercap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1701</th>
-      <td>Zimbabwe</td>
-      <td>1997</td>
-      <td>11404948.0</td>
-      <td>Africa</td>
-      <td>46.809</td>
-      <td>792.449960</td>
-    </tr>
-    <tr>
-      <th>1702</th>
-      <td>Zimbabwe</td>
-      <td>2002</td>
-      <td>11926563.0</td>
-      <td>Africa</td>
-      <td>39.989</td>
-      <td>672.038623</td>
-    </tr>
-    <tr>
-      <th>1703</th>
-      <td>Zimbabwe</td>
-      <td>2007</td>
-      <td>12311143.0</td>
-      <td>Africa</td>
-      <td>43.487</td>
-      <td>469.709298</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">pop</th>
+<th data-quarto-table-cell-role="th">continent</th>
+<th data-quarto-table-cell-role="th">lifeExp</th>
+<th data-quarto-table-cell-role="th">gdpPercap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1701</td>
+<td>Zimbabwe</td>
+<td>1997</td>
+<td>11404948.0</td>
+<td>Africa</td>
+<td>46.809</td>
+<td>792.449960</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1702</td>
+<td>Zimbabwe</td>
+<td>2002</td>
+<td>11926563.0</td>
+<td>Africa</td>
+<td>39.989</td>
+<td>672.038623</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1703</td>
+<td>Zimbabwe</td>
+<td>2007</td>
+<td>12311143.0</td>
+<td>Africa</td>
+<td>43.487</td>
+<td>469.709298</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>A random sampling of 7 rows of data:</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>country</th>
-      <th>year</th>
-      <th>pop</th>
-      <th>continent</th>
-      <th>lifeExp</th>
-      <th>gdpPercap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>467</th>
-      <td>Egypt</td>
-      <td>2007</td>
-      <td>80264543.0</td>
-      <td>Africa</td>
-      <td>71.338</td>
-      <td>5581.180998</td>
-    </tr>
-    <tr>
-      <th>325</th>
-      <td>Congo Dem. Rep.</td>
-      <td>1957</td>
-      <td>15577932.0</td>
-      <td>Africa</td>
-      <td>40.652</td>
-      <td>905.860230</td>
-    </tr>
-    <tr>
-      <th>1203</th>
-      <td>Peru</td>
-      <td>1967</td>
-      <td>12132200.0</td>
-      <td>Americas</td>
-      <td>51.445</td>
-      <td>5788.093330</td>
-    </tr>
-    <tr>
-      <th>931</th>
-      <td>Malawi</td>
-      <td>1987</td>
-      <td>7824747.0</td>
-      <td>Africa</td>
-      <td>47.457</td>
-      <td>635.517363</td>
-    </tr>
-    <tr>
-      <th>740</th>
-      <td>Iraq</td>
-      <td>1992</td>
-      <td>17861905.0</td>
-      <td>Asia</td>
-      <td>59.461</td>
-      <td>3745.640687</td>
-    </tr>
-    <tr>
-      <th>1664</th>
-      <td>West Bank and Gaza</td>
-      <td>1992</td>
-      <td>2104779.0</td>
-      <td>Asia</td>
-      <td>69.718</td>
-      <td>6017.654756</td>
-    </tr>
-    <tr>
-      <th>89</th>
-      <td>Bahrain</td>
-      <td>1977</td>
-      <td>297410.0</td>
-      <td>Asia</td>
-      <td>65.593</td>
-      <td>19340.101960</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">pop</th>
+<th data-quarto-table-cell-role="th">continent</th>
+<th data-quarto-table-cell-role="th">lifeExp</th>
+<th data-quarto-table-cell-role="th">gdpPercap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1270</td>
+<td>Reunion</td>
+<td>2002</td>
+<td>743981.0</td>
+<td>Africa</td>
+<td>75.744</td>
+<td>6316.165200</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1238</td>
+<td>Portugal</td>
+<td>1962</td>
+<td>9019800.0</td>
+<td>Europe</td>
+<td>64.390</td>
+<td>4727.954889</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">890</td>
+<td>Liberia</td>
+<td>1962</td>
+<td>1112796.0</td>
+<td>Africa</td>
+<td>40.502</td>
+<td>634.195163</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1491</td>
+<td>Syria</td>
+<td>1967</td>
+<td>5680812.0</td>
+<td>Asia</td>
+<td>53.655</td>
+<td>1881.923632</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">240</td>
+<td>Canada</td>
+<td>1952</td>
+<td>14785584.0</td>
+<td>Americas</td>
+<td>68.750</td>
+<td>11367.161120</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1215</td>
+<td>Philippines</td>
+<td>1967</td>
+<td>35356600.0</td>
+<td>Asia</td>
+<td>56.393</td>
+<td>1814.127430</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">803</td>
+<td>Japan</td>
+<td>2007</td>
+<td>127467972.0</td>
+<td>Asia</td>
+<td>82.603</td>
+<td>31656.068060</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1295,78 +1285,79 @@ memory usage: 80.0+ KB</code></pre>
 <div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>year</th>
-      <th>pop</th>
-      <th>lifeExp</th>
-      <th>gdpPercap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>1704.00000</td>
-      <td>1.704000e+03</td>
-      <td>1704.000000</td>
-      <td>1704.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>1979.50000</td>
-      <td>2.960121e+07</td>
-      <td>59.474439</td>
-      <td>7215.327081</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>17.26533</td>
-      <td>1.061579e+08</td>
-      <td>12.917107</td>
-      <td>9857.454543</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>1952.00000</td>
-      <td>6.001100e+04</td>
-      <td>23.599000</td>
-      <td>241.165876</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>1965.75000</td>
-      <td>2.793664e+06</td>
-      <td>48.198000</td>
-      <td>1202.060309</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>1979.50000</td>
-      <td>7.023596e+06</td>
-      <td>60.712500</td>
-      <td>3531.846988</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>1993.25000</td>
-      <td>1.958522e+07</td>
-      <td>70.845500</td>
-      <td>9325.462346</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>2007.00000</td>
-      <td>1.318683e+09</td>
-      <td>82.603000</td>
-      <td>113523.132900</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">pop</th>
+<th data-quarto-table-cell-role="th">lifeExp</th>
+<th data-quarto-table-cell-role="th">gdpPercap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>1704.00000</td>
+<td>1.704000e+03</td>
+<td>1704.000000</td>
+<td>1704.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>1979.50000</td>
+<td>2.960121e+07</td>
+<td>59.474439</td>
+<td>7215.327081</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>17.26533</td>
+<td>1.061579e+08</td>
+<td>12.917107</td>
+<td>9857.454543</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1952.00000</td>
+<td>6.001100e+04</td>
+<td>23.599000</td>
+<td>241.165876</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>1965.75000</td>
+<td>2.793664e+06</td>
+<td>48.198000</td>
+<td>1202.060309</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>1979.50000</td>
+<td>7.023596e+06</td>
+<td>60.712500</td>
+<td>3531.846988</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>1993.25000</td>
+<td>1.958522e+07</td>
+<td>70.845500</td>
+<td>9325.462346</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>2007.00000</td>
+<td>1.318683e+09</td>
+<td>82.603000</td>
+<td>113523.132900</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1390,12 +1381,12 @@ Name: country, Length: 142, dtype: int64</code></pre>
 </div>
 <section id="challenge-2" class="level3">
 <h3 class="anchored" data-anchor-id="challenge-2">Challenge 2</h3>
-<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Challenge 2
 </div>
 </div>
@@ -1408,12 +1399,12 @@ Challenge 2
 </ol>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution to Challenge 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1435,78 +1426,79 @@ Solution to Challenge 2
 <div class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>df_sample.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>year</th>
-      <th>pop</th>
-      <th>lifeExp</th>
-      <th>gdpPercap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>42.000000</td>
-      <td>4.200000e+01</td>
-      <td>42.000000</td>
-      <td>42.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>1978.071429</td>
-      <td>3.827750e+07</td>
-      <td>59.643405</td>
-      <td>6855.853622</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>17.721962</td>
-      <td>1.375618e+08</td>
-      <td>12.668643</td>
-      <td>9065.062497</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>1952.000000</td>
-      <td>2.492200e+05</td>
-      <td>37.485000</td>
-      <td>312.188423</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>1962.000000</td>
-      <td>2.717367e+06</td>
-      <td>48.941500</td>
-      <td>1107.310021</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>1977.000000</td>
-      <td>6.864533e+06</td>
-      <td>59.921500</td>
-      <td>3095.487531</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>1992.000000</td>
-      <td>1.806619e+07</td>
-      <td>69.984000</td>
-      <td>7569.350694</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>2007.000000</td>
-      <td>8.720000e+08</td>
-      <td>80.204000</td>
-      <td>35278.418740</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">pop</th>
+<th data-quarto-table-cell-role="th">lifeExp</th>
+<th data-quarto-table-cell-role="th">gdpPercap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>42.000000</td>
+<td>4.200000e+01</td>
+<td>42.000000</td>
+<td>42.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>1981.285714</td>
+<td>3.823914e+07</td>
+<td>57.595024</td>
+<td>6028.941970</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>17.723191</td>
+<td>1.239075e+08</td>
+<td>13.306597</td>
+<td>6958.486991</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1952.000000</td>
+<td>3.951140e+05</td>
+<td>34.906000</td>
+<td>416.369806</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>1967.000000</td>
+<td>2.890408e+06</td>
+<td>44.955250</td>
+<td>918.433827</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>1982.000000</td>
+<td>7.575206e+06</td>
+<td>58.246000</td>
+<td>3371.084527</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>1997.000000</td>
+<td>1.734231e+07</td>
+<td>70.000000</td>
+<td>7835.100310</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>2007.000000</td>
+<td>7.880000e+08</td>
+<td>78.770000</td>
+<td>30485.883750</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1516,78 +1508,79 @@ Solution to Challenge 2
 <div class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>df.sample(<span class="dv">42</span>).describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>year</th>
-      <th>pop</th>
-      <th>lifeExp</th>
-      <th>gdpPercap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>42.000000</td>
-      <td>4.200000e+01</td>
-      <td>42.000000</td>
-      <td>42.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>1978.190476</td>
-      <td>4.431798e+07</td>
-      <td>58.721214</td>
-      <td>8404.559190</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>18.636756</td>
-      <td>2.022140e+08</td>
-      <td>13.970897</td>
-      <td>14038.825067</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>1952.000000</td>
-      <td>2.339970e+05</td>
-      <td>30.000000</td>
-      <td>385.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>1962.000000</td>
-      <td>2.685987e+06</td>
-      <td>48.795750</td>
-      <td>1678.472234</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>1977.000000</td>
-      <td>5.326539e+06</td>
-      <td>60.690000</td>
-      <td>3270.194653</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>1992.000000</td>
-      <td>1.297044e+07</td>
-      <td>70.841500</td>
-      <td>7717.467877</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>2007.000000</td>
-      <td>1.318683e+09</td>
-      <td>79.829000</td>
-      <td>80894.883260</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">pop</th>
+<th data-quarto-table-cell-role="th">lifeExp</th>
+<th data-quarto-table-cell-role="th">gdpPercap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>42.000000</td>
+<td>4.200000e+01</td>
+<td>42.000000</td>
+<td>42.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>1975.095238</td>
+<td>3.026646e+07</td>
+<td>58.485548</td>
+<td>4709.594894</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>15.732225</td>
+<td>1.223023e+08</td>
+<td>12.390566</td>
+<td>4913.754323</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1952.000000</td>
+<td>4.858310e+05</td>
+<td>35.307000</td>
+<td>298.846212</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>1962.000000</td>
+<td>1.658362e+06</td>
+<td>48.534000</td>
+<td>1502.794381</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>1977.000000</td>
+<td>3.691584e+06</td>
+<td>59.228500</td>
+<td>3641.974216</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>1987.000000</td>
+<td>9.780266e+06</td>
+<td>69.317500</td>
+<td>6071.637884</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>2007.000000</td>
+<td>7.880000e+08</td>
+<td>82.000000</td>
+<td>28604.591900</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1607,7 +1600,7 @@ Solution to Challenge 2
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/getting-data-with-pandas/dill.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Yes, you can even save to a pickle.</figcaption><p></p>
+<figcaption class="figure-caption">Yes, you can even save to a pickle.</figcaption>
 </figure>
 </div>
 </div>
@@ -1622,12 +1615,12 @@ Solution to Challenge 2
 <li><code>index</code>: True or False. Whether we wish to include the index in our output (default is True). We will often want to set this to False, as the index is just a set of integers labeling the row numbers.</li>
 <li><code>columns</code>: list of columns to keep in the output</li>
 </ul>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 pd.method() or df.method()?
 </div>
 </div>
@@ -1651,12 +1644,12 @@ pd.method() or df.method()?
 </div>
 <section id="challenge-3" class="level3">
 <h3 class="anchored" data-anchor-id="challenge-3">Challenge 3</h3>
-<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Challenge 3
 </div>
 </div>
@@ -1664,12 +1657,12 @@ Challenge 3
 <p>Save a copy of all of the summary statistics for the gapfinder dataset. Only include the statistics for the <code>pop</code> and <code>lifeExp</code> columns. What happens when we include or exclude the index?</p>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution to Challenge 3
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1841,9 +1834,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1908,6 +1915,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1963,16 +2056,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Introduction to Data Science using Python was written by <br> Lindsay Forestell and Stuart Hemerling</div>   
-      <div class="nav-footer-center">
-        <ul class="footer-items list-unstyled">
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./license.qmd">License</a>
+    <a class="nav-link" href="./license.html">License</a>
   </li>  
     <li class="nav-item">
     <a class="nav-link" href="https://bcgov.github.io/ds-intro-to-python/index.html">Python for Data Science Course</a>
   </li>  
 </ul>
-      </div>
+    </div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

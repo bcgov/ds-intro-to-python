@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -122,7 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
@@ -143,130 +115,129 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <img src="./BCID_H_rgb_rev.png" alt="" class="navbar-logo">
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Introduction to Python</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-to-python">    
         <li>
-    <a class="dropdown-item" href="./00_introduction_to_python.html">
+    <a class="dropdown-item" href="./00_introduction_to_python.html" rel="" target="">
  <span class="dropdown-text">Getting Up and Running</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./01_working_with_code.html">
+    <a class="dropdown-item" href="./01_working_with_code.html" rel="" target="">
  <span class="dropdown-text">Working with Code</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./02_core_data_structure_concepts.html">
+    <a class="dropdown-item" href="./02_core_data_structure_concepts.html" rel="" target="">
  <span class="dropdown-text">Core Concepts</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Get and Clean Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-get-and-clean-data">    
         <li>
-    <a class="dropdown-item" href="./11_getting_data_with_pandas.html">
+    <a class="dropdown-item" href="./11_getting_data_with_pandas.html" rel="" target="">
  <span class="dropdown-text">Getting Data with Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./12_cleaning_it_up.html">
+    <a class="dropdown-item" href="./12_cleaning_it_up.html" rel="" target="">
  <span class="dropdown-text">Cleaning Data with Pandas</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Understand and Analyze Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-understand-and-analyze-data">    
         <li>
-    <a class="dropdown-item" href="./21_exploring_data_structures.html">
+    <a class="dropdown-item" href="./21_exploring_data_structures.html" rel="" target="">
  <span class="dropdown-text">Exploring Data Structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html">
+    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html" rel="" target="">
  <span class="dropdown-text">Graphical Depictions of Data</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Advanced Topics</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced-topics">    
         <li>
-    <a class="dropdown-item" href="./31_bcdata.html">
+    <a class="dropdown-item" href="./31_bcdata.html" rel="" target="">
  <span class="dropdown-text">bcdata package</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./32_advanced_pandas.html">
+    <a class="dropdown-item" href="./32_advanced_pandas.html" rel="" target="">
  <span class="dropdown-text">Advanced Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./33_create_reports.html">
+    <a class="dropdown-item" href="./33_create_reports.html" rel="" target="">
  <span class="dropdown-text">Creating Reports</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./34_machine_learning.html">
+    <a class="dropdown-item" href="./34_machine_learning.html" rel="" target="">
  <span class="dropdown-text">Machine Learning</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./references.html">
+    <a class="nav-link" href="./references.html" rel="" target="">
  <span class="menu-text">References</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/bcgov/ds-intro-to-python"><i class="bi bi-github" role="img" aria-label="Source Code">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item dropdown  compact">
-    <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <i class="bi bi-share" role="img" aria-label="Share">
-</i> 
- <span class="menu-text"></span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="">    
-        <li>
-    <a class="dropdown-item" href="https://twitter.com/intent/tweet?url=|url|"><i class="bi bi-twitter" role="img">
-</i> 
- <span class="dropdown-text">Twitter</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|"><i class="bi bi-facebook" role="img">
-</i> 
- <span class="dropdown-text">Facebook</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/bcgov/ds-intro-to-python" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12_cleaning_it_up.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -274,102 +245,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Up and Running</span></a>
+  <a href="./00_introduction_to_python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Up and Running</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_working_with_code.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></a>
+  <a href="./01_working_with_code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_core_data_structure_concepts.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Core Concepts</span></a>
+  <a href="./02_core_data_structure_concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Core Concepts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></a>
+  <a href="./11_getting_data_with_pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_cleaning_it_up.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a>
+  <a href="./12_cleaning_it_up.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_exploring_data_structures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a>
+  <a href="./21_exploring_data_structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></a>
+  <a href="./22_graphical_depictions_of_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_bcdata.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a>
+  <a href="./31_bcdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_advanced_pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></a>
+  <a href="./32_advanced_pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./33_create_reports.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Creating Reports</span></a>
+  <a href="./33_create_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Creating Reports</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./34_machine_learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Machine Learning</span></a>
+  <a href="./34_machine_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Machine Learning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cleaning-and-data-science" id="toc-cleaning-and-data-science" class="nav-link active" data-scroll-target="#cleaning-and-data-science"><span class="toc-section-number">5.1</span>  Cleaning and data science</a></li>
-  <li><a href="#dealing-with-missing-data" id="toc-dealing-with-missing-data" class="nav-link" data-scroll-target="#dealing-with-missing-data"><span class="toc-section-number">5.2</span>  Dealing with Missing Data</a>
+  <li><a href="#cleaning-and-data-science" id="toc-cleaning-and-data-science" class="nav-link active" data-scroll-target="#cleaning-and-data-science"><span class="header-section-number">5.1</span> Cleaning and data science</a></li>
+  <li><a href="#dealing-with-missing-data" id="toc-dealing-with-missing-data" class="nav-link" data-scroll-target="#dealing-with-missing-data"><span class="header-section-number">5.2</span> Dealing with Missing Data</a>
   <ul>
   <li><a href="#locating-missing-data" id="toc-locating-missing-data" class="nav-link" data-scroll-target="#locating-missing-data">Locating Missing Data</a></li>
   <li><a href="#dropping-rows-and-columns" id="toc-dropping-rows-and-columns" class="nav-link" data-scroll-target="#dropping-rows-and-columns">Dropping rows and columns</a></li>
   <li><a href="#saving-the-dataframe-inplace" id="toc-saving-the-dataframe-inplace" class="nav-link" data-scroll-target="#saving-the-dataframe-inplace">Saving the dataframe “inplace”</a></li>
   <li><a href="#filling-in-missing-data" id="toc-filling-in-missing-data" class="nav-link" data-scroll-target="#filling-in-missing-data">Filling in missing data</a></li>
   </ul></li>
-  <li><a href="#modifying-existing-data" id="toc-modifying-existing-data" class="nav-link" data-scroll-target="#modifying-existing-data"><span class="toc-section-number">5.3</span>  Modifying existing data</a>
+  <li><a href="#modifying-existing-data" id="toc-modifying-existing-data" class="nav-link" data-scroll-target="#modifying-existing-data"><span class="header-section-number">5.3</span> Modifying existing data</a>
   <ul>
   <li><a href="#cleaning-the-header-row" id="toc-cleaning-the-header-row" class="nav-link" data-scroll-target="#cleaning-the-header-row">Cleaning the header row</a></li>
   <li><a href="#ensuring-the-right-datatypes" id="toc-ensuring-the-right-datatypes" class="nav-link" data-scroll-target="#ensuring-the-right-datatypes">Ensuring the right datatypes</a></li>
@@ -383,7 +368,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></h1>
 </div>
 
 
@@ -432,69 +417,70 @@ It’s not so bad, promise!
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>movie_ratings <span class="op">=</span> pd.read_csv(mr)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>movie_ratings.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Rater</th>
-      <th>Star Wars</th>
-      <th>Finding Nemo</th>
-      <th>Forrest Gump</th>
-      <th>Parasite</th>
-      <th>Citizen Kane</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Floriana</td>
-      <td>NaN</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Raymundo</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Jung</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>5.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Kumar</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Maria</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rater</th>
+<th data-quarto-table-cell-role="th">Star Wars</th>
+<th data-quarto-table-cell-role="th">Finding Nemo</th>
+<th data-quarto-table-cell-role="th">Forrest Gump</th>
+<th data-quarto-table-cell-role="th">Parasite</th>
+<th data-quarto-table-cell-role="th">Citizen Kane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Floriana</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Raymundo</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Jung</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Kumar</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Maria</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -508,114 +494,115 @@ It’s not so bad, promise!
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find the missing values</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>movie_ratings.isna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Rater</th>
-      <th>Star Wars</th>
-      <th>Finding Nemo</th>
-      <th>Forrest Gump</th>
-      <th>Parasite</th>
-      <th>Citizen Kane</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rater</th>
+<th data-quarto-table-cell-role="th">Star Wars</th>
+<th data-quarto-table-cell-role="th">Finding Nemo</th>
+<th data-quarto-table-cell-role="th">Forrest Gump</th>
+<th data-quarto-table-cell-role="th">Parasite</th>
+<th data-quarto-table-cell-role="th">Citizen Kane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -650,51 +637,52 @@ dtype: int64</code></pre>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>reduced_rows <span class="op">=</span> movie_ratings.dropna()</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>reduced_rows.head(<span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Rater</th>
-      <th>Star Wars</th>
-      <th>Finding Nemo</th>
-      <th>Forrest Gump</th>
-      <th>Parasite</th>
-      <th>Citizen Kane</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>5</th>
-      <td>Arthur</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Martina</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Orson</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>5.0</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rater</th>
+<th data-quarto-table-cell-role="th">Star Wars</th>
+<th data-quarto-table-cell-role="th">Finding Nemo</th>
+<th data-quarto-table-cell-role="th">Forrest Gump</th>
+<th data-quarto-table-cell-role="th">Parasite</th>
+<th data-quarto-table-cell-role="th">Citizen Kane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Arthur</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Martina</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Orson</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>5.0</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -704,78 +692,79 @@ dtype: int64</code></pre>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>par_df <span class="op">=</span> movie_ratings.dropna(subset<span class="op">=</span><span class="st">'Parasite'</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>par_df.head(<span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Rater</th>
-      <th>Star Wars</th>
-      <th>Finding Nemo</th>
-      <th>Forrest Gump</th>
-      <th>Parasite</th>
-      <th>Citizen Kane</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Floriana</td>
-      <td>NaN</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Jung</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>5.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Arthur</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Marcellus</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Martina</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Orson</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>5.0</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rater</th>
+<th data-quarto-table-cell-role="th">Star Wars</th>
+<th data-quarto-table-cell-role="th">Finding Nemo</th>
+<th data-quarto-table-cell-role="th">Forrest Gump</th>
+<th data-quarto-table-cell-role="th">Parasite</th>
+<th data-quarto-table-cell-role="th">Citizen Kane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Floriana</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Jung</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Arthur</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Marcellus</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Martina</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Orson</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>5.0</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -785,39 +774,40 @@ dtype: int64</code></pre>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>reduced_cols <span class="op">=</span> movie_ratings.dropna(axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>reduced_cols.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Rater</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Floriana</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Raymundo</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Jung</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Kumar</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Maria</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rater</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Floriana</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Raymundo</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Jung</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Kumar</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Maria</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -835,69 +825,70 @@ dtype: int64</code></pre>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>movie_ratings <span class="op">=</span> pd.read_csv(mr)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>movie_ratings.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Rater</th>
-      <th>Star Wars</th>
-      <th>Finding Nemo</th>
-      <th>Forrest Gump</th>
-      <th>Parasite</th>
-      <th>Citizen Kane</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Floriana</td>
-      <td>NaN</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Raymundo</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Jung</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>5.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Kumar</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Maria</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rater</th>
+<th data-quarto-table-cell-role="th">Star Wars</th>
+<th data-quarto-table-cell-role="th">Finding Nemo</th>
+<th data-quarto-table-cell-role="th">Forrest Gump</th>
+<th data-quarto-table-cell-role="th">Parasite</th>
+<th data-quarto-table-cell-role="th">Citizen Kane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Floriana</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Raymundo</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Jung</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Kumar</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Maria</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -909,69 +900,70 @@ dtype: int64</code></pre>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Looking at the dataframe</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>movie_ratings.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Rater</th>
-      <th>Star Wars</th>
-      <th>Finding Nemo</th>
-      <th>Forrest Gump</th>
-      <th>Parasite</th>
-      <th>Citizen Kane</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Floriana</td>
-      <td>NaN</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Raymundo</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Jung</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>5.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Kumar</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Maria</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rater</th>
+<th data-quarto-table-cell-role="th">Star Wars</th>
+<th data-quarto-table-cell-role="th">Finding Nemo</th>
+<th data-quarto-table-cell-role="th">Forrest Gump</th>
+<th data-quarto-table-cell-role="th">Parasite</th>
+<th data-quarto-table-cell-role="th">Citizen Kane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Floriana</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Raymundo</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Jung</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Kumar</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Maria</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -984,51 +976,52 @@ dtype: int64</code></pre>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Looking at the dataframe</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>movie_ratings.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Rater</th>
-      <th>Star Wars</th>
-      <th>Finding Nemo</th>
-      <th>Forrest Gump</th>
-      <th>Parasite</th>
-      <th>Citizen Kane</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>5</th>
-      <td>Arthur</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Martina</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Orson</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>5.0</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rater</th>
+<th data-quarto-table-cell-role="th">Star Wars</th>
+<th data-quarto-table-cell-role="th">Finding Nemo</th>
+<th data-quarto-table-cell-role="th">Forrest Gump</th>
+<th data-quarto-table-cell-role="th">Parasite</th>
+<th data-quarto-table-cell-role="th">Citizen Kane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Arthur</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Martina</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Orson</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>5.0</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1048,114 +1041,115 @@ dtype: int64</code></pre>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>filled_385 <span class="op">=</span> movie_ratings.fillna(<span class="fl">3.85</span>)</span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>filled_385.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Rater</th>
-      <th>Star Wars</th>
-      <th>Finding Nemo</th>
-      <th>Forrest Gump</th>
-      <th>Parasite</th>
-      <th>Citizen Kane</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Floriana</td>
-      <td>3.85</td>
-      <td>5.00</td>
-      <td>5.00</td>
-      <td>3.00</td>
-      <td>3.85</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Raymundo</td>
-      <td>4.00</td>
-      <td>3.85</td>
-      <td>3.85</td>
-      <td>3.85</td>
-      <td>5.00</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Jung</td>
-      <td>5.00</td>
-      <td>3.85</td>
-      <td>3.85</td>
-      <td>5.00</td>
-      <td>3.85</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Kumar</td>
-      <td>5.00</td>
-      <td>3.85</td>
-      <td>4.00</td>
-      <td>3.85</td>
-      <td>4.00</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Maria</td>
-      <td>5.00</td>
-      <td>4.00</td>
-      <td>5.00</td>
-      <td>3.85</td>
-      <td>3.85</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Arthur</td>
-      <td>2.00</td>
-      <td>2.00</td>
-      <td>3.00</td>
-      <td>3.00</td>
-      <td>3.00</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Marcellus</td>
-      <td>3.85</td>
-      <td>3.85</td>
-      <td>4.00</td>
-      <td>5.00</td>
-      <td>4.00</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Martina</td>
-      <td>5.00</td>
-      <td>5.00</td>
-      <td>5.00</td>
-      <td>5.00</td>
-      <td>5.00</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Orson</td>
-      <td>1.00</td>
-      <td>1.00</td>
-      <td>1.00</td>
-      <td>2.00</td>
-      <td>5.00</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Luke</td>
-      <td>5.00</td>
-      <td>3.85</td>
-      <td>3.85</td>
-      <td>3.85</td>
-      <td>3.85</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rater</th>
+<th data-quarto-table-cell-role="th">Star Wars</th>
+<th data-quarto-table-cell-role="th">Finding Nemo</th>
+<th data-quarto-table-cell-role="th">Forrest Gump</th>
+<th data-quarto-table-cell-role="th">Parasite</th>
+<th data-quarto-table-cell-role="th">Citizen Kane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Floriana</td>
+<td>3.85</td>
+<td>5.00</td>
+<td>5.00</td>
+<td>3.00</td>
+<td>3.85</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Raymundo</td>
+<td>4.00</td>
+<td>3.85</td>
+<td>3.85</td>
+<td>3.85</td>
+<td>5.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Jung</td>
+<td>5.00</td>
+<td>3.85</td>
+<td>3.85</td>
+<td>5.00</td>
+<td>3.85</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Kumar</td>
+<td>5.00</td>
+<td>3.85</td>
+<td>4.00</td>
+<td>3.85</td>
+<td>4.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Maria</td>
+<td>5.00</td>
+<td>4.00</td>
+<td>5.00</td>
+<td>3.85</td>
+<td>3.85</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Arthur</td>
+<td>2.00</td>
+<td>2.00</td>
+<td>3.00</td>
+<td>3.00</td>
+<td>3.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Marcellus</td>
+<td>3.85</td>
+<td>3.85</td>
+<td>4.00</td>
+<td>5.00</td>
+<td>4.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Martina</td>
+<td>5.00</td>
+<td>5.00</td>
+<td>5.00</td>
+<td>5.00</td>
+<td>5.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Orson</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>2.00</td>
+<td>5.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Luke</td>
+<td>5.00</td>
+<td>3.85</td>
+<td>3.85</td>
+<td>3.85</td>
+<td>3.85</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1165,114 +1159,115 @@ dtype: int64</code></pre>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>bfilled_mr <span class="op">=</span> movie_ratings.fillna(method<span class="op">=</span><span class="st">'bfill'</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>bfilled_mr.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Rater</th>
-      <th>Star Wars</th>
-      <th>Finding Nemo</th>
-      <th>Forrest Gump</th>
-      <th>Parasite</th>
-      <th>Citizen Kane</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Floriana</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>3.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Raymundo</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Jung</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Kumar</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Maria</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Arthur</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Marcellus</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Martina</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Orson</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Luke</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rater</th>
+<th data-quarto-table-cell-role="th">Star Wars</th>
+<th data-quarto-table-cell-role="th">Finding Nemo</th>
+<th data-quarto-table-cell-role="th">Forrest Gump</th>
+<th data-quarto-table-cell-role="th">Parasite</th>
+<th data-quarto-table-cell-role="th">Citizen Kane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Floriana</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Raymundo</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Jung</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Kumar</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>3.0</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Maria</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Arthur</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>3.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Marcellus</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Martina</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Orson</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Luke</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1284,114 +1279,115 @@ dtype: int64</code></pre>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  fillna(movie_ratings[<span class="st">'Parasite'</span>].mean())</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>movie_ratings.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Rater</th>
-      <th>Star Wars</th>
-      <th>Finding Nemo</th>
-      <th>Forrest Gump</th>
-      <th>Parasite</th>
-      <th>Citizen Kane</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Floriana</td>
-      <td>NaN</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>3.000000</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Raymundo</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>3.833333</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Jung</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>5.000000</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Kumar</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>4.0</td>
-      <td>3.833333</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Maria</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>3.833333</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Arthur</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>3.0</td>
-      <td>3.000000</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Marcellus</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>4.0</td>
-      <td>5.000000</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Martina</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.000000</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Orson</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.000000</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Luke</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>3.833333</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rater</th>
+<th data-quarto-table-cell-role="th">Star Wars</th>
+<th data-quarto-table-cell-role="th">Finding Nemo</th>
+<th data-quarto-table-cell-role="th">Forrest Gump</th>
+<th data-quarto-table-cell-role="th">Parasite</th>
+<th data-quarto-table-cell-role="th">Citizen Kane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Floriana</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.000000</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Raymundo</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>3.833333</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Jung</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>5.000000</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Kumar</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>4.0</td>
+<td>3.833333</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Maria</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>3.833333</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Arthur</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>3.000000</td>
+<td>3.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Marcellus</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>4.0</td>
+<td>5.000000</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Martina</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.000000</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Orson</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>2.000000</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Luke</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>3.833333</td>
+<td>NaN</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1400,125 +1396,126 @@ dtype: int64</code></pre>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>movie_ratings <span class="op">=</span> movie_ratings.fillna(movie_ratings.mean(numeric_only<span class="op">=</span><span class="va">True</span>))</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>movie_ratings.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Rater</th>
-      <th>Star Wars</th>
-      <th>Finding Nemo</th>
-      <th>Forrest Gump</th>
-      <th>Parasite</th>
-      <th>Citizen Kane</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Floriana</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>5.000000</td>
-      <td>3.000000</td>
-      <td>4.333333</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Raymundo</td>
-      <td>4.0</td>
-      <td>3.4</td>
-      <td>3.857143</td>
-      <td>3.833333</td>
-      <td>5.000000</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Jung</td>
-      <td>5.0</td>
-      <td>3.4</td>
-      <td>3.857143</td>
-      <td>5.000000</td>
-      <td>4.333333</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Kumar</td>
-      <td>5.0</td>
-      <td>3.4</td>
-      <td>4.000000</td>
-      <td>3.833333</td>
-      <td>4.000000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Maria</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>5.000000</td>
-      <td>3.833333</td>
-      <td>4.333333</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Arthur</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>3.000000</td>
-      <td>3.000000</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Marcellus</td>
-      <td>4.0</td>
-      <td>3.4</td>
-      <td>4.000000</td>
-      <td>5.000000</td>
-      <td>4.000000</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Martina</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Orson</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>2.000000</td>
-      <td>5.000000</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Luke</td>
-      <td>5.0</td>
-      <td>3.4</td>
-      <td>3.857143</td>
-      <td>3.833333</td>
-      <td>4.333333</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Rater</th>
+<th data-quarto-table-cell-role="th">Star Wars</th>
+<th data-quarto-table-cell-role="th">Finding Nemo</th>
+<th data-quarto-table-cell-role="th">Forrest Gump</th>
+<th data-quarto-table-cell-role="th">Parasite</th>
+<th data-quarto-table-cell-role="th">Citizen Kane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Floriana</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.000000</td>
+<td>3.000000</td>
+<td>4.333333</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Raymundo</td>
+<td>4.0</td>
+<td>3.4</td>
+<td>3.857143</td>
+<td>3.833333</td>
+<td>5.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Jung</td>
+<td>5.0</td>
+<td>3.4</td>
+<td>3.857143</td>
+<td>5.000000</td>
+<td>4.333333</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Kumar</td>
+<td>5.0</td>
+<td>3.4</td>
+<td>4.000000</td>
+<td>3.833333</td>
+<td>4.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Maria</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.000000</td>
+<td>3.833333</td>
+<td>4.333333</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Arthur</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>3.000000</td>
+<td>3.000000</td>
+<td>3.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Marcellus</td>
+<td>4.0</td>
+<td>3.4</td>
+<td>4.000000</td>
+<td>5.000000</td>
+<td>4.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Martina</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.000000</td>
+<td>5.000000</td>
+<td>5.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Orson</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.000000</td>
+<td>2.000000</td>
+<td>5.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Luke</td>
+<td>5.0</td>
+<td>3.4</td>
+<td>3.857143</td>
+<td>3.833333</td>
+<td>4.333333</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
 <p>While far from perfect, now we have some filled in data that has some reasonable chance of adding value.</p>
 <p>Similar to <code>fillna()</code> is a method called <code>interpolate()</code>, which takes the average of the values near the missing values and plugs them in. To do this, we pass in the <code>interpolate()</code> in similar fashion to how we used <code>fillna()</code> above.</p>
-<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Challenge 1
 </div>
 </div>
@@ -1532,104 +1529,105 @@ Challenge 1
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>city_temps <span class="op">=</span> pd.read_csv(temps)</span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>city_temps.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Day</th>
-      <th>Victoria</th>
-      <th>Regina</th>
-      <th>Sudbury</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>25-Feb-21</td>
-      <td>15.0</td>
-      <td>NaN</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>26-Feb-21</td>
-      <td>18.0</td>
-      <td>-11.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>27-Feb-21</td>
-      <td>NaN</td>
-      <td>-6.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>28-Feb-21</td>
-      <td>12.0</td>
-      <td>-2.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>01-Mar-21</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>02-Mar-21</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>03-Mar-21</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>14.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>04-Mar-21</td>
-      <td>15.0</td>
-      <td>7.0</td>
-      <td>11.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>05-Mar-21</td>
-      <td>13.0</td>
-      <td>NaN</td>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>06-Mar-21</td>
-      <td>11.0</td>
-      <td>4.0</td>
-      <td>14.0</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Day</th>
+<th data-quarto-table-cell-role="th">Victoria</th>
+<th data-quarto-table-cell-role="th">Regina</th>
+<th data-quarto-table-cell-role="th">Sudbury</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>25-Feb-21</td>
+<td>15.0</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>26-Feb-21</td>
+<td>18.0</td>
+<td>-11.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>27-Feb-21</td>
+<td>NaN</td>
+<td>-6.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>28-Feb-21</td>
+<td>12.0</td>
+<td>-2.0</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>01-Mar-21</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>02-Mar-21</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>03-Mar-21</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>14.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>04-Mar-21</td>
+<td>15.0</td>
+<td>7.0</td>
+<td>11.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>05-Mar-21</td>
+<td>13.0</td>
+<td>NaN</td>
+<td>9.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>06-Mar-21</td>
+<td>11.0</td>
+<td>4.0</td>
+<td>14.0</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
 <p>Unfortunately you notice that several of the days have data missing. Write code that leverages the interpolate() function to fill in the missing data. Run the code. Is this an appropriate solution for the problem? What are the pros and cons to this approach.</p>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution to Challenge 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1641,92 +1639,93 @@ Solution to Challenge 1
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>interpolate_temps <span class="op">=</span> city_temps.interpolate()</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>interpolate_temps.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Day</th>
-      <th>Victoria</th>
-      <th>Regina</th>
-      <th>Sudbury</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>25-Feb-21</td>
-      <td>15.00</td>
-      <td>NaN</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>26-Feb-21</td>
-      <td>18.00</td>
-      <td>-11.00</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>27-Feb-21</td>
-      <td>15.00</td>
-      <td>-6.00</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>28-Feb-21</td>
-      <td>12.00</td>
-      <td>-2.00</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>01-Mar-21</td>
-      <td>12.75</td>
-      <td>0.25</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>02-Mar-21</td>
-      <td>13.50</td>
-      <td>2.50</td>
-      <td>10.5</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>03-Mar-21</td>
-      <td>14.25</td>
-      <td>4.75</td>
-      <td>14.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>04-Mar-21</td>
-      <td>15.00</td>
-      <td>7.00</td>
-      <td>11.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>05-Mar-21</td>
-      <td>13.00</td>
-      <td>5.50</td>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>06-Mar-21</td>
-      <td>11.00</td>
-      <td>4.00</td>
-      <td>14.0</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Day</th>
+<th data-quarto-table-cell-role="th">Victoria</th>
+<th data-quarto-table-cell-role="th">Regina</th>
+<th data-quarto-table-cell-role="th">Sudbury</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>25-Feb-21</td>
+<td>15.00</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>26-Feb-21</td>
+<td>18.00</td>
+<td>-11.00</td>
+<td>6.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>27-Feb-21</td>
+<td>15.00</td>
+<td>-6.00</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>28-Feb-21</td>
+<td>12.00</td>
+<td>-2.00</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>01-Mar-21</td>
+<td>12.75</td>
+<td>0.25</td>
+<td>7.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>02-Mar-21</td>
+<td>13.50</td>
+<td>2.50</td>
+<td>10.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>03-Mar-21</td>
+<td>14.25</td>
+<td>4.75</td>
+<td>14.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>04-Mar-21</td>
+<td>15.00</td>
+<td>7.00</td>
+<td>11.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>05-Mar-21</td>
+<td>13.00</td>
+<td>5.50</td>
+<td>9.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>06-Mar-21</td>
+<td>11.00</td>
+<td>4.00</td>
+<td>14.0</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1746,111 +1745,112 @@ Solution to Challenge 1
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>m_health <span class="op">=</span> pd.read_csv(techhealth)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>m_health.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Timestamp</th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Country</th>
-      <th>self employed</th>
-      <th>family history</th>
-      <th>treatment</th>
-      <th>work interfere</th>
-      <th>remote work</th>
-      <th>tech company</th>
-      <th>benefits</th>
-      <th>leave</th>
-      <th>mental health consequence</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>27/08/2014 11:35</td>
-      <td>46</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Often</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>27/08/2014 11:36</td>
-      <td>41</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Never</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Don't know</td>
-      <td>Don't know</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>27/08/2014 11:36</td>
-      <td>33</td>
-      <td>male</td>
-      <td>United States</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Rarely</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>27/08/2014 11:37</td>
-      <td>35</td>
-      <td>male</td>
-      <td>United States</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Sometimes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Very easy</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>27/08/2014 11:42</td>
-      <td>35</td>
-      <td>M</td>
-      <td>United States</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Rarely</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Very easy</td>
-      <td>No</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Timestamp</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Gender</th>
+<th data-quarto-table-cell-role="th">Country</th>
+<th data-quarto-table-cell-role="th">self employed</th>
+<th data-quarto-table-cell-role="th">family history</th>
+<th data-quarto-table-cell-role="th">treatment</th>
+<th data-quarto-table-cell-role="th">work interfere</th>
+<th data-quarto-table-cell-role="th">remote work</th>
+<th data-quarto-table-cell-role="th">tech company</th>
+<th data-quarto-table-cell-role="th">benefits</th>
+<th data-quarto-table-cell-role="th">leave</th>
+<th data-quarto-table-cell-role="th">mental health consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>27/08/2014 11:35</td>
+<td>46</td>
+<td>Male</td>
+<td>United States</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Often</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>Maybe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>27/08/2014 11:36</td>
+<td>41</td>
+<td>Male</td>
+<td>United States</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Never</td>
+<td>No</td>
+<td>No</td>
+<td>Don't know</td>
+<td>Don't know</td>
+<td>Maybe</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>27/08/2014 11:36</td>
+<td>33</td>
+<td>male</td>
+<td>United States</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Rarely</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>27/08/2014 11:37</td>
+<td>35</td>
+<td>male</td>
+<td>United States</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Sometimes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Very easy</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>27/08/2014 11:42</td>
+<td>35</td>
+<td>M</td>
+<td>United States</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Rarely</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Very easy</td>
+<td>No</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -2004,121 +2004,122 @@ Name: self_employed, dtype: int64</code></pre>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>        .astype(dtype<span class="op">=</span><span class="st">'int'</span>)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>m_health.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>timestamp</th>
-      <th>age</th>
-      <th>gender</th>
-      <th>country</th>
-      <th>self_employed</th>
-      <th>family_history</th>
-      <th>treatment</th>
-      <th>work_interfere</th>
-      <th>remote_work</th>
-      <th>tech_company</th>
-      <th>benefits</th>
-      <th>leave</th>
-      <th>mental_health_consequence</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2014-08-27 11:35:00</td>
-      <td>46</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Often</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2014-08-27 11:36:00</td>
-      <td>41</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Never</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Don't know</td>
-      <td>Don't know</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2014-08-27 11:36:00</td>
-      <td>33</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Rarely</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2014-08-27 11:37:00</td>
-      <td>35</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Sometimes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Very easy</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2014-08-27 11:42:00</td>
-      <td>35</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Rarely</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Very easy</td>
-      <td>No</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">timestamp</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">self_employed</th>
+<th data-quarto-table-cell-role="th">family_history</th>
+<th data-quarto-table-cell-role="th">treatment</th>
+<th data-quarto-table-cell-role="th">work_interfere</th>
+<th data-quarto-table-cell-role="th">remote_work</th>
+<th data-quarto-table-cell-role="th">tech_company</th>
+<th data-quarto-table-cell-role="th">benefits</th>
+<th data-quarto-table-cell-role="th">leave</th>
+<th data-quarto-table-cell-role="th">mental_health_consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2014-08-27 11:35:00</td>
+<td>46</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>Often</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>Maybe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2014-08-27 11:36:00</td>
+<td>41</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>Never</td>
+<td>No</td>
+<td>No</td>
+<td>Don't know</td>
+<td>Don't know</td>
+<td>Maybe</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2014-08-27 11:36:00</td>
+<td>33</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Rarely</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2014-08-27 11:37:00</td>
+<td>35</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Sometimes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Very easy</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2014-08-27 11:42:00</td>
+<td>35</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>Rarely</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Very easy</td>
+<td>No</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
 <p>Now we see that variable as a series of int-typed 0s and 1s. <br></p>
-<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Challenge 2
 </div>
 </div>
@@ -2130,12 +2131,12 @@ Challenge 2
 </ol>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution to Challenge 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -2226,415 +2227,416 @@ memory usage: 2.6+ KB</code></pre>
 <div class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>m_health</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>timestamp</th>
-      <th>age</th>
-      <th>gender</th>
-      <th>country</th>
-      <th>self_employed</th>
-      <th>family_history</th>
-      <th>treatment</th>
-      <th>work_interfere</th>
-      <th>remote_work</th>
-      <th>tech_company</th>
-      <th>benefits</th>
-      <th>leave</th>
-      <th>mental_health_consequence</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2014-08-27 11:35:00</td>
-      <td>46</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>3</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2014-08-27 11:36:00</td>
-      <td>41</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Don't know</td>
-      <td>Don't know</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2014-08-27 11:36:00</td>
-      <td>33</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>1</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2014-08-27 11:37:00</td>
-      <td>35</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>2</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Very easy</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2014-08-27 11:42:00</td>
-      <td>35</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>1</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Very easy</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>2014-08-27 11:42:00</td>
-      <td>24</td>
-      <td>Male</td>
-      <td>United Kingdom</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Don't know</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>2014-08-27 11:42:00</td>
-      <td>35</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>2</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Somewhat difficult</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2014-08-27 11:43:00</td>
-      <td>27</td>
-      <td>Male</td>
-      <td>Canada</td>
-      <td>0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Very difficult</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2014-08-27 11:43:00</td>
-      <td>18</td>
-      <td>Male</td>
-      <td>Netherlands</td>
-      <td>0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>3</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Somewhat difficult</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2014-08-27 11:43:00</td>
-      <td>30</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>Don't know</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>2014-08-27 11:43:00</td>
-      <td>38</td>
-      <td>Female</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Somewhat easy</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>2014-08-27 11:43:00</td>
-      <td>28</td>
-      <td>Male</td>
-      <td>United Kingdom</td>
-      <td>0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>Don't know</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>2014-08-27 11:43:00</td>
-      <td>34</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Don't know</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>2014-08-27 11:43:00</td>
-      <td>26</td>
-      <td>Male</td>
-      <td>Canada</td>
-      <td>1</td>
-      <td>No</td>
-      <td>No</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Don't know</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>2014-08-27 11:44:00</td>
-      <td>30</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>1</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>2014-08-27 12:12:00</td>
-      <td>31</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Somewhat easy</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>2014-08-27 12:13:00</td>
-      <td>40</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Very difficult</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>2014-08-27 12:14:00</td>
-      <td>34</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>Somewhat easy</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>2014-08-27 12:15:00</td>
-      <td>25</td>
-      <td>Female</td>
-      <td>Canada</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>2014-08-27 12:15:00</td>
-      <td>29</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>No</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>Don't know</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>2014-08-27 12:16:00</td>
-      <td>24</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>1</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>Somewhat easy</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>2014-08-27 12:17:00</td>
-      <td>31</td>
-      <td>Male</td>
-      <td>Mexico</td>
-      <td>0</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Don't know</td>
-      <td>Don't know</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>2014-08-27 12:18:00</td>
-      <td>33</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Somewhat easy</td>
-      <td>Maybe</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>2014-08-27 12:18:00</td>
-      <td>30</td>
-      <td>Male</td>
-      <td>United States</td>
-      <td>0</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>3</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Somewhat easy</td>
-      <td>No</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">timestamp</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">self_employed</th>
+<th data-quarto-table-cell-role="th">family_history</th>
+<th data-quarto-table-cell-role="th">treatment</th>
+<th data-quarto-table-cell-role="th">work_interfere</th>
+<th data-quarto-table-cell-role="th">remote_work</th>
+<th data-quarto-table-cell-role="th">tech_company</th>
+<th data-quarto-table-cell-role="th">benefits</th>
+<th data-quarto-table-cell-role="th">leave</th>
+<th data-quarto-table-cell-role="th">mental_health_consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2014-08-27 11:35:00</td>
+<td>46</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>3</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>Maybe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2014-08-27 11:36:00</td>
+<td>41</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>0</td>
+<td>No</td>
+<td>No</td>
+<td>Don't know</td>
+<td>Don't know</td>
+<td>Maybe</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2014-08-27 11:36:00</td>
+<td>33</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>1</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2014-08-27 11:37:00</td>
+<td>35</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>2</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Very easy</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2014-08-27 11:42:00</td>
+<td>35</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>1</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Very easy</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>2014-08-27 11:42:00</td>
+<td>24</td>
+<td>Male</td>
+<td>United Kingdom</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>2</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Don't know</td>
+<td>Maybe</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>2014-08-27 11:42:00</td>
+<td>35</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>No</td>
+<td>2</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Somewhat difficult</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>2014-08-27 11:43:00</td>
+<td>27</td>
+<td>Male</td>
+<td>Canada</td>
+<td>0</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>2</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Very difficult</td>
+<td>Maybe</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>2014-08-27 11:43:00</td>
+<td>18</td>
+<td>Male</td>
+<td>Netherlands</td>
+<td>0</td>
+<td>No</td>
+<td>No</td>
+<td>3</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Somewhat difficult</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>2014-08-27 11:43:00</td>
+<td>30</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>2</td>
+<td>No</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>Don't know</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>2014-08-27 11:43:00</td>
+<td>38</td>
+<td>Female</td>
+<td>United States</td>
+<td>0</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>2</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Somewhat easy</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>2014-08-27 11:43:00</td>
+<td>28</td>
+<td>Male</td>
+<td>United Kingdom</td>
+<td>0</td>
+<td>No</td>
+<td>No</td>
+<td>2</td>
+<td>No</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>Don't know</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>2014-08-27 11:43:00</td>
+<td>34</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>No</td>
+<td>2</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Don't know</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>2014-08-27 11:43:00</td>
+<td>26</td>
+<td>Male</td>
+<td>Canada</td>
+<td>1</td>
+<td>No</td>
+<td>No</td>
+<td>2</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Don't know</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>2014-08-27 11:44:00</td>
+<td>30</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>1</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>Maybe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>2014-08-27 12:12:00</td>
+<td>31</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>No</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Somewhat easy</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>2014-08-27 12:13:00</td>
+<td>40</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Very difficult</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>2014-08-27 12:14:00</td>
+<td>34</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>No</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>Somewhat easy</td>
+<td>Maybe</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>2014-08-27 12:15:00</td>
+<td>25</td>
+<td>Female</td>
+<td>Canada</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>2</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>Maybe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>2014-08-27 12:15:00</td>
+<td>29</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>No</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>Don't know</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>2014-08-27 12:16:00</td>
+<td>24</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>Yes</td>
+<td>No</td>
+<td>1</td>
+<td>No</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>Somewhat easy</td>
+<td>Maybe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>2014-08-27 12:17:00</td>
+<td>31</td>
+<td>Male</td>
+<td>Mexico</td>
+<td>0</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>2</td>
+<td>No</td>
+<td>Yes</td>
+<td>Don't know</td>
+<td>Don't know</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>2014-08-27 12:18:00</td>
+<td>33</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>2</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Somewhat easy</td>
+<td>Maybe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>2014-08-27 12:18:00</td>
+<td>30</td>
+<td>Male</td>
+<td>United States</td>
+<td>0</td>
+<td>No</td>
+<td>Yes</td>
+<td>3</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Somewhat easy</td>
+<td>No</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -2789,9 +2791,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -2856,6 +2872,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -2911,16 +3013,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Introduction to Data Science using Python was written by <br> Lindsay Forestell and Stuart Hemerling</div>   
-      <div class="nav-footer-center">
-        <ul class="footer-items list-unstyled">
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./license.qmd">License</a>
+    <a class="nav-link" href="./license.html">License</a>
   </li>  
     <li class="nav-item">
     <a class="nav-link" href="https://bcgov.github.io/ds-intro-to-python/index.html">Python for Data Science Course</a>
   </li>  
 </ul>
-      </div>
+    </div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
