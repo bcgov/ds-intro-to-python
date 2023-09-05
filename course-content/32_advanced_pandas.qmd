@@ -723,7 +723,9 @@ To address the year-continent question above, we could first group our data by c
 Let's go through some examples with increasing complexity. The simplest thing we can do is pivot a single column, to which we will get an output for the averages of all numerical columns. 
 ```{python}
 gapminder.pivot_table(
-    columns='continent'
+    columns='continent',
+    values = ['gdpPercap', 'lifeExp', 'pop', 'year']
+
 )
 ```
 

@@ -94,7 +94,7 @@ book:
       - text: "License"
         href: license.qmd
       - text: "Python for Data Science Course"
-        href: https://bcgov.github.io/ds-intro-to-python/index.html
+        href: index.qmd
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
 
