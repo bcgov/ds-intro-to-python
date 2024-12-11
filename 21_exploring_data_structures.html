@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Stuart Hemerling">
 
-<title>Introduction to Data Science using Python - 6&nbsp; Exploring Data Structures</title>
+<title>6&nbsp; Exploring Data Structures – Introduction to Data Science using Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -72,19 +72,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-92e2dd4f4c7daf58452f04a50b571cde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-840d0bcdd202e39593fd3aec26358f27.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -93,13 +99,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
@@ -109,116 +116,117 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="./BCID_H_rgb_rev.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Introduction to Python</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-to-python">    
         <li>
-    <a class="dropdown-item" href="./00_introduction_to_python.html" rel="" target="">
+    <a class="dropdown-item" href="./00_introduction_to_python.html">
  <span class="dropdown-text">Getting Up and Running</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./01_working_with_code.html" rel="" target="">
+    <a class="dropdown-item" href="./01_working_with_code.html">
  <span class="dropdown-text">Working with Code</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./02_core_data_structure_concepts.html" rel="" target="">
+    <a class="dropdown-item" href="./02_core_data_structure_concepts.html">
  <span class="dropdown-text">Core Concepts</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Get and Clean Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-get-and-clean-data">    
         <li>
-    <a class="dropdown-item" href="./11_getting_data_with_pandas.html" rel="" target="">
+    <a class="dropdown-item" href="./11_getting_data_with_pandas.html">
  <span class="dropdown-text">Getting Data with Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./12_cleaning_it_up.html" rel="" target="">
+    <a class="dropdown-item" href="./12_cleaning_it_up.html">
  <span class="dropdown-text">Cleaning Data with Pandas</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Understand and Analyze Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-understand-and-analyze-data">    
         <li>
-    <a class="dropdown-item" href="./21_exploring_data_structures.html" rel="" target="">
+    <a class="dropdown-item" href="./21_exploring_data_structures.html">
  <span class="dropdown-text">Exploring Data Structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html" rel="" target="">
+    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html">
  <span class="dropdown-text">Graphical Depictions of Data</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Advanced Topics</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced-topics">    
         <li>
-    <a class="dropdown-item" href="./31_bcdata.html" rel="" target="">
+    <a class="dropdown-item" href="./31_bcdata.html">
  <span class="dropdown-text">bcdata package</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./32_advanced_pandas.html" rel="" target="">
+    <a class="dropdown-item" href="./32_advanced_pandas.html">
  <span class="dropdown-text">Advanced Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./33_create_reports.html" rel="" target="">
+    <a class="dropdown-item" href="./33_create_reports.html">
  <span class="dropdown-text">Creating Reports</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./34_machine_learning.html" rel="" target="">
+    <a class="dropdown-item" href="./34_machine_learning.html">
  <span class="dropdown-text">Machine Learning</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./references.html" rel="" target="">
- <span class="menu-text">References</span></a>
+    <a class="nav-link" href="./references.html"> 
+<span class="menu-text">References</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/bcgov/ds-intro-to-python" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/bcgov/ds-intro-to-python" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -226,37 +234,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./21_exploring_data_structures.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./21_exploring_data_structures.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -340,7 +339,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -356,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#joining-datasets-together" id="toc-joining-datasets-together" class="nav-link" data-scroll-target="#joining-datasets-together"><span class="header-section-number">6.7</span> Joining datasets together</a></li>
   <li><a href="#grouping-and-summarizing" id="toc-grouping-and-summarizing" class="nav-link" data-scroll-target="#grouping-and-summarizing"><span class="header-section-number">6.8</span> Grouping and summarizing</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/21_exploring_data_structures.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/21_exploring_data_structures.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/21_exploring_data_structures.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/21_exploring_data_structures.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -382,14 +381,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="exploring-and-understanding-data" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="exploring-and-understanding-data"><span class="header-section-number">6.1</span> Exploring and Understanding Data</h2>
 <p>Getting a high level summary of the data is important but data is particularly valuable when refined. Your analysis will start to come alive when we start to do some slicing and dicing and grouping of data or even creating additional variables. In an Excel world, this is like when you use filter options for columns, or create pivot tables, or when you create a formula in a new column to create a new variable. In data science parlance, this is the kind of thing that is referred to as <code>data wrangling</code> - getting the data you want in the form you want it in.</p>
 <p>In the world of python, this usually means working with a library or package you have already been introduced to called pandas. It lets you do so much!</p>
 <p>The first dataset we’ll look at is one that looks at data for countries around the world and shows population counts, life expectancy and GDP per capita over a number of years. Let’s import the pandas library and then use the <code>.read_csv()</code> function to get some population by country data. We will read the data into an object that will call <code>country_metrics</code>, so that it is easier for us to remember what it consists of.</p>
-<div class="cell" data-execution_count="1">
+<div id="ee299194" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/bcgov/"</span>\</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ds-intro-to-python/main/data/gapfinder.csv"</span></span>
@@ -409,7 +410,7 @@ Reminder: Naming variables!
 <p>When you create a variable or object, you can name it pretty much whatever you want. You will see widespread use of the name “df” on the internet, which stands for “dataframe”. However, as it is good practice to name your data something that relates to the contents. Naming it something intuitive will help reduce chance for confusion as you develop code. Objects you create should be some noun that is at the same time intuitive but not overly verbose. Also remember the form is important too. Remember not to not leave spaces in your names, and to always be consistent in the naming conventions you use (e.g.&nbsp;camelCase, underscore_case, etc.).</p>
 </div>
 </div>
-<div class="cell" data-execution_count="2">
+<div id="ff583720" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>country_metrics.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -429,13 +430,13 @@ memory usage: 80.0+ KB</code></pre>
 </div>
 <p>So this data is looking good so far. We can see that we have created a pandas dataframe within our python environment. There are 1204 rows of data and six columns or variables. You can see there are only non-null values… so happily there is no missing data to worry about.</p>
 <p>The <code>.head()</code> pandas method lets us look at actual data in a somewhat similar way to how one does in an Excel spreadsheet.</p>
-<div class="cell" data-execution_count="3">
+<div id="816f09bb" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>country_metrics.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -486,7 +487,7 @@ Selecting Columns
 <br>
 </center>
 <p>First things first. If we want to look the contents of a single column, we could do it like this, specifying the column name after the <code>.</code> without parentheses:</p>
-<div class="cell" data-execution_count="4">
+<div id="21078fd2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>country_metrics.country</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>0       Afghanistan
@@ -506,7 +507,7 @@ Name: country, Length: 1704, dtype: object</code></pre>
 <p>When we want to select more than one column to include in our dataframe, we use the convention <code>df[['col1', 'col2']]</code> to select the columns we want.</p>
 <p>In our example below, we will create a new dataframe called <code>narrow_country_metrics</code>. We are primarily interested in getting the population metric from the original dataset, and since we want to be able to analyze it by year, country, and continent, we will add those into our new dataframe also. So the dataset will be more narrow than the one it was created from.</p>
 <p>There are two ways to approach this. The first way to approach is to identify all the columns you want to keep.</p>
-<div class="cell" data-execution_count="5">
+<div id="ad071544" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>narrow_country_metrics <span class="op">=</span> country_metrics[</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'country'</span>, <span class="st">'year'</span>, <span class="st">'pop'</span>, <span class="st">'continent'</span>]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    ]</span>
@@ -515,7 +516,7 @@ Name: country, Length: 1704, dtype: object</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -547,7 +548,7 @@ Name: country, Length: 1704, dtype: object</code></pre>
 </div>
 </div>
 <p>The second way is use the pandas <code>.drop()</code> method to eliminate the columns from the original object that you do not want to keep. Thus in the end we can achieve the same result as the example above by simply dropping two variables instead of naming four. With this method, we also need to add the specification <code>axis = 1</code>, which indicates that it is columns (and not rows) being referenced for being dropped.</p>
-<div class="cell" data-execution_count="6">
+<div id="9afb1263" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>narrow_country_metrics <span class="op">=</span> country_metrics.drop(</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>], axis<span class="op">=</span><span class="dv">1</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    )</span>
@@ -556,7 +557,7 @@ Name: country, Length: 1704, dtype: object</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -589,14 +590,14 @@ Name: country, Length: 1704, dtype: object</code></pre>
 </div>
 <p>Either way we have a more manageable dataset to work with called <code>narrow_country_metrics</code>. The original dataframe <code>country_metrics</code> is still there, and it still the same shape as before, we have not changed it.</p>
 <p>However, it is important to realize that in python it is very common to change an object <em>by referring to that object on both sides of the assignment operator</em>. In the code below, we narrow the <code>narrow_country_metrics</code> dataset down even further by removing the column <code>pop</code> as well.</p>
-<div class="cell" data-execution_count="7">
+<div id="1fb6ace2" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>narrow_country_metrics <span class="op">=</span> narrow_country_metrics.drop([<span class="st">'pop'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>narrow_country_metrics.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -664,14 +665,14 @@ Solution to Challenge 1
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First you would like to create a new object to hold this narrowed down version of the dataset, then use the <code>.head()</code> to see some of the resulting data.</p>
-<div class="cell" data-execution_count="8">
+<div id="9ad10da0" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>challenge1_df <span class="op">=</span> country_metrics[[<span class="st">'country'</span>, <span class="st">'year'</span>]]</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>challenge1_df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -721,7 +722,7 @@ Selecting Rows
 <li>greater than or equal to <code>&gt;=</code></li>
 </ul>
 <p>Let’s try an example. The most commonly used relational operator is likely equal to (<code>==</code>). In the example below we have a statement that pandas evaluates line by line in the dataframe as to whether it corresponds to a boolean value of <code>True</code> or <code>False</code>.</p>
-<div class="cell" data-execution_count="9">
+<div id="e3d293ab" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>country_metrics[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">1972</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>0       False
@@ -739,14 +740,14 @@ Name: year, Length: 1704, dtype: bool</code></pre>
 </div>
 </div>
 <p>When we create an object from this evaluation in pandas, it returns to that object only the rows that evaluate as <code>True</code>:</p>
-<div class="cell" data-execution_count="10">
+<div id="a0f77d39" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>filtered_country_metrics <span class="op">=</span> country_metrics[country_metrics[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">1972</span>]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>filtered_country_metrics.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -785,7 +786,7 @@ Name: year, Length: 1704, dtype: bool</code></pre>
 </div>
 <p><br> <em>Logical operators</em></p>
 <p>In python, it is common to use the logical operators <code>and</code>, <code>or</code>, and <code>not</code> to evaluate expressions. For example, as in the code below, python evaluates the <code>and</code> to see whether BOTH operands are true:</p>
-<div class="cell" data-execution_count="11">
+<div id="36baadfe" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">&gt;</span> <span class="dv">3</span> <span class="kw">and</span> x <span class="op">&lt;</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -799,7 +800,7 @@ Name: year, Length: 1704, dtype: bool</code></pre>
 <li>not <code>~</code></li>
 </ul>
 <p>When combining multiple conditional statements in a pandas series object, each condition must be surrounded by parentheses <code>()</code> within the square brackets <code>[]</code>. In the example below, we use an <code>&amp;</code> to indicate that both conditions must be true for a row to be returned:</p>
-<div class="cell" data-execution_count="12">
+<div id="480ce745" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>filtered_country_metrics <span class="op">=</span> country_metrics[</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    (country_metrics[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">1972</span>) <span class="op">&amp;</span>   </span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    (country_metrics[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Albania'</span>)</span>
@@ -809,7 +810,7 @@ Name: year, Length: 1704, dtype: bool</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -839,7 +840,7 @@ Name: year, Length: 1704, dtype: bool</code></pre>
 </div>
 <p>In the example above, there is only one row of data that matches the condition.</p>
 <p>We can use the <code>|</code> which indicates that if <em>either or both</em> of the conditions are true for a given row, that row is returned into the object:</p>
-<div class="cell" data-execution_count="13">
+<div id="b0f30e33" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>filtered_country_metrics <span class="op">=</span> country_metrics[</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    (country_metrics[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">1972</span>) <span class="op">|</span> </span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    (country_metrics[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Albania'</span>)</span>
@@ -849,7 +850,7 @@ Name: year, Length: 1704, dtype: bool</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -940,7 +941,7 @@ Solution to Challenge 2
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First you would like to create a new object to hold this narrowed down version of the dataset, then use some method like <code>.print()</code> or <code>.head()</code> to see some of the resulting data.</p>
-<div class="cell" data-execution_count="14">
+<div id="6f739112" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>challenge2_df <span class="op">=</span> country_metrics[</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    (country_metrics[<span class="st">'year'</span>] <span class="op">&gt;=</span> <span class="dv">1992</span>) <span class="op">&amp;</span> </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    (country_metrics[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Canada'</span>)</span>
@@ -950,7 +951,7 @@ Solution to Challenge 2
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1018,7 +1019,7 @@ Row and column values iloc() refers to
 <br>
 </center>
 <p>By referring to these locations, we can use <code>iloc()</code> to retrieve the exact cells we want to see. For example, if we just want the row of data corresponding to the index integer value 5, we would run the following code:</p>
-<div class="cell" data-execution_count="15">
+<div id="d6a9cc3e" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>country_metrics.iloc[<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>country      Afghanistan
@@ -1031,20 +1032,20 @@ Name: 5, dtype: object</code></pre>
 </div>
 </div>
 <p>We can also modify the above call to look at column(s)! For example, we specify the row(s) of interest to the left of a <code>comma</code> in the square brackets, and the column(s) of interest to the right of it. In the example below, the code will retrieve just the content found at the intersection of row 5 and column 3:</p>
-<div class="cell" data-execution_count="16">
+<div id="e7ee7cc4" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>country_metrics.iloc[<span class="dv">5</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>'Asia'</code></pre>
 </div>
 </div>
 <p>We can also retrieve <em>ranges</em> of rows and columns respectively by employing a <code>colon</code> along with the starting and ending rows or columns we want. In the example below, we want to get rows “0” through “2” and the columns “0” through “3”:</p>
-<div class="cell" data-execution_count="17">
+<div id="0f6428e6" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>country_metrics.iloc[<span class="dv">0</span>:<span class="dv">2</span>,<span class="dv">0</span>:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1078,7 +1079,7 @@ Name: 5, dtype: object</code></pre>
 <h2 data-number="6.4" class="anchored" data-anchor-id="sorting-rows"><span class="header-section-number">6.4</span> Sorting rows</h2>
 <p>So now you’ve mastered how to select rows and columns you want, congratulations! Instead of hunting and pecking for insights, one way to quickly make some sense of the data is to sort it - something you probably do in Excel all the time.</p>
 <p>Let’s say we wanted to know more about Asian countries since 2002. First we should go ahead and create a dataframe that consists of just the data we are wanting to look at.</p>
-<div class="cell" data-execution_count="18">
+<div id="dc248af0" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>countries_2000s <span class="op">=</span> country_metrics[</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    (country_metrics[<span class="st">'year'</span>] <span class="op">&gt;=</span> <span class="dv">2002</span>) <span class="op">&amp;</span> </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    (country_metrics[<span class="st">'continent'</span>] <span class="op">==</span> <span class="st">'Asia'</span>)</span>
@@ -1088,7 +1089,7 @@ Name: 5, dtype: object</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1154,14 +1155,14 @@ Name: 5, dtype: object</code></pre>
 </div>
 <p>This is a nice start. But to see some meaningful insights it is helpful to sort the metric we are interested in something other than the default way the data appear positioned in the dataframe.</p>
 <p>The <code>.sort_values()</code> method let’s us specify a column (or multiple columns) we want to sort and enter an argument that indicates in which direction we would like it to be sorted, from low to high or vice-versa. We want life expectancy from high to low, so the ascending parameter should be set to <code>False</code>.</p>
-<div class="cell" data-execution_count="19">
+<div id="c939e031" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>countries_2000s <span class="op">=</span> countries_2000s.sort_values(<span class="st">'lifeExp'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>countries_2000s.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1227,7 +1228,7 @@ Name: 5, dtype: object</code></pre>
 </div>
 <p>That was pretty straightforward and it helps us get more insights. Looks like Japan, in 2007, was the Asian country with the highest life expectancy.</p>
 <p>Often one will want to sort by more than one column. To do that, instead of passing in a single column, we pass in a <em>list</em> of the columns we want to sort on. We can also control whether we would like each column to be sorted in ascending or descending order by passing in a respective list of boolean values in the <code>ascending=</code> parameter. In the example below, the code indicates that we want to sort first by ‘country’ in reverse alphabetical order, then by life expectancy from high to low.</p>
-<div class="cell" data-execution_count="20">
+<div id="edc602cb" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>countries_2000s <span class="op">=</span> countries_2000s.sort_values(</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'country'</span>, <span class="st">'lifeExp'</span>], ascending<span class="op">=</span>[<span class="va">False</span>, <span class="va">False</span>]</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    )</span>
@@ -1236,7 +1237,7 @@ Name: 5, dtype: object</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1303,14 +1304,14 @@ Name: 5, dtype: object</code></pre>
 <p>We see that when we created and sorted this new object, the index values are those that were associated with the original <code>country_metrics</code> dataframe.</p>
 <p>Depending on what we want to do with <code>countries_2000s</code> going forward, we might want to create a new “default” index for it instead of the existing one. That’s where the <code>.reset_index()</code> function comes into play.</p>
 <p>In the code below, we reset the index.</p>
-<div class="cell" data-execution_count="21">
+<div id="9a7a81af" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>countries_2000s <span class="op">=</span> countries_2000s.reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>countries_2000s.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1382,13 +1383,13 @@ Name: 5, dtype: object</code></pre>
 </div>
 <p>Notice how the original index now is turned into a column itself called “index”. Depending on the use case, we might want to <em>keep</em> this column in the new dataframe. For example, if we ultimately wanted to join this dataframe back with the original it could act as a key. If we know, however, that it is of no value anymore to us, we can and probably should delete it. To do this, we would have set the <code>drop</code> parameter above to <code>True</code>.</p>
 <p>Let’s use the iloc() method to look at the positional content of this <code>countries_2000s</code> object and confirm that Yeman shows up in row 0 as we expect.</p>
-<div class="cell" data-execution_count="22">
+<div id="b4a36c06" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>countries_2000s.iloc[<span class="dv">0</span>:<span class="dv">4</span>,<span class="dv">0</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1449,7 +1450,7 @@ Name: 5, dtype: object</code></pre>
 <li>Take these rows and sort them by year, going from high to low values, top to bottom</li>
 </ol>
 <p>The example below shows how we would employ the line-by-line approach:</p>
-<div class="cell" data-execution_count="23">
+<div id="fa2c3237" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>chained2_df <span class="op">=</span> country_metrics[(country_metrics[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Ireland'</span>)]</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>chained2_df <span class="op">=</span> chained2_df[(chained2_df[<span class="st">'year'</span>] <span class="op">&gt;=</span> <span class="dv">1992</span>)]</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>chained2_df <span class="op">=</span> chained2_df.sort_values(<span class="st">'year'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
@@ -1458,7 +1459,7 @@ Name: 5, dtype: object</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1507,7 +1508,7 @@ Name: 5, dtype: object</code></pre>
 <p>You can read fairly clearly what is happening in each line.</p>
 <p>You can also put multiple methods in the same line of code, as long as you separate each of the elements. In pandas, this is sometimes referred to as joining or chaining, as you are essentially creating a joining/chaining actions together.</p>
 <p>The code below accomplishes what the more verbose code above does but in a more efficient way:</p>
-<div class="cell" data-execution_count="24">
+<div id="6a424490" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>chained_df <span class="op">=</span> country_metrics[</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    (country_metrics[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Ireland'</span>) <span class="op">&amp;</span> </span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    (country_metrics[<span class="st">'year'</span>] <span class="op">&gt;=</span> <span class="dv">1992</span>)</span>
@@ -1517,7 +1518,7 @@ Name: 5, dtype: object</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1564,7 +1565,7 @@ Name: 5, dtype: object</code></pre>
 </div>
 </div>
 <p>Each line is executed in sequence, so be careful when constructing code that the order in which you modify your dataframe is what you intend. Take the example below, in which we want to find European values for GDP per capita. In it, we first have a line of code that selects the rows that contain “Europe” in the first line, then looks at the column values for “year”, “country”, and “gdpPercap”.</p>
-<div class="cell" data-execution_count="25">
+<div id="39ee48c6" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>year_country_gdp <span class="op">=</span> country_metrics[</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    (country_metrics[<span class="st">'continent'</span>] <span class="op">==</span> <span class="st">'Europe'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    ]</span>
@@ -1574,7 +1575,7 @@ Name: 5, dtype: object</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1635,7 +1636,7 @@ Solution to Challenge 3
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Using code to select the country Cambodia, then call <code>sort_values()</code> method and chain them together and sorting by year in descending fashion. Looking at the data we see that in the 1920s there was a sharp decline in life expectancy in Cambodia. We also see, thankfully, that it has recovered strongly since then.</p>
-<div class="cell" data-execution_count="26">
+<div id="952ede0b" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>challenge3_df <span class="op">=</span> country_metrics[</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    (country_metrics[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Cambodia'</span>)</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    ].sort_values(<span class="st">'year'</span>, ascending <span class="op">=</span> <span class="va">False</span>)</span>
@@ -1644,7 +1645,7 @@ Solution to Challenge 3
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1761,7 +1762,7 @@ Solution to Challenge 3
 <h2 data-number="6.6" class="anchored" data-anchor-id="creating-new-columns-of-data"><span class="header-section-number">6.6</span> Creating new columns of data</h2>
 <p>Very often we have some data in our dataset that we want to transform to give us additional information. In Excel this is something that is done all the time by creating a formula in a cell that refers to other columns and applies some sort of logic or mathematical expression to it.</p>
 <p>There are different ways you can go about this in pandas. The most straightforward way is to define a new column on the left of the <code>=</code> and then reference the existing column and whatever additional conditions you would like on the right. In the example below, the existing population variable “pop” is converted to a value that shows population in millions.</p>
-<div class="cell" data-execution_count="27">
+<div id="f5e0c85c" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>new_cols_df <span class="op">=</span> country_metrics</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>new_cols_df[<span class="st">'pop_millions'</span>] <span class="op">=</span> new_cols_df[<span class="st">'pop'</span>]<span class="op">/</span><span class="dv">1000000</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>new_cols_df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1769,7 +1770,7 @@ Solution to Challenge 3
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1810,14 +1811,14 @@ Solution to Challenge 3
 </div>
 </div>
 <p><br> Another way is to call the pandas function <code>apply()</code> in which other, more complicated functions can be passed for a given column. This could be a complicated mathematical formula, a function acting on strings or dates, or any other function that cannot be represented by a simple multiplication or division. In the example below, the <code>len()</code> function is applied to each row in the “country” column and a new column with the number of characters for that row is returned:</p>
-<div class="cell" data-execution_count="28">
+<div id="233559c4" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>new_cols_df[<span class="st">'country_name_chars'</span>] <span class="op">=</span> new_cols_df.country.<span class="bu">apply</span>(<span class="bu">len</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>new_cols_df.sample(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1833,59 +1834,59 @@ Solution to Challenge 3
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">261</td>
-<td>Central African Republic</td>
-<td>1997</td>
-<td>3696513.0</td>
-<td>Africa</td>
-<td>46.066</td>
-<td>740.506332</td>
-<td>3.696513</td>
-<td>24</td>
+<td data-quarto-table-cell-role="th">144</td>
+<td>Bosnia and Herzegovina</td>
+<td>1952</td>
+<td>2791000.0</td>
+<td>Europe</td>
+<td>53.820</td>
+<td>973.533195</td>
+<td>2.791000</td>
+<td>22</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1595</td>
-<td>Uganda</td>
-<td>2007</td>
-<td>29170398.0</td>
-<td>Africa</td>
-<td>51.542</td>
-<td>1056.380121</td>
-<td>29.170398</td>
-<td>6</td>
+<td data-quarto-table-cell-role="th">696</td>
+<td>India</td>
+<td>1952</td>
+<td>372000000.0</td>
+<td>Asia</td>
+<td>37.373</td>
+<td>546.565749</td>
+<td>372.000000</td>
+<td>5</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">1371</td>
-<td>Slovak Republic</td>
-<td>1967</td>
-<td>4442238.0</td>
-<td>Europe</td>
-<td>70.980</td>
-<td>8412.902397</td>
-<td>4.442238</td>
-<td>15</td>
+<td data-quarto-table-cell-role="th">637</td>
+<td>Haiti</td>
+<td>1957</td>
+<td>3507701.0</td>
+<td>Americas</td>
+<td>40.696</td>
+<td>1726.887882</td>
+<td>3.507701</td>
+<td>5</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1567</td>
-<td>Tunisia</td>
-<td>1987</td>
-<td>7724976.0</td>
-<td>Africa</td>
-<td>66.894</td>
-<td>3810.419296</td>
-<td>7.724976</td>
+<td data-quarto-table-cell-role="th">444</td>
+<td>Ecuador</td>
+<td>1952</td>
+<td>3548753.0</td>
+<td>Americas</td>
+<td>48.357</td>
+<td>3522.110717</td>
+<td>3.548753</td>
 <td>7</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">545</td>
-<td>Gabon</td>
-<td>1977</td>
-<td>706367.0</td>
+<td data-quarto-table-cell-role="th">158</td>
+<td>Botswana</td>
+<td>1962</td>
+<td>512764.0</td>
 <td>Africa</td>
-<td>52.790</td>
-<td>21745.573280</td>
-<td>0.706367</td>
-<td>5</td>
+<td>51.520</td>
+<td>983.653976</td>
+<td>0.512764</td>
+<td>8</td>
 </tr>
 </tbody>
 </table>
@@ -1895,14 +1896,14 @@ Solution to Challenge 3
 </div>
 <p><br> There is also a special python function called <code>lambda</code>. It is known as an anonymous function, appears in a single line of code, and is not given a name other than lambda. It can take any number of arguments in an expression.</p>
 <p>The <code>.assign()</code> method looks at this expression with lambda in it and returns the value it is asked to do and assigns it to the variable name given it. This is how it comes all together to give us actual GDP for each row in our dataframe:</p>
-<div class="cell" data-execution_count="29">
+<div id="bf0cf2d0" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>GDP_df <span class="op">=</span> new_cols_df.assign(GDP<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="st">'pop'</span>] <span class="op">*</span> x[<span class="st">'gdpPercap'</span>])</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>GDP_df.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1991,7 +1992,7 @@ Solution to Challenge 3
 <h2 data-number="6.7" class="anchored" data-anchor-id="joining-datasets-together"><span class="header-section-number">6.7</span> Joining datasets together</h2>
 <p>One of the most important tasks in data analysis is to be able to join multiple datasets together. With pandas, there are functions called <code>.merge()</code> and <code>.join()</code> that are similar to each other. As <code>.merge()</code> is perhaps the more used, intuitive, and powerful of the two, we will introduce that method in this tutorial in some depth. There is also a cool function called <code>.concat()</code> that will be introduced below as well.</p>
 <p>But first, let’s get a second file that gives us country size in square kilometers by country. We will use this data to put together with our <code>country_metrics</code> dataframe.</p>
-<div class="cell" data-execution_count="30">
+<div id="1dac0d4d" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>country_size_url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/bcgov/"</span>\</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ds-intro-to-python/main/data/countrysize.csv"</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>country_size <span class="op">=</span> pd.read_csv(country_size_url, encoding<span class="op">=</span> <span class="st">'unicode_escape'</span>)</span>
@@ -2012,7 +2013,7 @@ memory usage: 3.8+ KB</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2022,14 +2023,14 @@ memory usage: 3.8+ KB</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">32</td>
-<td>Venezuela</td>
-<td>916445</td>
+<td data-quarto-table-cell-role="th">67</td>
+<td>Malaysia</td>
+<td>330803</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">204</td>
-<td>United States Virgin Islands</td>
-<td>347</td>
+<td data-quarto-table-cell-role="th">74</td>
+<td>Burkina Faso</td>
+<td>272967</td>
 </tr>
 </tbody>
 </table>
@@ -2048,7 +2049,7 @@ Types of Joins
 </center>
 <p>The <code>.merge()</code> method <a href="https://pandas.pydata.org/docs/reference/api/pandas.merge.html">(with reference material available here)</a> works similarly to how table joining works in <code>SQL</code> or how the <code>VLOOKUP</code> function works in Excel. One needs to specify both dataframes, the key variables on which to join them, and the kind of join desired.</p>
 <p>So let’s look at the example below to see how it all comes together in code.</p>
-<div class="cell" data-execution_count="31">
+<div id="537d8f6c" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>combined_df <span class="op">=</span> country_metrics.merge(</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    country_size, </span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    left_on<span class="op">=</span><span class="st">'country'</span>, </span>
@@ -2060,7 +2061,7 @@ Types of Joins
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2110,14 +2111,14 @@ Types of Joins
 </div>
 </div>
 <p><br> When you run the code above you will notice that both the <code>nation</code> key column and the <code>area_square_kms</code> column have been joined together in the new <code>combined_df</code> object. One can keep that nation column in there for control purposes, or it can be removed by using the <code>.drop()</code> method we used earlier:</p>
-<div class="cell" data-execution_count="32">
+<div id="52cb2a7c" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>combined_df <span class="op">=</span> combined_df.drop(<span class="st">'nation'</span>, axis<span class="op">=</span><span class="dv">1</span>) </span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>combined_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2208,7 +2209,7 @@ Ways to stack data
 <br>
 </center>
 <p>To illustrate, let’s fetch two simple dataframes. Each contains the average scores for three subjects by year for two separate schools.</p>
-<div class="cell" data-execution_count="33">
+<div id="b3688033" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>school1_url  <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/bcgov/"</span>\</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ds-intro-to-python/main/data/school1.csv"</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>school2_url  <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/bcgov/"</span>\</span>
@@ -2217,13 +2218,13 @@ Ways to stack data
 <span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>school2_df <span class="op">=</span> pd.read_csv(school2_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s take a quick look at the two dataframes.</p>
-<div class="cell" data-execution_count="34">
+<div id="5c5fb4aa" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>school1_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2261,13 +2262,13 @@ Ways to stack data
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="35">
+<div id="41f1badc" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>school2_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2306,14 +2307,14 @@ Ways to stack data
 </div>
 </div>
 <p>We call <code>.concat()</code> and pass in the objects that we want to stack vertically. This is a similiar operation to <code>union</code> in <code>SQL</code>.</p>
-<div class="cell" data-execution_count="36">
+<div id="b421d745" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>vertical_stack_df <span class="op">=</span> pd.concat([school1_df, school2_df])</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>vertical_stack_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2373,14 +2374,14 @@ Ways to stack data
 </div>
 </div>
 <p>It is also possible to stack the data horizontally. Here it is necessary to specify the columnar axis (axis=1) as the default setting is for rows (axis=0).</p>
-<div class="cell" data-execution_count="37">
+<div id="6d5cb474" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>horizontal_stack <span class="op">=</span> pd.concat([school1_df, school2_df], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>horizontal_stack</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2452,7 +2453,7 @@ Ways to stack data
 <li><code>sum()</code>: Sum of all items</li>
 </ul>
 <p>First let us look at a simple example where we want to get the mean life expectancy for each continent in the data. To do this, we would use the <code>groupby()</code> function to call the appropriate segment (i.e.&nbsp;continent), metric (i.e.&nbsp;lifeExp), and type of aggregation (i.e.&nbsp;mean):</p>
-<div class="cell" data-execution_count="38">
+<div id="e99da9d6" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>simple_mean <span class="op">=</span> country_metrics.groupby(<span class="st">'continent'</span>).lifeExp.mean()</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>simple_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
@@ -2480,7 +2481,7 @@ Recall: Dictionaries in Python
 </div>
 </div>
 <p><br> This dictionary takes the column that we are aggregating - in this case life expectancy - as a key and a <strong>list</strong> of aggregation functions as its value. We also add a line of code that gives each of the columns a new name with the <code>.columns()</code> function.</p>
-<div class="cell" data-execution_count="39">
+<div id="6512067e" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>grouped_single <span class="op">=</span> country_metrics.groupby(<span class="st">'continent'</span>) <span class="op">\</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    .agg({<span class="st">'lifeExp'</span>: [<span class="st">'mean'</span>, <span class="st">'min'</span>, <span class="st">'max'</span>]})</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>grouped_single.columns <span class="op">=</span> [<span class="st">'lifeExp_mean'</span>, <span class="st">'lifeExp_min'</span>, <span class="st">'lifeExp_max'</span>]</span>
@@ -2489,7 +2490,7 @@ Recall: Dictionaries in Python
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2497,7 +2498,7 @@ Recall: Dictionaries in Python
 <th data-quarto-table-cell-role="th">lifeExp_min</th>
 <th data-quarto-table-cell-role="th">lifeExp_max</th>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th data-quarto-table-cell-role="th">continent</th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
@@ -2544,7 +2545,7 @@ Recall: Dictionaries in Python
 <p>If you look closely at <code>grouped_single</code> you see that the variable “continent” is on a different line than are the columns that are aggregated. That is because continent in this instance is actually an index and not a column.</p>
 <p>We can nest additional “groups within groups” by creating a <em>list</em> of column names and passing them to the <code>.groupby()</code> function instead of passing a single value.</p>
 <p>The example below adds more granularity with the introduction of ‘country’ and the creation of a list to hold both ‘continent’ and ‘country’.</p>
-<div class="cell" data-execution_count="40">
+<div id="3ce0c1ee" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>grouped_multiple <span class="op">=</span> country_metrics.groupby(</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'continent'</span>, <span class="st">'country'</span>]).agg({<span class="st">'pop'</span>: [<span class="st">'mean'</span>, <span class="st">'min'</span>, <span class="st">'max'</span>]}</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>    )</span>
@@ -2554,7 +2555,7 @@ Recall: Dictionaries in Python
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2563,7 +2564,7 @@ Recall: Dictionaries in Python
 <th data-quarto-table-cell-role="th">pop_min</th>
 <th data-quarto-table-cell-role="th">pop_max</th>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th data-quarto-table-cell-role="th">continent</th>
 <th data-quarto-table-cell-role="th">country</th>
 <th data-quarto-table-cell-role="th"></th>
@@ -2642,7 +2643,7 @@ Recall: Dictionaries in Python
 <p>Again will notice that this dataframe looks a little different than some others we have seen in that there are blank spaces below each grouped value of continent in that index. This object is a multi-indexed dataframe. It presents the data nicely to consume visually, but it is not ideal to work with if you want to do further manipulation.</p>
 <p>This is likely again a good time to use the <code>reset_index()</code> function. This is a step that resets the index to an integer based index and re-creates a non-indexed pandas dataframe.</p>
 <p>The code block below is identical to the one we just ran except for the line of code that resets the index:</p>
-<div class="cell" data-execution_count="41">
+<div id="5ad7935d" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>grouped_multiple <span class="op">=</span> country_metrics.groupby(</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'continent'</span>, <span class="st">'country'</span>]).agg({<span class="st">'pop'</span>: [<span class="st">'mean'</span>, <span class="st">'min'</span>, <span class="st">'max'</span>]}</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    )</span>
@@ -2653,7 +2654,7 @@ Recall: Dictionaries in Python
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2778,7 +2779,7 @@ Solution to Challenge 4
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Using what we learned about how to select rows, we should limit the dataframe to rows where the year is greater than or equal to 1992. Next we should create a multi-column call to the <code>.groupby()</code> function. Finally we should select some aggregations such as mean and max among others could make sense here.</p>
-<div class="cell" data-execution_count="42">
+<div id="15bc11b2" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>challenge4_df <span class="op">=</span> country_metrics.groupby(</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'continent'</span>, <span class="st">'year'</span>]).agg({<span class="st">'pop'</span> : [<span class="st">'mean'</span>, <span class="st">'max'</span>], <span class="st">'lifeExp'</span> : [<span class="st">'mean'</span>, <span class="st">'max'</span>]}</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    )</span>
@@ -2787,7 +2788,7 @@ Solution to Challenge 4
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2795,7 +2796,7 @@ Solution to Challenge 4
 <th colspan="2" data-quarto-table-cell-role="th" data-halign="left">pop</th>
 <th colspan="2" data-quarto-table-cell-role="th" data-halign="left">lifeExp</th>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">mean</th>
@@ -3297,6 +3298,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -3363,13 +3391,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -3404,18 +3434,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -3447,11 +3466,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -3461,8 +3517,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -3474,7 +3539,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -3518,6 +3705,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -3543,6 +3731,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -3604,12 +3818,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./12_cleaning_it_up.html" class="pagination-link">
+      <a href="./12_cleaning_it_up.html" class="pagination-link" aria-label="Cleaning Data">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./22_graphical_depictions_of_data.html" class="pagination-link">
+      <a href="./22_graphical_depictions_of_data.html" class="pagination-link" aria-label="Graphical Depictions of Data">
         <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -3617,20 +3831,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Introduction to Data Science using Python was written by <br> Lindsay Forestell and Stuart Hemerling</div>   
+    <div class="nav-footer-left">
+<p>Introduction to Data Science using Python was written by <br> Lindsay Forestell and Stuart Hemerling</p>
+</div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./license.html">License</a>
+    <a class="nav-link" href="./license.html">
+<p>License</p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://bcgov.github.io/ds-intro-to-python/index.html">Python for Data Science Course</a>
+    <a class="nav-link" href="./index.html">
+<p>Python for Data Science Course</p>
+</a>
   </li>  
 </ul>
-    </div>
-    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/21_exploring_data_structures.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/21_exploring_data_structures.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
+
 
 
 

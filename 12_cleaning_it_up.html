@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Data Science using Python - 5&nbsp; Cleaning Data</title>
+<title>5&nbsp; Cleaning Data – Introduction to Data Science using Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -71,19 +71,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-92e2dd4f4c7daf58452f04a50b571cde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-840d0bcdd202e39593fd3aec26358f27.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -92,13 +98,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
@@ -108,116 +115,117 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="./BCID_H_rgb_rev.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Introduction to Python</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-to-python">    
         <li>
-    <a class="dropdown-item" href="./00_introduction_to_python.html" rel="" target="">
+    <a class="dropdown-item" href="./00_introduction_to_python.html">
  <span class="dropdown-text">Getting Up and Running</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./01_working_with_code.html" rel="" target="">
+    <a class="dropdown-item" href="./01_working_with_code.html">
  <span class="dropdown-text">Working with Code</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./02_core_data_structure_concepts.html" rel="" target="">
+    <a class="dropdown-item" href="./02_core_data_structure_concepts.html">
  <span class="dropdown-text">Core Concepts</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Get and Clean Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-get-and-clean-data">    
         <li>
-    <a class="dropdown-item" href="./11_getting_data_with_pandas.html" rel="" target="">
+    <a class="dropdown-item" href="./11_getting_data_with_pandas.html">
  <span class="dropdown-text">Getting Data with Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./12_cleaning_it_up.html" rel="" target="">
+    <a class="dropdown-item" href="./12_cleaning_it_up.html">
  <span class="dropdown-text">Cleaning Data with Pandas</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Understand and Analyze Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-understand-and-analyze-data">    
         <li>
-    <a class="dropdown-item" href="./21_exploring_data_structures.html" rel="" target="">
+    <a class="dropdown-item" href="./21_exploring_data_structures.html">
  <span class="dropdown-text">Exploring Data Structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html" rel="" target="">
+    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html">
  <span class="dropdown-text">Graphical Depictions of Data</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Advanced Topics</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced-topics">    
         <li>
-    <a class="dropdown-item" href="./31_bcdata.html" rel="" target="">
+    <a class="dropdown-item" href="./31_bcdata.html">
  <span class="dropdown-text">bcdata package</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./32_advanced_pandas.html" rel="" target="">
+    <a class="dropdown-item" href="./32_advanced_pandas.html">
  <span class="dropdown-text">Advanced Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./33_create_reports.html" rel="" target="">
+    <a class="dropdown-item" href="./33_create_reports.html">
  <span class="dropdown-text">Creating Reports</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./34_machine_learning.html" rel="" target="">
+    <a class="dropdown-item" href="./34_machine_learning.html">
  <span class="dropdown-text">Machine Learning</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./references.html" rel="" target="">
- <span class="menu-text">References</span></a>
+    <a class="nav-link" href="./references.html"> 
+<span class="menu-text">References</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/bcgov/ds-intro-to-python" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/bcgov/ds-intro-to-python" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -225,37 +233,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12_cleaning_it_up.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12_cleaning_it_up.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cleaning Data</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -339,7 +338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -361,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#recoding-values" id="toc-recoding-values" class="nav-link" data-scroll-target="#recoding-values">Recoding values</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/12_cleaning_it_up.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/12_cleaning_it_up.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/12_cleaning_it_up.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/12_cleaning_it_up.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -381,7 +380,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="cleaning-and-data-science" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="cleaning-and-data-science"><span class="header-section-number">5.1</span> Cleaning and data science</h2>
@@ -405,12 +406,12 @@ It’s not so bad, promise!
 <h2 data-number="5.2" class="anchored" data-anchor-id="dealing-with-missing-data"><span class="header-section-number">5.2</span> Dealing with Missing Data</h2>
 <p>One of the most common issues in data cleaning has to do with data that is missing from your dataset. Most data, even data that is meticulously collected and managed, is likely to have empty cells. Empty data can be harmless, or it can represent a challenge to you, depending on what you need your data to do once you have finished working with it.</p>
 <p>The best way to learn about these concepts is to see them in action with real (or real-ish) data! Before we get started with fetching the data, let’s go ahead and get pandas for today’s session.</p>
-<div class="cell" data-execution_count="1">
+<div id="7dc04c74" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, imagine we had our own online streaming service. We have access to some data that will help us predict what our users would like to see. To fetch it, run the code below:</p>
-<div class="cell" data-execution_count="2">
+<div id="60a8affb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>mr <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/bcgov/"</span> \</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"ds-intro-to-python/main/data/movieratings.csv"</span></span>
@@ -420,7 +421,7 @@ It’s not so bad, promise!
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -490,14 +491,14 @@ It’s not so bad, promise!
 <h3 class="anchored" data-anchor-id="locating-missing-data">Locating Missing Data</h3>
 <p>In pandas, there is a widely used method named <code>isna()</code> which can be applied to a whole dataframe or just to a particular series or column.</p>
 <p>Below we apply it to the entire dataframe to get a cell by cell view of whether the cell data is missing or not (True means it is missing, False means it is not):</p>
-<div class="cell" data-execution_count="3">
+<div id="25e3dd90" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find the missing values</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>movie_ratings.isna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -608,7 +609,7 @@ It’s not so bad, promise!
 </div>
 <p>It is probably helpful to note there is a similar function called <code>isnull()</code> that is an alias for <code>isna()</code>. You may run into both, and both will return the same results. There is also a <code>notna()</code>(<code>notnull()</code>) function, which is the inverse function of <code>isna()</code>(<code>isnull()</code>), returning True for values that are not NA. For simplicity, let’s just stick with <code>isna()</code> in this tutorial.</p>
 <p>To get a better summary overview (i.e.&nbsp;one that summarizes with numbers) of how many missing values there are per column, then we need to chain togther a <code>.sum()</code> function to the line of code like so:</p>
-<div class="cell" data-execution_count="4">
+<div id="87219954" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">###listing out the missing values in the dataframe for each series</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>movie_ratings.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -633,14 +634,14 @@ dtype: int64</code></pre>
 <li>subset: column label or sequence of labels</li>
 </ul>
 <p>Imagine we would like to drop all of the rows with any missing values in them. Since the <code>axis=0</code> and <code>how=any</code> parameters are the defaults, we can write an elegant and simple line of code:</p>
-<div class="cell" data-execution_count="5">
+<div id="cc0c311d" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>reduced_rows <span class="op">=</span> movie_ratings.dropna()</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>reduced_rows.head(<span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -688,14 +689,14 @@ dtype: int64</code></pre>
 </div>
 <p>We still have three raters who have given us ratings for each movie. The dataset is nice and clean now, although it has come at a pretty big cost, losing seven rows of data! If we go in the other direction, and insert a parameter of <code>how='all'</code>, then we have the opposite problem, with <em>no rows</em> being eliminated (as there were no instances where all of the columns contained missing data for a given row)!</p>
 <p>Another option is to use subset to eliminate rows on the basis of whether values are missing in a specified subset. Let’s say we want to have just the rows of data where there is not missing ratings data for the film “Parasite”. We would use <code>subset=</code> parameter and identify the column we want to clean up:</p>
-<div class="cell" data-execution_count="6">
+<div id="6a9725ef" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>par_df <span class="op">=</span> movie_ratings.dropna(subset<span class="op">=</span><span class="st">'Parasite'</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>par_df.head(<span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -770,14 +771,14 @@ dtype: int64</code></pre>
 </div>
 <p>We can see that, while there is no NaN in the Parasite column, we can see they are still there sprinkled throughout other columns.</p>
 <p>Now what would happen if we applied that same drop logic to all columns?</p>
-<div class="cell" data-execution_count="7">
+<div id="56e35d68" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>reduced_cols <span class="op">=</span> movie_ratings.dropna(axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>reduced_cols.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -818,7 +819,7 @@ dtype: int64</code></pre>
 <h3 class="anchored" data-anchor-id="saving-the-dataframe-inplace">Saving the dataframe “inplace”</h3>
 <p><code>Inplace</code> is an argument used in different functions such as <code>dropna()</code> that we have just looked at. The default value of this attribute is <code>False</code>, which means whatever the function does to the dataframe, it does so as a <em>copy</em> of the object. When the argument is <code>inplace=True</code>, however, whatever changes are made by the given function are made to the original object <em>inplace</em>, not just to a copy of it!</p>
 <p>Let’s look at how this works starting with fetching the data from the source:</p>
-<div class="cell" data-execution_count="8">
+<div id="d278f96f" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetching the data to make sure we start again with the original</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mr <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/bcgov/"</span> \</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"ds-intro-to-python/main/data/movieratings.csv"</span></span>
@@ -828,7 +829,7 @@ dtype: int64</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -893,7 +894,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Now let’s “modify” the frame with <code>inplace=False</code> with the code below and see what happens:</p>
-<div class="cell" data-execution_count="9">
+<div id="dd06bd48" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Making change to dataframe with inplace=False</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>movie_ratings.dropna(how<span class="op">=</span><span class="st">'any'</span>, inplace<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -903,7 +904,7 @@ dtype: int64</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -969,7 +970,7 @@ dtype: int64</code></pre>
 </div>
 <p>Ok, it kind of looks like “nothing happened”! And in a way, with the code we ran, nothing did happen, as the result was not assigned to a new object. Soooo, what’s the point of that? Any guesses?</p>
 <p>When we run exactly the same code except with the parameter <code>inplace</code> set to <code>'True'</code>, the dropped data is actually gone!</p>
-<div class="cell" data-execution_count="10">
+<div id="91267ab3" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Making change to dataframe with inplace=False</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>movie_ratings.dropna(how<span class="op">=</span><span class="st">'any'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -979,7 +980,7 @@ dtype: int64</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1031,7 +1032,7 @@ dtype: int64</code></pre>
 <h3 class="anchored" data-anchor-id="filling-in-missing-data">Filling in missing data</h3>
 <p>Sometimes it is the right cleaning decision to <em>fill in</em> missing data with some values.</p>
 <p>Take the example of our movie ratings dataframe. The basic way to fill in missing values would you to specify a value to take the place of each missing value. One approach is to calculate and plug in the mean value - which we know to be (3.85) for the entire dataframe:</p>
-<div class="cell" data-execution_count="11">
+<div id="d4ada709" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetching the data, yet again, to make sure we start again with the original</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mr <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/bcgov/"</span> \</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"ds-intro-to-python/main/data/movieratings.csv"</span></span>
@@ -1044,7 +1045,7 @@ dtype: int64</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1155,14 +1156,14 @@ dtype: int64</code></pre>
 </div>
 <p>Ok, that’s good. Good, but not great for our use case! Maybe we could avail ourselves to some options within the <code>method=</code> parameter with the parentheses the <code>fillna()</code> function. With a specification of <code>bfill</code> we can fill a NaN value with the preceding valid value in that column. <code>ffill</code> fills with the value after it.</p>
 <p>What would that look like for our dataset?</p>
-<div class="cell" data-execution_count="12">
+<div id="46d100e7" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>bfilled_mr <span class="op">=</span> movie_ratings.fillna(method<span class="op">=</span><span class="st">'bfill'</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>bfilled_mr.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1274,7 +1275,7 @@ dtype: int64</code></pre>
 <p>Notice that the bottom row stays NaN when we use bfill. That’s because it can not find a value to backfill with for this row! Using forward fill creates the same issue for the first row. For our use case, admittedly <code>bfill</code> and <code>ffill</code> probably are sub-optimal solutions.</p>
 <p>Since we have some ratings data already for each movie, one approach would be to fill in the missing data with the mean rating for that movie from the valid data.</p>
 <p>Let’s try that approach on a single column. For the movie Parasite, we fill in the missing values for that column with the average value:</p>
-<div class="cell" data-execution_count="13">
+<div id="441e6ad7" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>movie_ratings[<span class="st">'Parasite'</span>] <span class="op">=</span> movie_ratings[<span class="st">'Parasite'</span>]. <span class="op">\</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  fillna(movie_ratings[<span class="st">'Parasite'</span>].mean())</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>movie_ratings.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1282,7 +1283,7 @@ dtype: int64</code></pre>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1392,14 +1393,14 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>And we can extend that for all numeric columns at once!</p>
-<div class="cell" data-execution_count="14">
+<div id="5688ba0d" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>movie_ratings <span class="op">=</span> movie_ratings.fillna(movie_ratings.mean(numeric_only<span class="op">=</span><span class="va">True</span>))</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>movie_ratings.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1521,7 +1522,7 @@ Challenge 1
 </div>
 <div class="callout-body-container callout-body">
 <p>You are given a dataset for several days time frame in April/May 2021 of the average daily temperature in celcius for three Canadian cities. You would like to ultimately create a plot of the temperatures but don’t want to have gaps in the data. Run the code below to get the data and see what it looks like.</p>
-<div class="cell" data-execution_count="15">
+<div id="5858ceee" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>temps <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/bcgov/"</span> \</span>
@@ -1532,7 +1533,7 @@ Challenge 1
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1635,14 +1636,14 @@ Solution to Challenge 1
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Code you would write is below.</p>
-<div class="cell" data-execution_count="16">
+<div id="ba6166b2" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>interpolate_temps <span class="op">=</span> city_temps.interpolate()</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>interpolate_temps.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1739,7 +1740,7 @@ Solution to Challenge 1
 <section id="modifying-existing-data" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="modifying-existing-data"><span class="header-section-number">5.3</span> Modifying existing data</h2>
 <p>Now let’s grad a different dataset, this one is quite redacted snip of the 2014 Mental Health in Tech Survey https://www.kaggle.com/datasets/osmi/mental-health-in-tech-survey.</p>
-<div class="cell" data-execution_count="17">
+<div id="cc57c56e" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>techhealth <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/bcgov/"</span> \</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">"ds-intro-to-python/main/data/techhealth.csv"</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>m_health <span class="op">=</span> pd.read_csv(techhealth)</span>
@@ -1748,7 +1749,7 @@ Solution to Challenge 1
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1873,7 +1874,7 @@ Solution to Challenge 1
 <section id="cleaning-the-header-row" class="level3">
 <h3 class="anchored" data-anchor-id="cleaning-the-header-row">Cleaning the header row</h3>
 <p>A good practice, both in terms of ensuring a consistent convention for column names and for the ability to write more efficient code, is to ensure that all column header names do not have spaces in them and are all in lower case. To do this with our current dataset, we use the <code>str.replace()</code> function on all the header row, identified in pandas via .columns:</p>
-<div class="cell" data-execution_count="18">
+<div id="431a4c78" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>m_health.columns <span class="op">=</span> m_health.columns.<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>m_health.columns <span class="op">=</span> m_health.columns.<span class="bu">str</span>.lower()</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>m_health.head(<span class="dv">10</span>)</span>
@@ -1909,7 +1910,7 @@ memory usage: 2.6+ KB</code></pre>
 <p>Taking a look at the data, we notice that “Timestamp” is datatyped as an “object”, which in this context means a “string”. However, that is sub-optimal because the content is time-oriented, and by coding it as an object/string, we limit a lot of its value. If we identify datatype as a time oriented one, that can give us advantages downstream in being able to work with the data more elegantly.</p>
 <p>Pandas has functions specifically designed to cast datatypes from one to another, as was covered in the previous section with the <code>astype()</code> function.</p>
 <p>To cast a variable as a datetime datatype, we can use the pandas <code>to_datetime()</code> function and pass in the pandas series you want to modify:</p>
-<div class="cell" data-execution_count="19">
+<div id="c5e9754f" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'timestamp'</span>] <span class="op">=</span> pd.to_datetime(m_health[<span class="st">'timestamp'</span>])</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>m_health.head()</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>m_health.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1937,12 +1938,105 @@ memory usage: 2.6+ KB</code></pre>
 </div>
 </div>
 <p>Et voila - timestamp is now of the datatime64 datatype! Were we wanting to leverage timestamp’s date time qualities, we could now do so more easily. It should be added, that this example works well because the existing data is nicely formatted to be understood as data/time datatype data. In the real world, if the timestamp column has different date types, or isn’t actually a date column at all, the method raises exceptions that you will have to work through. For example, look at what happens if we try to force a different variable into a data/time data type:</p>
-<div class="cell" data-execution_count="20">
+<div id="d8596d54" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'tech_company'</span>] <span class="op">=</span> pd.to_datetime(m_health[<span class="st">'tech_company'</span>])</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>m_health.head()</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>m_health.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>ParserError: Unknown string format: Yes</code></pre>
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/core/arrays/datetimes.py:2236</span>, in <span class="ansi-cyan-fg">objects_to_datetime64ns</span><span class="ansi-blue-fg">(data, dayfirst, yearfirst, utc, errors, require_iso8601, allow_object, allow_mixed)</span>
+<span class="ansi-green-fg ansi-bold">   2235</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">-&gt; 2236</span>     values, tz_parsed <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">conversion</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">datetime_to_datetime64</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">data</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">ravel</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">K</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">   2237</span>     <span style="font-style:italic;color:rgb(95,135,135)"># If tzaware, these values represent unix timestamps, so we</span>
+<span class="ansi-green-fg ansi-bold">   2238</span>     <span style="font-style:italic;color:rgb(95,135,135)">#  return them as i8 to distinguish from wall times</span>
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/_libs/tslibs/conversion.pyx:360</span>, in <span class="ansi-cyan-fg">pandas._libs.tslibs.conversion.datetime_to_datetime64</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-red-fg">TypeError</span>: Unrecognized value type: &lt;class 'str'&gt;
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">ParserError</span>                               Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[20], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> m_health[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">tech_company</span><span style="color:rgb(175,0,0)">'</span>] <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">pd</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">to_datetime</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">m_health</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">tech_company</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">      2</span> m_health<span style="color:rgb(98,98,98)">.</span>head()
+<span class="ansi-green-fg ansi-bold">      3</span> m_health<span style="color:rgb(98,98,98)">.</span>info()
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/core/tools/datetimes.py:1051</span>, in <span class="ansi-cyan-fg">to_datetime</span><span class="ansi-blue-fg">(arg, errors, dayfirst, yearfirst, utc, format, exact, unit, infer_datetime_format, origin, cache)</span>
+<span class="ansi-green-fg ansi-bold">   1049</span>         result <span style="color:rgb(98,98,98)">=</span> arg<span style="color:rgb(98,98,98)">.</span>map(cache_array)
+<span class="ansi-green-fg ansi-bold">   1050</span>     <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">-&gt; 1051</span>         values <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">convert_listlike</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">arg</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_values</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">format</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">   1052</span>         result <span style="color:rgb(98,98,98)">=</span> arg<span style="color:rgb(98,98,98)">.</span>_constructor(values, index<span style="color:rgb(98,98,98)">=</span>arg<span style="color:rgb(98,98,98)">.</span>index, name<span style="color:rgb(98,98,98)">=</span>arg<span style="color:rgb(98,98,98)">.</span>name)
+<span class="ansi-green-fg ansi-bold">   1053</span> <span style="font-weight:bold;color:rgb(0,135,0)">elif</span> <span style="color:rgb(0,135,0)">isinstance</span>(arg, (ABCDataFrame, abc<span style="color:rgb(98,98,98)">.</span>MutableMapping)):
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/core/tools/datetimes.py:402</span>, in <span class="ansi-cyan-fg">_convert_listlike_datetimes</span><span class="ansi-blue-fg">(arg, format, name, tz, unit, errors, infer_datetime_format, dayfirst, yearfirst, exact)</span>
+<span class="ansi-green-fg ansi-bold">    400</span> <span style="font-weight:bold;color:rgb(0,135,0)">assert</span> <span style="color:rgb(0,135,0)">format</span> <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span> <span style="font-weight:bold;color:rgb(175,0,255)">or</span> infer_datetime_format
+<span class="ansi-green-fg ansi-bold">    401</span> utc <span style="color:rgb(98,98,98)">=</span> tz <span style="color:rgb(98,98,98)">==</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">utc</span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg">--&gt; 402</span> result, tz_parsed <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">objects_to_datetime64ns</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg ansi-bold">    403</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">arg</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">    404</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">dayfirst</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">dayfirst</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">    405</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">yearfirst</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">yearfirst</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">    406</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">utc</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">utc</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">    407</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">errors</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">errors</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">    408</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">require_iso8601</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">require_iso8601</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">    409</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">allow_object</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">True</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">    410</span> <span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">    412</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> tz_parsed <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg ansi-bold">    413</span>     <span style="font-style:italic;color:rgb(95,135,135)"># We can take a shortcut since the datetime64 numpy array</span>
+<span class="ansi-green-fg ansi-bold">    414</span>     <span style="font-style:italic;color:rgb(95,135,135)"># is in UTC</span>
+<span class="ansi-green-fg ansi-bold">    415</span>     dta <span style="color:rgb(98,98,98)">=</span> DatetimeArray(result, dtype<span style="color:rgb(98,98,98)">=</span>tz_to_dtype(tz_parsed))
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/core/arrays/datetimes.py:2242</span>, in <span class="ansi-cyan-fg">objects_to_datetime64ns</span><span class="ansi-blue-fg">(data, dayfirst, yearfirst, utc, errors, require_iso8601, allow_object, allow_mixed)</span>
+<span class="ansi-green-fg ansi-bold">   2240</span>         <span style="font-weight:bold;color:rgb(0,135,0)">return</span> values<span style="color:rgb(98,98,98)">.</span>view(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">i8</span><span style="color:rgb(175,0,0)">"</span>), tz_parsed
+<span class="ansi-green-fg ansi-bold">   2241</span>     <span style="font-weight:bold;color:rgb(0,135,0)">except</span> (<span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>, <span style="font-weight:bold;color:rgb(215,95,95)">TypeError</span>):
+<span class="ansi-green-fg">-&gt; 2242</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> err
+<span class="ansi-green-fg ansi-bold">   2244</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> tz_parsed <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg ansi-bold">   2245</span>     <span style="font-style:italic;color:rgb(95,135,135)"># We can take a shortcut since the datetime64 numpy array</span>
+<span class="ansi-green-fg ansi-bold">   2246</span>     <span style="font-style:italic;color:rgb(95,135,135)">#  is in UTC</span>
+<span class="ansi-green-fg ansi-bold">   2247</span>     <span style="font-style:italic;color:rgb(95,135,135)"># Return i8 values to denote unix timestamps</span>
+<span class="ansi-green-fg ansi-bold">   2248</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> result<span style="color:rgb(98,98,98)">.</span>view(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">i8</span><span style="color:rgb(175,0,0)">"</span>), tz_parsed
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/core/arrays/datetimes.py:2224</span>, in <span class="ansi-cyan-fg">objects_to_datetime64ns</span><span class="ansi-blue-fg">(data, dayfirst, yearfirst, utc, errors, require_iso8601, allow_object, allow_mixed)</span>
+<span class="ansi-green-fg ansi-bold">   2222</span> order: Literal[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">F</span><span style="color:rgb(175,0,0)">"</span>, <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">C</span><span style="color:rgb(175,0,0)">"</span>] <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">F</span><span style="color:rgb(175,0,0)">"</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> flags<span style="color:rgb(98,98,98)">.</span>f_contiguous <span style="font-weight:bold;color:rgb(0,135,0)">else</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">C</span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">   2223</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">-&gt; 2224</span>     result, tz_parsed <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">tslib</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">array_to_datetime</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg ansi-bold">   2225</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">data</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">ravel</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">K</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   2226</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">errors</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">errors</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   2227</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">utc</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">utc</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   2228</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">dayfirst</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">dayfirst</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   2229</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">yearfirst</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">yearfirst</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   2230</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">require_iso8601</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">require_iso8601</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   2231</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">allow_mixed</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">allow_mixed</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   2232</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">   2233</span>     result <span style="color:rgb(98,98,98)">=</span> result<span style="color:rgb(98,98,98)">.</span>reshape(data<span style="color:rgb(98,98,98)">.</span>shape, order<span style="color:rgb(98,98,98)">=</span>order)
+<span class="ansi-green-fg ansi-bold">   2234</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span> <span style="font-weight:bold;color:rgb(0,135,0)">as</span> err:
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/_libs/tslib.pyx:381</span>, in <span class="ansi-cyan-fg">pandas._libs.tslib.array_to_datetime</span><span class="ansi-blue-fg">()</span>
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/_libs/tslib.pyx:613</span>, in <span class="ansi-cyan-fg">pandas._libs.tslib.array_to_datetime</span><span class="ansi-blue-fg">()</span>
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/_libs/tslib.pyx:751</span>, in <span class="ansi-cyan-fg">pandas._libs.tslib._array_to_datetime_object</span><span class="ansi-blue-fg">()</span>
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/_libs/tslib.pyx:742</span>, in <span class="ansi-cyan-fg">pandas._libs.tslib._array_to_datetime_object</span><span class="ansi-blue-fg">()</span>
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/_libs/tslibs/parsing.pyx:281</span>, in <span class="ansi-cyan-fg">pandas._libs.tslibs.parsing.parse_datetime_string</span><span class="ansi-blue-fg">()</span>
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/dateutil/parser/_parser.py:1368</span>, in <span class="ansi-cyan-fg">parse</span><span class="ansi-blue-fg">(timestr, parserinfo, **kwargs)</span>
+<span class="ansi-green-fg ansi-bold">   1366</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> parser(parserinfo)<span style="color:rgb(98,98,98)">.</span>parse(timestr, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>kwargs)
+<span class="ansi-green-fg ansi-bold">   1367</span> <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">-&gt; 1368</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">DEFAULTPARSER</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">parse</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">timestr</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/dateutil/parser/_parser.py:643</span>, in <span class="ansi-cyan-fg">parser.parse</span><span class="ansi-blue-fg">(self, timestr, default, ignoretz, tzinfos, **kwargs)</span>
+<span class="ansi-green-fg ansi-bold">    640</span> res, skipped_tokens <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_parse(timestr, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>kwargs)
+<span class="ansi-green-fg ansi-bold">    642</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> res <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">--&gt; 643</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> ParserError(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Unknown string format: </span><span style="font-weight:bold;color:rgb(175,95,135)">%s</span><span style="color:rgb(175,0,0)">"</span>, timestr)
+<span class="ansi-green-fg ansi-bold">    645</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">len</span>(res) <span style="color:rgb(98,98,98)">==</span> <span style="color:rgb(98,98,98)">0</span>:
+<span class="ansi-green-fg ansi-bold">    646</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> ParserError(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">String does not contain a date: </span><span style="font-weight:bold;color:rgb(175,95,135)">%s</span><span style="color:rgb(175,0,0)">"</span>, timestr)
+
+<span class="ansi-red-fg">ParserError</span>: Unknown string format: Yes</pre>
+</div>
 </div>
 </div>
 <p>The error let’s us know that this data typing conversion will not work as coded.</p>
@@ -1951,8 +2045,8 @@ memory usage: 2.6+ KB</code></pre>
 <h3 class="anchored" data-anchor-id="recoding-values">Recoding values</h3>
 <p>Value recoding is a data cleaning task to put the column values into more manageable categories. This is a common data recoding task that most data analyst type folks will be familiar with. Pandas alone has many functions that solve recoding issues in different ways. We will just highlight a few in this tutorial.</p>
 <p>With this dataset we’ve called there are a few columns that we would like to make changes to so that it will be easier to analyze the data in the way we want. The <code>value_counts()</code> method shows the range of responses and their frequency in the dataframe.</p>
-<div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'gender'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="10281fac" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'gender'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>Male        12
 male         6
@@ -1965,12 +2059,12 @@ Name: gender, dtype: int64</code></pre>
 </div>
 </div>
 <p>With that knowledge, we can utilize the <code>replace()</code> function and pass in custom lists with all of the responses that should be replaced by a single specfied value.</p>
-<div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'gender'</span>].replace([<span class="st">'Male '</span>, <span class="st">'male'</span>, <span class="st">'M'</span>, <span class="st">'m'</span>, <span class="st">'Male'</span>, <span class="st">'Cis Male'</span>],</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                            <span class="st">'Male'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'gender'</span>].replace([<span class="st">'Female '</span>, <span class="st">'female'</span>, <span class="st">'F'</span>],</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                            <span class="st">'Female'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'gender'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3208f364" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'gender'</span>].replace([<span class="st">'Male '</span>, <span class="st">'male'</span>, <span class="st">'M'</span>, <span class="st">'m'</span>, <span class="st">'Male'</span>, <span class="st">'Cis Male'</span>],</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                            <span class="st">'Male'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'gender'</span>].replace([<span class="st">'Female '</span>, <span class="st">'female'</span>, <span class="st">'F'</span>],</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                            <span class="st">'Female'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'gender'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>Male      22
 Female     2
@@ -1978,8 +2072,8 @@ Name: gender, dtype: int64</code></pre>
 </div>
 </div>
 <p>Another task is to put categorical objects into a form that is more amenable to computational tasks. Let’s take a look at a categorial variable that consists of responses of “Yes” and “No”.</p>
-<div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'self_employed'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a2b32bfa" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'self_employed'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>No     23
 Yes     1
@@ -1988,10 +2082,10 @@ Name: self_employed, dtype: int64</code></pre>
 </div>
 <p>If we want to leverage this data purely as a segment to split other metrics with, we would probably leave as is. But perhaps we would like to treat it as a dummy variable so we can do more sophisticated math with it.</p>
 <p>For our self-employed variable, we begin by implementing <code>replace()</code> to transform the existing content to numbers as shown below:</p>
-<div class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'self_employed'</span>].replace([<span class="st">'Yes'</span>], <span class="st">'1'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'self_employed'</span>].replace([<span class="st">'No'</span>], <span class="st">'0'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'self_employed'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="51eca441" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'self_employed'</span>].replace([<span class="st">'Yes'</span>], <span class="st">'1'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'self_employed'</span>].replace([<span class="st">'No'</span>], <span class="st">'0'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'self_employed'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>0    23
 1     1
@@ -1999,15 +2093,15 @@ Name: self_employed, dtype: int64</code></pre>
 </div>
 </div>
 <p>The pandas <code>astype()</code> function is able to interpret the 1s and 0s as integers and so we can transform the series into an <code>int</code> datatype.</p>
-<div class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'self_employed'</span>] <span class="op">=</span> m_health[<span class="st">'self_employed'</span>] <span class="op">\</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>        .astype(dtype<span class="op">=</span><span class="st">'int'</span>)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>m_health.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0d39aa46" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'self_employed'</span>] <span class="op">=</span> m_health[<span class="st">'self_employed'</span>] <span class="op">\</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>        .astype(dtype<span class="op">=</span><span class="st">'int'</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>m_health.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2144,8 +2238,8 @@ Solution to Challenge 2
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First, find the distribution of cases per value label:</p>
-<div class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b7df3ef8" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>Sometimes    12
 Never         5
@@ -2155,12 +2249,12 @@ Name: work_interfere, dtype: int64</code></pre>
 </div>
 </div>
 <p>Then show how to use replace to transform the scale into a numeric one:</p>
-<div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>].replace([<span class="st">'Never'</span>], <span class="st">'0'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>].replace([<span class="st">'Rarely'</span>], <span class="st">'1'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>].replace([<span class="st">'Sometimes'</span>], <span class="st">'2'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>].replace([<span class="st">'Often'</span>], <span class="st">'3'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6e2089f8" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>].replace([<span class="st">'Never'</span>], <span class="st">'0'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>].replace([<span class="st">'Rarely'</span>], <span class="st">'1'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>].replace([<span class="st">'Sometimes'</span>], <span class="st">'2'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>].replace([<span class="st">'Often'</span>], <span class="st">'3'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>2    12
 0     5
@@ -2170,8 +2264,8 @@ Name: work_interfere, dtype: int64</code></pre>
 </div>
 </div>
 <p>Distribution of values looks good. Let’s take a look at the datatypes for the dataframe object.</p>
-<div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>m_health.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7bc818ad" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>m_health.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 24 entries, 0 to 23
@@ -2196,10 +2290,10 @@ memory usage: 2.6+ KB</code></pre>
 </div>
 </div>
 <p>But it is still typed as an object. So change datatype to int.</p>
-<div class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>] <span class="op">=</span> m_health[<span class="st">'work_interfere'</span>] <span class="op">\</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>        .astype(dtype<span class="op">=</span><span class="st">'int'</span>)</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>m_health.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="19621c9e" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>m_health[<span class="st">'work_interfere'</span>] <span class="op">=</span> m_health[<span class="st">'work_interfere'</span>] <span class="op">\</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>        .astype(dtype<span class="op">=</span><span class="st">'int'</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>m_health.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 24 entries, 0 to 23
@@ -2224,13 +2318,13 @@ memory usage: 2.6+ KB</code></pre>
 </div>
 </div>
 <p>Finally, show the dataframe itself.</p>
-<div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>m_health</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0854452f" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>m_health</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2692,6 +2786,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -2758,13 +2879,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2799,18 +2922,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2842,11 +2954,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2856,8 +3005,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2869,7 +3027,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2913,6 +3193,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2938,6 +3219,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2999,12 +3306,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./11_getting_data_with_pandas.html" class="pagination-link">
+      <a href="./11_getting_data_with_pandas.html" class="pagination-link" aria-label="Getting Data With Pandas">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Data With Pandas</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./21_exploring_data_structures.html" class="pagination-link">
+      <a href="./21_exploring_data_structures.html" class="pagination-link" aria-label="Exploring Data Structures">
         <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploring Data Structures</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -3012,20 +3319,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Introduction to Data Science using Python was written by <br> Lindsay Forestell and Stuart Hemerling</div>   
+    <div class="nav-footer-left">
+<p>Introduction to Data Science using Python was written by <br> Lindsay Forestell and Stuart Hemerling</p>
+</div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./license.html">License</a>
+    <a class="nav-link" href="./license.html">
+<p>License</p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://bcgov.github.io/ds-intro-to-python/index.html">Python for Data Science Course</a>
+    <a class="nav-link" href="./index.html">
+<p>Python for Data Science Course</p>
+</a>
   </li>  
 </ul>
-    </div>
-    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/12_cleaning_it_up.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/12_cleaning_it_up.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
+
 
 
 

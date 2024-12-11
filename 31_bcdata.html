@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Data Science using Python - 8&nbsp; Introduction to bcdata</title>
+<title>8&nbsp; Introduction to bcdata – Introduction to Data Science using Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -71,19 +71,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-92e2dd4f4c7daf58452f04a50b571cde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-840d0bcdd202e39593fd3aec26358f27.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -92,13 +98,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
@@ -108,116 +115,117 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="./BCID_H_rgb_rev.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-python" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Introduction to Python</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-to-python">    
         <li>
-    <a class="dropdown-item" href="./00_introduction_to_python.html" rel="" target="">
+    <a class="dropdown-item" href="./00_introduction_to_python.html">
  <span class="dropdown-text">Getting Up and Running</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./01_working_with_code.html" rel="" target="">
+    <a class="dropdown-item" href="./01_working_with_code.html">
  <span class="dropdown-text">Working with Code</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./02_core_data_structure_concepts.html" rel="" target="">
+    <a class="dropdown-item" href="./02_core_data_structure_concepts.html">
  <span class="dropdown-text">Core Concepts</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-get-and-clean-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Get and Clean Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-get-and-clean-data">    
         <li>
-    <a class="dropdown-item" href="./11_getting_data_with_pandas.html" rel="" target="">
+    <a class="dropdown-item" href="./11_getting_data_with_pandas.html">
  <span class="dropdown-text">Getting Data with Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./12_cleaning_it_up.html" rel="" target="">
+    <a class="dropdown-item" href="./12_cleaning_it_up.html">
  <span class="dropdown-text">Cleaning Data with Pandas</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-understand-and-analyze-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Understand and Analyze Data</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-understand-and-analyze-data">    
         <li>
-    <a class="dropdown-item" href="./21_exploring_data_structures.html" rel="" target="">
+    <a class="dropdown-item" href="./21_exploring_data_structures.html">
  <span class="dropdown-text">Exploring Data Structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html" rel="" target="">
+    <a class="dropdown-item" href="./22_graphical_depictions_of_data.html">
  <span class="dropdown-text">Graphical Depictions of Data</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced-topics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Advanced Topics</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced-topics">    
         <li>
-    <a class="dropdown-item" href="./31_bcdata.html" rel="" target="">
+    <a class="dropdown-item" href="./31_bcdata.html">
  <span class="dropdown-text">bcdata package</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./32_advanced_pandas.html" rel="" target="">
+    <a class="dropdown-item" href="./32_advanced_pandas.html">
  <span class="dropdown-text">Advanced Pandas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./33_create_reports.html" rel="" target="">
+    <a class="dropdown-item" href="./33_create_reports.html">
  <span class="dropdown-text">Creating Reports</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./34_machine_learning.html" rel="" target="">
+    <a class="dropdown-item" href="./34_machine_learning.html">
  <span class="dropdown-text">Machine Learning</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./references.html" rel="" target="">
- <span class="menu-text">References</span></a>
+    <a class="nav-link" href="./references.html"> 
+<span class="menu-text">References</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/bcgov/ds-intro-to-python" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/bcgov/ds-intro-to-python" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -225,37 +233,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./31_bcdata.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./31_bcdata.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to bcdata</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -339,7 +338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -356,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#geospatial-plots" id="toc-geospatial-plots" class="nav-link" data-scroll-target="#geospatial-plots"><span class="header-section-number">8.3</span> Geospatial Plots</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/31_bcdata.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/31_bcdata.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/31_bcdata.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/31_bcdata.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -376,7 +375,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <center>
 <img src="images/bcdata/data_catalog.png" width="80%" style="margin:auto">
@@ -392,11 +393,11 @@ B.C. Data Catalogue
 <div class="code-with-filename-file">
 <pre><strong>Anaconda Prompt</strong></pre>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="ex">activate</span> ds-env</span>
+<div class="sourceCode" id="cb1" data-filename="Anaconda Prompt"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> conda <span class="ex">activate</span> ds-env</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> pip <span class="fu">install</span> bcdata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As before, make sure that you are installing this package in the <code>ds-env</code> environment! To make sure that this has successfully downloaded, we can try importing it into our Python session.</p>
-<div class="cell" data-execution_count="1">
+<div id="80d24ec1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> bcdata</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>bcdata.__version__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
@@ -416,14 +417,14 @@ B.C. Data Catalogue
 <li>multiple</li>
 <li>wms</li>
 </ul>
-<p>If we filter to only include these options for the format, we will find some geospatial datasets. Let’s try looking for a list of the locations of all B.C. hospitals.</p>
+<p>If we filter to only include these options for the format, we will find some geospatial datasets. Let’s try looking for a list of the locations of all B.C. emergency rooms.</p>
 <center>
-<img src="images/bcdata/bc_hospitals.png" width="100%" style="margin:auto">
+<img src="images/bcdata/bc_ers.png" width="100%" style="margin:auto">
 <p style="text-align: center">
-B.C. Hospitals
+B.C. Emergency Rooms
 </p>
 </center>
-<p>The first search result here, <strong>BC Health Care Facilities (Hospital)</strong>, looks like it might be what we are looking for. If we click on it, we see that there are options for geographic downloads on the right hand side of the page. This is good - it means that we have found a geographic dataset!</p>
+<p>The first search result here, <strong>Emergency Rooms in BC</strong>, looks like it might be what we are looking for. If we click on it, we see that there are options for geographic downloads on the right hand side of the page. This is good - it means that we have found a geographic dataset!</p>
 <center>
 <img src="images/bcdata/warehouse_download.png" width="80%" style="margin:auto">
 <p style="text-align: center">
@@ -440,174 +441,174 @@ Geographic Download Options
 <ul>
 <li><p><code>dataset</code>: this is the name of the dataset we wish to pull from the catalog. This can be either the <code>id</code> or <code>Object Name</code>:</p>
 <ul>
-<li><code>id</code>: last portion of the URL - in this case ‘bc-health-care-facilities-hospital’</li>
-<li><code>Object Name</code>: under <code>Object Description</code> - in this case ‘WHSE_IMAGERY_AND_BASE_MAPS.GSR_HOSPITALS_SVW’</li>
+<li><code>id</code>: last portion of the URL - in this case ‘emergency-rooms-in-bc’</li>
+<li><code>Object Name</code>: under <code>Object Description</code> - in this case ‘WHSE_IMAGERY_AND_BASE_MAPS.GSR_EMERGENCY_ROOMS_SV’</li>
 </ul></li>
 <li><p><code>as_gdf</code>: a boolean argument that specifies to load the data into a geopandas DataFrame (a specialized pandas dataframe capable of holding geospatial data)</p></li>
 </ul>
 <p>Let’s go ahead and use these arguments to pull the dataset into Python!</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hospitals <span class="op">=</span> bcdata.get_data(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    dataset<span class="op">=</span><span class="st">'bc-health-care-facilities-hospital'</span>, </span>
+<div id="07447f74" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>emerg_rooms <span class="op">=</span> bcdata.get_data(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    dataset<span class="op">=</span><span class="st">'emergency-rooms-in-bc'</span>, </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    as_gdf<span class="op">=</span><span class="va">True</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>hospitals.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>emerg_rooms.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">geometry</th>
-<th data-quarto-table-cell-role="th">CUSTODIAN_ORG_DESCRIPTION</th>
-<th data-quarto-table-cell-role="th">BUSINESS_CATEGORY_CLASS</th>
-<th data-quarto-table-cell-role="th">BUSINESS_CATEGORY_DESCRIPTION</th>
-<th data-quarto-table-cell-role="th">OCCUPANT_TYPE_DESCRIPTION</th>
-<th data-quarto-table-cell-role="th">SOURCE_DATA_ID</th>
-<th data-quarto-table-cell-role="th">SUPPLIED_SOURCE_ID_IND</th>
-<th data-quarto-table-cell-role="th">OCCUPANT_NAME</th>
+<th data-quarto-table-cell-role="th">ORGANIZATION_NAME</th>
+<th data-quarto-table-cell-role="th">SERVICE_REF</th>
+<th data-quarto-table-cell-role="th">SERVICE_NAME</th>
 <th data-quarto-table-cell-role="th">DESCRIPTION</th>
-<th data-quarto-table-cell-role="th">PHYSICAL_ADDRESS</th>
+<th data-quarto-table-cell-role="th">CONTACT_PHONE</th>
+<th data-quarto-table-cell-role="th">WEBSITE_URL</th>
+<th data-quarto-table-cell-role="th">CONTACT_EMAIL</th>
+<th data-quarto-table-cell-role="th">WHEELCHAIR_ACCESSIBLE_IND</th>
+<th data-quarto-table-cell-role="th">HOURS_OF_OPERATION</th>
 <th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">SITE_GEOCODED_IND</th>
-<th data-quarto-table-cell-role="th">GEOCODING_METHOD_DESCRIPTION</th>
-<th data-quarto-table-cell-role="th">HEALTH_AUTHORITY_CODE</th>
-<th data-quarto-table-cell-role="th">HEALTH_AUTHORITY_NAME</th>
-<th data-quarto-table-cell-role="th">HEALTH_SERVICE_DLVR_AREA_CODE</th>
-<th data-quarto-table-cell-role="th">HEALTH_SERVICE_DLVR_AREA_NAME</th>
-<th data-quarto-table-cell-role="th">LOCAL_HEALTH_AREA_CODE</th>
-<th data-quarto-table-cell-role="th">LOCAL_HEALTH_AREA_NAME</th>
-<th data-quarto-table-cell-role="th">SEQUENCE_ID</th>
+<th data-quarto-table-cell-role="th">LOCALITY</th>
+<th data-quarto-table-cell-role="th">PROVINCE</th>
+<th data-quarto-table-cell-role="th">POSTAL_CODE</th>
+<th data-quarto-table-cell-role="th">WEBSITE_HEALTHLINKBC_URL</th>
+<th data-quarto-table-cell-role="th">KEYWORDS</th>
+<th data-quarto-table-cell-role="th">LATITUDE</th>
+<th data-quarto-table-cell-role="th">LONGITUDE</th>
+<th data-quarto-table-cell-role="th">DATE_UPDATED</th>
+<th data-quarto-table-cell-role="th">OBJECTID</th>
 <th data-quarto-table-cell-role="th">SE_ANNO_CAD_DATA</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>POINT (-120.81634 56.25604)</td>
-<td>Ministry of Health - Provincial Health Service...</td>
-<td>hospitals</td>
-<td>Hospitals</td>
-<td>Hospitals</td>
-<td>701</td>
-<td>Y</td>
-<td>Fort St. John General Hospital &amp; Peace Villa</td>
-<td>Hospital</td>
-<td>8407 112 Avenue , Fort St. John, BC, Peace Riv...</td>
-<td>...</td>
+<td>POINT (-123.12418 49.24451)</td>
+<td>BC Children's Hospital</td>
+<td>17643949</td>
+<td>Emergency Health Services</td>
+<td>Provides emergency medical care for children u...</td>
+<td>6048752045</td>
+<td>http://www.bcchildrens.ca/our-services/hospita...</td>
 <td>None</td>
-<td>Air Photo</td>
-<td>5</td>
-<td>Northern Health Authority</td>
-<td>53</td>
-<td>Northeast</td>
-<td>60</td>
-<td>Fort St. John</td>
-<td>45</td>
+<td>Y</td>
+<td>24 hours a day, 7 days a week</td>
+<td>...</td>
+<td>Vancouver</td>
+<td>BC</td>
+<td>V6H 3V4</td>
+<td>http://www.healthlinkbc.ca/find/resource.asp?F...</td>
+<td>Emergency Room Care</td>
+<td>49.244514</td>
+<td>-123.124185</td>
+<td>2024-12-09Z</td>
+<td>148</td>
 <td>None</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>POINT (-121.42390 49.37725)</td>
-<td>Ministry of Health - Provincial Health Service...</td>
-<td>hospitals</td>
-<td>Hospitals</td>
-<td>Hospitals</td>
-<td>606</td>
-<td>Y</td>
-<td>Fraser Canyon Hospital</td>
-<td>Hospital</td>
-<td>1275 7th Avenue, Hope, BC, Hope, BC</td>
-<td>...</td>
-<td>None</td>
-<td>Air Photo</td>
-<td>2</td>
+<td>POINT (-122.313 49.03815)</td>
 <td>Fraser Health Authority</td>
-<td>21</td>
-<td>Fraser East</td>
-<td>32</td>
-<td>Hope</td>
-<td>47</td>
+<td>17645045</td>
+<td>Emergency Health Services</td>
+<td>Provides 24-hour emergency services for patien...</td>
+<td>6048514700</td>
+<td>https://www.fraserhealth.ca/patients-and-visit...</td>
+<td>None</td>
+<td>Y</td>
+<td>24 hours a day, 7 days a week</td>
+<td>...</td>
+<td>Abbotsford</td>
+<td>BC</td>
+<td>V2S 0C2</td>
+<td>http://www.healthlinkbc.ca/find/resource.asp?F...</td>
+<td>Emergency Room Care</td>
+<td>49.038152</td>
+<td>-122.313003</td>
+<td>2024-12-09Z</td>
+<td>180</td>
 <td>None</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>POINT (-122.49954 52.98134)</td>
-<td>Ministry of Health - Provincial Health Service...</td>
-<td>hospitals</td>
-<td>Hospitals</td>
-<td>Hospitals</td>
-<td>705</td>
-<td>Y</td>
-<td>G.R. Baker Memorial Hospital</td>
-<td>Hospital</td>
-<td>543 Front Street, Quesnel, BC, Quesnel, BC</td>
-<td>...</td>
+<td>POINT (-122.84232 49.177)</td>
+<td>Fraser Health Authority</td>
+<td>17645045</td>
+<td>Emergency Health Services</td>
+<td>Provides 24-hour emergency services for patien...</td>
+<td>6045812211</td>
+<td>https://www.fraserhealth.ca/patients-and-visit...</td>
 <td>None</td>
-<td>Air Photo</td>
-<td>5</td>
-<td>Northern Health Authority</td>
-<td>52</td>
-<td>Northern Interior</td>
-<td>28</td>
-<td>Quesnel</td>
-<td>49</td>
+<td>Y</td>
+<td>24 hours a day, 7 days a week</td>
+<td>...</td>
+<td>Surrey</td>
+<td>BC</td>
+<td>V3V 1Z2</td>
+<td>http://www.healthlinkbc.ca/find/resource.asp?F...</td>
+<td>Emergency Room Care</td>
+<td>49.177003</td>
+<td>-122.842316</td>
+<td>2024-12-09Z</td>
+<td>210</td>
 <td>None</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>POINT (-116.96655 51.29723)</td>
-<td>Ministry of Health - Provincial Health Service...</td>
-<td>hospitals</td>
-<td>Hospitals</td>
-<td>Hospitals</td>
-<td>409</td>
-<td>Y</td>
-<td>Golden and District General Hospital</td>
-<td>Hospital</td>
-<td>835 - 9th Avenue South, Golden, BC, Golden, BC</td>
-<td>...</td>
+<td>POINT (-121.96242 49.16576)</td>
+<td>Fraser Health Authority</td>
+<td>17645045</td>
+<td>Emergency Health Services</td>
+<td>Provides 24-hour emergency services for patien...</td>
+<td>6047954141</td>
+<td>https://www.fraserhealth.ca/patients-and-visit...</td>
 <td>None</td>
-<td>Air Photo</td>
-<td>1</td>
-<td>Interior Health Authority</td>
-<td>11</td>
-<td>East Kootenay</td>
-<td>18</td>
-<td>Golden</td>
-<td>51</td>
+<td>Y</td>
+<td>24 hours a day, 7 days a week</td>
+<td>...</td>
+<td>Chilliwack</td>
+<td>BC</td>
+<td>V2P 1P7</td>
+<td>http://www.healthlinkbc.ca/find/resource.asp?F...</td>
+<td>Emergency Room Care</td>
+<td>49.165763</td>
+<td>-121.962422</td>
+<td>2024-12-09Z</td>
+<td>230</td>
 <td>None</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>POINT (-132.07058 53.25481)</td>
-<td>Ministry of Health - Provincial Health Service...</td>
-<td>hospitals</td>
-<td>Hospitals</td>
-<td>Hospitals</td>
-<td>907</td>
-<td>Y</td>
-<td>Haida Gwaii Hospital and Health Centre - Xaayd...</td>
-<td>Hospital</td>
-<td>3209 Oceanview Drive, Queen Charlotte, BC, Que...</td>
-<td>...</td>
+<td>POINT (-121.42434 49.3769)</td>
+<td>Fraser Health Authority</td>
+<td>17645045</td>
+<td>Emergency Health Services</td>
+<td>Provides 24-hour emergency services for patien...</td>
+<td>6048695656</td>
+<td>https://www.fraserhealth.ca/patients-and-visit...</td>
 <td>None</td>
-<td>Air Photo</td>
-<td>5</td>
-<td>Northern Health Authority</td>
-<td>51</td>
-<td>Northwest</td>
-<td>50</td>
-<td>Queen Charlotte</td>
-<td>53</td>
+<td>Y</td>
+<td>24 hours a day, 7 days a week</td>
+<td>...</td>
+<td>Hope</td>
+<td>BC</td>
+<td>V0X 1L4</td>
+<td>http://www.healthlinkbc.ca/find/resource.asp?F...</td>
+<td>Emergency Room Care</td>
+<td>49.376899</td>
+<td>-121.424345</td>
+<td>2024-12-09Z</td>
+<td>274</td>
 <td>None</td>
 </tr>
 </tbody>
 </table>
 
-<p>5 rows × 33 columns</p>
+<p>5 rows × 21 columns</p>
 </div>
 </div>
 </div>
@@ -642,7 +643,7 @@ Solution to Challenge 1
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="cell" data-execution_count="3">
+<div id="ffd989ec" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fires <span class="op">=</span> bcdata.get_data(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    dataset<span class="op">=</span><span class="st">'bc-wildfire-fire-zones'</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    as_gdf<span class="op">=</span><span class="va">True</span></span>
@@ -652,7 +653,7 @@ Solution to Challenge 1
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -682,7 +683,7 @@ Solution to Challenge 1
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>MULTIPOLYGON (((-131.15968 54.00000, -131.6926...</td>
+<td>MULTIPOLYGON (((-131.15968 54, -131.69266 54.6...</td>
 <td>482</td>
 <td>Coastal Fire Centre</td>
 <td>Fraser Fire Zone</td>
@@ -706,7 +707,7 @@ Solution to Challenge 1
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>POLYGON ((-121.27589 50.51785, -121.27600 50.5...</td>
+<td>POLYGON ((-121.27589 50.51785, -121.276 50.525...</td>
 <td>484</td>
 <td>Kamloops Fire Centre</td>
 <td>Merritt Fire Zone</td>
@@ -718,7 +719,7 @@ Solution to Challenge 1
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>POLYGON ((-123.73771 50.84113, -123.73840 50.8...</td>
+<td>POLYGON ((-123.73771 50.84113, -123.7384 50.84...</td>
 <td>485</td>
 <td>Coastal Fire Centre</td>
 <td>Pemberton Fire Zone</td>
@@ -740,170 +741,170 @@ Solution to Challenge 1
 </section>
 <section id="pre-filtering-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="pre-filtering-the-data">Pre-Filtering the Data</h3>
-<p>It might be the case that the data we wish to access is only a subset of the overall dataset. While we could filter the data after it comes into python, it might be faster, more efficient, or simply be less of a memory hog if we filter it before it comes into our session. In this case, we can add the optional <code>query</code> argument when we fetch the data. We can supply a <em>string</em> to this argument that will act like a simple SQL ‘where’ clause. As an example, let’s filter the hospital dataset to include only those in the Vancouver Island Health Authority:</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>hospital_filtered <span class="op">=</span> bcdata.get_data(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    dataset<span class="op">=</span><span class="st">'bc-health-care-facilities-hospital'</span>, </span>
+<p>It might be the case that the data we wish to access is only a subset of the overall dataset. While we could filter the data after it comes into python, it might be faster, more efficient, or simply be less of a memory hog if we filter it before it comes into our session. In this case, we can add the optional <code>query</code> argument when we fetch the data. We can supply a <em>string</em> to this argument that will act like a simple SQL ‘where’ clause. As an example, let’s filter the emergency room dataset to include only those in Vancouver:</p>
+<div id="b06ef0b8" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>er_filtered <span class="op">=</span> bcdata.get_data(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    dataset<span class="op">=</span><span class="st">'emergency-rooms-in-bc'</span>, </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    as_gdf<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    query<span class="op">=</span><span class="st">"HEALTH_AUTHORITY_NAME='Vancouver Island Health Authority'"</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    query<span class="op">=</span><span class="st">"LOCALITY='Vancouver'"</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>hospital_filtered.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>er_filtered.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">geometry</th>
-<th data-quarto-table-cell-role="th">CUSTODIAN_ORG_DESCRIPTION</th>
-<th data-quarto-table-cell-role="th">BUSINESS_CATEGORY_CLASS</th>
-<th data-quarto-table-cell-role="th">BUSINESS_CATEGORY_DESCRIPTION</th>
-<th data-quarto-table-cell-role="th">OCCUPANT_TYPE_DESCRIPTION</th>
-<th data-quarto-table-cell-role="th">SOURCE_DATA_ID</th>
-<th data-quarto-table-cell-role="th">SUPPLIED_SOURCE_ID_IND</th>
-<th data-quarto-table-cell-role="th">OCCUPANT_NAME</th>
+<th data-quarto-table-cell-role="th">ORGANIZATION_NAME</th>
+<th data-quarto-table-cell-role="th">SERVICE_REF</th>
+<th data-quarto-table-cell-role="th">SERVICE_NAME</th>
 <th data-quarto-table-cell-role="th">DESCRIPTION</th>
-<th data-quarto-table-cell-role="th">PHYSICAL_ADDRESS</th>
+<th data-quarto-table-cell-role="th">CONTACT_PHONE</th>
+<th data-quarto-table-cell-role="th">WEBSITE_URL</th>
+<th data-quarto-table-cell-role="th">CONTACT_EMAIL</th>
+<th data-quarto-table-cell-role="th">WHEELCHAIR_ACCESSIBLE_IND</th>
+<th data-quarto-table-cell-role="th">HOURS_OF_OPERATION</th>
 <th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">SITE_GEOCODED_IND</th>
-<th data-quarto-table-cell-role="th">GEOCODING_METHOD_DESCRIPTION</th>
-<th data-quarto-table-cell-role="th">HEALTH_AUTHORITY_CODE</th>
-<th data-quarto-table-cell-role="th">HEALTH_AUTHORITY_NAME</th>
-<th data-quarto-table-cell-role="th">HEALTH_SERVICE_DLVR_AREA_CODE</th>
-<th data-quarto-table-cell-role="th">HEALTH_SERVICE_DLVR_AREA_NAME</th>
-<th data-quarto-table-cell-role="th">LOCAL_HEALTH_AREA_CODE</th>
-<th data-quarto-table-cell-role="th">LOCAL_HEALTH_AREA_NAME</th>
-<th data-quarto-table-cell-role="th">SEQUENCE_ID</th>
+<th data-quarto-table-cell-role="th">LOCALITY</th>
+<th data-quarto-table-cell-role="th">PROVINCE</th>
+<th data-quarto-table-cell-role="th">POSTAL_CODE</th>
+<th data-quarto-table-cell-role="th">WEBSITE_HEALTHLINKBC_URL</th>
+<th data-quarto-table-cell-role="th">KEYWORDS</th>
+<th data-quarto-table-cell-role="th">LATITUDE</th>
+<th data-quarto-table-cell-role="th">LONGITUDE</th>
+<th data-quarto-table-cell-role="th">DATE_UPDATED</th>
+<th data-quarto-table-cell-role="th">OBJECTID</th>
 <th data-quarto-table-cell-role="th">SE_ANNO_CAD_DATA</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>POINT (-123.50867 48.86185)</td>
-<td>Ministry of Health - Provincial Health Service...</td>
-<td>hospitals</td>
-<td>Hospitals</td>
-<td>Hospitals</td>
-<td>206</td>
-<td>Y</td>
-<td>Lady Minto Gulf Islands Hospital</td>
-<td>Hospital</td>
-<td>135 Crofton Road, Saltspring Island, BC, Gulf ...</td>
-<td>...</td>
+<td>POINT (-123.12418 49.24451)</td>
+<td>BC Children's Hospital</td>
+<td>17643949</td>
+<td>Emergency Health Services</td>
+<td>Provides emergency medical care for children u...</td>
+<td>6048752045</td>
+<td>http://www.bcchildrens.ca/our-services/hospita...</td>
 <td>None</td>
-<td>Air Photo</td>
-<td>4</td>
-<td>Vancouver Island Health Authority</td>
-<td>41</td>
-<td>South Vancouver Island</td>
-<td>64</td>
-<td>Salt Spring Island</td>
-<td>65</td>
+<td>Y</td>
+<td>24 hours a day, 7 days a week</td>
+<td>...</td>
+<td>Vancouver</td>
+<td>BC</td>
+<td>V6H 3V4</td>
+<td>http://www.healthlinkbc.ca/find/resource.asp?F...</td>
+<td>Emergency Room Care</td>
+<td>49.244514</td>
+<td>-123.124185</td>
+<td>2024-12-09Z</td>
+<td>148</td>
 <td>None</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>POINT (-123.96995 49.18515)</td>
-<td>Ministry of Health - Provincial Health Service...</td>
-<td>hospitals</td>
-<td>Hospitals</td>
-<td>Hospitals</td>
-<td>501</td>
-<td>Y</td>
-<td>Nanaimo Regional General Hospital</td>
-<td>Hospital</td>
-<td>1200 Dufferin Crescent, Nanaimo, BC, Nanaimo, BC</td>
-<td>...</td>
+<td>POINT (-123.24426 49.26467)</td>
+<td>Vancouver Coastal Health</td>
+<td>17649851</td>
+<td>Emergency Health Services</td>
+<td>Provides 24-hour emergency health care and tra...</td>
+<td>6048227121</td>
+<td>https://www.vch.ca/en/health-topics/emergency-...</td>
 <td>None</td>
-<td>Air Photo</td>
-<td>4</td>
-<td>Vancouver Island Health Authority</td>
-<td>42</td>
-<td>Central Vancouver Island</td>
-<td>68</td>
-<td>Nanaimo</td>
-<td>83</td>
+<td>Y</td>
+<td>Mon 08:00 - 20:00; Tue 08:00 - 20:00; Wed 08:0...</td>
+<td>...</td>
+<td>Vancouver</td>
+<td>BC</td>
+<td>V6T 2B5</td>
+<td>http://www.healthlinkbc.ca/find/resource.asp?F...</td>
+<td>Emergency Room Care</td>
+<td>49.264671</td>
+<td>-123.244259</td>
+<td>2024-12-09Z</td>
+<td>182</td>
 <td>None</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>POINT (-125.24263 50.00876)</td>
-<td>Ministry of Health - Provincial Health Service...</td>
-<td>hospitals</td>
-<td>Hospitals</td>
-<td>Hospitals</td>
-<td>508</td>
-<td>Y</td>
-<td>North Island Hospital, Campbell River &amp; District</td>
-<td>Hospital</td>
-<td>375 2nd Avenue, Campbell River, BC, Campbell R...</td>
-<td>...</td>
+<td>POINT (-123.12409 49.26056)</td>
+<td>Vancouver Coastal Health</td>
+<td>17649905</td>
+<td>Emergency Health Services - Vancouver</td>
+<td>Provides a full range of basic and highly spec...</td>
+<td>6048754111</td>
+<td>https://www.vch.ca/en/health-topics/emergency-...</td>
 <td>None</td>
-<td>Air Photo</td>
-<td>4</td>
-<td>Vancouver Island Health Authority</td>
-<td>43</td>
-<td>North Vancouver Island</td>
-<td>72</td>
-<td>Campbell River</td>
-<td>87</td>
+<td>Y</td>
+<td>Open 24 hours, 7 days a week</td>
+<td>...</td>
+<td>Vancouver</td>
+<td>BC</td>
+<td>V5Z 1M9</td>
+<td>http://www.healthlinkbc.ca/find/resource.asp?F...</td>
+<td>Emergency Room Care</td>
+<td>49.260558</td>
+<td>-123.124094</td>
+<td>2024-12-09Z</td>
+<td>204</td>
 <td>None</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>POINT (-125.90858 49.15142)</td>
-<td>Ministry of Health - Provincial Health Service...</td>
-<td>hospitals</td>
-<td>Hospitals</td>
-<td>Hospitals</td>
-<td>854</td>
-<td>Y</td>
-<td>Tofino General Hospital</td>
-<td>Hospital</td>
-<td>261 Neill Street, Tofino, BC, Alberni, BC</td>
-<td>...</td>
+<td>POINT (-123.12891 49.28061)</td>
+<td>Providence Health Care Society</td>
+<td>17654692</td>
+<td>Emergency Health Services</td>
+<td>Provides emergency health care services for Va...</td>
+<td>6046822344</td>
+<td>https://www.providencehealthcare.org/en/emergency</td>
 <td>None</td>
-<td>Air Photo</td>
-<td>4</td>
-<td>Vancouver Island Health Authority</td>
-<td>42</td>
-<td>Central Vancouver Island</td>
-<td>70</td>
-<td>Tofino</td>
-<td>139</td>
+<td>Y</td>
+<td>24 hours a day, 7 days a week</td>
+<td>...</td>
+<td>Vancouver</td>
+<td>BC</td>
+<td>V6Z 1Y6</td>
+<td>http://www.healthlinkbc.ca/find/resource.asp?F...</td>
+<td>Emergency Room Care</td>
+<td>49.280614</td>
+<td>-123.128913</td>
+<td>2024-12-09Z</td>
+<td>226</td>
 <td>None</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>POINT (-123.43261 48.46672)</td>
-<td>Ministry of Health - Provincial Health Service...</td>
-<td>hospitals</td>
-<td>Hospitals</td>
-<td>Hospitals</td>
-<td>202</td>
-<td>Y</td>
-<td>Victoria General Hospital</td>
-<td>Hospital</td>
-<td>1 Hospital Way, Victoria, BC, Greater Victoria...</td>
-<td>...</td>
+<td>POINT (-123.09636 49.2577)</td>
+<td>Providence Health Care Society</td>
+<td>17654692</td>
+<td>Emergency Health Services</td>
+<td>Provides emergency health care services for Va...</td>
+<td>6048741141</td>
+<td>https://www.providencehealthcare.org/en/emergency</td>
 <td>None</td>
-<td>Air Photo</td>
-<td>4</td>
-<td>Vancouver Island Health Authority</td>
-<td>41</td>
-<td>South Vancouver Island</td>
-<td>61</td>
-<td>Victoria</td>
-<td>149</td>
+<td>Y</td>
+<td>Mon 08:00 - 20:00; Tue 08:00 - 20:00; Wed 08:0...</td>
+<td>...</td>
+<td>Vancouver</td>
+<td>BC</td>
+<td>V5T 3N4</td>
+<td>http://www.healthlinkbc.ca/find/resource.asp?F...</td>
+<td>Emergency Room Care</td>
+<td>49.257699</td>
+<td>-123.096358</td>
+<td>2024-12-09Z</td>
+<td>208</td>
 <td>None</td>
 </tr>
 </tbody>
 </table>
 
-<p>5 rows × 33 columns</p>
+<p>5 rows × 21 columns</p>
 </div>
 </div>
 </div>
@@ -930,56 +931,66 @@ SQL Syntax
 <p>this time of year, don’t you?</p>
 <p>… no? No clue where that is or what it might look like? Me neither. Luckily for us, we can checkout these datasets with some geospatial plots! The geopandas dataframe that the data was loaded into can automatically display a map with points, borders, or coloured regions.</p>
 <p>Let’s look at the basic plot that is displayed for a ‘point’ style geometry vs.&nbsp;a ‘polygon’ style geometry. Don’t forget to import matplotlib to display the plots!</p>
-<div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>hospitals.plot()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>emerg_rooms.plot()</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>fires.plot()</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-execution_count="5">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 45.2%;justify-content: center;">
-<p><img src="31_bcdata_files/figure-html/cell-6-output-1.png" class="img-fluid" width="416"></p>
+<div id="97aa649e" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="5">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="31_bcdata_files/figure-html/cell-6-output-1.png" class="img-fluid" width="418"></p>
 </div>
-<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 54.8%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="31_bcdata_files/figure-html/cell-6-output-2.png" class="img-fluid" width="505"></p>
-</div>
 </div>
 </div>
 </div>
 <p>Way better! With polygon areas, we also have a few more options for how we wish to colour the regions.</p>
 <p>We can colour based on a categorical variable:</p>
-<div class="cell" data-execution_count="6">
+<div id="85b9a09d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fires.plot(column<span class="op">=</span><span class="st">'MOF_FIRE_CENTRE_NAME'</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="31_bcdata_files/figure-html/cell-7-output-1.png" width="505" height="411"></p>
+<div>
+<figure class="figure">
+<p><img src="31_bcdata_files/figure-html/cell-7-output-1.png" width="505" height="411" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Or on a numerical variable:</p>
-<div class="cell" data-execution_count="7">
+<div id="b9efe847" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fires.plot(column<span class="op">=</span><span class="st">'FEATURE_AREA_SQM'</span>, legend<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="31_bcdata_files/figure-html/cell-8-output-1.png" width="537" height="408"></p>
+<div>
+<figure class="figure">
+<p><img src="31_bcdata_files/figure-html/cell-8-output-1.png" width="537" height="408" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Or if we only want to display the boundaries of our regions, we can do that too:</p>
-<div class="cell" data-execution_count="8">
+<div id="dd9d4ece" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fires.boundary.plot()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="31_bcdata_files/figure-html/cell-9-output-1.png" width="505" height="411"></p>
+<div>
+<figure class="figure">
+<p><img src="31_bcdata_files/figure-html/cell-9-output-1.png" width="505" height="411" class="figure-img"></p>
+</figure>
 </div>
 </div>
-<p>You’ll notice that we can easily see the shape of B.C. in these region plots, but it is less obvious for the hospitals dataset. Because the hospitals dataset only contains ‘point’ objects, it will just place these points on an axis, but with no region boundaries to reference, it might just look like a scattering of points on a plot.</p>
+</div>
+<p>You’ll notice that we can easily see the shape of B.C. in these region plots, but it is less obvious for the emergency rooms dataset. Because the emergency rooms dataset only contains ‘point’ objects, it will just place these points on an axis, but with no region boundaries to reference, it might just look like a scattering of points on a plot.</p>
 <p>Luckily, we can combine our region plot and point plot to give context to point locations. Because the underlying plotting tools used by these dataframes is matplotlib, we can plot both plots to the same axes before showing the overall figure!</p>
-<div class="cell" data-execution_count="9">
+<div id="f0aa3761" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fires.boundary.plot()  <span class="co"># assign the output of this first plot to a variable </span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>hospitals.plot(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>emerg_rooms.plot(</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax, <span class="co"># use the output of the first plot as the basis for the next </span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    marker<span class="op">=</span><span class="st">'.'</span>,  <span class="co"># apply some styling options </span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'red'</span></span>
@@ -992,7 +1003,11 @@ SQL Syntax
 <span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># display your work!</span></span>
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="31_bcdata_files/figure-html/cell-10-output-1.png" width="485" height="389"></p>
+<div>
+<figure class="figure">
+<p><img src="31_bcdata_files/figure-html/cell-10-output-1.png" width="480" height="389" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1009,8 +1024,8 @@ Advanced Tip: Managing Projections
 <div class="callout-body-container callout-body">
 <p>We were able to plot these two spatial datasets together because they were imported into python using the same Coordinate Reference System (CRS). The CRS tells the polygon or point shapes how to relate to actual physical locations on Earth. On the B.C. Catalogue Reference Page for both datasets, the spatial reference system is given as <code>EPSG:3005 - NAD83/BC Albers</code>.</p>
 <p>We can check what the CRS is for a given dataset in Python by looking at the geometry series:</p>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>display(hospitals[<span class="st">'geometry'</span>].crs)</span>
+<div id="d51c2da1" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>display(emerg_rooms[<span class="st">'geometry'</span>].crs)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>display(fires[<span class="st">'geometry'</span>].crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Geographic 2D CRS: +init=epsg:4326 +type=crs&gt;
@@ -1094,6 +1109,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -1160,13 +1202,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1201,18 +1245,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1244,11 +1277,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1258,8 +1328,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1271,7 +1350,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1315,6 +1516,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1340,6 +1542,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1401,12 +1629,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./22_graphical_depictions_of_data.html" class="pagination-link">
+      <a href="./22_graphical_depictions_of_data.html" class="pagination-link" aria-label="Graphical Depictions of Data">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Graphical Depictions of Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./32_advanced_pandas.html" class="pagination-link">
+      <a href="./32_advanced_pandas.html" class="pagination-link" aria-label="Advanced Pandas">
         <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Pandas</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1414,20 +1642,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Introduction to Data Science using Python was written by <br> Lindsay Forestell and Stuart Hemerling</div>   
+    <div class="nav-footer-left">
+<p>Introduction to Data Science using Python was written by <br> Lindsay Forestell and Stuart Hemerling</p>
+</div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./license.html">License</a>
+    <a class="nav-link" href="./license.html">
+<p>License</p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://bcgov.github.io/ds-intro-to-python/index.html">Python for Data Science Course</a>
+    <a class="nav-link" href="./index.html">
+<p>Python for Data Science Course</p>
+</a>
   </li>  
 </ul>
-    </div>
-    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bcgov/ds-intro-to-python/blob/main/31_bcdata.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/bcgov/ds-intro-to-python/edit/main/31_bcdata.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li><li><a href="https://github.com/bcgov/ds-intro-to-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
+
 
 
 
