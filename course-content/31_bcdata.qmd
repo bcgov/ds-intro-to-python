@@ -48,17 +48,17 @@ To use the `bcdata` package, we will need to familiarize ourselves with the [B.C
  * multiple
  * wms
 
-If we filter to only include these options for the format, we will find some geospatial datasets. Let's try looking for a list of the locations of all B.C. hospitals. 
+If we filter to only include these options for the format, we will find some geospatial datasets. Let's try looking for a list of the locations of all B.C. emergency rooms. 
 
 <center>
-    <img src="images/bcdata/bc_hospitals.png" 
+    <img src="images/bcdata/bc_ers.png" 
     width="100%" style="margin:auto"/>
     <p style="text-align: center">
-        B.C. Hospitals
+        B.C. Emergency Rooms
     </p>
 </center>
 
-The first search result here, **BC Health Care Facilities (Hospital)**, looks like it might be what we are looking for. If we click on it, we see that there are options for geographic downloads on the right hand side of the page. This is good - it means that we have found a geographic dataset! 
+The first search result here, **Emergency Rooms in BC**, looks like it might be what we are looking for. If we click on it, we see that there are options for geographic downloads on the right hand side of the page. This is good - it means that we have found a geographic dataset! 
 
 <center>
     <img src="images/bcdata/warehouse_download.png" 
@@ -80,19 +80,19 @@ Okay, we have a geospatial dataset in mind, now what? First, we will call on the
 
  * `dataset`: this is the name of the dataset we wish to pull from the catalog. This can be either the `id` or `Object Name`:
     
-    * `id`: last portion of the URL - in this case 'bc-health-care-facilities-hospital'
-    * `Object Name`: under `Object Description` - in this case 'WHSE_IMAGERY_AND_BASE_MAPS.GSR_HOSPITALS_SVW'
+    * `id`: last portion of the URL - in this case 'emergency-rooms-in-bc'
+    * `Object Name`: under `Object Description` - in this case 'WHSE_IMAGERY_AND_BASE_MAPS.GSR_EMERGENCY_ROOMS_SV'
 
  * `as_gdf`: a boolean argument that specifies to load the data into a geopandas DataFrame (a specialized pandas dataframe capable of holding geospatial data)
 
 Let's go ahead and use these arguments to pull the dataset into Python! 
 
 ```{python}
-hospitals = bcdata.get_data(
-    dataset='bc-health-care-facilities-hospital', 
+emerg_rooms = bcdata.get_data(
+    dataset='emergency-rooms-in-bc', 
     as_gdf=True
     )
-hospitals.head()
+emerg_rooms.head()
 ```
 
 <br> 
@@ -123,15 +123,15 @@ fires.head()
 
 ### Pre-Filtering the Data
 
-It might be the case that the data we wish to access is only a subset of the overall dataset. While we could filter the data after it comes into python, it might be faster, more efficient, or simply be less of a memory hog if we filter it before it comes into our session. In this case, we can add the optional `query` argument when we fetch the data. We can supply a *string* to this argument that will act like a simple SQL 'where' clause. As an example, let's filter the hospital dataset to include only those in the Vancouver Island Health Authority:
+It might be the case that the data we wish to access is only a subset of the overall dataset. While we could filter the data after it comes into python, it might be faster, more efficient, or simply be less of a memory hog if we filter it before it comes into our session. In this case, we can add the optional `query` argument when we fetch the data. We can supply a *string* to this argument that will act like a simple SQL 'where' clause. As an example, let's filter the emergency room dataset to include only those in Vancouver:
 
 ```{python}
-hospital_filtered = bcdata.get_data(
-    dataset='bc-health-care-facilities-hospital', 
+er_filtered = bcdata.get_data(
+    dataset='emergency-rooms-in-bc', 
     as_gdf=True,
-    query="HEALTH_AUTHORITY_NAME='Vancouver Island Health Authority'"
+    query="LOCALITY='Vancouver'"
 )
-hospital_filtered.head()
+er_filtered.head()
 ```
 
 :::{.callout-tip}
@@ -158,7 +158,7 @@ Let's look at the basic plot that is displayed for a 'point' style geometry vs. 
 #| layout-ncol: 2
 import matplotlib.pyplot as plt
 
-hospitals.plot()
+emerg_rooms.plot()
 plt.show()
 
 fires.plot()
@@ -188,14 +188,14 @@ fires.boundary.plot()
 plt.show()
 ```
 
-You'll notice that we can easily see the shape of B.C. in these region plots, but it is less obvious for the hospitals dataset. Because the hospitals dataset only contains 'point' objects, it will just place these points on an axis, but with no region boundaries to reference, it might just look like a scattering of points on a plot. 
+You'll notice that we can easily see the shape of B.C. in these region plots, but it is less obvious for the emergency rooms dataset. Because the emergency rooms dataset only contains 'point' objects, it will just place these points on an axis, but with no region boundaries to reference, it might just look like a scattering of points on a plot. 
 
 Luckily, we can combine our region plot and point plot to give context to point locations. Because the underlying plotting tools used by these dataframes is matplotlib, we can plot both plots to the same axes before showing the overall figure! 
 
 ```{python}
 ax = fires.boundary.plot()  # assign the output of this first plot to a variable 
 
-hospitals.plot(
+emerg_rooms.plot(
     ax=ax, # use the output of the first plot as the basis for the next 
     marker='.',  # apply some styling options 
     color='red'
@@ -216,7 +216,7 @@ We were able to plot these two spatial datasets together because they were impor
 We can check what the CRS is for a given dataset in Python by looking at the geometry series:
 
 ```{python}
-display(hospitals['geometry'].crs)
+display(emerg_rooms['geometry'].crs)
 display(fires['geometry'].crs)
 ```
 
