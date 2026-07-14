@@ -569,7 +569,7 @@ B.C. Data Catalogue
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> pip <span class="fu">install</span> bcdata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>As before, make sure that you are installing this package in the <code>ds-env</code> environment! To make sure that this has successfully downloaded, we can try importing it into our Python session.</p>
-<div id="b62133af" class="cell" data-execution_count="1">
+<div id="3d84b5b9" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> bcdata</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>bcdata.__version__</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
@@ -619,7 +619,7 @@ Geographic Download Options
 <li><p><code>as_gdf</code>: a boolean argument that specifies to load the data into a geopandas DataFrame (a specialized pandas dataframe capable of holding geospatial data)</p></li>
 </ul>
 <p>Let’s go ahead and use these arguments to pull the dataset into Python!</p>
-<div id="5c75c867" class="cell" data-execution_count="2">
+<div id="7663a704" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>emerg_rooms <span class="op">=</span> bcdata.get_data(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    dataset<span class="op">=</span><span class="st">'emergency-rooms-in-bc'</span>, </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    as_gdf<span class="op">=</span><span class="va">True</span></span>
@@ -815,7 +815,7 @@ Geographic Download Options
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="c3b56555" class="cell" data-execution_count="3">
+<div id="f709ce34" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fires <span class="op">=</span> bcdata.get_data(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    dataset<span class="op">=</span><span class="st">'bc-wildfire-fire-zones'</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    as_gdf<span class="op">=</span><span class="va">True</span></span>
@@ -914,7 +914,7 @@ Geographic Download Options
 <section id="pre-filtering-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="pre-filtering-the-data">Pre-Filtering the Data</h3>
 <p>It might be the case that the data we wish to access is only a subset of the overall dataset. While we could filter the data after it comes into python, it might be faster, more efficient, or simply be less of a memory hog if we filter it before it comes into our session. In this case, we can add the optional <code>query</code> argument when we fetch the data. We can supply a <em>string</em> to this argument that will act like a simple SQL ‘where’ clause. As an example, let’s filter the emergency room dataset to include only those in Vancouver:</p>
-<div id="877d0cd4" class="cell" data-execution_count="4">
+<div id="b590f07d" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>er_filtered <span class="op">=</span> bcdata.get_data(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    dataset<span class="op">=</span><span class="st">'emergency-rooms-in-bc'</span>, </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    as_gdf<span class="op">=</span><span class="va">True</span>,</span>
@@ -1110,7 +1110,7 @@ Geographic Download Options
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>fires.plot()</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="be3476be" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="5">
+<div id="f749e1e7" class="cell quarto-layout-panel" data-execution_count="5" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="31_bcdata_files/figure-html/cell-6-output-1.png" class="img-fluid" width="411"></p>
@@ -1122,7 +1122,7 @@ Geographic Download Options
 </div>
 <p>Way better! With polygon areas, we also have a few more options for how we wish to colour the regions.</p>
 <p>We can colour based on a categorical variable:</p>
-<div id="a047efbc" class="cell" data-execution_count="6">
+<div id="cf06807c" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fires.plot(column<span class="op">=</span><span class="st">'MOF_FIRE_CENTRE_NAME'</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1134,7 +1134,7 @@ Geographic Download Options
 </div>
 </div>
 <p>Or on a numerical variable:</p>
-<div id="418437a5" class="cell" data-execution_count="7">
+<div id="533ff80c" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fires.plot(column<span class="op">=</span><span class="st">'FEATURE_AREA_SQM'</span>, legend<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1146,7 +1146,7 @@ Geographic Download Options
 </div>
 </div>
 <p>Or if we only want to display the boundaries of our regions, we can do that too:</p>
-<div id="19fa6c88" class="cell" data-execution_count="8">
+<div id="dee80112" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fires.boundary.plot()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1159,7 +1159,7 @@ Geographic Download Options
 </div>
 <p>You’ll notice that we can easily see the shape of B.C. in these region plots, but it is less obvious for the emergency rooms dataset. Because the emergency rooms dataset only contains ‘point’ objects, it will just place these points on an axis, but with no region boundaries to reference, it might just look like a scattering of points on a plot.</p>
 <p>Luckily, we can combine our region plot and point plot to give context to point locations. Because the underlying plotting tools used by these dataframes is matplotlib, we can plot both plots to the same axes before showing the overall figure!</p>
-<div id="f5ceebca" class="cell" data-execution_count="9">
+<div id="61a3b812" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fires.boundary.plot()  <span class="co"># assign the output of this first plot to a variable </span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>emerg_rooms.plot(</span>
@@ -1196,7 +1196,7 @@ Geographic Download Options
 <div class="callout-body-container callout-body">
 <p>We were able to plot these two spatial datasets together because they were imported into python using the same Coordinate Reference System (CRS). The CRS tells the polygon or point shapes how to relate to actual physical locations on Earth. On the B.C. Catalogue Reference Page for both datasets, the spatial reference system is given as <code>EPSG:3005 - NAD83/BC Albers</code>.</p>
 <p>We can check what the CRS is for a given dataset in Python by looking at the geometry series:</p>
-<div id="18b30c28" class="cell" data-execution_count="10">
+<div id="6f1ec68a" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>display(emerg_rooms[<span class="st">'geometry'</span>].crs)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>display(fires[<span class="st">'geometry'</span>].crs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
