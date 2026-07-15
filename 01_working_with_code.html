@@ -684,7 +684,7 @@ Official Python Documentation
 <p>Each section provides useful content that is related to the version of Python you are working with! One of the particularly helpful sections for those new to Python is the <em>Tutorial</em> section, where you will find tutorials on several of the topics in this course, plus many more.</p>
 <p><br> <em>Functions help</em></p>
 <p>Functions in Python have excellent documentation that you should be able to access fairly readily. Below are screen shots from the Jupyter Notebook environment that show two distinct ways to access. The example below shows how to get detail about a specific function by calling <code>help()</code> function itself and passing in the name of the function of interest:</p>
-<div id="8dbf74bf" class="cell" data-execution_count="1">
+<div id="a938a05b" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="bu">round</span>) <span class="co"># Run code as normal to get help information</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on built-in function round in module builtins:
@@ -699,7 +699,7 @@ round(number, ndigits=None)
 </div>
 <p><br></p>
 <p>Within Jupyter environments, it is also possible to place the cursor inside the cell with the function and hit <code>Shift-tab</code> to get information:</p>
-<div id="163b2b9f" class="cell" data-execution_count="2">
+<div id="d38113a4" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>() <span class="co"># Shift-tab to get drop-down help in Jupyter </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -718,7 +718,7 @@ Cell <span class="ansi-green-fg">In[2], line 1</span>
 <p><br> <em>Syntax error help</em></p>
 <p>When developing code, you will go through a process over and over where you write some code and then test it. If it works, you keep going, adding complexity and content to your code. But what happens if it does not work? Fortunately Python delivers some clues about what may have gone wrong.</p>
 <p>Here are a couple of examples of syntax errors, where python is essentially saying “I don’t understand what you mean”!</p>
-<div id="81056016" class="cell" data-execution_count="3">
+<div id="42d76b66" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forgot to close the quotation marks after the quote</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Feng</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
@@ -735,7 +735,7 @@ Cell <span class="ansi-green-fg">In[2], line 1</span>
 <p style="text-align: center">
 </p><p></p>
 <p>These kinds of errors are usually because of careless typing such as leaving off a quote or comma or bracket somewhere (or adding one too many).</p>
-<div id="399bb817" class="cell" data-execution_count="4">
+<div id="a0d27123" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># An extra '=' in the assignment</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="op">=</span> <span class="dv">52</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
@@ -763,7 +763,7 @@ Cell <span class="ansi-green-fg">In[2], line 1</span>
 <li>tries to access a file which doesn’t exist</li>
 </ul>
 <p>In the example below, the code is telling python to import a package that is not yet installed.</p>
-<div id="4faffe2d" class="cell" data-execution_count="5">
+<div id="c569fac2" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python cannot find this library</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shap</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
@@ -781,7 +781,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 <left> <img src="images/working-with-code/nomodule.png" size="70%" style="margin:auto" border="1/">
 <p style="text-align: center">
 </p><p> <br> In the example below, the issue is not a syntax error (although it might look like a typo that one might associate with being a syntax error).</p>
-<div id="75b8f713" class="cell" data-execution_count="6">
+<div id="6136486e" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">54</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>years_to_100 <span class="op">=</span> <span class="dv">100</span> <span class="op">-</span> aege  <span class="co"># "misspelled" assigned variable called 'age'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
@@ -844,7 +844,7 @@ Error deep dive
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Use one of the two most efficient ways to obtain information</p>
-<div id="ea0ad8f8" class="cell" data-execution_count="7">
+<div id="4751e91d" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="bu">print</span>) <span class="co"># One way to get the info</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on built-in function print in module builtins:
@@ -861,7 +861,7 @@ print(...)
 </code></pre>
 </div>
 </div>
-<div id="c5d42e24" class="cell" data-execution_count="8">
+<div id="f8a92c1b" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>() <span class="co"># Shift-tab another way to get the info</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code></code></pre>
@@ -917,7 +917,7 @@ Style matters!
 <p>There are many specific rules in PEP8, here are some to be aware of from the start.</p>
 <p><em>Comments</em></p>
 <p>When coding, it is good practice to <code>comment</code> on code, but only when the code is likely to be non-obvious to others who are likely to review it. Comments are preceded by a “#”, which within Python, ensures that they are recognized as non-executable and therefore no threat to actually affecting your code. Below are two examples of how you can add comments to your code (if necessary).</p>
-<div id="128d2d6d" class="cell" data-execution_count="9">
+<div id="bc979471" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The bog standard first line of code learned in any language</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -929,7 +929,7 @@ Hello World</code></pre>
 </div>
 <p><em>Spacing within code</em></p>
 <p>There are a number of little conventions about spacing that just have to be learned. In the code below look at the comments that go along to see what is considered good style and what is considered good and what is not.</p>
-<div id="0d7e40c5" class="cell" data-execution_count="10">
+<div id="4b4817f9" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good, is a space on either side of the assignment operator </span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">print</span>(<span class="st">"hello"</span>)  </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -940,7 +940,7 @@ Hello World</code></pre>
 hello</code></pre>
 </div>
 </div>
-<div id="d6e15ad7" class="cell" data-execution_count="11">
+<div id="9c7deeaa" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good, is no space between call and left parenthesis</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2</span>)  </span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -975,7 +975,7 @@ hello</code></pre>
 <p>It should be noted that many programmers use tabs instead of four spaces! While PEP8 is not a fan of tabbing, as this practice is widespread and effective, it is common to come across advocates. Mixing tabbing and individual spaces, however, may result in syntax errors being thrown. Also for multi-line constructs (such as those in the examples above), the closing brace/bracket/parenthesis may appear on the line <em>under</em> the last line code for the piece of code.</p>
 <p><em>Blank lines</em></p>
 <p>Blank lines should be used sparingly, but they can be used where appropriate. It can help your code “breath”! A general rule of thumb is that there should be a single blank row between blocks of code, and two blank rows between functions.</p>
-<div id="0c72313b" class="cell" data-execution_count="12">
+<div id="3bada44a" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good - different kinds of coding elements together and separated by blank lines</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>]</span>
