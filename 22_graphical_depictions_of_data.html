@@ -81,9 +81,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1c82f73d6a5c404a4abcd66da693c8d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-a6cf91ef8fa9dd28e36e49356af886a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-1c82f73d6a5c404a4abcd66da693c8d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c53f7d7fadd88d53590ab7ba9546c441.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-d97b6749bedb20a0e52d08042c165e9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-c53f7d7fadd88d53590ab7ba9546c441.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -607,11 +607,11 @@ Plot all the things!
 <h2 data-number="7.1" class="anchored" data-anchor-id="introduction-to-matplotlib"><span class="header-section-number">7.1</span> Introduction to matplotlib</h2>
 <p><code>matplotlib</code> is the most widely used scientific plotting library in Python. For many data related purposes, the sub-library called <code>matplotlib.pyplot</code> is all that is necessary to use. A fantastic feature of the Jupyter environments is that anytime we create a plot, we can view it directly inline with our code, allowing us to make adjustments quickly and easily as we go along.</p>
 <p>We will typically import this library with the name <code>plt</code>:</p>
-<div id="f6482884" class="cell" data-execution_count="1">
+<div id="5ba6a0e6" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Simple plots are then straightforward to create:</p>
-<div id="0725a853" class="cell" data-execution_count="3">
+<div id="05eba765" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">27</span>, <span class="dv">64</span>, <span class="dv">125</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -638,7 +638,7 @@ Plot all the things!
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Directly after creating our plot using <code>plt.plot(...)</code>.</p>
 <p>This command can also be used within a Notebook - for instance to display multiple figures if they are created within a single cell:</p>
-<div id="3a063b29" class="cell" data-execution_count="4">
+<div id="a8097e1b" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create some lists of data</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>] </span>
@@ -670,7 +670,7 @@ Plot all the things!
 </div>
 </div>
 <p>Plots typically require some set of values to supply to the x value, and an equal length set of values to supply to the y value. If we supply mismatched data, we will get an error:</p>
-<div id="063bb2e1" class="cell" data-execution_count="5">
+<div id="d01630af" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">27</span>, <span class="dv">64</span>]</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -743,7 +743,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.25/x64/lib/pyth
 <code>load_dataset('penguins')</code>
 </p>
 </center>
-<div id="fcf357c6" class="cell" data-execution_count="6">
+<div id="af6dd1fb" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> seaborn <span class="im">import</span> load_dataset</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> load_dataset(<span class="st">'penguins'</span>)</span>
@@ -767,104 +767,104 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.25/x64/lib/pyth
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">60</th>
-<td>Adelie</td>
+<th data-quarto-table-cell-role="th">226</th>
+<td>Gentoo</td>
 <td>Biscoe</td>
-<td>35.7</td>
-<td>16.9</td>
-<td>185.0</td>
-<td>3150.0</td>
+<td>45.4</td>
+<td>14.6</td>
+<td>211.0</td>
+<td>4800.0</td>
 <td>Female</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">275</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>45.0</td>
-<td>15.4</td>
-<td>220.0</td>
-<td>5050.0</td>
+<th data-quarto-table-cell-role="th">214</th>
+<td>Chinstrap</td>
+<td>Dream</td>
+<td>45.7</td>
+<td>17.0</td>
+<td>195.0</td>
+<td>3650.0</td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">182</th>
+<td>Chinstrap</td>
+<td>Dream</td>
+<td>40.9</td>
+<td>16.6</td>
+<td>187.0</td>
+<td>3200.0</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">200</th>
+<td>Chinstrap</td>
+<td>Dream</td>
+<td>51.5</td>
+<td>18.7</td>
+<td>187.0</td>
+<td>3250.0</td>
 <td>Male</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">252</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>45.1</td>
-<td>14.5</td>
-<td>207.0</td>
-<td>5050.0</td>
+<th data-quarto-table-cell-role="th">6</th>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>38.9</td>
+<td>17.8</td>
+<td>181.0</td>
+<td>3625.0</td>
 <td>Female</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">132</th>
-<td>Adelie</td>
+<th data-quarto-table-cell-role="th">152</th>
+<td>Chinstrap</td>
 <td>Dream</td>
-<td>36.8</td>
-<td>18.5</td>
-<td>193.0</td>
+<td>46.5</td>
+<td>17.9</td>
+<td>192.0</td>
 <td>3500.0</td>
 <td>Female</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">64</th>
-<td>Adelie</td>
+<th data-quarto-table-cell-role="th">319</th>
+<td>Gentoo</td>
 <td>Biscoe</td>
-<td>36.4</td>
-<td>17.1</td>
-<td>184.0</td>
-<td>2850.0</td>
-<td>Female</td>
+<td>51.1</td>
+<td>16.5</td>
+<td>225.0</td>
+<td>5250.0</td>
+<td>Male</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">210</th>
-<td>Chinstrap</td>
-<td>Dream</td>
-<td>50.2</td>
-<td>18.8</td>
-<td>202.0</td>
-<td>3800.0</td>
+<th data-quarto-table-cell-role="th">329</th>
+<td>Gentoo</td>
+<td>Biscoe</td>
+<td>48.1</td>
+<td>15.1</td>
+<td>209.0</td>
+<td>5500.0</td>
 <td>Male</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">147</th>
-<td>Adelie</td>
-<td>Dream</td>
-<td>36.6</td>
-<td>18.4</td>
-<td>184.0</td>
-<td>3475.0</td>
+<th data-quarto-table-cell-role="th">276</th>
+<td>Gentoo</td>
+<td>Biscoe</td>
+<td>43.8</td>
+<td>13.9</td>
+<td>208.0</td>
+<td>4300.0</td>
 <td>Female</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">82</th>
+<th data-quarto-table-cell-role="th">69</th>
 <td>Adelie</td>
 <td>Torgersen</td>
-<td>36.7</td>
-<td>18.8</td>
-<td>187.0</td>
-<td>3800.0</td>
-<td>Female</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">172</th>
-<td>Chinstrap</td>
-<td>Dream</td>
-<td>42.4</td>
-<td>17.3</td>
-<td>181.0</td>
-<td>3600.0</td>
-<td>Female</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">108</th>
-<td>Adelie</td>
-<td>Biscoe</td>
-<td>38.1</td>
-<td>17.0</td>
-<td>181.0</td>
-<td>3175.0</td>
-<td>Female</td>
+<td>41.8</td>
+<td>19.4</td>
+<td>198.0</td>
+<td>4450.0</td>
+<td>Male</td>
 </tr>
 </tbody>
 </table>
@@ -873,7 +873,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.25/x64/lib/pyth
 </div>
 </div>
 <p>Let’s try comparing the length of the penguin bill to the depth of the bill.</p>
-<div id="f6c690b3" class="cell" data-execution_count="7">
+<div id="cf363095" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.plot(penguins[<span class="st">'bill_length_mm'</span>], penguins[<span class="st">'bill_depth_mm'</span>])</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -892,7 +892,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.25/x64/lib/pyth
 <li><code>plt.hist(x)</code> - produces a simple box histogram for a single column of data</li>
 </ul>
 <p>Let’s try to look at the bills again, but this time with a more appropriate comparison plot:</p>
-<div id="d300ce7d" class="cell" data-execution_count="8">
+<div id="e7907f08" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(penguins[<span class="st">'bill_length_mm'</span>], penguins[<span class="st">'bill_depth_mm'</span>])</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -904,7 +904,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.25/x64/lib/pyth
 </div>
 </div>
 <p>That’s looking better. But we still need to clean up our plot a little bit. Matplotlib includes methods for adding axis labels, titles, legends and so on. The trick is in figuring out how to apply these methods to the right plot…</p>
-<div id="5e5dce5f" class="cell" data-execution_count="9">
+<div id="05ce5d44" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Bill Length (mm)'</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Bill Depth (mm)'</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Penguin Beaks'</span>)</span>
@@ -932,7 +932,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.25/x64/lib/pyth
 </div>
 </div>
 <p>Let’s finally get this all together on one plot:</p>
-<div id="190e7cb1" class="cell" data-execution_count="10">
+<div id="eac01eb8" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(penguins[<span class="st">'bill_length_mm'</span>], penguins[<span class="st">'bill_depth_mm'</span>])</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Bill Length (mm)'</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Bill Depth (mm)'</span>)</span>
@@ -980,7 +980,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.25/x64/lib/pyth
 <div class="callout-body-container callout-body">
 <p>We first split up our data into three separate pieces, each filtered to a single species of penguin. Next we plot all three species without displaying the figure. Finally, we add some tidy up code to add the legend and axis titles, and we are good to go!</p>
 <p>One thing to note is that it is often good practice to use more than just colour to distinguish between different groups of data. Because of this, adding a variation on the marker style is a good idea as well. We have included that in the solution to this challenge. Be sure to explore all the other style settings available within each matplotlib plot!</p>
-<div id="b1b12b13" class="cell" data-execution_count="11">
+<div id="e0fe6c38" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="op">=</span> penguins[penguins.species <span class="op">==</span> <span class="st">'Adelie'</span>]</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>chinstrap <span class="op">=</span> penguins[penguins.species <span class="op">==</span> <span class="st">'Chinstrap'</span>]</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>gentoo <span class="op">=</span> penguins[penguins.species <span class="op">==</span> <span class="st">'Gentoo'</span>]</span>
@@ -1015,7 +1015,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.25/x64/lib/pyth
 <h2 data-number="7.2" class="anchored" data-anchor-id="plotting-directly-from-pandas"><span class="header-section-number">7.2</span> Plotting Directly From Pandas</h2>
 <p>That was a lot of work to make a relatively straightforward plot. While matplotlib is extremely versatile, this same versatility comes at the expense of having to tweak the underlying code frequently to make the plots look the way that we want. Luckily, there exist other libraries that have been built on top of matplotlib that take care of much of the abstraction, so we can get directly to looking at our results as fast as possible!</p>
 <p>One extremely straightforward way to plot is directly from pandas, which implicitly uses <code>matplotlib.pyplot</code> in the background.</p>
-<div id="e90e8497" class="cell" data-execution_count="12">
+<div id="568bf496" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>penguins.plot.scatter(x <span class="op">=</span> <span class="st">'bill_length_mm'</span>, y <span class="op">=</span> <span class="st">'bill_depth_mm'</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1027,7 +1027,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.25/x64/lib/pyth
 </div>
 </div>
 <p>For some plot types, we are also given the ability to provide a grouping category.</p>
-<div id="c4cc2750" class="cell" data-execution_count="13">
+<div id="681d18f4" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>penguins.plot.hist(column<span class="op">=</span><span class="st">'flipper_length_mm'</span>, by<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1044,7 +1044,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.25/x64/lib/pyth
 <h2 data-number="7.3" class="anchored" data-anchor-id="introduction-to-seaborn"><span class="header-section-number">7.3</span> Introduction to Seaborn</h2>
 <p><code>Seaborn</code> is a library for making statistical graphics in Python. It builds on top of <code>matplotlib</code> but is uniquely built to integrate closely with <code>pandas</code> data structures. Seaborn is dataset-oriented, and was built specifically to let you focus on what the different elements of a plot mean, rather than on the details of how to draw it. Leveraging seaborn allows us to build high quality graphics in a minimal amount of code. This not only allows us to spend more time analysing outputs and results, but also makes the code more transparent and easier for others to follow and understand.</p>
 <p>Seaborn is usually imported with the shorthand <code>sns</code>. On top of this, it is often nice to reset the default matplotlib colour theme and layout to the default seaborn layout, which has more subdued colours and tones. This can be done globally via the <code>.set_theme()</code> method. Changing the theme will apply to any other plots created in a notebook/script, even if they are created specifically by matplotlib. More options for the theme or style (which can also be set via <code>.set_style()</code>) can be found in the <a href="https://seaborn.pydata.org/tutorial/aesthetics.html">Seaborn aesthetics tutorial.</a></p>
-<div id="cfc3826f" class="cell" data-execution_count="14">
+<div id="a2ddbd73" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>sns.set_theme()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -1087,7 +1087,7 @@ Matplotlib Figures
 </div>
 </div>
 <p>Before we dive into the particulars, here’s a wonderful one line command to show just how powerful seaborn can be!</p>
-<div id="6b805a45" class="cell" data-execution_count="15">
+<div id="4962032d" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(penguins, hue<span class="op">=</span><span class="st">'species'</span>, height<span class="op">=</span><span class="fl">1.75</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1109,7 +1109,7 @@ Correlation <span class="math inline">\(\neq\)</span> Causation<br>
 </center>
 <p>Relational plots let us quickly look for patterns in our dataset between two different features. The most common approach is to use scatter or lineplots, depending on the type of data we have. A timeseries, for example, will often be displayed with a lineplot, while any two numerical features can be plotted against each other with a scatterplot.</p>
 <p>When we use the high-level <code>relplot</code> method, we need to supply our pandas dataframe, as well as which columns we are interested in plotting. The default plot type is to use a scatterplot:</p>
-<div id="b9e88ca9" class="cell" data-execution_count="16">
+<div id="0e8eae9f" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sns.relplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, y<span class="op">=</span><span class="st">'flipper_length_mm'</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1121,7 +1121,7 @@ Correlation <span class="math inline">\(\neq\)</span> Causation<br>
 </div>
 </div>
 <p>However, we can force the line plot by including the optional <code>kind</code> argument:</p>
-<div id="9bbc6b3c" class="cell" data-execution_count="17">
+<div id="e70ad511" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sns.relplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, y<span class="op">=</span><span class="st">'flipper_length_mm'</span>, kind<span class="op">=</span><span class="st">'line'</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1168,7 +1168,7 @@ Correlation <span class="math inline">\(\neq\)</span> Causation<br>
 <ol type="1">
 <li>Let’s get our dataset first and take a quick peek</li>
 </ol>
-<div id="dc8383fa" class="cell" data-execution_count="18">
+<div id="16a8f625" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>dowjones <span class="op">=</span> load_dataset(<span class="st">'dowjones'</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>dowjones.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
@@ -1219,7 +1219,7 @@ Correlation <span class="math inline">\(\neq\)</span> Causation<br>
 <ol start="2" type="1">
 <li>We could do this one of two ways. We could sort the dataframe by price and then look at the first data in the sorted dataframe. Alternatively, we can use aggregation and filtering. Note that because we do not want to get statistics per varying group, we do not need to do any <code>groupby()</code> before looking for the max value.</li>
 </ol>
-<div id="5de96c05" class="cell" data-execution_count="19">
+<div id="913f5821" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># option 1: sort and grab first row</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>date_of_max <span class="op">=</span> dowjones.sort_values(by<span class="op">=</span><span class="st">'Price'</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">1</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>display(date_of_max)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1247,7 +1247,7 @@ Correlation <span class="math inline">\(\neq\)</span> Causation<br>
 </div>
 </div>
 </div>
-<div id="c53f35de" class="cell" data-execution_count="20">
+<div id="f09fb27e" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># option 2: aggregate and filter </span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># determine the max price in the dataset</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>max_price <span class="op">=</span> dowjones[<span class="st">'Price'</span>].<span class="bu">max</span>()</span>
@@ -1284,7 +1284,7 @@ Correlation <span class="math inline">\(\neq\)</span> Causation<br>
 <ol start="3" type="1">
 <li>We will use Seaborn to build our lineplot.</li>
 </ol>
-<div id="a1e64fd3" class="cell" data-execution_count="21">
+<div id="b5899b43" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime <span class="im">as</span> dt</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>sns.relplot(</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>dowjones,</span>
@@ -1311,7 +1311,7 @@ Correlation <span class="math inline">\(\neq\)</span> Causation<br>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>sns.relplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, y<span class="op">=</span><span class="st">'flipper_length_mm'</span>, style<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="d6e4fe0b" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="22">
+<div id="4111ff1d" class="cell quarto-layout-panel" data-execution_count="22" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="22_graphical_depictions_of_data_files/figure-html/cell-23-output-1.png" class="img-fluid" width="600"></p>
@@ -1327,7 +1327,7 @@ Correlation <span class="math inline">\(\neq\)</span> Causation<br>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>sns.relplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, y<span class="op">=</span><span class="st">'flipper_length_mm'</span>, size<span class="op">=</span><span class="st">'bill_length_mm'</span>)</span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="abbfad8a" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="23">
+<div id="ae34ceaf" class="cell quarto-layout-panel" data-execution_count="23" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="22_graphical_depictions_of_data_files/figure-html/cell-24-output-1.png" class="img-fluid" width="608"></p>
@@ -1349,7 +1349,7 @@ Correlation <span class="math inline">\(\neq\)</span> Causation<br>
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'sex'</span>, size<span class="op">=</span><span class="st">'bill_length_mm'</span></span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="c8ec6d54" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="24">
+<div id="e78b4f9c" class="cell quarto-layout-panel" data-execution_count="24" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="22_graphical_depictions_of_data_files/figure-html/cell-25-output-1.png" class="img-fluid" width="600"></p>
@@ -1373,7 +1373,7 @@ Correlation <span class="math inline">\(\neq\)</span> Causation<br>
 </div>
 </div>
 <p>If we want to avoid using too many different styling choices, but we would still like to understand how our features vary across different categories, we can make multiple plots using the built in <code>row</code> and <code>col</code> arguments of the <code>relplot</code> objects. By supplying a category to <code>row</code> (<code>col</code>), Seaborn is told to split the dataset into all the different values in the category. Then each subset of the data is plotted on a different row (column) of the data. The end result is a grid of plots, with each plot having a unique subset of the category represented.</p>
-<div id="e0cc392a" class="cell" data-execution_count="25">
+<div id="ce2def8b" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.relplot(</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, y<span class="op">=</span><span class="st">'flipper_length_mm'</span>,</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    row<span class="op">=</span><span class="st">'island'</span>, col<span class="op">=</span><span class="st">'species'</span>, hue<span class="op">=</span><span class="st">'sex'</span>,</span>
@@ -1390,7 +1390,7 @@ Correlation <span class="math inline">\(\neq\)</span> Causation<br>
 </div>
 </div>
 <p>Finally, a frequent goal of creating a scatter plot is to identify if there is a trend in the data. Seaborn offers an extra method, <code>lmplot</code>, to allow for quick viewing of best fit lines (including confidence interval estimates) in our datasets:</p>
-<div id="d6592319" class="cell" data-execution_count="26">
+<div id="8350b508" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, y<span class="op">=</span><span class="st">'flipper_length_mm'</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1448,7 +1448,7 @@ Correlation <span class="math inline">\(\neq\)</span> Causation<br>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You might produce code that looks similar to this. <code>col</code> and <code>row</code> could be interchanged, and maybe you chose to use just one of style or hue. Explore your options!</p>
-<div id="0d05b852" class="cell" data-execution_count="27">
+<div id="d953af32" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.relplot(</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, y<span class="op">=</span><span class="st">'bill_length_mm'</span>,</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'species'</span>, style<span class="op">=</span><span class="st">'species'</span>, row<span class="op">=</span><span class="st">'sex'</span></span>
@@ -1484,7 +1484,7 @@ Spoooky
 </ul>
 <p>Using the <code>displot</code> method, we can access multiple different styles of plots to answer these questions. While Seaborn can (and does) get into multivariate distributions, let us stick to univariate distributions: <strong>histograms</strong> and <strong>kernel density estimation (KDE)</strong>.</p>
 <p>The default <code>displot</code> option will produce a histogram of whichever column we choose in our dataset:</p>
-<div id="cca2d6d0" class="cell" data-execution_count="28">
+<div id="aefec4ff" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sns.displot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1501,7 +1501,7 @@ Spoooky
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>sns.displot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, bins<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="e5de6805" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="29">
+<div id="5a38faea" class="cell quarto-layout-panel" data-execution_count="29" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="22_graphical_depictions_of_data_files/figure-html/cell-30-output-1.png" class="img-fluid" width="482"></p>
@@ -1512,7 +1512,7 @@ Spoooky
 </div>
 </div>
 <p>Just like with our relational plots, we can also condition our histograms on other features, colouring each member of the category separately.</p>
-<div id="be846549" class="cell" data-execution_count="30">
+<div id="f9b6e8b5" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sns.displot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1529,7 +1529,7 @@ Spoooky
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>sns.displot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, multiple<span class="op">=</span><span class="st">'dodge'</span>)</span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="24246e60" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="31">
+<div id="04d9fed6" class="cell quarto-layout-panel" data-execution_count="31" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="22_graphical_depictions_of_data_files/figure-html/cell-32-output-1.png" class="img-fluid" width="603"></p>
@@ -1539,7 +1539,7 @@ Spoooky
 </div>
 </div>
 </div>
-<div id="5f5fbbff" class="cell" data-execution_count="32">
+<div id="5c935d9d" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sns.displot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, col<span class="op">=</span><span class="st">'sex'</span>, height<span class="op">=</span><span class="fl">3.5</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1551,7 +1551,7 @@ Spoooky
 </div>
 </div>
 <p>While the histogram option provides the exact count of the underlying values contained in our dataset, sometimes we may wish to approximate the distribution of data. This is done using kernel density estimation, which plots a smooth, continuous density estimate. Just like with the relational plots, we can access this new plot type using the <code>kind='kde'</code> option.</p>
-<div id="e574a6b3" class="cell" data-execution_count="33">
+<div id="105edfdd" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>sns.displot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, kind<span class="op">=</span><span class="st">'kde'</span>)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1568,7 +1568,7 @@ Spoooky
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>sns.displot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, kind<span class="op">=</span><span class="st">'kde'</span>, bw_adjust<span class="op">=</span><span class="dv">4</span>)</span>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="8e7677d0" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="34">
+<div id="f1d6be0e" class="cell quarto-layout-panel" data-execution_count="34" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="22_graphical_depictions_of_data_files/figure-html/cell-35-output-1.png" class="img-fluid" width="482"></p>
@@ -1579,7 +1579,7 @@ Spoooky
 </div>
 </div>
 <p>Finally, we can have both types of plots in action at the same time by including the optional <code>kde</code> argument:</p>
-<div id="c5e3db3f" class="cell" data-execution_count="35">
+<div id="0d509596" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>sns.displot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, kde<span class="op">=</span><span class="va">True</span>, hue<span class="op">=</span><span class="st">'species'</span>)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1633,7 +1633,7 @@ Spoooky
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First let’s just look at the body mass variable alone.</p>
-<div id="69198ad5" class="cell" data-execution_count="36">
+<div id="4e1e11bb" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>sns.displot(</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, kind<span class="op">=</span><span class="st">'kde'</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    )</span>
@@ -1647,7 +1647,7 @@ Spoooky
 </div>
 </div>
 <p>Hmm.. it’s not immediately obvious that there might be two peaks here, but it does seem to skew a little bit to lower values. Let’s see if looking at the different sexes gives us any more information:</p>
-<div id="731bafcc" class="cell" data-execution_count="37">
+<div id="6d905669" class="cell" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>sns.displot(</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, kind<span class="op">=</span><span class="st">'kde'</span>, hue<span class="op">=</span><span class="st">'sex'</span>,</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    fill<span class="op">=</span><span class="va">True</span>  <span class="co"># Use fill to fill the KDE plot!</span></span>
@@ -1662,7 +1662,7 @@ Spoooky
 </div>
 </div>
 <p>Okay, weird. Splitting by sex does start to show two peaks, but it shows up in <em>both</em> male and female! So maybe it’s the species where the peak is showing up?</p>
-<div id="1b2d5ac9" class="cell" data-execution_count="38">
+<div id="a381fcd0" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>sns.displot(</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, kind<span class="op">=</span><span class="st">'kde'</span>, hue<span class="op">=</span><span class="st">'species'</span>, col<span class="op">=</span><span class="st">'sex'</span>,</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    fill<span class="op">=</span><span class="va">True</span> </span>
@@ -1692,7 +1692,7 @@ Suspicious…
 </center>
 <p>Relational plots let us quickly view relationships between two sets of numerical features. Categorical plots will allow us to do the same where one (or both) of the features is categorical (divided into discrete groups).</p>
 <p>The <code>catplot</code> method will provide us a unified high-level interface to a variety of different plots. The default behaviour of <code>catplot</code> is to produce a <strong>non-aggregated</strong> view of the categories in a strip plot.</p>
-<div id="346cddd9" class="cell" data-execution_count="39">
+<div id="5784fbd4" class="cell" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'species'</span>, y<span class="op">=</span><span class="st">'flipper_length_mm'</span>)</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1711,7 +1711,7 @@ Suspicious…
 <li>Seaborn also provides confidence intervals to include in its aggregated bar plots, which would be an extra level of complexity added to a manual grouping of the data.</li>
 </ol>
 <p>In Seaborn, a barplot operates on the full dataset to obtain an estimate of some aggregation function (which is the <strong>mean</strong> by default). It will also default to providing an estimation of the confidence interval on its estimates. Just like with all of the other Seaborn plots, we can add an additional feature for free via the <code>hue</code> styling choice.</p>
-<div id="c8e7c014" class="cell" data-execution_count="40">
+<div id="909f94f7" class="cell" data-execution_count="40">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'species'</span>, y<span class="op">=</span><span class="st">'flipper_length_mm'</span>, </span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    kind<span class="op">=</span><span class="st">'bar'</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
@@ -1734,7 +1734,7 @@ Suspicious…
 <span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'species'</span>, y<span class="op">=</span><span class="st">'flipper_length_mm'</span>, </span>
 <span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    kind<span class="op">=</span><span class="st">'bar'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, estimator<span class="op">=</span><span class="st">'min'</span>)</span>
 <span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="2fe68854" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="41">
+<div id="3b13c162" class="cell quarto-layout-panel" data-execution_count="41" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="22_graphical_depictions_of_data_files/figure-html/cell-42-output-1.png" class="img-fluid" width="585"></p>
@@ -1757,7 +1757,7 @@ Suspicious…
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In addition to the built in estimators, we can also use estimators for external functions. The function is required to take as an input a vector of values, and output a single value that summarizes that vector. The Python library <code>numpy</code> is the go-to resource for mathematical functions in Python. If we use <code>numpy</code>, we can send any sort of estimator to the barplot! Common statistical functions in numpy include <code>sum</code>, <code>prod</code>, <code>mean</code>, <code>std</code>, and <code>var</code>.</p>
-<div id="6cd3cc50" class="cell" data-execution_count="42">
+<div id="a7246a0e" class="cell" data-execution_count="42">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>sns.catplot(</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'species'</span>, y<span class="op">=</span><span class="st">'flipper_length_mm'</span>, </span>
@@ -1775,7 +1775,7 @@ Suspicious…
 </div>
 </div>
 <p>One last unique piece that you might be interested in is the orientation of the plot. In the above examples, we gave our categorical category to the <code>x</code> feature, and <code>y</code> held the numerical values. If we wish to have a horizontal set of bars instead, we can simply swap these:</p>
-<div id="10db2bed" class="cell" data-execution_count="43">
+<div id="f3ab9682" class="cell" data-execution_count="43">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, y<span class="op">=</span><span class="st">'species'</span>,</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    kind<span class="op">=</span><span class="st">'bar'</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
@@ -1846,7 +1846,7 @@ Suspicious…
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>To get the count for each of the species, we need to make a countplot:</p>
-<div id="15e23bf5" class="cell" data-execution_count="44">
+<div id="bb25a3e4" class="cell" data-execution_count="44">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'species'</span>, kind<span class="op">=</span><span class="st">'count'</span>)</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1859,7 +1859,7 @@ Suspicious…
 </div>
 <p>Done, in one line of code!</p>
 <p>As a bonus, if we want to plot the data in descending order, we can pass a list of strings containing the categories to the <code>catplot</code> method:</p>
-<div id="dfb87716" class="cell" data-execution_count="45">
+<div id="474a4857" class="cell" data-execution_count="45">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'species'</span>, </span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    kind<span class="op">=</span><span class="st">'count'</span>, </span>
@@ -1897,7 +1897,7 @@ Suspicious…
 </div>
 </div>
 <p>Let’s create a plot, view it, and save it. We will save it to the <code>analysis</code> folder in our project structure.</p>
-<div id="3fb1c88d" class="cell" data-execution_count="46">
+<div id="14683b3d" class="cell" data-execution_count="46">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'species'</span>, y<span class="op">=</span><span class="st">'flipper_length_mm'</span>, </span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    kind<span class="op">=</span><span class="st">'bar'</span>, hue<span class="op">=</span><span class="st">'sex'</span></span>
